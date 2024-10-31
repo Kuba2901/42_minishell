@@ -78,28 +78,32 @@ static t_bool	ft_specials_valid(const char *s)
 */
 
 
-size_t	ft_count_sentences(const char *s)
+size_t	ft_count_sentences(char *s)
 {
-	size_t	ret;
-
-	ret = 0;
-	while (*s && ft_is_whitespace(s))
-		s++;
-	if (!*s)
+	if (*s == '\0')
 		return (0);
-	ret++;
-	while (*s)
+	while (ft_is_whitespace(s))
+		s++;
+	if (*s == '\0')
+		return (0);
+
+	char	*marker1;
+	char	*marker2;
+
+	marker1 = ft_strnstr(s, ";", ft_strlen(s));
+	marker2 = ft_strnstr(s, "&&", ft_strlen(s));
+	if (marker1 && marker2)
 	{
-		while (*s && *s != '&' && *s != ';')
-			s++;
-		if (*s == '&' || *s == ';')
-			s++;
-		if (*s == '&' || *s == ';')
-			ret++;
-		while (*s && (*s == '&' || *s == ';'))
-			s++;
+		if (marker1 < marker2)
+			return 1 + ft_count_sentences(marker1 + 1);
+		else
+			return 1 + ft_count_sentences(marker2 + 2);
 	}
-	return (ret);
+	else if (marker1)
+		return 1 + ft_count_sentences(marker1 + 1);
+	else if (marker2)
+		return 1 + ft_count_sentences(marker2 + 2);
+	return 1;
 }
 
 /*

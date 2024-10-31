@@ -9,9 +9,9 @@ int	main(void)
 		"echo hello > test.txt",
 		"ls -al",
 		"export ARG=hello",
-		"  pwd  ",
+		"cd ios; pod install",
 		"cat test.txt | less",
-		"cd ios && rm Podfile.lock",
+		"cd ios && rm Podfile.lock; pod install",
 		"export ARG==MAMMA",
 	};
 	printf("Running tests for ft_count_tokens\n");
@@ -26,11 +26,11 @@ int	main(void)
 	// }
 	printf("Running tests for ft_count_sentences\n");
 	size_t count_sentences_values[TEST_CASES] = {
-		1, 1, 1, 1, 1, 2, 1
+		1, 1, 1, 2, 1, 3, 1
 	};
 	for (size_t i = 0; i < TEST_CASES; i++)
 	{
-		size_t val = ft_count_sentences(inputs[i]);
+		size_t val = ft_count_sentences((char *)inputs[i]);
 		printf("Input: %s, Expected: %zu, Got: %zu\n", inputs[i], count_sentences_values[i], val);
 		// assert(val == values[i]);
 	}
