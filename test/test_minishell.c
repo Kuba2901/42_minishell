@@ -13,11 +13,11 @@ void	test_ft_count_sentences() {
 		"export ARG=hello",
 		"cd ios; pod install",
 		"cat test.txt | less",
-		"cd ios && rm Podfile.lock; pod install",
+		"cd ios && rm Podfile.lock; pod install && cd ..",
 		"export ARG==MAMMA",
 	};
 	size_t count_sentences_values[7] = {
-		1, 1, 1, 2, 1, 3, 1
+		1, 1, 1, 2, 1, 4, 1
 	};
 	for (size_t i = 0; i < 7; i++)
 	{
