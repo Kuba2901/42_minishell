@@ -27,32 +27,32 @@ static t_bool	ft_is_whitespace(const char *s)
 size_t	ft_count_tokens(const char *s)
 {
 	size_t	count;
-	t_bool	single_quoted;
-	t_bool	double_quoted;
+	// t_bool	single_quoted;
+	// t_bool	double_quoted;
 
 	count = 0;
-	single_quoted = false;
-	double_quoted = false;
+	// single_quoted = false;
+	// double_quoted = false;
 	while (*s)
 	{
-		while (ft_is_whitespace(s))
+		while (ft_is_whitespace(s) && *s)
 			s++;
-		if (*s == '"')
-		{
-			if (double_quoted)
-				count++;
-			double_quoted = !double_quoted;
-			s++;
-		}
-		else if (*s == '\'')
-		{
-			if (single_quoted)
-				count++;
-			single_quoted = !single_quoted;
-			s++;
-		}
+		// if (*s == '"')
+		// {
+		// 	if (double_quoted)
+		// 		count++;
+		// 	double_quoted = !double_quoted;
+		// 	s++;
+		// }
+		// else if (*s == '\'')
+		// {
+		// 	if (single_quoted)
+		// 		count++;
+		// 	single_quoted = !single_quoted;
+		// 	s++;
+		// }
 		int	counter = 0; // TEMP
-		while (ft_strchr(SPECIAL_CHARSET, *s))
+		while (ft_strchr(DOUBLE_SPECIAL_CHARSET, *s) && *s)
 		{
 			counter++;
 			s++;
@@ -61,10 +61,19 @@ size_t	ft_count_tokens(const char *s)
 		{
 			ft_printf("Wrong input!\n");
 			return (0);
+		} else if (counter > 0) {
+			count++;
 		}
-		while (!ft_is_whitespace(s) && !ft_strchr(SPECIAL_CHARSET, *s))
+		counter = 0;
+		// printf("[1] Str: %s, count: %ld\n", s, count);
+		while (!ft_is_whitespace(s) && !ft_strchr(DOUBLE_SPECIAL_CHARSET, *s) && !ft_strchr(SINGLE_SPECIAL_CHARSET, *s) && *s)
+		{
 			s++;
-		count++;
+			counter++;
+		}
+		if (counter != 0)
+			count++;
+		// printf("[2] Str: %s, count: %ld\n", s, count);
 	}
 	return (count);
 }

@@ -2,7 +2,8 @@
 # define MINISHELL_H
 
 # include <libft.h>
-# define SPECIAL_CHARSET "|&<>="
+# define DOUBLE_SPECIAL_CHARSET "|&<>"
+# define SINGLE_SPECIAL_CHARSET "="
 typedef enum {
 	false,
 	true
