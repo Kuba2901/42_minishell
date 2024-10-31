@@ -1,28 +1,113 @@
 #include <minishell.h>
 
-static size_t	ft_countword(char const *s, char const *charset)
-{
-	size_t	count;
-
-	if (!*s)
-		return (0);
-	count = 0;
-	while (*s)
-	{
-		while (*s && ft_strchr(charset, *s))
-			s++;
-		if (*s)
-			count++;
-		while (*s && !ft_strchr(charset, *s))
-			s++;
-	}
-	return (count);
-}
-
 static t_bool	ft_is_whitespace(const char *s)
 {
 	return (*s == ' ' || *s == '\t');
 }
+
+/*
+static t_bool	ft_check_char_valid_equals(char c)
+{
+	return ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') \
+		|| (c >= 'a' && c <= 'z'));
+}
+*/
+
+/*
+static t_bool	ft_check_equals(const char *s)
+{
+	size_t	i;
+	char	prev;
+	char	next;
+
+	if (ft_strchr(s, '=') == NULL)
+		return (true);
+	i = -1;
+	while (s[++i])
+	{
+		if (i != 0 && s[i] != '\0')
+		{
+			prev = s[i - 1];
+			next = s[i + 1];
+			if (!ft_check_char_valid_equals(prev) || !ft_check_char_valid_equals(next))
+				return (false);
+		}
+	}
+	return (true);
+}
+*/
+
+/*
+
+static t_bool	ft_specials_valid(const char *s)
+{
+	unsigned int	double_counter;
+	unsigned int	single_counter;
+
+	double_counter = 0;
+	single_counter = 0;
+
+	while (ft_strchr(SINGLE_SPECIAL_CHARSET, *s) && *s)
+	{
+		single_counter++;
+		s++;
+	}
+
+	while (ft_strchr(DOUBLE_SPECIAL_CHARSET, *s) && *s)
+	{
+		double_counter++;
+		s++;
+	}
+	if (single_counter && double_counter)
+	{
+		printf("Wrong input!\n");
+		return (false);
+	}
+	if (single_counter > 1)
+	{
+		ft_printf("Wrong input!\n");
+		return (false);
+	} 
+	if (double_counter > 2)
+	{
+		ft_printf("Wrong input!\n");
+		return (false);
+	}
+	return (true);
+}
+*/
+
+
+size_t	ft_count_sentences(const char *s)
+{
+	size_t	ret;
+
+	ret = 0;
+	while (*s && ft_is_whitespace(s))
+		s++;
+	if (!*s)
+		return (0);
+	ret++;
+	while (*s)
+	{
+		while (*s && *s != '&' && *s != ';')
+			s++;
+		if (*s == '&' || *s == ';')
+			s++;
+		if (*s == '&' || *s == ';')
+			ret++;
+		while (*s && (*s == '&' || *s == ';'))
+			s++;
+	}
+	return (ret);
+}
+
+/*
+const char	*ft_split_sentences(const char *s)
+{
+
+}
+*/
 
 size_t	ft_count_tokens(const char *s)
 {
@@ -78,32 +163,32 @@ size_t	ft_count_tokens(const char *s)
 	return (count);
 }
 
-char	**ft_enhanced_split(const char *s, const char *charset)
-{
-	char	**lst;
-	size_t	word_len;
-	int		i;
+// char	**ft_enhanced_split(const char *s, const char *charset)
+// {
+// 	char	**lst;
+// 	size_t	word_len;
+// 	int		i;
 
-	lst = (char **)malloc((ft_countword(s, charset) + 1) * sizeof(char *));
-	if (!s || !lst)
-		return (0);
-	i = 0;
-	while (*s)
-	{
-		while (*s && ft_strchr(charset, *s))
-			s++;
-		if (*s)
-		{
-			word_len = 0;
-			while (s[word_len] && !ft_strchr(charset, s[word_len]))
-				word_len++;
-			lst[i++] = ft_substr(s, 0, word_len);
-			s += word_len;
-		}
-	}
-	lst[i] = NULL;
-	return (lst);
-}
+// 	lst = (char **)malloc((ft_countword(s, charset) + 1) * sizeof(char *));
+// 	if (!s || !lst)
+// 		return (0);
+// 	i = 0;
+// 	while (*s)
+// 	{
+// 		while (*s && ft_strchr(charset, *s))
+// 			s++;
+// 		if (*s)
+// 		{
+// 			word_len = 0;
+// 			while (s[word_len] && !ft_strchr(charset, s[word_len]))
+// 				word_len++;
+// 			lst[i++] = ft_substr(s, 0, word_len);
+// 			s += word_len;
+// 		}
+// 	}
+// 	lst[i] = NULL;
+// 	return (lst);
+// }
 
 void	ft_free_enhanced_split(char **s)
 {
