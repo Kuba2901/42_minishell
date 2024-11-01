@@ -2,7 +2,7 @@
 NAME = minishell
 
 # Source and Object files
-MINI_SRC = src/tokenisation.c
+MINI_SRC = src/parsing/tokenisation_0.c src/parsing/tokenisation_1.c
 MAIN_SRC = main.c $(MINI_SRC)
 MAIN_OBJ = $(MAIN_SRC:.c=.o)
 
