@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tokenisation_0.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/01 20:03:12 by jnenczak          #+#    #+#             */
+/*   Updated: 2024/11/01 20:06:50 by jnenczak         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <minishell.h>
 
 /**
@@ -14,16 +26,15 @@
  */
 size_t	ft_count_sentences(char *s)
 {
+	char	*marker1;
+	char	*marker2;
+
 	if (*s == '\0')
 		return (0);
 	while (ft_is_whitespace(s))
 		s++;
 	if (*s == '\0')
 		return (0);
-
-	char	*marker1;
-	char	*marker2;
-
 	marker1 = ft_strnstr(s, ";", ft_strlen(s));
 	marker2 = ft_strnstr(s, "&&", ft_strlen(s));
 	if (marker1 && marker2)
@@ -37,28 +48,32 @@ size_t	ft_count_sentences(char *s)
 		return (1 + ft_count_sentences(marker1 + 1));
 	else if (marker2)
 		return (1 + ft_count_sentences(marker2 + 2));
-	return 1;
+	return (1);
 }
 
 /**
- * @brief Calculates the length of a substring up to the first occurrence of either marker1 or marker2,
- *        excluding trailing whitespace.
+ * @brief Calculates the length of a substring up to the first occurrence
+ * of either marker1 or marker2, excluding any trailing whitespace.
  *
- * This function determines the length of the substring starting from the beginning of the string `s`
- * and ending at the first occurrence of either `marker1` or `marker2`. If both markers are present,
- * the function uses the one that appears first in the string. If neither marker is present, the length
- * of the entire string `s` is used. The function also trims any trailing whitespace from the calculated
- * length.
+ * This function determines the length of the substring starting from the 
+ * beginning of the string `s` and ending at the first occurrence of either 
+ * `marker1` or `marker2`. If both markers are present, the function uses 
+ * the one that appears first in the string. If neither marker is present, 
+ * the length of the entire string `s` is used. The function also trims any 
+ * trailing whitespace from the calculated length.
  *
  * @param marker1 A pointer to the first marker in the string `s`.
  * @param marker2 A pointer to the second marker in the string `s`.
  * @param s The input string.
- * @return The length of the substring up to the first marker, excluding trailing whitespace.
+ * @return The length of the substring up to the first marker, excluding 
+ * trailing whitespace.
  */
-static	size_t	ft_split_sentences_rec_get_len(char *marker1, char *marker2, const char *s) {
+static	size_t	ft_split_sentences_rec_get_len(char *marker1,
+	char *marker2, const char *s)
+{
 	size_t	len;
 	size_t	no_trailing_whitespace_len;
-	
+
 	if (marker1 && marker2)
 	{
 		if (marker1 < marker2)
@@ -73,7 +88,8 @@ static	size_t	ft_split_sentences_rec_get_len(char *marker1, char *marker2, const
 	else
 		len = ft_strlen(s);
 	no_trailing_whitespace_len = len - 1;
-	while (no_trailing_whitespace_len > 0 && ft_is_whitespace(s + no_trailing_whitespace_len))
+	while (no_trailing_whitespace_len > 0 \
+		&& ft_is_whitespace(s + no_trailing_whitespace_len))
 		no_trailing_whitespace_len--;
 	if (no_trailing_whitespace_len > 0)
 		len = no_trailing_whitespace_len + 1;
@@ -81,14 +97,17 @@ static	size_t	ft_split_sentences_rec_get_len(char *marker1, char *marker2, const
 }
 
 /**
- * @brief Recursively splits a string into sentences based on delimiters ";" and "&&".
+ * @brief Recursively splits a string into sentences based on delimiters 
+ * ";" and "&&".
  *
- * This function takes a string and splits it into sentences using the delimiters ";" and "&&".
- * It recursively processes the string, storing each sentence in the provided array `ret`.
+ * This function takes a string and splits it into sentences using the 
+ * delimiters ";" and "&&". It recursively processes the string, storing 
+ * each sentence in the provided array `ret`.
  *
  * @param s The input string to be split.
  * @param ret The array to store the split sentences.
- * @param index The current index in the array `ret` where the next sentence should be stored.
+ * @param index The current index in the array `ret` where the next sentence 
+ * should be stored.
  * @return A pointer to the array `ret` containing the split sentences.
  */
 static char	**ft_split_sentences_rec(const char *s, char **ret, size_t index)
@@ -138,7 +157,7 @@ char	**ft_split_sentences(const char *s)
 {
 	size_t	count;
 	char	**ret;
-	
+
 	count = ft_count_sentences((char *)s);
 	ret = malloc(sizeof(char *) * (count + 1));
 	if (!ret)

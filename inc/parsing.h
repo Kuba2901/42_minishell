@@ -1,9 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/01 20:07:28 by jnenczak          #+#    #+#             */
+/*   Updated: 2024/11/01 20:08:03 by jnenczak         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PARSING_H
 # define PARSING_H
-typedef enum {
+
+typedef enum s_bool
+{
 	false,
 	true
-} t_bool;
+}	t_bool;
 
 void	ft_free_enhanced_split(char **s);
 void	ft_print_enhanced_split(char **s);
