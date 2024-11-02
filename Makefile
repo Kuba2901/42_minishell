@@ -22,7 +22,7 @@ RM = rm -rf
 INC_LIBFT_GNL = -Ilibft/inc_libft/ -Ilibft/inc_gnl/ -Ilibft/inc_ft_printf/
 INC = -Iinc/ $(INC_LIBFT_GNL)
 LIBFT_INCLUDE = -L./libft -lft
-LIBS = $(LIBFT_INCLUDE)
+LIBS = $(LIBFT_INCLUDE) -lreadline
 
 # Compilation rule for object files
 %.o: %.c

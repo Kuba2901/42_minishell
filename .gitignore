@@ -116,3 +116,4 @@ Temporary Items
 .vscode
 .venv
 output/
+.config/shell.nix

@@ -1,11 +1,19 @@
 #include <minishell.h>
 
-int	main(int ac, const char **av)
+int	main(void)
 {
-	if (ac != 2) 
-		return (0);
-	char **split = ft_split_sentences(av[1]);
-	ft_print_enhanced_split(split);
-	ft_free_enhanced_split(split);
+	char	*line;
+	while (true)
+	{
+		line = readline("minishell$ ");
+		if (line == NULL)
+		{
+			ft_putchar_fd('\n', 1);
+			break ;
+		}
+		if (ft_is_whitespace(line) == false)
+			ft_print_enhanced_split(ft_split_sentences(line));
+		free(line);
+	}
 	return (0);
 }
