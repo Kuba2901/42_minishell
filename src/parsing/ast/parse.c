@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 20:25:41 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/02 21:58:59 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/02 22:08:52 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,11 +110,16 @@ t_ast_node	*primary_parse(t_token_list *tokens)
 	return (parse_logical(tokens));
 }
 
-void print_ast(t_ast_node *node)
+static void print_ast_indent(t_ast_node *node, int indent)
 {
 	if (node == NULL)
 		return;
-	
+
+	// Print indentation spaces
+	for (int i = 0; i < indent; i++)
+		printf("  ");
+
+	// Print the node based on its type
 	if (node->type == AST_COMMAND)
 	{
 		printf("Command: %s\n", node->value);
@@ -122,28 +127,46 @@ void print_ast(t_ast_node *node)
 	else if (node->type == AST_PIPE)
 	{
 		printf("Pipe:\n");
-		printf("  Left:\n");
-		print_ast(node->left);
-		printf("  Right:\n");
-		print_ast(node->right);
+		for (int i = 0; i < indent + 1; i++)
+			printf("  ");
+		printf("Left:\n");
+		print_ast_indent(node->left, indent + 2);
+		for (int i = 0; i < indent + 1; i++)
+			printf("  ");
+		printf("Right:\n");
+		print_ast_indent(node->right, indent + 2);
 	}
 	else if (node->type == AST_AND)
 	{
 		printf("And:\n");
-		printf("  Left:\n");
-		print_ast(node->left);
-		printf("  Right:\n");
-		print_ast(node->right);
+		for (int i = 0; i < indent + 1; i++)
+			printf("  ");
+		printf("Left:\n");
+		print_ast_indent(node->left, indent + 2);
+		for (int i = 0; i < indent + 1; i++)
+			printf("  ");
+		printf("Right:\n");
+		print_ast_indent(node->right, indent + 2);
 	}
 	else if (node->type == AST_OR)
 	{
 		printf("Or:\n");
-		printf("  Left:\n");
-		print_ast(node->left);
-		printf("  Right:\n");
-		print_ast(node->right);
+		for (int i = 0; i < indent + 1; i++)
+			printf("  ");
+		printf("Left:\n");
+		print_ast_indent(node->left, indent + 2);
+		for (int i = 0; i < indent + 1; i++)
+			printf("  ");
+		printf("Right:\n");
+		print_ast_indent(node->right, indent + 2);
 	}
 }
+
+void print_ast(t_ast_node *node)
+{
+	print_ast_indent(node, 0);
+}
+
 
 void	free_ast(t_ast_node *node)
 {
