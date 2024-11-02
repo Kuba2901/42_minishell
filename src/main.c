@@ -5,12 +5,15 @@
 #include <string.h>
 #include <ctype.h>
 
-
+static void	ft_free_resources(t_token_list *list)
+{
+	free_token_list(list);
+}
 
 int	main(void)
 {
-	char	*line;
-	// char	**sentences;
+	char			*line;
+	t_token_list	*tokens_list;
 
 	while (true)
 	{
@@ -22,12 +25,12 @@ int	main(void)
 		}
 		if (!ft_is_whitespace(line))
 		{
-			tokenize(line);
-			// sentences = ft_split_sentences(line);
-			// ft_print_enhanced_split(sentences);
-			// ft_free_enhanced_split(sentences);
+			tokens_list = ft_tokenize(line);
+			print_token_list(tokens_list);
+			free_token_list(tokens_list);
 		}
 		free(line);
 	}
+	ft_free_resources(NULL); // TODO: Change to real list
 	return (0);
 }
