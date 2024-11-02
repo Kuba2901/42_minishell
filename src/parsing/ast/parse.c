@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 20:25:41 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/02 22:08:52 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/02 22:16:49 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ t_ast_node	*parse_logical(t_token_list *tokens)
 		type = tokens->head->token->type;
 		tokens->head = tokens->head->next;
 		right = primary_parse(tokens);
+		// TODO: Fix for this input `echo test && ls | grep ".txt" || cat /etc/passwd` the OR should be higher than the AND in the AST
 		if (type == TOKEN_AND)
 			op_node = create_ast_node(AST_AND, NULL);
 		else
