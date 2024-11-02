@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 19:32:21 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/02 21:02:34 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/02 22:17:30 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ t_token_list	*ft_tokenize(const char *input)
 			handle_simple_tokens(&current, list);
 		else if (*current == '"')
 			handle_double_quote(&current, list);
+		// TODO: Add handler for single quotes
 		else
 			handle_word(&current, list);
 	}

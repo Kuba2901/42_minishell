@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 19:37:40 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/02 19:48:28 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/02 22:18:03 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void	handle_simple_tokens(const char **current, t_token_list *list)
 		handle_arrows(current, list);
 }
 
+// TODO: Create the token with the quotes included - for further parsing and arg expansion
 void	handle_double_quote(const char **current, t_token_list *list)
 {
 	const char	*start;
