@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 20:25:41 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/02 22:16:49 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/03 00:15:31 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,25 @@ t_ast_node	*create_ast_node(t_ast_node_type type, char *value)
 	return (node);
 }
 
+// static t_ast_node	*parse_redirect_handler(t_token_list *tokens, t_ast_node *left, t_token_type type)
+// {
+// 	t_ast_node	*right;
+// 	t_ast_node	*op_node;
+
+// 	right = primary_parse(tokens);
+// 	if (type == TOKEN_REDIRECT_IN)
+// 		op_node = create_ast_node(AST_REDIRECT_IN, NULL);
+// 	else if (type == TOKEN_REDIRECT_OUT)
+// 		op_node = create_ast_node(AST_REDIRECT_OUT, NULL);
+// 	else if (type == TOKEN_APPEND)
+// 		op_node = create_ast_node(AST_APPEND, NULL);
+// 	else if (type == TOKEN_HEREDOC)
+// 		op_node = create_ast_node(AST_HEREDOC, NULL);
+// 	op_node->left = left;
+// 	op_node->right = right;
+// 	return (op_node);
+// }
+
 t_ast_node	*parse_command(t_token_list *tokens)
 {
 	t_ast_node	*node;
@@ -44,17 +63,44 @@ t_ast_node	*parse_command(t_token_list *tokens)
 	return (NULL);
 }
 
+t_ast_node	*parse_redirect_out_append(t_token_list *tokens)
+{
+	t_ast_node		*left;
+	t_ast_node		*right;
+	t_ast_node		*node;
+	t_ast_node_type	type;
+
+	left = parse_command(tokens);
+	while (tokens->head \
+		&& (tokens->head->token->type == TOKEN_APPEND \
+		|| tokens->head->token->type == TOKEN_REDIRECT_OUT))
+	{
+		if (tokens->head->token->type == TOKEN_APPEND)
+			type = AST_APPEND;
+		else
+			type = AST_REDIRECT_OUT;
+		tokens->head = tokens->head->next;
+		right = parse_command(tokens); // TODO: To be verified (might be primary_parse)
+		node = create_ast_node(type, NULL);
+		node->left = left;
+		node->right = right;
+		left = node;
+	}
+	return (left);
+}
+
 t_ast_node	*parse_pipe(t_token_list *tokens)
 {
 	t_ast_node	*left;
 	t_ast_node	*right;
 	t_ast_node	*pipe_node;
 
-	left = parse_command(tokens);
+	left = parse_redirect_out_append(tokens);
+	// left = parse_command(tokens);
 	while (tokens->head && tokens->head->token->type == TOKEN_PIPE)
 	{
 		tokens->head = tokens->head->next;
-		right = parse_command(tokens);
+		right = primary_parse(tokens);
 		pipe_node = create_ast_node(AST_PIPE, NULL);
 		pipe_node->left = left;
 		pipe_node->right = right;
@@ -62,6 +108,40 @@ t_ast_node	*parse_pipe(t_token_list *tokens)
 	}
 	return (left);
 }
+
+/*
+t_ast_node	*parse_redirect(t_token_list *tokens)
+{
+	t_ast_node		*left;
+	t_ast_node		*right;
+	t_ast_node		*op_node;
+	t_token_type	type;
+
+	left = parse_pipe(tokens);
+	while (tokens->head != NULL \
+		&& ((tokens->head->token->type == TOKEN_REDIRECT_IN) \
+			|| (tokens->head->token->type == TOKEN_REDIRECT_OUT) \
+			|| (tokens->head->token->type == TOKEN_APPEND) \
+			|| (tokens->head->token->type == TOKEN_HEREDOC)))
+	{
+		type = tokens->head->token->type;
+		tokens->head = tokens->head->next;
+		right = primary_parse(tokens);
+		if (type == TOKEN_REDIRECT_IN)
+			op_node = create_ast_node(AST_REDIRECT_IN, NULL);
+		else if (type == TOKEN_REDIRECT_OUT)
+			op_node = create_ast_node(AST_REDIRECT_OUT, NULL);
+		else if (type == TOKEN_APPEND)
+			op_node = create_ast_node(AST_APPEND, NULL);
+		else if (type == TOKEN_HEREDOC)
+			op_node = create_ast_node(AST_HEREDOC, NULL);
+		op_node->left = left;
+		op_node->right = right;
+		left = op_node;
+	}
+	return (left);
+}
+*/
 
 t_ast_node	*parse_logical(t_token_list *tokens)
 {
@@ -123,7 +203,7 @@ static void print_ast_indent(t_ast_node *node, int indent)
 	// Print the node based on its type
 	if (node->type == AST_COMMAND)
 	{
-		printf("Command: %s\n", node->value);
+		printf("%s\n", node->value);
 	}
 	else if (node->type == AST_PIPE)
 	{
@@ -152,6 +232,30 @@ static void print_ast_indent(t_ast_node *node, int indent)
 	else if (node->type == AST_OR)
 	{
 		printf("Or:\n");
+		for (int i = 0; i < indent + 1; i++)
+			printf("  ");
+		printf("Left:\n");
+		print_ast_indent(node->left, indent + 2);
+		for (int i = 0; i < indent + 1; i++)
+			printf("  ");
+		printf("Right:\n");
+		print_ast_indent(node->right, indent + 2);
+	}
+	else if (node->type == AST_REDIRECT_OUT)
+	{
+		printf(">:\n");
+		for (int i = 0; i < indent + 1; i++)
+			printf("  ");
+		printf("Left:\n");
+		print_ast_indent(node->left, indent + 2);
+		for (int i = 0; i < indent + 1; i++)
+			printf("  ");
+		printf("Right:\n");
+		print_ast_indent(node->right, indent + 2);
+	}
+	else if (node->type == AST_APPEND)
+	{
+		printf(">>:\n");
 		for (int i = 0; i < indent + 1; i++)
 			printf("  ");
 		printf("Left:\n");
