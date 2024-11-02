@@ -6,11 +6,45 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 19:37:40 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/02 19:42:20 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/02 19:48:28 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <tokenisation.h>
+
+static void	handle_arrows_left(const char **current, t_token_list *list)
+{
+	const char	*cur;
+
+	cur = *current;
+	if (*(cur + 1) == '<')
+	{
+		add_token(list, create_token(TOKEN_HEREDOC, NULL));
+		(*current) += 2;
+	}
+	else
+	{
+		add_token(list, create_token(TOKEN_REDIRECT_IN, NULL));
+		(*current)++;
+	}
+}
+
+static void	handle_arrows_right(const char **current, t_token_list *list)
+{
+	const char	*cur;
+
+	cur = *current;
+	if (*(cur + 1) == '>')
+	{
+		add_token(list, create_token(TOKEN_APPEND, NULL));
+		(*current) += 2;
+	}
+	else
+	{
+		add_token(list, create_token(TOKEN_REDIRECT_OUT, NULL));
+		(*current)++;
+	}
+}
 
 void	handle_arrows(const char **current, t_token_list *list)
 {
@@ -18,31 +52,9 @@ void	handle_arrows(const char **current, t_token_list *list)
 
 	cur = *current;
 	if (*cur == '<')
-	{
-		if (*(cur + 1) == '<')
-		{
-			add_token(list, create_token(TOKEN_HEREDOC, NULL));
-			(*current) += 2;
-		}
-		else
-		{
-			add_token(list, create_token(TOKEN_REDIRECT_IN, NULL));
-			(*current)++;
-		}
-	}
+		handle_arrows_left(current, list);
 	else if (*cur == '>')
-	{
-		if (*(cur + 1) == '>')
-		{
-			add_token(list, create_token(TOKEN_APPEND, NULL));
-			(*current) += 2;
-		}
-		else
-		{
-			add_token(list, create_token(TOKEN_REDIRECT_OUT, NULL));
-			(*current)++;
-		}
-	}
+		handle_arrows_right(current, list);
 }
 
 void	handle_simple_tokens(const char **current, t_token_list *list)
@@ -82,33 +94,4 @@ void	handle_double_quote(const char **current, t_token_list *list)
 	add_token(list, create_token(TOKEN_WORD,
 			ft_substr(start, 0, *current - start)));
 	(*current)++;
-}
-
-void	handle_word(const char **current, t_token_list *list)
-{
-	const char	*start;
-
-	start = *current;
-	while (**current != '\0' && !ft_is_whitespace(**current) \
-		&& !ft_strchr("&|()<>", **current))
-		(*current)++;
-	add_token(list, create_token(TOKEN_WORD,
-			ft_substr(start, 0, *current - start)));
-}
-
-void	handle_logical(const char **current, t_token_list *list)
-{
-	const char	*cur;
-
-	cur = *current;
-	if (*cur == '&' && *(cur + 1) == '&')
-	{
-		add_token(list, create_token(TOKEN_AND, NULL));
-		(*current) += 2;
-	}
-	else if (*cur == '|' && *(cur + 1) == '|')
-	{
-		add_token(list, create_token(TOKEN_OR, NULL));
-		(*current) += 2;
-	}
 }
