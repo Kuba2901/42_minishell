@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 19:39:56 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/02 20:58:14 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/02 21:01:25 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	print_token_list(t_token_list *list)
 	current = list->head;
 	while (current != NULL)
 	{
-		printf("Token: (%s)", get_token_description(current->token->type));
+		printf("Token: [%s]", get_token_description(current->token->type));
 		if (current->token->value != NULL)
 			printf(" (%s)\n", current->token->value);
 		else

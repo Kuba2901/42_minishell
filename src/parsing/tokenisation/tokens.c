@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 19:32:21 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/02 20:56:35 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/02 21:02:34 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,6 @@ t_token_list	*ft_tokenize(const char *input)
 		else
 			handle_word(&current, list);
 	}
-	print_token_list(list);
 	ft_join_tokens(list);
 	return (list);
 }

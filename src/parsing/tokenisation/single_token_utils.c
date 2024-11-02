@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 19:36:11 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/02 20:57:28 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/02 21:03:05 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 const char	*get_token_description(t_token_type type)
 {
 	if (type == TOKEN_WORD)
-		return ("word");
+		return ("command");
 	else if (type == TOKEN_AND)
 		return ("&&");
 	else if (type == TOKEN_OR)
@@ -39,7 +39,7 @@ const char	*get_token_description(t_token_type type)
 
 t_bool	ft_is_whitespace(char c)
 {
-	return (c == ' ' || c == '\t');
+	return (c == ' ' || c == '\t' || c == '\n' || c == '\r');
 }
 
 t_token	*create_token(t_token_type type, char *value)
