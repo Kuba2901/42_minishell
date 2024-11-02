@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 19:32:21 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/02 19:48:22 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/02 20:56:35 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,36 @@ void	handle_logical(const char **current, t_token_list *list)
 	}
 }
 
+static void	ft_join_tokens(t_token_list *src)
+{
+	t_token_node	*node1;
+	t_token_node	*node2;
+	t_token_node	*temp;
+
+	if (src == NULL || src->head == NULL)
+		return ;
+	node1 = src->head;
+	while (node1 != NULL)
+	{
+		node2 = node1->next;
+		while (node2 != NULL)
+		{
+			if (node1->token->type == node2->token->type && node1->token->type == TOKEN_WORD)
+			{
+				node1->token->value = ft_join_reassign(node1->token->value, ft_strdup(" "));
+				node1->token->value = ft_join_reassign(node1->token->value, node2->token->value);
+				temp = node2->next;
+				node1->next = temp;
+				free(node2);
+				node2 = temp;
+			}
+			else
+				break ;
+		}
+		node1 = node1->next;
+	}
+}
+
 t_token_list	*ft_tokenize(const char *input)
 {
 	const char		*current;
@@ -62,5 +92,7 @@ t_token_list	*ft_tokenize(const char *input)
 		else
 			handle_word(&current, list);
 	}
+	print_token_list(list);
+	ft_join_tokens(list);
 	return (list);
 }

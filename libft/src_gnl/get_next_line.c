@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jnenczak <jnenczak@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 16:21:41 by jakubnencza       #+#    #+#             */
-/*   Updated: 2024/03/10 14:10:19 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/02 20:45:44 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ char	*ft_join_reassign(char *buffer, char *to_join)
 	ret = ft_strjoin(buffer, to_join);
 	free(buffer);
 	free(to_join);
+	buffer = NULL;
+	to_join = NULL;
 	return (ret);
 }
 
