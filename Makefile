@@ -1,9 +1,10 @@
 # Project name
 NAME = minishell
+OUT_DIR = output
 
 # Source and Object files
 MINI_SRC = src/parsing/tokenisation_0.c src/parsing/tokenisation_1.c
-MAIN_SRC = main.c $(MINI_SRC)
+MAIN_SRC = src/main.c $(MINI_SRC)
 MAIN_OBJ = $(MAIN_SRC:.c=.o)
 
 # Testing files
@@ -30,7 +31,7 @@ LIBS = $(LIBFT_INCLUDE)
 # Main Application
 $(NAME): $(MAIN_OBJ)
 	@cd libft && make
-	$(CC) $(MAIN_OBJ) $(LIBS) -o $(NAME)
+	$(CC) $(MAIN_OBJ) $(LIBS) -o $(OUT_DIR)/$(NAME)
 
 # Testing Application
 test: $(TEST_OBJ)
