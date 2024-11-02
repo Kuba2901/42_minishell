@@ -44,6 +44,10 @@ test: $(TEST_OBJ)
 # Standard Targets
 all: $(NAME)
 
+# Direct run
+run: $(NAME)
+	@./$(OUT_DIR)/$(NAME)
+
 clean:
 	$(RM) $(MAIN_OBJ) $(TEST_OBJ)
 	@cd libft && make clean

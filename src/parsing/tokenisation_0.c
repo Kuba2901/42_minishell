@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 20:03:12 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/01 20:06:50 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/02 17:15:31 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ size_t	ft_count_sentences(char *s)
 		s++;
 	if (*s == '\0')
 		return (0);
-	marker1 = ft_strnstr(s, ";", ft_strlen(s));
+	marker1 = ft_strnstr(s, "||", ft_strlen(s));
 	marker2 = ft_strnstr(s, "&&", ft_strlen(s));
 	if (marker1 && marker2)
 	{
@@ -120,7 +120,7 @@ static char	**ft_split_sentences_rec(const char *s, char **ret, size_t index)
 		return (ret);
 	while (*s && ft_is_whitespace(s))
 		s++;
-	marker1 = ft_strnstr(s, ";", ft_strlen(s));
+	marker1 = ft_strnstr(s, "||", ft_strlen(s));
 	marker2 = ft_strnstr(s, "&&", ft_strlen(s));
 	len = ft_split_sentences_rec_get_len(marker1, marker2, s);
 	ret[index] = ft_substr(s, 0, len);
