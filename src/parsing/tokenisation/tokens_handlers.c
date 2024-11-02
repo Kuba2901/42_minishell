@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tokens_handlers.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/02 19:37:40 by jnenczak          #+#    #+#             */
+/*   Updated: 2024/11/02 19:42:20 by jnenczak         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <tokenisation.h>
 
 void	handle_arrows(const char **current, t_token_list *list)
@@ -54,7 +66,7 @@ void	handle_simple_tokens(const char **current, t_token_list *list)
 		(*current)++;
 	}
 	else if (*cur == '<' || *cur == '>')
-		handle_arrows(current, list);	
+		handle_arrows(current, list);
 }
 
 void	handle_double_quote(const char **current, t_token_list *list)
@@ -67,7 +79,8 @@ void	handle_double_quote(const char **current, t_token_list *list)
 		(*current)++;
 	if (**current == '\0')
 		return ;
-	add_token(list, create_token(TOKEN_WORD, ft_substr(start, 0, *current - start)));
+	add_token(list, create_token(TOKEN_WORD,
+			ft_substr(start, 0, *current - start)));
 	(*current)++;
 }
 
@@ -76,9 +89,11 @@ void	handle_word(const char **current, t_token_list *list)
 	const char	*start;
 
 	start = *current;
-	while (**current != '\0' && !ft_is_whitespace(**current) && !ft_strchr("&|()<>", **current))
+	while (**current != '\0' && !ft_is_whitespace(**current) \
+		&& !ft_strchr("&|()<>", **current))
 		(*current)++;
-	add_token(list, create_token(TOKEN_WORD, ft_substr(start, 0, *current - start)));
+	add_token(list, create_token(TOKEN_WORD,
+			ft_substr(start, 0, *current - start)));
 }
 
 void	handle_logical(const char **current, t_token_list *list)

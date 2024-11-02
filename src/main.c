@@ -1,9 +1,16 @@
-#include <minishell.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/02 19:35:32 by jnenczak          #+#    #+#             */
+/*   Updated: 2024/11/02 19:35:55 by jnenczak         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
+#include <minishell.h>
 
 static void	ft_free_resources(t_token_list *list)
 {
@@ -31,6 +38,6 @@ int	main(void)
 		}
 		free(line);
 	}
-	ft_free_resources(NULL); // TODO: Change to real list
+	ft_free_resources(NULL);
 	return (0);
 }

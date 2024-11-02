@@ -1,11 +1,22 @@
-#include <tokenisation.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tokens.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/02 19:32:21 by jnenczak          #+#    #+#             */
+/*   Updated: 2024/11/02 19:37:30 by jnenczak         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include <tokenisation.h>
 
 t_token_list	*ft_tokenize(const char *input)
 {
 	const char		*current;
 	t_token_list	*list;
-	
+
 	current = input;
 	list = init_token_list();
 	while (*current != '\0')
