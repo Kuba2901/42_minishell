@@ -1,9 +1,12 @@
 # Project name
 NAME = minishell
+OUT_DIR = output
 
 # Source and Object files
-MINI_SRC = src/parsing/tokenisation_0.c src/parsing/tokenisation_1.c
-MAIN_SRC = main.c $(MINI_SRC)
+TOK_DIR = src/parsing/tokenisation
+MINI_TOKENISATION_SRC = $(TOK_DIR)/tokens.c $(TOK_DIR)/single_token_utils.c $(TOK_DIR)/token_list_utils.c $(TOK_DIR)/tokens_handlers.c
+MINI_SRC = $(MINI_TOKENISATION_SRC)
+MAIN_SRC = src/main.c $(MINI_SRC)
 MAIN_OBJ = $(MAIN_SRC:.c=.o)
 
 # Testing files
@@ -12,7 +15,7 @@ TEST_OBJ = $(TEST_SRC:.c=.o)
 
 # Compiler and Flags
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -O3
+CFLAGS = -Wall -Wextra -Werror -g
 TESTFLAGS = -fprofile-arcs -ftest-coverage
 TEST_LIBS = -lcunit
 RM = rm -rf
@@ -21,7 +24,7 @@ RM = rm -rf
 INC_LIBFT_GNL = -Ilibft/inc_libft/ -Ilibft/inc_gnl/ -Ilibft/inc_ft_printf/
 INC = -Iinc/ $(INC_LIBFT_GNL)
 LIBFT_INCLUDE = -L./libft -lft
-LIBS = $(LIBFT_INCLUDE)
+LIBS = $(LIBFT_INCLUDE) -lreadline
 
 # Compilation rule for object files
 %.o: %.c
@@ -30,7 +33,7 @@ LIBS = $(LIBFT_INCLUDE)
 # Main Application
 $(NAME): $(MAIN_OBJ)
 	@cd libft && make
-	$(CC) $(MAIN_OBJ) $(LIBS) -o $(NAME)
+	$(CC) $(MAIN_OBJ) $(LIBS) -o $(OUT_DIR)/$(NAME)
 
 # Testing Application
 test: $(TEST_OBJ)
@@ -42,6 +45,10 @@ test: $(TEST_OBJ)
 
 # Standard Targets
 all: $(NAME)
+
+# Direct run
+run: $(NAME)
+	@./$(OUT_DIR)/$(NAME)
 
 clean:
 	$(RM) $(MAIN_OBJ) $(TEST_OBJ)
