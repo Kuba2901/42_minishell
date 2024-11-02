@@ -23,4 +23,8 @@ typedef struct s_ast_node
 	struct s_ast_node	*right;
 }	t_ast_node;
 
+t_ast_node	*primary_parse(t_token_list *tokens);
+void		print_ast(t_ast_node *node);
+void		free_ast(t_ast_node *node);
+
 #endif
