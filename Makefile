@@ -4,7 +4,7 @@ OUT_DIR = output
 
 # Source and Object files
 TOK_DIR = src/parsing/tokenisation
-MINI_TOKENISATION_SRC = $(TOK_DIR)/tokens.c $(TOK_DIR)/single_token_utils.c $(TOK_DIR)/token_list_utils.c
+MINI_TOKENISATION_SRC = $(TOK_DIR)/tokens.c $(TOK_DIR)/single_token_utils.c $(TOK_DIR)/token_list_utils.c $(TOK_DIR)/tokens_handlers.c
 MINI_SRC = $(MINI_TOKENISATION_SRC)
 MAIN_SRC = src/main.c $(MINI_SRC)
 MAIN_OBJ = $(MAIN_SRC:.c=.o)

@@ -49,5 +49,11 @@ t_token_list	*ft_tokenize(const char *input);
 void            free_token_list(t_token_list *list);
 void            print_token_list(t_token_list *list);
 void            free_token(t_token *token);
+void			handle_arrows(const char **current, t_token_list *list);
+void			handle_simple_tokens(const char **current, t_token_list *list);
+void			handle_double_quote(const char **current, t_token_list *list);
+void			handle_word(const char **current, t_token_list *list);
+void			handle_logical(const char **current, t_token_list *list);
+
 
 #endif
