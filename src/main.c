@@ -23,7 +23,7 @@ int	main(void)
 			ft_putchar_fd('\n', 1);
 			break ;
 		}
-		if (!ft_is_whitespace(line))
+		if (!ft_is_whitespace(*line))
 		{
 			tokens_list = ft_tokenize(line);
 			print_token_list(tokens_list);
