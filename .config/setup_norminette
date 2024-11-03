@@ -1,4 +1,4 @@
-# !/usr/env/bin bash
+# !/nix/store/1av86b17lymgk29s85nhgxsmfvmxympz-bash-interactive-5.2p32/bin/bash
 
 cd ..
 python3 -m venv .venv

@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 19:43:03 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/02 20:57:54 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/03 17:02:09 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void			print_token_list(t_token_list *list);
 void			free_token(t_token *token);
 void			handle_arrows(const char **current, t_token_list *list);
 void			handle_simple_tokens(const char **current, t_token_list *list);
-void			handle_double_quote(const char **current, t_token_list *list);
+void			handle_quoted(const char **current, t_token_list *list, char type);
 void			handle_word(const char **current, t_token_list *list);
 void			handle_logical(const char **current, t_token_list *list);
 const char		*get_token_description(t_token_type type);

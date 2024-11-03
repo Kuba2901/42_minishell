@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 20:25:41 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/03 16:58:04 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/03 17:39:41 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,29 +29,10 @@ t_ast_node	*create_ast_node(t_ast_node_type type, char *value)
 	return (node);
 }
 
-// static t_ast_node	*parse_redirect_handler(t_token_list *tokens, t_ast_node *left, t_token_type type)
-// {
-// 	t_ast_node	*right;
-// 	t_ast_node	*op_node;
-
-// 	right = primary_parse(tokens);
-// 	if (type == TOKEN_REDIRECT_IN)
-// 		op_node = create_ast_node(AST_REDIRECT_IN, NULL);
-// 	else if (type == TOKEN_REDIRECT_OUT)
-// 		op_node = create_ast_node(AST_REDIRECT_OUT, NULL);
-// 	else if (type == TOKEN_APPEND)
-// 		op_node = create_ast_node(AST_APPEND, NULL);
-// 	else if (type == TOKEN_HEREDOC)
-// 		op_node = create_ast_node(AST_HEREDOC, NULL);
-// 	op_node->left = left;
-// 	op_node->right = right;
-// 	return (op_node);
-// }
-
 t_ast_node	*parse_command(t_token_list *tokens)
 {
 	t_ast_node	*node;
-	
+
 	if (tokens->head == NULL)
 		return (NULL);
 	if (tokens->head->token->type == TOKEN_WORD)
@@ -108,40 +89,6 @@ t_ast_node	*parse_pipe(t_token_list *tokens)
 	}
 	return (left);
 }
-
-/*
-t_ast_node	*parse_redirect(t_token_list *tokens)
-{
-	t_ast_node		*left;
-	t_ast_node		*right;
-	t_ast_node		*op_node;
-	t_token_type	type;
-
-	left = parse_pipe(tokens);
-	while (tokens->head != NULL \
-		&& ((tokens->head->token->type == TOKEN_REDIRECT_IN) \
-			|| (tokens->head->token->type == TOKEN_REDIRECT_OUT) \
-			|| (tokens->head->token->type == TOKEN_APPEND) \
-			|| (tokens->head->token->type == TOKEN_HEREDOC)))
-	{
-		type = tokens->head->token->type;
-		tokens->head = tokens->head->next;
-		right = primary_parse(tokens);
-		if (type == TOKEN_REDIRECT_IN)
-			op_node = create_ast_node(AST_REDIRECT_IN, NULL);
-		else if (type == TOKEN_REDIRECT_OUT)
-			op_node = create_ast_node(AST_REDIRECT_OUT, NULL);
-		else if (type == TOKEN_APPEND)
-			op_node = create_ast_node(AST_APPEND, NULL);
-		else if (type == TOKEN_HEREDOC)
-			op_node = create_ast_node(AST_HEREDOC, NULL);
-		op_node->left = left;
-		op_node->right = right;
-		left = op_node;
-	}
-	return (left);
-}
-*/
 
 t_ast_node	*parse_logical(t_token_list *tokens)
 {

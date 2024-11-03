@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 19:32:21 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/02 22:17:30 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/03 17:06:00 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,13 @@ static void	ft_join_tokens(t_token_list *src)
 		node2 = node1->next;
 		while (node2 != NULL)
 		{
-			if (node1->token->type == node2->token->type && node1->token->type == TOKEN_WORD)
+			if (node1->token->type == node2->token->type \
+				&& node1->token->type == TOKEN_WORD)
 			{
-				node1->token->value = ft_join_reassign(node1->token->value, ft_strdup(" "));
-				node1->token->value = ft_join_reassign(node1->token->value, node2->token->value);
+				node1->token->value = ft_join_reassign(
+						node1->token->value, ft_strdup(" "));
+				node1->token->value = ft_join_reassign(
+						node1->token->value, node2->token->value);
 				temp = node2->next;
 				node1->next = temp;
 				free(node2);
@@ -87,9 +90,8 @@ t_token_list	*ft_tokenize(const char *input)
 			handle_logical(&current, list);
 		else if (ft_strchr("()|<>", *current))
 			handle_simple_tokens(&current, list);
-		else if (*current == '"')
-			handle_double_quote(&current, list);
-		// TODO: Add handler for single quotes
+		else if (*current == '"' || *current == '\'')
+			handle_quoted(&current, list, *current);
 		else
 			handle_word(&current, list);
 	}
