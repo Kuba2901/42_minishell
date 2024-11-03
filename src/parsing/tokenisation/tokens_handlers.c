@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 19:37:40 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/03 17:03:09 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/03 18:06:49 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,16 @@ static void	handle_arrows_right(const char **current, t_token_list *list)
 	}
 }
 
+/**
+ * @brief Handles the arrows in the input string.
+ *
+ * This function determines whether the current character is '<' or '>'.
+ * If it is '<', it calls the handle_arrows_left() function.
+ * If it is '>', it calls the handle_arrows_right() function.
+ *
+ * @param current The current character in the input string.
+ * @param list The token list to be updated.
+ */
 void	handle_arrows(const char **current, t_token_list *list)
 {
 	const char	*cur;
@@ -57,6 +67,17 @@ void	handle_arrows(const char **current, t_token_list *list)
 		handle_arrows_right(current, list);
 }
 
+/**
+ * @brief Handles simple tokens in the input string.
+ *
+ * This function takes a pointer to the current character in the input string
+ * and a pointer to a token list. It checks the current character and adds the
+ * corresponding token to the token list. The current character pointer is
+ * updated accordingly.
+ *
+ * @param current Pointer to the current character in the input string.
+ * @param list Pointer to the token list.
+ */
 void	handle_simple_tokens(const char **current, t_token_list *list)
 {
 	const char	*cur;
@@ -81,6 +102,18 @@ void	handle_simple_tokens(const char **current, t_token_list *list)
 		handle_arrows(current, list);
 }
 
+/**
+ * @brief Handles quoted tokens.
+ *
+ * This function is responsible for handling quoted tokens in the tokenisation process.
+ * It takes a pointer to the current character, a token list, and the type of quote.
+ * It searches for the closing quote and creates a token with the quoted content.
+ * If the closing quote is missing, it prints an error message.
+ *
+ * @param current A pointer to the current character.
+ * @param list The token list to add the created token to.
+ * @param type The type of quote.
+ */
 void	handle_quoted(const char **current, t_token_list *list, char type)
 {
 	const char	*start;

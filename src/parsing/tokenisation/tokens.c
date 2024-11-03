@@ -6,41 +6,22 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 19:32:21 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/03 17:06:00 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/03 18:28:05 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <tokenisation.h>
 
-void	handle_word(const char **current, t_token_list *list)
-{
-	const char	*start;
-
-	start = *current;
-	while (**current != '\0' && !ft_is_whitespace(**current) \
-		&& !ft_strchr("&|()<>", **current))
-		(*current)++;
-	add_token(list, create_token(TOKEN_WORD,
-			ft_substr(start, 0, *current - start)));
-}
-
-void	handle_logical(const char **current, t_token_list *list)
-{
-	const char	*cur;
-
-	cur = *current;
-	if (*cur == '&' && *(cur + 1) == '&')
-	{
-		add_token(list, create_token(TOKEN_AND, NULL));
-		(*current) += 2;
-	}
-	else if (*cur == '|' && *(cur + 1) == '|')
-	{
-		add_token(list, create_token(TOKEN_OR, NULL));
-		(*current) += 2;
-	}
-}
-
+/**
+ * @brief Joins consecutive word tokens in the given token list.
+ * 
+ * This function iterates through the token list and checks for consecutive word tokens.
+ * If two consecutive word tokens are found, they are joined together by appending the value
+ * of the second token to the value of the first token, separated by a space.
+ * The second token is then removed from the list.
+ * 
+ * @param src The token list to be processed.
+ */
 static void	ft_join_tokens(t_token_list *src)
 {
 	t_token_node	*node1;
@@ -74,6 +55,12 @@ static void	ft_join_tokens(t_token_list *src)
 	}
 }
 
+/**
+ * Tokenizes the given input string.
+ *
+ * @param input The input string to be tokenized.
+ * @return A pointer to the token list.
+ */
 t_token_list	*ft_tokenize(const char *input)
 {
 	const char		*current;

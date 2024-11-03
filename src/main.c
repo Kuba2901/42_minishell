@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 19:35:32 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/02 21:23:45 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/03 18:28:20 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ int	main(void)
 		}
 		free(line);
 	}
-	// rl_clear_history();
 	ft_free_resources(NULL);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 19:36:11 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/02 21:03:05 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/03 18:02:02 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,13 @@ t_bool	ft_is_whitespace(char c)
 	return (c == ' ' || c == '\t' || c == '\n' || c == '\r');
 }
 
+/**
+ * Creates a token with the specified type and value.
+ *
+ * @param type The type of the token.
+ * @param value The value of the token.
+ * @return A pointer to the created token.
+ */
 t_token	*create_token(t_token_type type, char *value)
 {
 	t_token	*token;
@@ -54,7 +61,13 @@ t_token	*create_token(t_token_type type, char *value)
 		token->value = NULL;
 	return (token);
 }
-
+/**
+ * @brief Frees the memory allocated for a token.
+ *
+ * This function frees the memory allocated for a token and its value.
+ *
+ * @param token The token to be freed.
+ */
 void	free_token(t_token *token)
 {
 	if (token)

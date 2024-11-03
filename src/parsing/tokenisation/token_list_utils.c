@@ -6,12 +6,17 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 19:39:56 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/02 21:01:25 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/03 18:05:45 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <tokenisation.h>
 
+/**
+ * Initializes a new token list.
+ *
+ * @return A pointer to the newly created token list.
+ */
 t_token_list	*init_token_list(void)
 {
 	t_token_list	*list;
@@ -22,6 +27,14 @@ t_token_list	*init_token_list(void)
 	return (list);
 }
 
+/**
+ * @brief Frees the memory allocated for a token list.
+ *
+ * This function frees the memory allocated for each token in the token list,
+ * as well as the memory allocated for the token list itself.
+ *
+ * @param list The token list to be freed.
+ */
 void	free_token_list(t_token_list *list)
 {
 	t_token_node	*current;
@@ -33,6 +46,8 @@ void	free_token_list(t_token_list *list)
 	while (current)
 	{
 		next = current->next;
+		if (current->token->value != NULL)
+			free(current->token->value);
 		free_token(current->token);
 		free(current);
 		current = next;
@@ -58,6 +73,12 @@ void	print_token_list(t_token_list *list)
 	}
 }
 
+/**
+ * Adds a token to the token list.
+ *
+ * @param list The token list to add the token to.
+ * @param token The token to be added.
+ */
 void	add_token(t_token_list *list, t_token *token)
 {
 	t_token_node	*node;
