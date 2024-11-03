@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 19:37:40 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/02 22:18:03 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/03 16:59:09 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,13 +86,13 @@ void	handle_double_quote(const char **current, t_token_list *list)
 {
 	const char	*start;
 
-	(*current)++;
 	start = *current;
+	(*current)++;
 	while (**current != '\0' && **current != '"')
 		(*current)++;
 	if (**current == '\0')
 		return ;
+	(*current)++;
 	add_token(list, create_token(TOKEN_WORD,
 			ft_substr(start, 0, *current - start)));
-	(*current)++;
 }
