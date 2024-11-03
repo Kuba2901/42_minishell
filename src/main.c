@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 19:35:32 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/02 19:35:55 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/03 18:28:20 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,15 @@ int	main(void)
 		}
 		if (!ft_is_whitespace(*line))
 		{
+			if (ft_strncmp(line, "exit", 4) == 0)
+				break ;
 			tokens_list = ft_tokenize(line);
+			printf("TOKENS:\n");
 			print_token_list(tokens_list);
+			t_ast_node *ast = primary_parse(tokens_list);
+			printf("AST:\n");
+			print_ast(ast);
+			free_ast(ast);
 			free_token_list(tokens_list);
 		}
 		free(line);
