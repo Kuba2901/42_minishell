@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 14:54:45 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/14 17:10:43 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/14 17:19:17 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,30 +47,20 @@ t_env_node	*init_node(const char *key, const char *value)
 t_env_node	*create_node(const char *entry)
 {
 	t_env_node	*ret;
-	char		*key;
-	char		*value;
+	char		**params;
+	int			i;
 
-	key = malloc(sizeof(char) * (ft_strchr(entry, '=') - entry)); // BUG: Either one has 1 too many / too few characters
-	if (!key)
-		return (NULL);
-	value = malloc(sizeof(char) * ft_strlen(ft_strchr(entry, '=')));
-	if (!value)
+	params = ft_split(entry, '=');
+	if (!params || !params[0] || !params[1] || params[2])
 	{
-		free(key);
-		return (NULL);
+		printf("Error: failed to parse the env entry using ft_split\n");
 	}
-	ft_strlcpy(key, entry, (ft_strchr(entry, '=') - entry + 1));
-	ft_strlcpy(value, entry + (ft_strchr(entry, '=') - entry + 1), ft_strlen(ft_strchr(entry, '=')));
-	ret = init_node(key, value);
-	if (!ret)
-	{
-		free(key);
-		free(value);
-		printf("Error: failed to allocate memory for a new env node.\n");
-		return (NULL);
-	}
-	free(key);
-	free(value);
+	ret = init_node(params[0], params[1]);
+	i = -1;
+	while (params[++i])
+		free(params[i]);
+	free(params);
+	params = NULL;
 	return (ret);
 }
 
@@ -88,7 +78,7 @@ static int comp_nodes(t_env_node *n1, t_env_node *n2)
 		comp_size = n1_key_len;
 	else
 		comp_size = n2_key_len;
-	return (ft_strncmp(n1->key, n2->key, comp_size));
+	return (ft_strncmp(n2->key, n1->key, comp_size));
 }
 
 // static void	delete_node(t_env_list *list, char *key)
