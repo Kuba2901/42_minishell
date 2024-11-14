@@ -17,8 +17,8 @@ typedef enum s_ast_node_type
 
 typedef struct s_ast_node
 {
-	t_ast_node_type	type;
-	char			*value;
+	t_ast_node_type		type;
+	char				*value;
 	struct s_ast_node	*left;
 	struct s_ast_node	*right;
 }	t_ast_node;

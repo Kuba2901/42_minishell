@@ -5,9 +5,11 @@ OUT_DIR = output
 # Source and Object files
 TOK_DIR = src/parsing/tokenisation
 AST_DIR = src/parsing/ast
+ENV_DIR = src/parsing/environment
+MINI_ENV_SRC = $(ENV_DIR)/environment.c
 MINI_AST_SRC = $(AST_DIR)/parse.c
 MINI_TOKENISATION_SRC = $(TOK_DIR)/tokens.c $(TOK_DIR)/single_token_utils.c $(TOK_DIR)/token_list_utils.c $(TOK_DIR)/tokens_handlers.c $(TOK_DIR)/tokens_handler_01.c 
-MINI_SRC = $(MINI_TOKENISATION_SRC) $(MINI_AST_SRC)
+MINI_SRC = $(MINI_TOKENISATION_SRC) $(MINI_AST_SRC) $(MINI_ENV_SRC)
 MAIN_SRC = src/main.c $(MINI_SRC)
 MAIN_OBJ = $(MAIN_SRC:.c=.o)
 

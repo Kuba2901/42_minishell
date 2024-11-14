@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 19:35:32 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/03 18:28:20 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/14 16:11:12 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,17 @@ static void	ft_free_resources(t_token_list *list)
 	free_token_list(list);
 }
 
-int	main(void)
+int	main(int ac, const char **av, const char **envp)
 {
 	char			*line;
 	t_token_list	*tokens_list;
 
+	if (ac != 1)
+		return (-1);
+	printf("program name: %s\n", av[0]);
+	t_env_list	*list = create_env_list(envp);
+	print_env_list(list);
+	free_env_list(list);
 	while (true)
 	{
 		line = readline(PROMPT);
