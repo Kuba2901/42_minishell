@@ -21,5 +21,6 @@ typedef struct s_env_list
 t_env_list	*create_env_list(const char **envp);
 void		free_env_list(t_env_list *list);
 void		print_env_list(t_env_list *list);
+void		insert_env_node(const char *entry, t_env_list *list);
 
 #endif

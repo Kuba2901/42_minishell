@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 14:54:45 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/14 17:19:17 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/14 17:44:04 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,44 @@ t_env_node	*init_node(const char *key, const char *value)
 	return (ret);
 }
 
+// POTENTIAL-BUG: Verify whether getting rid of all double quotes is safe
+static char	*trim_double_quotes(const char *str)
+{
+	char	*new_str;
+	size_t	i, j;
+
+	if (!str)
+		return (NULL);
+	new_str = malloc(ft_strlen(str) + 1);
+	if (!new_str)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (str[i])
+	{
+		if (str[i] != '"')
+			new_str[j++] = str[i];
+		i++;
+	}
+	new_str[j] = '\0';
+	return (new_str);
+}
+
 t_env_node	*create_node(const char *entry)
 {
 	t_env_node	*ret;
 	char		**params;
+	char		*trimmed_entry;
 	int			i;
 
-	params = ft_split(entry, '=');
+	trimmed_entry = trim_double_quotes(entry);
+	printf("Orig: %s, trimmed: %s\n", entry, trimmed_entry);
+	params = ft_split(trimmed_entry, '=');
+	free(trimmed_entry);
 	if (!params || !params[0] || !params[1] || params[2])
 	{
-		printf("Error: failed to parse the env entry using ft_split\n");
+		printf("Error: failed to parse the env entry using ft_split (%s)\n", entry);
+		return (NULL);
 	}
 	ret = init_node(params[0], params[1]);
 	i = -1;
@@ -215,4 +243,18 @@ void	print_env_list(t_env_list *list)
 		printf("%s=\"%s\"\n", node->key, node->value);
 		node = node->next;
 	}
+}
+
+void	insert_env_node(const char *entry, t_env_list *list)
+{
+	t_env_node	*node;
+
+	node = create_node(entry);
+	if (!node)
+	{
+		printf("Error: failed to create a new env node\n");
+		return ;
+	}
+	insert_node_to_list(list, node);
+	printf("Success: the node has been successfully added to the list\n");
 }
