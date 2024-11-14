@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 14:54:45 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/14 17:44:04 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/14 18:13:28 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,11 @@ t_env_node	*create_node(const char *entry)
 	int			i;
 
 	trimmed_entry = trim_double_quotes(entry);
-	printf("Orig: %s, trimmed: %s\n", entry, trimmed_entry);
 	params = ft_split(trimmed_entry, '=');
 	free(trimmed_entry);
 	if (!params || !params[0] || !params[1] || params[2])
 	{
-		printf("Error: failed to parse the env entry using ft_split (%s)\n", entry);
+		log_warning("Warning: failed to parse the env entry using ft_split... ignoring");
 		return (NULL);
 	}
 	ret = init_node(params[0], params[1]);
@@ -109,39 +108,39 @@ static int comp_nodes(t_env_node *n1, t_env_node *n2)
 	return (ft_strncmp(n2->key, n1->key, comp_size));
 }
 
-// static void	delete_node(t_env_list *list, char *key)
-// {
-// 	t_env_node	*current;
-// 	size_t		key_len;
-// 	size_t		curr_key_len;
+void	delete_env_node(t_env_list *list, char *key)
+{
+	t_env_node	*current;
+	size_t		key_len;
+	size_t		curr_key_len;
 
-// 	if (!list || !list->head || !list->tail || !key)
-// 		return ;
-// 	current = list->head;
-// 	key_len = ft_strlen(key);
-// 	while (current)
-// 	{
-// 		curr_key_len = ft_strlen(current->key);
-// 		if (key_len == curr_key_len) // 1. Check if the keys are of the same length - if yes - compare, else - proceed to the next one 
-// 		{
-// 			if (!ft_strncmp(current->key, key, key_len)) // 2. Compare the keys - if they have the same value, free the variables and relink the nodes around
-// 			{
-// 				if (current->prev)
-// 					current->prev->next = current->next;
-// 				if (current->next)
-// 					current->next->prev = current->prev;
-// 				free(current->key);
-// 				free(current->value);
-// 				free(current);
-// 				current = NULL;
-// 				printf("Success: node deleted\n");
-// 				return ;
-// 			}
-// 		}
-// 		current = current->next;
-// 	}
-// 	printf("Error: node for the key %s was not found\n", key);
-// }
+	if (!list || !list->head || !list->tail || !key)
+		return ;
+	current = list->head;
+	key_len = ft_strlen(key);
+	while (current)
+	{
+		curr_key_len = ft_strlen(current->key);
+		if (key_len == curr_key_len) // 1. Check if the keys are of the same length - if yes - compare, else - proceed to the next one 
+		{
+			if (!ft_strncmp(current->key, key, key_len)) // 2. Compare the keys - if they have the same value, free the variables and relink the nodes around
+			{
+				if (current->prev)
+					current->prev->next = current->next;
+				if (current->next)
+					current->next->prev = current->prev;
+				free(current->key);
+				free(current->value);
+				free(current);
+				current = NULL;
+				printf("\033[32mSuccess: node deleted.\033[0m\n");
+				return ;
+			}
+		}
+		current = current->next;
+	}
+	log_error("Error: (delete) node for the key was not found.");
+}
 
 static void	insert_node_to_list(t_env_list *list, t_env_node *node)
 {
@@ -196,7 +195,7 @@ void	free_env_list(t_env_list *list)
 
 	if (!list || !list->head)
 	{
-		printf("Error: list is null or list->head is null\n");
+		log_error("Error: list is null or list->head is null\n");
 		return ;
 	}
 	current = list->head;
@@ -219,7 +218,7 @@ t_env_list	*create_env_list(const char **envp)
 	env_list = init_list();
 	if (!env_list)
 	{
-		printf("Error: failed to initialise the env list\n");
+		log_error("Error: failed to initialise the env list\n");
 		return (NULL);
 	}
 	i = -1;
@@ -234,7 +233,7 @@ void	print_env_list(t_env_list *list)
 	
 	if (!list || !list->head)
 	{
-		printf("Error: env list is NULL or env list->head is NULL\n");
+		log_error("Error: env list is NULL or env list->head is NULL\n");
 	}
 	node = list->head;
 	printf("---- PRINTING ENV NODES ----\n");
@@ -252,9 +251,9 @@ void	insert_env_node(const char *entry, t_env_list *list)
 	node = create_node(entry);
 	if (!node)
 	{
-		printf("Error: failed to create a new env node\n");
+		log_error("Error: failed to create a new env node\n");
 		return ;
 	}
 	insert_node_to_list(list, node);
-	printf("Success: the node has been successfully added to the list\n");
+	log_success("Success: the node has been successfully added to the list\n");
 }
