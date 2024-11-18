@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 19:35:32 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/14 17:53:31 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/18 18:18:35 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,6 @@ int	main(int ac, const char **av, const char **envp)
 	if (ac != 1)
 		return (-1);
 	printf("program name: %s\n", av[0]);
-	t_env_list	*list = create_env_list(envp);
-	insert_env_node("HOMEBREW_TEST=\"test_node\"", list);
-	print_env_list(list);
-	insert_env_node("HOMEBREW_TEST=\"changed_test_node\"", list);
-	print_env_list(list);
-	delete_env_node(list, "HOMEBREW_TEST");
-	print_env_list(list);
-	delete_env_node(list, "NON_EXISTENT");
-	print_env_list(list);
-	free_env_list(list);
 	while (true)
 	{
 		line = readline(PROMPT);

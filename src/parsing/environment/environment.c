@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 14:54:45 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/14 18:23:27 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/18 18:21:52 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,51 +45,7 @@ t_env_node	*init_node(const char *key, const char *value)
 }
 
 // POTENTIAL-BUG: Verify whether getting rid of all double quotes is safe
-static char	*trim_double_quotes(const char *str)
-{
-	char	*new_str;
-	size_t	i, j;
 
-	if (!str)
-		return (NULL);
-	new_str = malloc(ft_strlen(str) + 1);
-	if (!new_str)
-		return (NULL);
-	i = 0;
-	j = 0;
-	while (str[i])
-	{
-		if (str[i] != '"')
-			new_str[j++] = str[i];
-		i++;
-	}
-	new_str[j] = '\0';
-	return (new_str);
-}
-
-t_env_node	*create_node(const char *entry)
-{
-	t_env_node	*ret;
-	char		**params;
-	char		*trimmed_entry;
-	int			i;
-
-	trimmed_entry = trim_double_quotes(entry);
-	params = ft_split(trimmed_entry, '=');
-	free(trimmed_entry);
-	if (!params || !params[0] || !params[1] || params[2])
-	{
-		log_warning("Warning: failed to parse the env entry using ft_split... ignoring");
-		return (NULL);
-	}
-	ret = init_node(params[0], params[1]);
-	i = -1;
-	while (params[++i])
-		free(params[i]);
-	free(params);
-	params = NULL;
-	return (ret);
-}
 
 static int comp_nodes(t_env_node *n1, t_env_node *n2)
 {
@@ -227,22 +183,7 @@ t_env_list	*create_env_list(const char **envp)
 	return (env_list);
 }
 
-void	print_env_list(t_env_list *list)
-{
-	t_env_node	*node;
-	
-	if (!list || !list->head)
-	{
-		log_error("Error: env list is NULL or env list->head is NULL\n");
-	}
-	node = list->head;
-	printf("---- PRINTING ENV NODES ----\n");
-	while (node)
-	{
-		printf("%s=\"%s\"\n", node->key, node->value);
-		node = node->next;
-	}
-}
+
 
 void	insert_env_node(const char *entry, t_env_list *list)
 {
