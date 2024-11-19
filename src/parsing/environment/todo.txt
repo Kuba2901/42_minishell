@@ -1,2 +1,0 @@
-1. Fix norminette issues with the enviroment.c file
-2. Test the functionalities of the environment.c file (add node, delete node, update node, read node)
