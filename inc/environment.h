@@ -29,7 +29,7 @@ t_env_node	*env_list_read_node(t_env_list *list, char *key);
 void		env_list_delete_node(t_env_list *list, char *key);
 t_env_node	*env_node_initialize(const char *entry);
 char		*env_node_read(t_env_node *node);
-void		env_node_update(t_env_node *node, char *value);
+void		env_node_update(t_env_node *node, t_env_node *redundant);
 void		env_list_print(t_env_list *list);
 char		*env_node_trim_double_quotes(const char *str);
 t_env_list	*env_list_init_populated(const char **envp);

@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 18:21:03 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/19 19:45:56 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/19 20:17:00 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 char	*env_node_trim_double_quotes(const char *str)
 {
 	char	*new_str;
-	size_t	i, j;
+	size_t	i;
+	size_t	j;
 
 	if (!str)
 		return (NULL);
@@ -51,11 +52,10 @@ int	env_node_comp(t_env_node *n1, char *key)
 	return (ft_strncmp(key, n1->key, comp_size));
 }
 
-
 void	env_list_print(t_env_list *list)
 {
 	t_env_node	*node;
-	
+
 	if (!list || !list->head)
 	{
 		log_error("Error: env list is NULL or env list->head is NULL\n");

@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 19:35:32 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/19 19:54:16 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/19 20:20:40 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	main(int ac, const char **av, const char **envp)
 	t_env_list	*list = env_list_init_populated(envp);
 	env_list_print(list);
 	env_list_insert(list, NULL);
+	env_list_insert(list, "HELLO_ARG=hello world");
 	env_list_print(list);
 	env_list_delete(list);
 	while (true)
