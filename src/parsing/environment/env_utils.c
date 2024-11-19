@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 18:21:03 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/18 18:24:50 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/19 19:45:56 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,24 @@ char	*env_node_trim_double_quotes(const char *str)
 	new_str[j] = '\0';
 	return (new_str);
 }
+
+int	env_node_comp(t_env_node *n1, char *key)
+{
+	size_t	comp_size;
+	size_t	n1_key_len;
+	size_t	n2_key_len;
+
+	if (!n1 || !n1->key || !key)
+		return (-1);
+	n1_key_len = ft_strlen(n1->key);
+	n2_key_len = ft_strlen(key);
+	if (n1_key_len > n2_key_len)
+		comp_size = n1_key_len;
+	else
+		comp_size = n2_key_len;
+	return (ft_strncmp(key, n1->key, comp_size));
+}
+
 
 void	env_list_print(t_env_list *list)
 {

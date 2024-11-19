@@ -30,8 +30,12 @@ void		env_list_delete_node(t_env_list *list, char *key);
 t_env_node	*env_node_initialize(const char *entry);
 char		*env_node_read(t_env_node *node);
 void		env_node_update(t_env_node *node, char *value);
-static void	env_node_delete(t_env_node	*node);
 void		env_list_print(t_env_list *list);
 char		*env_node_trim_double_quotes(const char *str);
+t_env_list	*env_list_init_populated(const char **envp);
+void		env_list_delete(t_env_list *list);
+void		env_node_delete(t_env_node	*node);
+int			env_node_comp(t_env_node *n1, char *key);
+void		env_list_insert(t_env_list *list, const char *entry);
 
 #endif

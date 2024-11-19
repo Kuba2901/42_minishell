@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 18:15:19 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/18 18:23:34 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/19 20:14:13 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static t_env_node	*_env_node_initialize(char *key, char *value)
 	ret = malloc(sizeof(t_env_node));
 	if (!ret)
 	{
-		log_error("[ENV_CREATE_NODE] Failed to allocate memory for t_env_node\n");
+		log_error("[ENV_CREATE_NODE] Failed to initialize t_env_node\n");
 		return (NULL);
 	}
 	ret->key = ft_strdup(key);
@@ -36,12 +36,12 @@ t_env_node	*env_node_initialize(const char *entry)
 	char		*trimmed_entry;
 	int			i;
 
-	trimmed_entry = trim_double_quotes(entry);
+	trimmed_entry = env_node_trim_double_quotes(entry);
 	params = ft_split(trimmed_entry, '=');
 	free(trimmed_entry);
 	if (!params || !params[0] || !params[1] || params[2])
 	{
-		log_warning("Warning: failed to parse the env entry using ft_split... ignoring");
+		log_warning("Warning: failed to ft_split... ignoring");
 		return (NULL);
 	}
 	ret = _env_node_initialize(params[0], params[1]);
@@ -63,20 +63,21 @@ char	*env_node_read(t_env_node *node)
 	return (node->value);
 }
 
-void	env_node_update(t_env_node *node, char *value)
+void	env_node_update(t_env_node *node, t_env_node *redundant)
 {
 	if (!node)
 		return ;
-	if (!value)
+	if (!redundant || !redundant->value)
 		return ;
 	if (node->value)
 		free(node->value);
-	node->value = ft_strdup(value);
+	node->value = ft_strdup(redundant->key);
 	if (!node->value)
 		log_error("[_ENV_UPDATE_NODE] Failed to update node value");
+	env_node_delete(redundant);
 }
 
-static void	env_node_delete(t_env_node	*node)
+void	env_node_delete(t_env_node	*node)
 {
 	if (!node)
 		return ;
