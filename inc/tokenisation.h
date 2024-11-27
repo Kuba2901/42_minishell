@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 19:43:03 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/03 17:02:09 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/22 17:37:19 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_token
 {
 	t_token_type	type;
 	char			*value;
+	char			**args;
 }	t_token;
 
 typedef struct s_token_node

@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 19:39:56 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/03 18:05:45 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/22 17:44:16 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ void	free_token_list(t_token_list *list)
 	while (current)
 	{
 		next = current->next;
-		if (current->token->value != NULL)
-			free(current->token->value);
 		free_token(current->token);
 		free(current);
 		current = next;
@@ -58,6 +56,7 @@ void	free_token_list(t_token_list *list)
 void	print_token_list(t_token_list *list)
 {
 	t_token_node	*current;
+	size_t			i;
 
 	if (list == NULL)
 		return ;
@@ -66,7 +65,15 @@ void	print_token_list(t_token_list *list)
 	{
 		printf("Token: [%s]", get_token_description(current->token->type));
 		if (current->token->value != NULL)
+		{
 			printf(" (%s)\n", current->token->value);
+			if (current->token->args != NULL)
+			{
+				i = -1;
+				while (current->token->args[++i])
+					printf("	- ARG: %s\n", current->token->args[i]);
+			}
+		}
 		else
 			printf("\n");
 		current = current->next;

@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 19:36:11 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/03 18:02:02 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/22 17:37:34 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ t_token	*create_token(t_token_type type, char *value)
 		token->value = ft_strdup(value);
 	else
 		token->value = NULL;
+	token->args = NULL;
 	return (token);
 }
 /**

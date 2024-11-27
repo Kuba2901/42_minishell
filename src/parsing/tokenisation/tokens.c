@@ -6,11 +6,60 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 19:32:21 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/03 18:28:05 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/11/22 17:48:46 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <tokenisation.h>
+
+static void	tok_assign_args(t_token_node *src)
+{
+	size_t			i;
+	t_token_node	*temp;
+	t_token_node	*next;
+
+	i = 0;
+	temp = src->next;
+	while (temp != NULL)
+	{
+		if (src->token->type == temp->token->type \
+			&& src->token->type == TOKEN_WORD)
+		{
+			i++;
+			temp = temp->next;
+		}
+		else
+			break ;
+	}
+	if (!i)
+		return ;
+	printf("Found: %lu arguments for function: %s\n", i, src->token->value);
+	src->token->args = malloc(sizeof(char *) * (i + 1));
+	if (!src->token->args)
+		return ;
+	i = 0;
+	temp = src->next;
+	while (temp != NULL)
+	{
+		if (src->token->type == temp->token->type \
+			&& src->token->type == TOKEN_WORD)
+		{
+			src->token->args[i] = ft_strdup(temp->token->value);
+			next = temp->next;
+			free_token(temp->token);
+			free(temp);
+			i++;
+			temp = next;
+		}
+		else
+			break ;
+	}
+	src->token->args[i] = NULL;
+	i = -1;
+	while (src->token->args[++i])
+		printf("ARG: %s\n", src->token->args[i]);
+	src->next = temp;
+}
 
 /**
  * @brief Joins consecutive word tokens in the given token list.
@@ -25,32 +74,13 @@
 static void	ft_join_tokens(t_token_list *src)
 {
 	t_token_node	*node1;
-	t_token_node	*node2;
-	t_token_node	*temp;
 
 	if (src == NULL || src->head == NULL)
 		return ;
 	node1 = src->head;
 	while (node1 != NULL)
 	{
-		node2 = node1->next;
-		while (node2 != NULL)
-		{
-			if (node1->token->type == node2->token->type \
-				&& node1->token->type == TOKEN_WORD)
-			{
-				node1->token->value = ft_join_reassign(
-						node1->token->value, ft_strdup(" "));
-				node1->token->value = ft_join_reassign(
-						node1->token->value, node2->token->value);
-				temp = node2->next;
-				node1->next = temp;
-				free(node2);
-				node2 = temp;
-			}
-			else
-				break ;
-		}
+		tok_assign_args(node1);
 		node1 = node1->next;
 	}
 }

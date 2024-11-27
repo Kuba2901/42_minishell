@@ -1,0 +1,26 @@
+{
+    "name": "Debian Dev Container",
+    "build": {
+      "dockerfile": "Dockerfile",
+      "context": "."
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash"
+            },
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-vscode.makefile-tools",
+                "ms-vscode.cpptools-extension-pack"
+            ]
+        }
+    },
+    "mounts": [
+      "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+    ],
+    "postCreateCommand": "make --version",
+    "workspaceFolder": "/workspace",
+    "remoteUser": "root"
+  }
+  

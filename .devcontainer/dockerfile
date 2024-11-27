@@ -1,0 +1,25 @@
+# Use the official Debian slim image for a smaller footprint
+FROM debian:bullseye-slim
+
+# Set environment variables for non-interactive installations
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install required packages: libreadline-dev, valgrind, and build tools
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    libreadline-dev \
+    valgrind \
+    make \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy project files into the container
+COPY . .
+
+RUN echo 'alias mk="cd /workspace && make run" >> ~/.bashrc'
+RUN echo 'alias val="cd /workspace/output && valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./minishell" >> ~/.bashrc'
+
+# Specify the default command (can be overridden)
+CMD ["make"]
