@@ -1,0 +1,11 @@
+{
+	"files.associations": {
+		"*.html": "html",
+		"minishell.h": "c",
+		"parsing.h": "c",
+		"utils.h": "c",
+		"environment.h": "c",
+		"ast.h": "c",
+		"*.bak": "cpp"
+	}
+}
