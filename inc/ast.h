@@ -18,13 +18,19 @@ typedef enum s_ast_node_type
 typedef struct s_ast_node
 {
 	t_ast_node_type		type;
-	char				*value;
+	t_token_node		*token_node;
 	struct s_ast_node	*left;
 	struct s_ast_node	*right;
 }	t_ast_node;
 
-t_ast_node	*primary_parse(t_token_list *tokens);
-void		print_ast(t_ast_node *node);
-void		free_ast(t_ast_node *node);
+
+// t_ast_node	*parse_redirect_out(t_token_list *tokens);
+// t_ast_node	*parse_redirect_in(t_token_list *tokens);
+// t_ast_node	*parse_append(t_token_list *tokens);
+// t_ast_node	*parse_heredoc(t_token_list *tokens);
+t_ast_node		*parse_command(t_token_list *tokens);
+void			print_ast(t_ast_node *node);
+void			free_ast(t_ast_node *node);
+t_ast_node		*parse_pipe(t_token_list *tokens);
 
 #endif

@@ -48,6 +48,19 @@ int	main(
 			if (ft_strncmp(line, "exit", 4) == 0)
 				break ;
 			tokens_list = ft_tokenize(line);
+			t_token_node *current = tokens_list->head;
+			while (current)
+			{
+				printf("TOKEN: %s\n", current->token->value);
+				current = current->next;
+			}
+			printf("REV:\n");
+			current = tokens_list->tail;
+			while (current)
+			{
+				printf("TOKEN: %s\n", current->token->value);
+				current = current->prev;
+			}
 			// printf("TOKENS:\n");
 			// print_token_list(tokens_list);
 			// t_ast_node *ast = primary_parse(tokens_list);

@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 19:39:56 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/22 17:44:16 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/12/10 20:31:15 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,10 @@ void	add_token(t_token_list *list, t_token *token)
 	node = malloc(sizeof(t_token_node));
 	node->token = token;
 	node->next = NULL;
+	node->prev = NULL;
 	if (list->tail)
 	{
+		node->prev = list->tail;
 		list->tail->next = node;
 		list->tail = node;
 	}
@@ -103,4 +105,40 @@ void	add_token(t_token_list *list, t_token *token)
 		list->head = node;
 		list->tail = node;
 	}
+}
+
+size_t	token_list_size(t_token_list *list)
+{
+	t_token_node	*current;
+	size_t			size;
+
+	if (list == NULL)
+		return (0);
+	current = list->head;
+	size = 0;
+	while (current != NULL)
+	{
+		size++;
+		current = current->next;
+	}
+	return (size);
+}
+
+t_token_node	*get_token_at_index(t_token_list *list, int index)
+{
+	t_token_node	*current;
+	int				i;
+
+	if (list == NULL)
+		return (NULL);
+	current = list->head;
+	i = 0;
+	while (current != NULL)
+	{
+		if (i == index)
+			return (current);
+		i++;
+		current = current->next;
+	}
+	return (NULL);
 }

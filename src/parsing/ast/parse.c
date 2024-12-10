@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/02 20:25:41 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/22 17:06:58 by jnenczak         ###   ########.fr       */
+/*   Created: 2024/11/27 19:36:05 by jnenczak          #+#    #+#             */
+/*   Updated: 2024/12/10 20:21:23 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ast.h>
+#include <parsing.h>
 /**
  * @brief Creates a new AST node.
  *
@@ -21,9 +21,27 @@
  * @param type The type of the AST node.
  * @param value The value associated with the AST node.
  * @return A pointer to the newly created `t_ast_node` structure, or `NULL` if memory allocation fails.
- */
+*/
 
-t_ast_node	*create_ast_node(t_ast_node_type type, char *value)
+/* PARSING ALGORITHM
+1. Go right until an and is found (outside any parenthesis)
+	> If an '&&' is found, parse everything to the left, looking for a '||'
+	> If no '&&' is found, proceed
+2. Go right until an '||' is found (outside any parenthesis)
+	> If an '||' is found, parse everything to the left, looking for a '|'
+	> If no '||' is found, proceed
+3. Go right until a '|' is found
+	> If a '|' is found, parse everything to the left, looking for a redirect
+	> If no '|' is found, proceed
+4. Go right until a redirect is found (outside any parenthesis)
+	> If a redirect is found, parse everything to the left, looking for a command
+	> If no redirect is found, proceed
+5. Parse the command
+	> If a command is found, create a command node
+	> If no command is found, return an error
+*/
+
+t_ast_node	*create_ast_node(t_ast_node_type type, t_token_node *token_node)
 {
 	t_ast_node	*node;
 
@@ -31,22 +49,25 @@ t_ast_node	*create_ast_node(t_ast_node_type type, char *value)
 	if (!node)
 		return (NULL);
 	node->type = type;
-	if (value != NULL)
-		node->value = ft_strdup(value);
+	if (token_node != NULL)
+		node->token_node = token_node;
 	else
-		node->value = NULL;
+		node->token_node = NULL;
 	node->left = NULL;
 	node->right = NULL;
 	return (node);
 }
 
-/**
- * Parses a command from a token list.
- *
- * @param tokens The token list to parse.
- * @return The parsed command as an abstract syntax tree (AST) node.
- *         Returns NULL if the token list is empty or the first token is not of type TOKEN_WORD.
- */
+
+// t_ast_node	*build_ast(t_token_list *list)
+// {
+// 	t_ast_node	*node;
+
+// 	if (!list->head)
+// 		return ;
+	
+// }
+
 t_ast_node	*parse_command(t_token_list *tokens)
 {
 	t_ast_node	*node;
@@ -55,70 +76,24 @@ t_ast_node	*parse_command(t_token_list *tokens)
 		return (NULL);
 	if (tokens->head->token->type == TOKEN_WORD)
 	{
-		node = create_ast_node(AST_COMMAND, tokens->head->token->value);
+		node = create_ast_node(AST_COMMAND, tokens->head);
 		tokens->head = tokens->head->next;
 		return (node);
 	}
 	return (NULL);
 }
 
-/**
- * Parses the tokens and constructs an abstract syntax tree (AST) for redirecting output with append or overwrite.
- *
- * @param tokens The token list to parse.
- * @return The root node of the constructed AST.
-*/
-t_ast_node	*parse_redirect_out_append(t_token_list *tokens)
-{
-	t_ast_node		*left;
-	t_ast_node		*right;
-	t_ast_node		*node;
-	t_ast_node_type	type;
-
-	left = parse_command(tokens);
-	while (tokens->head \
-		&& (tokens->head->token->type == TOKEN_APPEND \
-		|| tokens->head->token->type == TOKEN_REDIRECT_OUT))
-	{
-		if (tokens->head->token->type == TOKEN_APPEND)
-			type = AST_APPEND;
-		else
-			type = AST_REDIRECT_OUT;
-		tokens->head = tokens->head->next;
-		right = parse_command(tokens); // TODO: To be verified (might be primary_parse)
-		node = create_ast_node(type, NULL);
-		node->left = left;
-		node->right = right;
-		left = node;
-	}
-	return (left);
-}
-
-/**
- * @brief Parses the pipe operator in the abstract syntax tree (AST).
- *
- * This function takes a token list as input and parses the pipe operator
- * in the AST. It iterates through the token list and creates AST nodes for
- * each pipe operator encountered. The left and right operands of the pipe
- * operator are obtained by calling the respective parsing functions. The
- * AST node for the pipe operator is then created and linked to the left and
- * right operands. The function returns the root node of the resulting AST.
- *
- * @param tokens The token list to parse.
- *
- * @return The root node of the resulting AST.
- */
 t_ast_node	*parse_pipe(t_token_list *tokens)
 {
 	t_ast_node	*left;
 	t_ast_node	*right;
 	t_ast_node	*pipe_node;
 
-	left = parse_redirect_out_append(tokens);
+	left = parse_command(tokens);
 	while (tokens->head && tokens->head->token->type == TOKEN_PIPE)
 	{
 		tokens->head = tokens->head->next;
-		right = primary_parse(tokens);
+		right = parse_command(tokens);
 		pipe_node = create_ast_node(AST_PIPE, NULL);
 		pipe_node->left = left;
 		pipe_node->right = right;
@@ -127,82 +102,59 @@ t_ast_node	*parse_pipe(t_token_list *tokens)
 	return (left);
 }
 
-/**
- * @brief Parses the logical operators in the abstract syntax tree (AST).
- *
- * This function takes a token list as input and parses the logical operators
- * (AND and OR) in the AST. It iterates through the token list and creates AST
- * nodes for each logical operator encountered. The left and right operands of
- * the logical operator are obtained by calling the respective parsing functions.
- * The AST node for the logical operator is then created and linked to the left
- * and right operands. The function returns the root node of the resulting AST.
- *
- * @param tokens The token list to parse.
- * @return The root node of the resulting AST.
- */
-t_ast_node	*parse_logical(t_token_list *tokens)
-{
-	t_ast_node		*left;
-	t_ast_node		*right;
-	t_ast_node		*op_node;
-	t_token_type	type;
+// t_ast_node	*parse_pipe(t_token_list *list)
+// {
+// 	t_ast_node	*node;
 
-	left = parse_pipe(tokens);
-	while (tokens->head != NULL \
-		&& ((tokens->head->token->type == TOKEN_AND) \
-			|| (tokens->head->token->type == TOKEN_OR)))
-	{
-		type = tokens->head->token->type;
-		tokens->head = tokens->head->next;
-		right = primary_parse(tokens);
-		// TODO: Fix for this input `echo test && ls | grep ".txt" || cat /etc/passwd` the OR should be higher than the AND in the AST
-		if (type == TOKEN_AND)
-			op_node = create_ast_node(AST_AND, NULL);
-		else
-			op_node = create_ast_node(AST_OR, NULL);
-		op_node->left = left;
-		op_node->right = right;
-		left = op_node;
-	}
-	return (left);
-}
+// 	if (!list || !list->head)
+// 		return (NULL);
+// 	if (list->head->token->type == TOKEN_PIPE)
+// 	{
+// 		node->left = parse_command(list);
+// 	}
+// }
 
-/**
- * @brief Parses the primary expression in the abstract syntax tree (AST).
- *
- * This function takes a token list as input and parses the primary expression
- * in the AST. If the token list is empty, it returns NULL. If the first token
- * in the list is a left parenthesis, it advances the token list and calls the
- * parse_logical function recursively. After parsing the logical expression, it
- * checks if the next token is a right parenthesis. If it is not, it prints an
- * error message and returns NULL. If the next token is a right parenthesis, it
- * advances the token list and returns the parsed logical expression. If the
- * first token is not a left parenthesis, it calls the parse_logical function
- * directly.
- *
- * @param tokens The token list to be parsed.
- * @return A pointer to the parsed AST node.
- */
-t_ast_node *primary_parse(t_token_list *tokens)
-{
-	t_ast_node	*node;
 
-	if (tokens->head == NULL)
-		return (NULL);
-	if (tokens->head->token->type == TOKEN_LPAREN)
-	{
-		tokens->head = tokens->head->next;
-		node = parse_logical(tokens);
-		if (tokens->head == NULL || tokens->head->token->type != TOKEN_RPAREN)
-		{
-			printf("Error: Expected ')'\n");
-			return (NULL);
-		}
-		tokens->head = tokens->head->next;
-		return (node);
-	}
-	return (parse_logical(tokens));
-}
+// t_ast_node	*parse_pipe(t_token_list *tokens)
+// {
+// 	t_ast_node	*left;
+// 	t_ast_node	*right;
+// 	t_ast_node	*pipe_node;
+
+// 	left = parse_redirect_out_append(tokens);
+// 	while (tokens->head && tokens->head->token->type == TOKEN_PIPE)
+// 	{	
+// 		tokens->head = tokens->head->next;
+// 		right = primary_parse(tokens);
+// 		pipe_node = create_ast_node(AST_PIPE, NULL);
+// 		pipe_node->left = left;
+// 		pipe_node->right = right;
+// 		left = pipe_node;
+// 	}
+// 	return (left);
+// }
+
+// t_ast_node	*parse_and(t_token_list *list)
+// {
+// 	t_bool		is_in_paren;
+// 	t_ast_node	*left;
+// 	t_ast_node	*right;
+
+// 	left = parse_or(list);
+// 	is_in_paren = false;
+// 	while (list->head && list->head != )
+// }
+
+// t_ast_node	*parse_or(t_token_list *list)
+// {
+// 	t_bool		is_in_paren;
+// 	t_ast_node	*left;
+// 	t_ast_node	*right;
+	
+// 	left = parse_pipe(list);
+// }
+
+
 
 static void print_ast_indent(t_ast_node *node, int indent)
 {
@@ -216,7 +168,7 @@ static void print_ast_indent(t_ast_node *node, int indent)
 	// Print the node based on its type
 	if (node->type == AST_COMMAND)
 	{
-		printf("%s\n", node->value);
+		printf("%s\n", node->token_node->token->value);
 	}
 	else if (node->type == AST_PIPE)
 	{
@@ -305,9 +257,12 @@ void print_ast(t_ast_node *node)
 void	free_ast(t_ast_node *node)
 {
 	if (node == NULL)
-		return ;
-	if (node->value)
-		free(node->value);
+		return;
+	if (node->token_node)
+	{
+		free_token(node->token_node->token);
+		free(node->token_node);
+	}
 	free_ast(node->left);
 	free_ast(node->right);
 	free(node);
