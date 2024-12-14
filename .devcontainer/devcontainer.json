@@ -19,6 +19,11 @@
     "mounts": [
       "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
     ],
+    "runArgs": [
+      "--cap-add=SYS_PTRACE",  // Required for debugging with GDB
+      "--security-opt=seccomp=unconfined" // Disable security restrictions for ptrace
+    ],
+  
     "postCreateCommand": "make --version",
     "workspaceFolder": "/workspace",
     "remoteUser": "root"

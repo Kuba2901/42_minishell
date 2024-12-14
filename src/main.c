@@ -48,13 +48,15 @@ int	main(
 			if (ft_strncmp(line, "exit", 4) == 0)
 				break ;
 			tokens_list = ft_tokenize(line);
-			// printf("TOKENS:\n");
-			// print_token_list(tokens_list);
-			// t_ast_node *ast = primary_parse(tokens_list);
-			// printf("AST:\n");
-			// print_ast(ast);
-			// free_ast(ast);
+			t_ast_node	*node = primary_parse(tokens_list);
+			if (node)
+			{
+				print_ast(node);
+				free_ast(node);
+			}
+			node = NULL;
 			free_token_list(tokens_list);
+			tokens_list = NULL;
 		}
 		free(line);
 	}

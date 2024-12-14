@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 19:43:03 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/22 17:37:19 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/12/10 20:29:36 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_token_node
 {
 	t_token				*token;
 	struct s_token_node	*next;
+	struct s_token_node	*prev;
 }	t_token_node;
 
 typedef struct s_token_list
@@ -68,5 +69,7 @@ void			handle_quoted(const char **current, t_token_list *list, char type);
 void			handle_word(const char **current, t_token_list *list);
 void			handle_logical(const char **current, t_token_list *list);
 const char		*get_token_description(t_token_type type);
+size_t			token_list_size(t_token_list *list);
+t_token_node	*get_token_at_index(t_token_list *list, int index);
 
 #endif

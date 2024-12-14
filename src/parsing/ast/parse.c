@@ -23,7 +23,7 @@
  * @return A pointer to the newly created `t_ast_node` structure, or `NULL` if memory allocation fails.
  */
 
-t_ast_node	*create_ast_node(t_ast_node_type type, char *value)
+t_ast_node	*create_ast_node(t_ast_node_type type, t_token_node *token_node)
 {
 	t_ast_node	*node;
 
@@ -31,10 +31,7 @@ t_ast_node	*create_ast_node(t_ast_node_type type, char *value)
 	if (!node)
 		return (NULL);
 	node->type = type;
-	if (value != NULL)
-		node->value = ft_strdup(value);
-	else
-		node->value = NULL;
+	node->token_node = token_node;
 	node->left = NULL;
 	node->right = NULL;
 	return (node);
@@ -55,7 +52,7 @@ t_ast_node	*parse_command(t_token_list *tokens)
 		return (NULL);
 	if (tokens->head->token->type == TOKEN_WORD)
 	{
-		node = create_ast_node(AST_COMMAND, tokens->head->token->value);
+		node = create_ast_node(AST_COMMAND, tokens->head);
 		tokens->head = tokens->head->next;
 		return (node);
 	}
@@ -216,7 +213,7 @@ static void print_ast_indent(t_ast_node *node, int indent)
 	// Print the node based on its type
 	if (node->type == AST_COMMAND)
 	{
-		printf("%s\n", node->value);
+		printf("%s\n", node->token_node->token->value);
 	}
 	else if (node->type == AST_PIPE)
 	{
@@ -306,8 +303,6 @@ void	free_ast(t_ast_node *node)
 {
 	if (node == NULL)
 		return ;
-	if (node->value)
-		free(node->value);
 	free_ast(node->left);
 	free_ast(node->right);
 	free(node);
