@@ -24,13 +24,13 @@ typedef struct s_ast_node
 }	t_ast_node;
 
 
-// t_ast_node	*parse_redirect_out(t_token_list *tokens);
-// t_ast_node	*parse_redirect_in(t_token_list *tokens);
-// t_ast_node	*parse_append(t_token_list *tokens);
-// t_ast_node	*parse_heredoc(t_token_list *tokens);
-t_ast_node		*parse_command(t_token_list *tokens);
-void			print_ast(t_ast_node *node);
-void			free_ast(t_ast_node *node);
-t_ast_node		*parse_pipe(t_token_list *tokens);
+t_ast_node	*create_ast_node(t_ast_node_type type, t_token_node *token_node);
+t_ast_node	*parse_command(t_token_list *tokens);
+t_ast_node	*parse_redirect_out_append(t_token_list *tokens);
+t_ast_node	*parse_pipe(t_token_list *tokens);
+t_ast_node	*parse_logical(t_token_list *tokens);
+t_ast_node *primary_parse(t_token_list *tokens);
+void		print_ast(t_ast_node *node);
+void		free_ast(t_ast_node *node);
 
 #endif
