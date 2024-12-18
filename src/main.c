@@ -6,35 +6,31 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 19:35:32 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/22 17:13:18 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/12/15 17:41:40 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-static void	ft_free_resources(t_token_list *list)
+static void	ft_free_resources(t_mini *mini)
 {
-	free_token_list(list);
+	if (mini == NULL)
+		return ;
+	env_list_delete(mini->env_list);
+	free_ast(mini->head);
+	free_token_list(mini->tokens_list);
 }
 
-int	main(
-	// int ac
-	// , const char **av 
-	// , const char **envp
-	)
+int	main(int ac, const char **av, const char **envp)
 {
 	char			*line;
 	t_token_list	*tokens_list;
+	t_mini			mini;
 
-	// if (ac != 1)
-	// 	return (-1);
-	// printf("program name: %s\n", av[0]);
-	// t_env_list	*list = env_list_init_populated(envp);
-	// env_list_print(list);
-	// env_list_insert(list, NULL);
-	// env_list_insert(list, "HELLO_ARG=hello world");
-	// env_list_print(list);
-	// env_list_delete(list);
+	if (ac != 1)
+		return (-1);
+	(void)av;
+	mini.env_list = env_list_init_populated(envp);
 	while (true)
 	{
 		line = readline(PROMPT);
@@ -60,6 +56,7 @@ int	main(
 		}
 		free(line);
 	}
-	ft_free_resources(NULL);
+	printf("%s\n", find_executable("ls"));
+	ft_free_resources(&mini);
 	return (0);
 }

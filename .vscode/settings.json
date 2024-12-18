@@ -6,6 +6,7 @@
 		"utils.h": "c",
 		"environment.h": "c",
 		"ast.h": "c",
-		"*.bak": "cpp"
+		"*.bak": "cpp",
+		"execution.h": "c"
 	}
 }

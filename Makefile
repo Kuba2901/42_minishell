@@ -3,15 +3,28 @@ NAME = minishell
 OUT_DIR = output
 
 # Source and Object files
+# Tokenisation
 TOK_DIR = src/parsing/tokenisation
-AST_DIR = src/parsing/ast
-ENV_DIR = src/parsing/environment
-UTILS_DIR = src/utils
-MINI_ENV_SRC = $(ENV_DIR)/env_node.c $(ENV_DIR)/env_list.c $(ENV_DIR)/env_list_1.c $(ENV_DIR)/env_utils.c
-MINI_UTILS_SRC = $(UTILS_DIR)/utils.c
-MINI_AST_SRC = $(AST_DIR)/parse.c
 MINI_TOKENISATION_SRC = $(TOK_DIR)/tokens.c $(TOK_DIR)/single_token_utils.c $(TOK_DIR)/token_list_utils.c $(TOK_DIR)/tokens_handlers.c $(TOK_DIR)/tokens_handler_01.c 
-MINI_SRC = $(MINI_TOKENISATION_SRC) $(MINI_AST_SRC) $(MINI_ENV_SRC) $(MINI_UTILS_SRC)
+
+# AST
+AST_DIR = src/parsing/ast
+MINI_AST_SRC = $(AST_DIR)/parse.c
+
+# Environment
+ENV_DIR = src/parsing/environment
+MINI_ENV_SRC = $(ENV_DIR)/env_node.c $(ENV_DIR)/env_list.c $(ENV_DIR)/env_list_1.c $(ENV_DIR)/env_utils.c
+
+# Utils
+UTILS_DIR = src/utils
+MINI_UTILS_SRC = $(UTILS_DIR)/utils.c
+
+# Execution
+EXEC_DIR = src/execution
+MINI_EXEC_SRC = $(EXEC_DIR)/execution.c
+
+# Combined
+MINI_SRC = $(MINI_TOKENISATION_SRC) $(MINI_AST_SRC) $(MINI_ENV_SRC) $(MINI_UTILS_SRC) $(MINI_EXEC_SRC)
 MAIN_SRC = src/main.c $(MINI_SRC)
 MAIN_OBJ = $(MAIN_SRC:.c=.o)
 
