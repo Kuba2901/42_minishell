@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   execution.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/01 20:07:21 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/12/15 17:34:07 by jnenczak         ###   ########.fr       */
+/*   Created: 2024/12/15 17:12:42 by jnenczak          #+#    #+#             */
+/*   Updated: 2024/12/15 17:42:51 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#ifndef EXECUTION_H
+# define EXECUTION_H
 
-# include <parsing.h>
-# include <utils.h>
-# include <execution.h>
-# define DOUBLE_SPECIAL_CHARSET "|&<>"
-# define SINGLE_SPECIAL_CHARSET "="
-# define PROMPT "minishell > "
+# include <stdlib.h>
+# include <unistd.h>
+# include <libft.h>
+# include <environment.h>
 
-typedef struct  s_mini
-{
-	t_env_list		*env_list;
-	t_token_list	*tokens_list;
-	t_ast_node		*head;
-}               t_mini;
+char	*find_executable(const char *command, t_env_list *env_list);
 
 #endif
+
