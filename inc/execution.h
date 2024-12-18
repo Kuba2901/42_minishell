@@ -18,7 +18,7 @@
 # include <libft.h>
 # include <environment.h>
 
-char	*find_executable(const char *command);
+char	*find_executable(const char *command, t_env_list *env_list);
 
 #endif
 

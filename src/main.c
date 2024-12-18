@@ -17,8 +17,6 @@ static void	ft_free_resources(t_mini *mini)
 	if (mini == NULL)
 		return ;
 	env_list_delete(mini->env_list);
-	free_ast(mini->head);
-	free_token_list(mini->tokens_list);
 }
 
 int	main(int ac, const char **av, const char **envp)
@@ -56,7 +54,12 @@ int	main(int ac, const char **av, const char **envp)
 		}
 		free(line);
 	}
-	printf("%s\n", find_executable("ls"));
+	char *cmd_path = find_executable("ls -la", mini.env_list);
+	if (cmd_path)
+	{
+		printf("Executable found: %s\n", cmd_path);
+		free(cmd_path);
+	}
 	ft_free_resources(&mini);
 	return (0);
 }

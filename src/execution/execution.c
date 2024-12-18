@@ -12,7 +12,7 @@
 
 #include <execution.h>
 
-char	*find_executable(const char *command)
+char	*find_executable(const char *command, t_env_list *env_list)
 {
 	char	*path_env;
 	char	**dir;
@@ -27,28 +27,24 @@ char	*find_executable(const char *command)
 			return (NULL);
 	}
 
-	path_env = getenv("PATH");
+	path_env = env_value_read(env_list, "PATH");
 	if (!path_env) return (NULL);
 	dir =  ft_split(path_env, ':');
 	i = -1;
 	while (dir[++i])
 	{
 		full_path = ft_strdup(dir[i]);
-		full_path = ft_join_reassign(dir[i], "/");
-		full_path = ft_join_reassign(full_path, (char *)command);
+		full_path = ft_join_reassign(dir[i], ft_strdup("/"));
+		full_path = ft_join_reassign(full_path, ft_strdup(command));
 		if (access(full_path, X_OK) == 0) {
-			free(path_env);
-			return ft_strdup(full_path);
+			return (full_path);
 		}
 		free(full_path);
 		full_path = NULL;
 	}
-	i = -1;
-	while (dir[++i])
-		free(dir[i]);
 	free(dir);
-	free(path_env);
 	path_env = NULL;
 	dir = NULL;
-	return NULL;
+	return (NULL);
 }
+

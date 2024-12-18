@@ -87,3 +87,16 @@ void	env_list_insert(t_env_list *list, const char *entry)
 	}
 	env_list_insert_node(list, node);
 }
+
+char	*env_value_read(t_env_list *list, char *key)
+{
+	t_env_node	*node;
+
+	node = env_list_read_node(list, key);
+	if (!node)
+	{
+		log_error("[ENV_VALUE_READ] Failed to read node value");
+		return (NULL);
+	}
+	return (node->value);
+}
