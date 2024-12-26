@@ -17,8 +17,10 @@
 # include <unistd.h>
 # include <libft.h>
 # include <environment.h>
+# include <ast.h>
 
 char	*find_executable(const char *command, t_env_list *env_list);
+void	execute_command(t_ast_node *node, t_env_list *env_list);
 
 #endif
 

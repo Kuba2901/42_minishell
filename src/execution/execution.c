@@ -48,3 +48,34 @@ char	*find_executable(const char *command, t_env_list *env_list)
 	return (NULL);
 }
 
+void	execute_command(t_ast_node *node, t_env_list *env_list)
+{
+	char	*cmd_path;
+	char	**argv;
+	int		i;
+
+	if (node->type != AST_COMMAND)
+		return ;
+	cmd_path = find_executable(node->token_node->token->value, env_list);
+	if (!cmd_path)
+	{
+		printf("Command not found: %s\n", node->token_node->token->value);
+		return ;
+	}
+	size_t	args_count = 0;
+	while (node->token_node->token->args[args_count])
+		args_count++;
+	argv = malloc(sizeof(char *) * (args_count + 2));
+	argv[0] = ft_strdup(node->token_node->token->value);
+	i = -1;
+	while (node->token_node->token->args[++i])
+		argv[i + 1] = ft_strdup(node->token_node->token->args[i]);
+	argv[i + 1] = NULL;
+	execve(cmd_path, argv, NULL);
+	perror("execve");
+	free(cmd_path);
+	i = -1;
+	while (argv[++i])
+		free(argv[i]);
+	free(argv);
+}

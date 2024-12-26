@@ -46,6 +46,7 @@ int	main(int ac, const char **av, const char **envp)
 			if (node)
 			{
 				print_ast(node);
+				execute_command(node, mini.env_list);
 				free_ast(node);
 			}
 			node = NULL;
@@ -53,12 +54,6 @@ int	main(int ac, const char **av, const char **envp)
 			tokens_list = NULL;
 		}
 		free(line);
-	}
-	char *cmd_path = find_executable("ls -la", mini.env_list);
-	if (cmd_path)
-	{
-		printf("Executable found: %s\n", cmd_path);
-		free(cmd_path);
 	}
 	ft_free_resources(&mini);
 	return (0);
