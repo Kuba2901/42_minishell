@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 17:21:17 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/12/29 12:06:33 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/12/29 12:11:39 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ char	*find_executable(const char *command, t_env_list *env_list)
 	return (NULL);
 }
 
-void	execute_command_node(t_ast_node *node, t_mini *shell) {
+void	execute_command_node(t_ast_node *node, t_mini *shell)
+{
     pid_t	pid;
 	char	*cmd_path;
 	
@@ -68,19 +69,18 @@ void	execute_command_node(t_ast_node *node, t_mini *shell) {
             dup2(shell->out_fd, STDOUT_FILENO);
             close(shell->out_fd);
         }
-        // execve(cmd_path, node->token_node, shell->env);
-        perror("execve"); // Only reached if execve fails
+		execve(cmd_path, node->token_node->token->args, NULL);
+        perror("execve");
         exit(EXIT_FAILURE);
-    } else { // Parent process
-    //     // Optionally save the PID for later management
-    //     shell->pids[node->index] = pid;
-
-    //     // Wait for the child to finish, if required
-    //     if (!node->is_background) {
-    //         int status;
-    //         waitpid(pid, &status, 0);
-    //         shell->last_exit_status = WEXITSTATUS(status);
-    //     }
+    } else {
+		// Parent process
+    	// Optionally save the PID for later management
+        // shell->pids[node->index] = pid;
+		
+    	// Wait for the child to finish, if required
+		int status;
+		waitpid(pid, &status, 0);
+		shell->last_exit_status = WEXITSTATUS(status);
     }
 }
 

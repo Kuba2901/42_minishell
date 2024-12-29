@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 17:12:42 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/12/29 12:01:16 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/12/29 12:12:22 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,11 @@ typedef struct  s_mini
 	int				in_fd;
 	int				out_fd;
 	pid_t			pid;
+	int				last_exit_status;
 }               t_mini;
 
 char	*find_executable(const char *command, t_env_list *env_list);
+void	execute_command_node(t_ast_node *node, t_mini *shell);
 
 #endif
 
