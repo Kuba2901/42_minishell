@@ -18,6 +18,8 @@
 # include <libft.h>
 # include <environment.h>
 # include <ast.h>
+# include <sys/wait.h>
+
 
 typedef struct  s_mini
 {
