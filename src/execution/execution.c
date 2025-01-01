@@ -84,16 +84,8 @@ static void	_execute_simple_command(char *cmd_path)
 	exit(EXIT_FAILURE);
 }
 
-static void	_execute_child_process(char *cmd_path, t_ast_node *node, t_mini *shell)
+static void	_execute_child_process(char *cmd_path, t_ast_node *node)
 {
-	if (shell->in_fd != STDIN_FILENO) {
-		dup2(shell->in_fd, STDIN_FILENO);
-		close(shell->in_fd);
-	}
-	if (shell->out_fd != STDOUT_FILENO) {
-		dup2(shell->out_fd, STDOUT_FILENO);
-		close(shell->out_fd);
-	}
 	if (node->token_node->token->args)
 		_execute_complex_command(cmd_path, node->token_node->token->args);
 	else
@@ -116,10 +108,17 @@ void	execute_command_node(t_ast_node *node, t_mini *shell)
         exit(EXIT_FAILURE);
     }
     if (pid == 0)
-		_execute_child_process(cmd_path, node, shell);
+		_execute_child_process(cmd_path, node);
     else {
 		waitpid(pid, &status, 0);
 		shell->last_exit_status = WEXITSTATUS(status);
     }
 }
 
+void	execute_ast(t_ast_node *node, t_mini *shell)
+{
+	if (node->type == AST_COMMAND)
+		execute_command_node(node, shell);
+	else if (node->type == AST_PIPE)
+		execute_pipe(node, shell);
+}
