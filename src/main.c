@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 19:35:32 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/12/15 17:41:40 by jnenczak         ###   ########.fr       */
+/*   Updated: 2024/12/29 12:13:09 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,23 +42,18 @@ int	main(int ac, const char **av, const char **envp)
 			if (ft_strncmp(line, "exit", 4) == 0)
 				break ;
 			tokens_list = ft_tokenize(line);
-			t_ast_node	*node = primary_parse(tokens_list);
-			if (node)
+			mini.head = primary_parse(tokens_list);
+			if (mini.head)
 			{
-				print_ast(node);
-				free_ast(node);
+				print_ast(mini.head);
+				execute_command_node(mini.head, &mini);
+				free_ast(mini.head);
 			}
-			node = NULL;
+			mini.head = NULL;
 			free_token_list(tokens_list);
 			tokens_list = NULL;
 		}
 		free(line);
-	}
-	char *cmd_path = find_executable("ls -la", mini.env_list);
-	if (cmd_path)
-	{
-		printf("Executable found: %s\n", cmd_path);
-		free(cmd_path);
 	}
 	ft_free_resources(&mini);
 	return (0);
