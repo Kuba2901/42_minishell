@@ -48,19 +48,14 @@ char	*find_executable(const char *command, t_env_list *env_list)
 	return (NULL);
 }
 
-static void	_execute_command(char *cmd_path, char **args)
+static void	_execute_complex_command(char *cmd_path, char **args)
 {
 	int		i;
 	char	**cmd_args;
 
-	if (args == NULL)
-		i = 0;
-	else
-	{
-		i = -1;
-		while (args[++i])
-			;
-	}
+	i = -1;
+	while (args[++i])
+		;
 	cmd_args = malloc(sizeof(char *) * (i + 2));
 	if (!cmd_args) {
 		perror("malloc");
@@ -78,36 +73,51 @@ static void	_execute_command(char *cmd_path, char **args)
 	exit(EXIT_FAILURE);
 }
 
+static void	_execute_simple_command(char *cmd_path)
+{
+	char	*cmd_args[2];
+
+	cmd_args[0] = cmd_path;
+	cmd_args[1] = NULL;
+	execve(cmd_path, cmd_args, NULL);
+	perror("execve");
+	exit(EXIT_FAILURE);
+}
+
+static void	_execute_child_process(char *cmd_path, t_ast_node *node, t_mini *shell)
+{
+	if (shell->in_fd != STDIN_FILENO) {
+		dup2(shell->in_fd, STDIN_FILENO);
+		close(shell->in_fd);
+	}
+	if (shell->out_fd != STDOUT_FILENO) {
+		dup2(shell->out_fd, STDOUT_FILENO);
+		close(shell->out_fd);
+	}
+	if (node->token_node->token->args)
+		_execute_complex_command(cmd_path, node->token_node->token->args);
+	else
+		_execute_simple_command(cmd_path);
+	
+}
+
 void	execute_command_node(t_ast_node *node, t_mini *shell)
 {
     pid_t	pid;
 	char	*cmd_path;
+	int		status;
 	
-	cmd_path = find_executable(node->token_node->token->value, shell->env_list);
+	cmd_path = find_executable(node->token_node->token->value, 
+		shell->env_list);
 	if (!cmd_path) return;
-	printf("Found command: %s\n", cmd_path);
 	pid = fork();
     if (pid == -1) {
         perror("fork");
         exit(EXIT_FAILURE);
     }
-    if (pid == 0) {
-        if (shell->in_fd != STDIN_FILENO) {
-            dup2(shell->in_fd, STDIN_FILENO);
-            close(shell->in_fd);
-        }
-        if (shell->out_fd != STDOUT_FILENO) {
-            dup2(shell->out_fd, STDOUT_FILENO);
-            close(shell->out_fd);
-        }
-		_execute_command(cmd_path, node->token_node->token->args);
-    } else {
-		// Parent process
-    	// Optionally save the PID for later management
-        // shell->pids[node->index] = pid;
-		
-    	// Wait for the child to finish, if required
-		int status;
+    if (pid == 0)
+		_execute_child_process(cmd_path, node, shell);
+    else {
 		waitpid(pid, &status, 0);
 		shell->last_exit_status = WEXITSTATUS(status);
     }
