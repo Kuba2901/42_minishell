@@ -46,7 +46,7 @@ int	main(int ac, const char **av, const char **envp)
 			if (mini.head)
 			{
 				print_ast(mini.head);
-				execute_command_node(mini.head, &mini);
+				execute_ast(mini.head, &mini);
 				free_ast(mini.head);
 			}
 			mini.head = NULL;

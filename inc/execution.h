@@ -34,6 +34,8 @@ typedef struct  s_mini
 
 char	*find_executable(const char *command, t_env_list *env_list);
 void	execute_command_node(t_ast_node *node, t_mini *shell);
+void	execute_pipe(t_ast_node *node, t_mini *shell);
+void	execute_ast(t_ast_node *node, t_mini *shell);
 
 #endif
 
