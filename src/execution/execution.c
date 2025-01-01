@@ -117,8 +117,12 @@ void	execute_command_node(t_ast_node *node, t_mini *shell)
 
 void	execute_ast(t_ast_node *node, t_mini *shell)
 {
+	if (!node)
+		return;
+
 	if (node->type == AST_COMMAND)
 		execute_command_node(node, shell);
 	else if (node->type == AST_PIPE)
 		execute_pipe(node, shell);
+	// Add support for other types of nodes
 }

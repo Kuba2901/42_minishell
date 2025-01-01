@@ -23,7 +23,7 @@ void execute_pipe(t_ast_node *node, t_mini *shell)
         close(pipe_fd[0]);
         dup2(pipe_fd[1], STDOUT_FILENO);
         close(pipe_fd[1]);
-        execute_command_node(node->left, shell);
+		execute_ast(node->left, shell);
         _exit(shell->last_exit_status);
     }
     pid_right = fork();
@@ -37,7 +37,7 @@ void execute_pipe(t_ast_node *node, t_mini *shell)
         close(pipe_fd[1]);
         dup2(pipe_fd[0], STDIN_FILENO);
         close(pipe_fd[0]);
-        execute_command_node(node->right, shell);
+		execute_ast(node->right, shell);
         _exit(shell->last_exit_status);
     }
     close(pipe_fd[0]);
