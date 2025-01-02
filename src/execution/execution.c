@@ -124,5 +124,9 @@ void	execute_ast(t_ast_node *node, t_mini *shell)
 		execute_command_node(node, shell);
 	else if (node->type == AST_PIPE)
 		execute_pipe(node, shell);
+	else if (node->type == AST_REDIRECT_IN)
+		execute_redirect_in(node, shell);
+	// else if (node->type == AST_REDIRECT_OUT)
+	// 	execute_redirect_out(node, shell);
 	// Add support for other types of nodes
 }
