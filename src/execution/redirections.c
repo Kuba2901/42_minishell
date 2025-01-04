@@ -5,11 +5,8 @@ void	execute_redirect_in(t_ast_node *node, t_mini *shell)
 	int		fd;
 	int		status;
 	pid_t	pid;
-	char	*cmd_path;
 
-	cmd_path = find_executable(node->token_node->token->value, shell->env_list);
-	if (!cmd_path)
-		return ;
+	printf("execute_redirect_in\n");
 	pid = fork();
 	if (pid == -1) {
 		perror("fork");
