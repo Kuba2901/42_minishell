@@ -333,6 +333,30 @@ static void print_ast_indent(t_ast_node *node, int indent)
 		printf("Right:\n");
 		print_ast_indent(node->right, indent + 2);
 	}
+	else if (node->type == AST_REDIRECT_IN)
+	{
+		printf("<:\n");
+		for (int i = 0; i < indent + 1; i++)
+			printf("  ");
+		printf("Left:\n");
+		print_ast_indent(node->left, indent + 2);
+		for (int i = 0; i < indent + 1; i++)
+			printf("  ");
+		printf("Right:\n");
+		print_ast_indent(node->right, indent + 2);
+	}
+	else if (node->type == AST_HEREDOC)
+	{
+		printf("<<:\n");
+		for (int i = 0; i < indent + 1; i++)
+			printf("  ");
+		printf("Left:\n");
+		print_ast_indent(node->left, indent + 2);
+		for (int i = 0; i < indent + 1; i++)
+			printf("  ");
+		printf("Right:\n");
+		print_ast_indent(node->right, indent + 2);
+	}
 }
 
 /**
