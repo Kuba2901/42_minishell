@@ -50,7 +50,45 @@ void	execute_redirect_out(t_ast_node *node, t_mini *shell)
 		}
 		dup2(fd, STDOUT_FILENO);
 		close(fd);
-		execute_command_node(node->left, shell, false);
+		if (node->left->type == AST_COMMAND) {
+			execute_command_node(node->left, shell, false);
+		} else {
+
+			fprintf(stderr, "Error: Left node is not a command\n");
+			exit(EXIT_FAILURE);
+		}
+	}
+	else {
+		waitpid(pid, &status, 0);
+		shell->last_exit_status = WEXITSTATUS(status);
+	}
+}
+void	execute_redirect_append(t_ast_node *node, t_mini *shell)
+{
+	int		fd;
+	int		status;
+	pid_t	pid;
+
+	printf("execute_redirect_append\n");
+	pid = fork();
+	if (pid == -1) {
+		perror("fork");
+		exit(EXIT_FAILURE);
+	}
+	if (pid == 0) {
+		fd = open(node->right->token_node->token->value, O_WRONLY | O_CREAT | O_APPEND, 0644);
+		if (fd == -1) {
+			perror("open");
+			exit(EXIT_FAILURE);
+		}
+		dup2(fd, STDOUT_FILENO);
+		close(fd);
+		if (node->left->type == AST_COMMAND) {
+			execute_command_node(node->left, shell, false);
+		} else {
+			fprintf(stderr, "Error: Left node is not a command\n");
+			exit(EXIT_FAILURE);
+		}
 	}
 	else {
 		waitpid(pid, &status, 0);

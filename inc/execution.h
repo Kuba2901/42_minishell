@@ -39,6 +39,7 @@ void	execute_pipe(t_ast_node *node, t_mini *shell);
 void	execute_ast(t_ast_node *node, t_mini *shell);
 void	execute_redirect_out(t_ast_node *node, t_mini *shell);
 void	execute_redirect_in(t_ast_node *node, t_mini *shell);
+void	execute_redirect_append(t_ast_node *node, t_mini *shell);
 
 #endif
 
