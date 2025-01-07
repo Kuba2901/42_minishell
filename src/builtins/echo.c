@@ -6,7 +6,7 @@
 /*   By: gromiti <gromiti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 19:04:34 by gromiti           #+#    #+#             */
-/*   Updated: 2025/01/07 19:56:40 by gromiti          ###   ########.fr       */
+/*   Updated: 2025/01/07 20:17:58 by gromiti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ char	*echo(char **args)
 		}
 	}
 	if (!newline)
-		ft_putchar_fd('\n', 1);
+		ft_strjoin(res, '\n');
 	return (0);
 }
