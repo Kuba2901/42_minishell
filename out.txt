@@ -1,2 +1,1 @@
-Command not found: "hello world"
-[?2004hminishell > ^C[?2004l
+10

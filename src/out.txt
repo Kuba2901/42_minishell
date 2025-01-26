@@ -1,2 +1,0 @@
-[?2004hminishell >  /usr/bin/env /bin/sh /tmp/Microsoft-MIEngine-Cmd-4 [?2004l
-

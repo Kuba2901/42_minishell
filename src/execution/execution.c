@@ -101,7 +101,7 @@ void	execute_command_node(t_ast_node *node, t_mini *shell, t_bool is_another_pro
 
 	cmd_path = find_executable(node->token_node->token->value, 
 		shell->env_list);
-	if (!cmd_path) return;
+	// if (!cmd_path) return;
 	if (!is_another_process)
 		_execute_child_process(cmd_path, node);
 	else
@@ -121,6 +121,31 @@ void	execute_command_node(t_ast_node *node, t_mini *shell, t_bool is_another_pro
 	}
 }
 
+void	_execute_redirect(t_ast_node *node, t_mini *shell)
+{
+	pid_t	pid;
+	int		status;
+	
+	pid = fork();
+	if (pid == -1) {
+		perror("fork");
+		exit(EXIT_FAILURE);
+	}
+	if (pid == 0) {
+		if (node->type == AST_REDIRECT_IN)
+			execute_redirect_in(node, shell);
+		else if (node->type == AST_REDIRECT_OUT)
+			execute_redirect_out(node, shell);
+		else if (node->type == AST_APPEND)
+			execute_redirect_append(node, shell);
+	} else {
+		waitpid(pid, &status, 0);
+		shell->last_exit_status = WEXITSTATUS(status);
+	}
+// TODO: RETURN TO THE MINISHEEL INTERFACE FOR INPUT
+}
+
+
 void	execute_ast(t_ast_node *node, t_mini *shell)
 {
 	if (!node)
@@ -129,11 +154,7 @@ void	execute_ast(t_ast_node *node, t_mini *shell)
 		execute_command_node(node, shell, true);
 	else if (node->type == AST_PIPE)
 		execute_pipe(node, shell);
-	else if (node->type == AST_REDIRECT_IN)
-		execute_redirect_in(node, shell);
-	else if (node->type == AST_REDIRECT_OUT)
-		execute_redirect_out(node, shell);
-	else if (node->type == AST_APPEND)
-		execute_redirect_append(node, shell);
+	else if (node->type == AST_REDIRECT_IN || node->type == AST_REDIRECT_OUT || node->type == AST_APPEND)
+		_execute_redirect(node, shell);
 	// Add support for other types of nodes
 }
