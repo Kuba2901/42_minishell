@@ -7,6 +7,8 @@
 		"environment.h": "c",
 		"ast.h": "c",
 		"*.bak": "cpp",
-		"execution.h": "c"
+		"execution.h": "c",
+		"tokenisation.h": "c",
+		"cstdlib": "c"
 	}
 }

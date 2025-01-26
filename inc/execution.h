@@ -19,6 +19,7 @@
 # include <environment.h>
 # include <ast.h>
 # include <sys/wait.h>
+# include <fcntl.h>
 
 
 typedef struct  s_mini
@@ -33,9 +34,12 @@ typedef struct  s_mini
 }               t_mini;
 
 char	*find_executable(const char *command, t_env_list *env_list);
-void	execute_command_node(t_ast_node *node, t_mini *shell);
+void	execute_command_node(t_ast_node *node, t_mini *shell, t_bool is_another_process);
 void	execute_pipe(t_ast_node *node, t_mini *shell);
 void	execute_ast(t_ast_node *node, t_mini *shell);
+void	execute_redirect_out(t_ast_node *node, t_mini *shell);
+void	execute_redirect_in(t_ast_node *node, t_mini *shell);
+void	execute_redirect_append(t_ast_node *node, t_mini *shell);
 
 #endif
 

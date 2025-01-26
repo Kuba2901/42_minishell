@@ -45,6 +45,7 @@ int	main(int ac, const char **av, const char **envp)
 			mini.head = primary_parse(tokens_list);
 			if (mini.head)
 			{
+				print_ast(mini.head);
 				execute_ast(mini.head, &mini);
 				free_ast(mini.head);
 			}

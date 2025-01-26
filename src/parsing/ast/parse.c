@@ -91,6 +91,64 @@ t_ast_node	*parse_redirect_out_append(t_token_list *tokens)
 	return (left);
 }
 
+t_ast_node	*parse_redirect_in_heredoc(t_token_list *tokens)
+{
+	t_ast_node		*left;
+	t_ast_node		*right;
+	t_ast_node		*node;
+	t_ast_node_type	type;
+
+	left = parse_command(tokens);
+	while (tokens->head \
+		&& (tokens->head->token->type == TOKEN_HEREDOC \
+		|| tokens->head->token->type == TOKEN_REDIRECT_IN))
+	{
+		if (tokens->head->token->type == TOKEN_HEREDOC)
+			type = AST_HEREDOC;
+		else
+			type = AST_REDIRECT_IN;
+		tokens->head = tokens->head->next;
+		right = parse_command(tokens); // TODO: To be verified (might be primary_parse)
+		node = create_ast_node(type, NULL);
+		node->left = left;
+		node->right = right;
+		left = node;
+	}
+	return (left);
+}
+
+t_ast_node	*parse_redirect(t_token_list *tokens)
+{
+	t_ast_node		*left;
+	t_ast_node		*right;
+	t_ast_node		*node;
+	t_ast_node_type	type;
+
+	left = parse_command(tokens);
+	while (tokens->head \
+		&& (tokens->head->token->type == TOKEN_HEREDOC \
+		|| tokens->head->token->type == TOKEN_REDIRECT_IN \
+		|| tokens->head->token->type == TOKEN_APPEND \
+		|| tokens->head->token->type == TOKEN_REDIRECT_OUT))
+	{
+		if (tokens->head->token->type == TOKEN_HEREDOC)
+			type = AST_HEREDOC;
+		else if (tokens->head->token->type == TOKEN_APPEND)
+			type = AST_APPEND;
+		else if (tokens->head->token->type == TOKEN_REDIRECT_IN)
+			type = AST_REDIRECT_IN;
+		else
+			type = AST_REDIRECT_OUT;
+		tokens->head = tokens->head->next;
+		right = parse_command(tokens); // TODO: To be verified (might be primary_parse)
+		node = create_ast_node(type, NULL);
+		node->left = left;
+		node->right = right;
+		left = node;
+	}
+	return (left);
+}
+
 /**
  * @brief Parses the pipe operator in the abstract syntax tree (AST).
  *
@@ -111,7 +169,7 @@ t_ast_node	*parse_pipe(t_token_list *tokens)
 	t_ast_node	*right;
 	t_ast_node	*pipe_node;
 
-	left = parse_redirect_out_append(tokens);
+	left = parse_redirect(tokens);
 	while (tokens->head && tokens->head->token->type == TOKEN_PIPE)
 	{
 		tokens->head = tokens->head->next;
@@ -266,6 +324,30 @@ static void print_ast_indent(t_ast_node *node, int indent)
 	else if (node->type == AST_APPEND)
 	{
 		printf(">>:\n");
+		for (int i = 0; i < indent + 1; i++)
+			printf("  ");
+		printf("Left:\n");
+		print_ast_indent(node->left, indent + 2);
+		for (int i = 0; i < indent + 1; i++)
+			printf("  ");
+		printf("Right:\n");
+		print_ast_indent(node->right, indent + 2);
+	}
+	else if (node->type == AST_REDIRECT_IN)
+	{
+		printf("<:\n");
+		for (int i = 0; i < indent + 1; i++)
+			printf("  ");
+		printf("Left:\n");
+		print_ast_indent(node->left, indent + 2);
+		for (int i = 0; i < indent + 1; i++)
+			printf("  ");
+		printf("Right:\n");
+		print_ast_indent(node->right, indent + 2);
+	}
+	else if (node->type == AST_HEREDOC)
+	{
+		printf("<<:\n");
 		for (int i = 0; i < indent + 1; i++)
 			printf("  ");
 		printf("Left:\n");
