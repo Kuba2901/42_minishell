@@ -56,7 +56,13 @@ t_token	*create_token(t_token_type type, char *value)
 	token = malloc(sizeof(t_token));
 	token->type = type;
 	if (value)
+	{
+		// TODO: Expand the value
+		// if (value[0] == '$')
+		// {
+		// }
 		token->value = ft_strdup(value);
+	}
 	else
 		token->value = NULL;
 	token->args = NULL;

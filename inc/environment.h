@@ -38,4 +38,5 @@ void		env_node_delete(t_env_node	*node);
 int			env_node_comp(t_env_node *n1, char *key);
 void		env_list_insert(t_env_list *list, const char *entry);
 char        *env_value_read(t_env_list *list, char *key);
+char		*env_value_expand(t_env_list *list, char *key);
 #endif
