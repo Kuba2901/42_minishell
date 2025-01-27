@@ -105,11 +105,20 @@ char	*env_value_expand(t_env_list *list, char *key)
 {
 	t_env_node	*node;
 
-	node = env_list_read_node(list, key + 1);
-	if (!node)
+	if (key[0] == '$')
 	{
-		// log_error("[ENV_VALUE_READ] Failed to read node value");
-		return (NULL);
+		printf("First char is $, skipping 1. New key: %s\n", key + 1);
+		key++;
 	}
+	else if (key[0] == '"')
+	{
+		printf("First char is \", skipping 2. New key: %s\n", key + 2);
+		key += 2;
+	}
+	else
+		return (key);
+	node = env_list_read_node(list, key);
+	if (!node)
+		return (NULL);
 	return (node->value);
 }
