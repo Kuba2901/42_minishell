@@ -62,23 +62,14 @@ static void	_execute_complex_command(t_mini *shell, char *cmd_path, char **args)
 		perror("malloc");
 		exit(EXIT_FAILURE);
 	}
-	cmd_args[0] = cmd_path;
+	cmd_args[0] = env_value_expand(shell->env_list, cmd_path);
 	if (args != NULL) {
 		i = -1;
 		while (args[++i])
 		{
-			if (args[i][0] == '$')
-			{
-				expanded_value = env_value_read(shell->env_list, args[i] + 1);
-				free(args[i]);
-				if (expanded_value == NULL)
-					args[i] = ft_strdup("");
-				else
-					args[i] = expanded_value;
-				cmd_args[i + 1] = args[i];
-			}
-			else
-				cmd_args[i + 1] = args[i];
+			expanded_value = env_value_expand(shell->env_list, args[i]);
+			args[i] = expanded_value;
+			cmd_args[i + 1] = args[i];
 		}
 	}
 	cmd_args[i + 1] = NULL;

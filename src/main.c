@@ -29,6 +29,7 @@ int	main(int ac, const char **av, const char **envp)
 		return (-1);
 	(void)av;
 	mini.env_list = env_list_init_populated(envp);
+	env_list_insert(mini.env_list, "GREETING=hello");
 	while (true)
 	{
 		line = readline(PROMPT);

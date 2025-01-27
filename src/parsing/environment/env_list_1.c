@@ -104,7 +104,10 @@ char	*env_value_read(t_env_list *list, char *key)
 char	*env_value_expand(t_env_list *list, char *key)
 {
 	t_env_node	*node;
+	size_t		is_double_quoted;
+	char		*trimmed_key;
 
+	is_double_quoted = 0;
 	if (key[0] == '$')
 	{
 		printf("First char is $, skipping 1. New key: %s\n", key + 1);
@@ -112,12 +115,21 @@ char	*env_value_expand(t_env_list *list, char *key)
 	}
 	else if (key[0] == '"')
 	{
-		printf("First char is \", skipping 2. New key: %s\n", key + 2);
+		is_double_quoted = 1;
 		key += 2;
 	}
 	else
 		return (key);
-	node = env_list_read_node(list, key);
+	if (is_double_quoted)
+	{
+		trimmed_key = malloc((ft_strlen(key)) * sizeof(char));
+		ft_strlcpy(trimmed_key, key, ft_strlen(key));
+		printf("First char is \", skipping 2. New key: %s\n", trimmed_key);
+		node = env_list_read_node(list, trimmed_key);
+		free(trimmed_key);
+	}
+	else
+		node = env_list_read_node(list, key);
 	if (!node)
 		return (NULL);
 	return (node->value);
