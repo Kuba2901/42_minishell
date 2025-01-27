@@ -101,11 +101,40 @@ char	*env_value_read(t_env_list *list, char *key)
 	return (node->value);
 }
 
+static char	*_trim_double_quotes(char *str)
+{
+	char	*ret;
+
+	ret = malloc((ft_strlen(str) - 1) * sizeof(char));
+	str++;
+	ft_strlcpy(ret, str, ft_strlen(str));
+	return (ret);
+}
+
+static char	*_expand_multiple_variables(t_env_list *list, char *str)
+{
+	char	*trimmed;
+	char	*ret;
+	char	**split;
+	int		i;
+
+	trimmed = _trim_double_quotes(str);
+	split = ft_split(trimmed, ' ');
+	ret = ft_strdup("");
+	i = -1;
+	while (split[++i])
+	{
+		ret = ft_join_reassign(ret, env_value_expand(list, split[i]));
+		ret = ft_join_reassign(ret, ft_strdup(" "));
+	}
+	return (ret);
+}
+
 char	*env_value_expand(t_env_list *list, char *key)
 {
 	t_env_node	*node;
 	size_t		is_double_quoted;
-	char		*trimmed_key;
+	// char		*trimmed_key;
 
 	is_double_quoted = 0;
 	if (key[0] == '$')
@@ -114,19 +143,13 @@ char	*env_value_expand(t_env_list *list, char *key)
 		key++;
 	}
 	else if (key[0] == '"')
-	{
 		is_double_quoted = 1;
-		key += 2;
-	}
 	else
 		return (key);
 	if (is_double_quoted)
 	{
-		trimmed_key = malloc((ft_strlen(key)) * sizeof(char));
-		ft_strlcpy(trimmed_key, key, ft_strlen(key));
-		printf("First char is \", skipping 2. New key: %s\n", trimmed_key);
-		node = env_list_read_node(list, trimmed_key);
-		free(trimmed_key);
+		// TODO: Implement multi env variable scenario
+		return (_expand_multiple_variables(list, key));
 	}
 	else
 		node = env_list_read_node(list, key);
