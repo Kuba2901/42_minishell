@@ -133,26 +133,14 @@ static char	*_expand_multiple_variables(t_env_list *list, char *str)
 char	*env_value_expand(t_env_list *list, char *key)
 {
 	t_env_node	*node;
-	size_t		is_double_quoted;
-	// char		*trimmed_key;
 
-	is_double_quoted = 0;
 	if (key[0] == '$')
-	{
-		printf("First char is $, skipping 1. New key: %s\n", key + 1);
 		key++;
-	}
 	else if (key[0] == '"')
-		is_double_quoted = 1;
+		return (_expand_multiple_variables(list, key));
 	else
 		return (key);
-	if (is_double_quoted)
-	{
-		// TODO: Implement multi env variable scenario
-		return (_expand_multiple_variables(list, key));
-	}
-	else
-		node = env_list_read_node(list, key);
+	node = env_list_read_node(list, key);
 	if (!node)
 		return (NULL);
 	return (node->value);
