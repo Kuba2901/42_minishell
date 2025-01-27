@@ -121,26 +121,13 @@ void	execute_command_node(t_ast_node *node, t_mini *shell, t_bool is_another_pro
 
 void	_execute_redirect(t_ast_node *node, t_mini *shell)
 {
-	// pid_t	pid;
-	// int		status;
-	
-	// pid = fork();
-	// if (pid == -1) {
-	// 	perror("fork");
-	// 	exit(EXIT_FAILURE);
-	// }
-	// if (pid == 0) {
-		if (node->type == AST_REDIRECT_IN)
-			execute_redirect_in(node, shell);
-		else if (node->type == AST_REDIRECT_OUT)
-			execute_redirect_out(node, shell);
-		else if (node->type == AST_APPEND)
-			execute_redirect_append(node, shell);
-	// } else {
-	// 	waitpid(pid, &status, 0);
-	// 	shell->last_exit_status = WEXITSTATUS(status);
-	// }
-// TODO: RETURN TO THE MINISHEEL INTERFACE FOR INPUT
+	if (node->type == AST_REDIRECT_IN)
+		execute_redirect_in(node, shell);
+	else if (node->type == AST_REDIRECT_OUT)
+		execute_redirect_out(node, shell);
+	else if (node->type == AST_APPEND)
+		execute_redirect_append(node, shell);
+	// TODO: RETURN TO THE MINISHEEL INTERFACE FOR INPUT
 }
 
 

@@ -10,5 +10,6 @@
 		"execution.h": "c",
 		"tokenisation.h": "c",
 		"cstdlib": "c"
-	}
+	},
+	"makefile.configureOnOpen": true
 }
