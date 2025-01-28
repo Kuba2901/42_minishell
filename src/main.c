@@ -29,7 +29,7 @@ int	main(int ac, const char **av, const char **envp)
 		return (-1);
 	(void)av;
 	mini.env_list = env_list_init_populated(envp);
-	env_list_insert(mini.env_list, "GREETING=hello");
+	env_list_insert(mini.env_list, "GREETING=out.txt");
 	while (true)
 	{
 		line = readline(PROMPT);
@@ -47,7 +47,7 @@ int	main(int ac, const char **av, const char **envp)
 			mini.head = primary_parse(tokens_list);
 			if (mini.head)
 			{
-				print_ast(mini.head);
+				// print_ast(mini.head);
 				execute_ast(mini.head, &mini);
 				free_ast(mini.head);
 			}
