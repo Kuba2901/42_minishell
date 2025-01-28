@@ -82,7 +82,7 @@ t_ast_node	*parse_redirect_out_append(t_token_list *tokens)
 		else
 			type = AST_REDIRECT_OUT;
 		tokens->head = tokens->head->next;
-		right = parse_command(tokens); // TODO: To be verified (might be primary_parse)
+		right = parse_command(tokens);
 		node = create_ast_node(type, NULL);
 		node->left = left;
 		node->right = right;

@@ -48,10 +48,11 @@ char	*find_executable(const char *command, t_env_list *env_list)
 	return (NULL);
 }
 
-static void	_execute_complex_command(char *cmd_path, char **args)
+static void	_execute_complex_command(t_mini *shell, char *cmd_path, char **args)
 {
 	int		i;
 	char	**cmd_args;
+	char	*expanded_value;
 
 	i = -1;
 	while (args[++i])
@@ -61,11 +62,15 @@ static void	_execute_complex_command(char *cmd_path, char **args)
 		perror("malloc");
 		exit(EXIT_FAILURE);
 	}
-	cmd_args[0] = cmd_path;
+	cmd_args[0] = env_value_expand(shell->env_list, cmd_path);
 	if (args != NULL) {
 		i = -1;
 		while (args[++i])
+		{
+			expanded_value = env_value_expand(shell->env_list, args[i]);
+			args[i] = expanded_value;
 			cmd_args[i + 1] = args[i];
+		}
 	}
 	cmd_args[i + 1] = NULL;
 	execve(cmd_path, cmd_args, NULL);
@@ -73,24 +78,9 @@ static void	_execute_complex_command(char *cmd_path, char **args)
 	exit(EXIT_FAILURE);
 }
 
-static void	_execute_simple_command(char *cmd_path)
+static void	_execute_child_process(t_mini *shell, char *cmd_path, t_ast_node *node)
 {
-	char	*cmd_args[2];
-
-	cmd_args[0] = cmd_path;
-	cmd_args[1] = NULL;
-	execve(cmd_path, cmd_args, NULL);
-	perror("execve");
-	exit(EXIT_FAILURE);
-}
-
-static void	_execute_child_process(char *cmd_path, t_ast_node *node)
-{
-	if (node->token_node->token->args)
-		_execute_complex_command(cmd_path, node->token_node->token->args);
-	else
-		_execute_simple_command(cmd_path);
-	
+	_execute_complex_command(shell, cmd_path, node->token_node->token->args);	
 }
 
 void	execute_command_node(t_ast_node *node, t_mini *shell, t_bool is_another_process)
@@ -101,9 +91,8 @@ void	execute_command_node(t_ast_node *node, t_mini *shell, t_bool is_another_pro
 
 	cmd_path = find_executable(node->token_node->token->value, 
 		shell->env_list);
-	// if (!cmd_path) return;
 	if (!is_another_process)
-		_execute_child_process(cmd_path, node);
+		_execute_child_process(shell, cmd_path, node);
 	else
 	{
 		pid = fork();
@@ -112,7 +101,7 @@ void	execute_command_node(t_ast_node *node, t_mini *shell, t_bool is_another_pro
 			exit(EXIT_FAILURE);
 		}
 		if (pid == 0) {
-			_execute_child_process(cmd_path, node);
+			_execute_child_process(shell, cmd_path, node);
 		}
 		else {
 			waitpid(pid, &status, 0);
@@ -123,26 +112,13 @@ void	execute_command_node(t_ast_node *node, t_mini *shell, t_bool is_another_pro
 
 void	_execute_redirect(t_ast_node *node, t_mini *shell)
 {
-	pid_t	pid;
-	int		status;
-	
-	pid = fork();
-	if (pid == -1) {
-		perror("fork");
-		exit(EXIT_FAILURE);
-	}
-	if (pid == 0) {
-		if (node->type == AST_REDIRECT_IN)
-			execute_redirect_in(node, shell);
-		else if (node->type == AST_REDIRECT_OUT)
-			execute_redirect_out(node, shell);
-		else if (node->type == AST_APPEND)
-			execute_redirect_append(node, shell);
-	} else {
-		waitpid(pid, &status, 0);
-		shell->last_exit_status = WEXITSTATUS(status);
-	}
-// TODO: RETURN TO THE MINISHEEL INTERFACE FOR INPUT
+	if (node->type == AST_REDIRECT_IN)
+		execute_redirect_in(node, shell);
+	else if (node->type == AST_REDIRECT_OUT)
+		execute_redirect_out(node, shell);
+	else if (node->type == AST_APPEND)
+		execute_redirect_append(node, shell);
+	// TODO: RETURN TO THE MINISHEEL INTERFACE FOR INPUT
 }
 
 

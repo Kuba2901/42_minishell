@@ -14,6 +14,7 @@
 # define TOKENISATION_H
 # include <libft.h>
 # include <stdlib.h>
+# include <environment.h>
 
 typedef enum s_bool
 {
