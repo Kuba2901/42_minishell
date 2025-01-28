@@ -22,7 +22,7 @@ void execute_redirect_in(t_ast_node *node, t_mini *shell)
     }
     dup2(fd, STDIN_FILENO);
     close(fd);
-    execute_command_node(node->left, shell, false);
+    execute_ast(node->left, shell);
     dup2(original_stdin, STDIN_FILENO);
     close(original_stdin);
 }
