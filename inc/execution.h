@@ -20,6 +20,8 @@
 # include <ast.h>
 # include <sys/wait.h>
 # include <fcntl.h>
+# include <readline/readline.h>
+# include <readline/history.h>
 
 
 typedef struct  s_mini

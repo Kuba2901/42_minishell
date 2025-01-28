@@ -40,6 +40,7 @@ int	main(int ac, const char **av, const char **envp)
 		}
 		if (!ft_is_whitespace(*line))
 		{
+			add_history(line);
 			if (ft_strncmp(line, "exit", 4) == 0)
 				break ;
 			tokens_list = ft_tokenize(line);
