@@ -16,13 +16,12 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <libft.h>
-# include <environment.h>
 # include <ast.h>
 # include <sys/wait.h>
 # include <fcntl.h>
 # include <readline/readline.h>
 # include <readline/history.h>
-
+# include <environment.h>
 
 typedef struct  s_mini
 {

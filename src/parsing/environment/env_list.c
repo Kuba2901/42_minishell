@@ -48,10 +48,7 @@ t_env_node	*env_list_read_node(t_env_list *list, char *key)
 	t_env_node	*current;
 
 	if (!list || !list->head || !list->tail || !key)
-	{
-		// log_error("[ENV_READ_NODE] Failed to read t_env_node");
 		return (NULL);
-	}
 	current = list->head;
 	while (current != NULL)
 	{
@@ -59,7 +56,6 @@ t_env_node	*env_list_read_node(t_env_list *list, char *key)
 			return (current);
 		current = current->next;
 	}
-	// log_error("[ENV_READ_NODE] Failed to read node - does not exist");
 	return (NULL);
 }
 

@@ -48,26 +48,38 @@ char	*find_executable(const char *command, t_env_list *env_list)
 	return (NULL);
 }
 
-static void	_execute_complex_command(t_mini *shell, char *cmd_path, char **args)
+static void	_execute_complex_command(t_mini *shell, char *cmd_path, t_ast_node *node)
 {
 	int		i;
 	char	**cmd_args;
 	char	*expanded_value;
+	char	**args;
 
+	args = node->token_node->token->args;
 	i = -1;
-	while (args[++i])
-		;
+	if (args == NULL)
+		i++;
+	else
+	{
+		while (args[++i])
+			;
+	}
 	cmd_args = malloc(sizeof(char *) * (i + 2));
 	if (!cmd_args) {
 		perror("malloc");
 		exit(EXIT_FAILURE);
 	}
-	cmd_args[0] = env_value_expand(shell->env_list, cmd_path);
+	if (!cmd_path)
+	{
+		perror(node->token_node->token->value);
+		exit(EXIT_FAILURE);
+	}
+	cmd_args[0] = env_value_expand(shell, cmd_path);
 	if (args != NULL) {
 		i = -1;
 		while (args[++i])
 		{
-			expanded_value = env_value_expand(shell->env_list, args[i]);
+			expanded_value = env_value_expand(shell, args[i]);
 			args[i] = expanded_value;
 			cmd_args[i + 1] = args[i];
 		}
@@ -80,7 +92,7 @@ static void	_execute_complex_command(t_mini *shell, char *cmd_path, char **args)
 
 static void	_execute_child_process(t_mini *shell, char *cmd_path, t_ast_node *node)
 {
-	_execute_complex_command(shell, cmd_path, node->token_node->token->args);	
+	_execute_complex_command(shell, cmd_path, node);	
 }
 
 void	execute_command_node(t_ast_node *node, t_mini *shell, t_bool is_another_process)

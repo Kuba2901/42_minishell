@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <environment.h>
+#include <minishell.h>
 
 void	_env_list_append_node(t_env_list *list, t_env_node *node)
 {
@@ -111,7 +112,7 @@ static char	*_trim_double_quotes(char *str)
 	return (ret);
 }
 
-static char	*_expand_multiple_variables(t_env_list *list, char *str)
+static char	*_expand_multiple_variables(t_mini *shell, char *str)
 {
 	char	*trimmed;
 	char	*ret;
@@ -124,23 +125,25 @@ static char	*_expand_multiple_variables(t_env_list *list, char *str)
 	i = -1;
 	while (split[++i])
 	{
-		ret = ft_join_reassign(ret, env_value_expand(list, split[i]));
+		ret = ft_join_reassign(ret, env_value_expand(shell, split[i]));
 		ret = ft_join_reassign(ret, ft_strdup(" "));
 	}
 	return (ret);
 }
 
-char	*env_value_expand(t_env_list *list, char *key)
+char	*env_value_expand(t_mini *shell, char *key)
 {
 	t_env_node	*node;
 
 	if (key[0] == '$')
 		key++;
 	else if (key[0] == '"')
-		return (_expand_multiple_variables(list, key));
+		return (_expand_multiple_variables(shell, key));
 	else
 		return (key);
-	node = env_list_read_node(list, key);
+	if (ft_strncmp(key, "?", 1) == 0)
+		return (ft_itoa(shell->last_exit_status)); // BUG: Potential Memory Leak - find a workaround
+	node = env_list_read_node(shell->env_list, key);
 	if (!node)
 		return (NULL);
 	return (node->value);

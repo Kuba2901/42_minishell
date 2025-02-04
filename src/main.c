@@ -29,6 +29,7 @@ int	main(int ac, const char **av, const char **envp)
 		return (-1);
 	(void)av;
 	mini.env_list = env_list_init_populated(envp);
+	mini.last_exit_status = 0;
 	setup_signals();
 	while (true)
 	{

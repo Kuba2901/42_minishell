@@ -9,6 +9,8 @@
 # define ENV_NOT_FOUND 3
 # define ENV_ERROR -1
 
+typedef struct  s_mini t_mini;
+
 typedef struct  s_env_node
 {
     char                *key;
@@ -38,5 +40,5 @@ void		env_node_delete(t_env_node	*node);
 int			env_node_comp(t_env_node *n1, char *key);
 void		env_list_insert(t_env_list *list, const char *entry);
 char        *env_value_read(t_env_list *list, char *key);
-char		*env_value_expand(t_env_list *list, char *key);
+char		*env_value_expand(t_mini *shell, char *key);
 #endif

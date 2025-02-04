@@ -7,7 +7,7 @@ void execute_redirect_in(t_ast_node *node, t_mini *shell)
 	char	*expanded_file_name;
 
     original_stdin = dup(STDIN_FILENO);  // Save the original stdin
-	expanded_file_name = env_value_expand(shell->env_list, node->right->token_node->token->value);
+	expanded_file_name = env_value_expand(shell, node->right->token_node->token->value);
     fd = open(expanded_file_name, O_RDONLY);
     if (fd == -1) {
         perror("open");
@@ -27,7 +27,7 @@ void	execute_redirect_out(t_ast_node *node, t_mini *shell)
 	char	*expanded_file_name;
 
 	original_stdout = dup(STDOUT_FILENO);
-	expanded_file_name = env_value_expand(shell->env_list, node->right->token_node->token->value);
+	expanded_file_name = env_value_expand(shell, node->right->token_node->token->value);
 	fd = open(expanded_file_name, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (fd == -1) {
 		perror("open");
@@ -47,7 +47,7 @@ void	execute_redirect_append(t_ast_node *node, t_mini *shell)
 	char	*expanded_file_name;
 
 	original_stdout = dup(STDOUT_FILENO);
-	expanded_file_name = env_value_expand(shell->env_list, node->right->token_node->token->value);
+	expanded_file_name = env_value_expand(shell, node->right->token_node->token->value);
 	fd = open(expanded_file_name, O_WRONLY | O_CREAT | O_APPEND, 0644);
 	if (fd == -1) {
 		perror("open");

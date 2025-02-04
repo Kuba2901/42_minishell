@@ -63,9 +63,6 @@ static void	tok_assign_args(t_token_node *src)
 			break ;
 	}
 	src->token->args[i] = NULL;
-	i = -1;
-	while (src->token->args[++i])
-		printf("ARG: %s\n", src->token->args[i]);
 	src->next = temp;
 }
 
