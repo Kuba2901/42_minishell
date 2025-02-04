@@ -11,6 +11,10 @@ MINI_TOKENISATION_SRC = $(TOK_DIR)/tokens.c $(TOK_DIR)/single_token_utils.c $(TO
 AST_DIR = src/parsing/ast
 MINI_AST_SRC = $(AST_DIR)/parse.c
 
+# SIGNALS
+SIGNALS_DIR = src/signals
+MINI_SIGNALS_SRC = $(SIGNALS_DIR)/signals.c
+
 # Environment
 ENV_DIR = src/parsing/environment
 MINI_ENV_SRC = $(ENV_DIR)/env_node.c $(ENV_DIR)/env_list.c $(ENV_DIR)/env_list_1.c $(ENV_DIR)/env_utils.c
@@ -24,7 +28,7 @@ EXEC_DIR = src/execution
 MINI_EXEC_SRC = $(EXEC_DIR)/execution.c $(EXEC_DIR)/piping.c $(EXEC_DIR)/redirections.c
 
 # Combined
-MINI_SRC = $(MINI_TOKENISATION_SRC) $(MINI_AST_SRC) $(MINI_ENV_SRC) $(MINI_UTILS_SRC) $(MINI_EXEC_SRC)
+MINI_SRC = $(MINI_TOKENISATION_SRC) $(MINI_AST_SRC) $(MINI_ENV_SRC) $(MINI_UTILS_SRC) $(MINI_EXEC_SRC) $(MINI_SIGNALS_SRC)
 MAIN_SRC = src/main.c $(MINI_SRC)
 MAIN_OBJ = $(MAIN_SRC:.c=.o)
 

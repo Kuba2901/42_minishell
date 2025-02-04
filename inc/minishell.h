@@ -16,6 +16,7 @@
 # include <parsing.h>
 # include <utils.h>
 # include <execution.h>
+# include <mini_signals.h>
 # define DOUBLE_SPECIAL_CHARSET "|&<>"
 # define SINGLE_SPECIAL_CHARSET "="
 # define PROMPT "minishell > "

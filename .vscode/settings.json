@@ -1,6 +1,9 @@
 {
 	"files.associations": {
 		"*.html": "html",
+		"*.development": "properties",
+		"*.sql": "sql",
+		"*.production": "properties",
 		"minishell.h": "c",
 		"parsing.h": "c",
 		"utils.h": "c",
@@ -9,7 +12,8 @@
 		"*.bak": "cpp",
 		"execution.h": "c",
 		"tokenisation.h": "c",
-		"cstdlib": "c"
+		"cstdlib": "c",
+		"signals.h": "c"
 	},
 	"makefile.configureOnOpen": true
 }
