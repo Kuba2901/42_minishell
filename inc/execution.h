@@ -22,6 +22,7 @@
 # include <readline/readline.h>
 # include <readline/history.h>
 # include <environment.h>
+# include <errno.h>
 
 typedef struct  s_mini
 {

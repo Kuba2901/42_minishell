@@ -67,12 +67,12 @@ static void	_execute_complex_command(t_mini *shell, char *cmd_path, t_ast_node *
 	cmd_args = malloc(sizeof(char *) * (i + 2));
 	if (!cmd_args) {
 		perror("malloc");
-		exit(EXIT_FAILURE);
+		exit(ENOMEM);
 	}
 	if (!cmd_path)
 	{
 		perror(node->token_node->token->value);
-		exit(EXIT_FAILURE);
+		exit(127);
 	}
 	cmd_args[0] = env_value_expand(shell, cmd_path);
 	if (args != NULL) {
@@ -87,7 +87,7 @@ static void	_execute_complex_command(t_mini *shell, char *cmd_path, t_ast_node *
 	cmd_args[i + 1] = NULL;
 	execve(cmd_path, cmd_args, NULL);
 	perror("execve");
-	exit(EXIT_FAILURE);
+	exit(errno);
 }
 
 static void	_execute_child_process(t_mini *shell, char *cmd_path, t_ast_node *node)
@@ -110,7 +110,7 @@ void	execute_command_node(t_ast_node *node, t_mini *shell, t_bool is_another_pro
 		pid = fork();
 		if (pid == -1) {
 			perror("fork");
-			exit(EXIT_FAILURE);
+			exit(errno);
 		}
 		if (pid == 0) {
 			_execute_child_process(shell, cmd_path, node);
