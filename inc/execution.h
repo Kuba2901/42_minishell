@@ -35,6 +35,15 @@ typedef struct  s_mini
 	int				last_exit_status;
 }               t_mini;
 
+typedef struct	s_heredoc_data
+{
+	pid_t		pid;
+	t_ast_node	*node;
+	t_mini		*shell;
+	int			pipe_fd[2];
+	int			original_stdin;
+}	t_heredoc_data;
+
 char	*find_executable(const char *command, t_env_list *env_list);
 void	execute_command_node(t_ast_node *node, t_mini *shell, t_bool is_another_process);
 void	execute_pipe(t_ast_node *node, t_mini *shell);
@@ -42,6 +51,7 @@ void	execute_ast(t_ast_node *node, t_mini *shell);
 void	execute_redirect_out(t_ast_node *node, t_mini *shell);
 void	execute_redirect_in(t_ast_node *node, t_mini *shell);
 void	execute_redirect_append(t_ast_node *node, t_mini *shell);
+void	execute_redirect_heredoc(t_ast_node *node, t_mini *shell);
 
 #endif
 

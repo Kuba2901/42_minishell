@@ -127,6 +127,9 @@ void	execute_command_node(t_ast_node *node, t_mini *shell, t_bool is_another_pro
 	}
 }
 
+
+
+
 void	_execute_redirect(t_ast_node *node, t_mini *shell)
 {
 	if (node->type == AST_REDIRECT_IN)
@@ -135,6 +138,8 @@ void	_execute_redirect(t_ast_node *node, t_mini *shell)
 		execute_redirect_out(node, shell);
 	else if (node->type == AST_APPEND)
 		execute_redirect_append(node, shell);
+	else if (node->type == AST_HEREDOC)
+		execute_redirect_heredoc(node, shell);
 	// TODO: RETURN TO THE MINISHEEL INTERFACE FOR INPUT
 }
 
@@ -147,7 +152,9 @@ void	execute_ast(t_ast_node *node, t_mini *shell)
 		execute_command_node(node, shell, true);
 	else if (node->type == AST_PIPE)
 		execute_pipe(node, shell);
-	else if (node->type == AST_REDIRECT_IN || node->type == AST_REDIRECT_OUT || node->type == AST_APPEND)
+	else if (node->type == AST_REDIRECT_IN || node->type == AST_REDIRECT_OUT \
+		|| node->type == AST_APPEND || node->type == AST_HEREDOC)
 		_execute_redirect(node, shell);
+	
 	// Add support for other types of nodes
 }

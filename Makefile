@@ -25,7 +25,7 @@ MINI_UTILS_SRC = $(UTILS_DIR)/utils.c
 
 # Execution
 EXEC_DIR = src/execution
-MINI_EXEC_SRC = $(EXEC_DIR)/execution.c $(EXEC_DIR)/piping.c $(EXEC_DIR)/redirections.c
+MINI_EXEC_SRC = $(EXEC_DIR)/execution.c $(EXEC_DIR)/piping.c $(EXEC_DIR)/redirections.c $(EXEC_DIR)/heredoc.c
 
 # Combined
 MINI_SRC = $(MINI_TOKENISATION_SRC) $(MINI_AST_SRC) $(MINI_ENV_SRC) $(MINI_UTILS_SRC) $(MINI_EXEC_SRC) $(MINI_SIGNALS_SRC)
