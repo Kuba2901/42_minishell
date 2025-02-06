@@ -39,12 +39,27 @@ Minishell is a simple UNIX shell implemented in C, inspired by **Bash**. It hand
 - **Memory leaks are NOT allowed in user-implemented code.**  
 - **Bash-like behavior as a reference.**  
 
-## 🛠️ Installation & Usage  
-```sh
-git clone https://github.com/kuba2901/42_minishell.git
-cd minishell
-make run
-```
+## 🛠️ Installation & Usage with Dev Containers  
+1. **Clone the repository**:  
+	```sh
+	git clone https://github.com/kuba2901/42_minishell.git
+	cd minishell
+	```
+
+2. **Open the project in a Dev Container**:  
+	- Ensure you have Docker and Visual Studio Code with the Dev Containers extension installed.
+	- Open the project folder in Visual Studio Code.
+	- When prompted, reopen the folder in a Dev Container.
+
+3. **Build and run the project**:  
+	```sh
+	make run
+	```
+
+> **Note**: If you prefer not to use Docker, you might need to install the `readline` library manually. On Debian-based systems, you can do this with:
+> ```sh
+> sudo apt-get install libreadline-dev
+> ```
 
 ## 🔧 External Functions Used  
 Minishell utilizes system calls and libraries such as:  
