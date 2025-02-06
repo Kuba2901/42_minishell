@@ -69,11 +69,13 @@ static void	_execute_complex_command(t_mini *shell, char *cmd_path, t_ast_node *
 		perror("malloc");
 		exit(ENOMEM);
 	}
-	if (!cmd_path)
+
+	if (!cmd_path) // Command not found
 	{
-		perror(node->token_node->token->value);
+		fprintf(stderr, "minishell: %s: command not found\n", node->token_node->token->value);
 		exit(127);
 	}
+
 	cmd_args[0] = env_value_expand(shell, cmd_path);
 	if (args != NULL) {
 		i = -1;
@@ -86,9 +88,12 @@ static void	_execute_complex_command(t_mini *shell, char *cmd_path, t_ast_node *
 	}
 	cmd_args[i + 1] = NULL;
 	execve(cmd_path, cmd_args, NULL);
-	perror("execve");
-	exit(errno);
+	if (errno == EACCES)
+		exit(126);
+	else
+		exit(1);
 }
+
 
 static void	_execute_child_process(t_mini *shell, char *cmd_path, t_ast_node *node)
 {
