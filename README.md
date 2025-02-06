@@ -9,15 +9,21 @@ Minishell is a simple UNIX shell implemented in C, inspired by **Bash**. It hand
 
 ## 🚀 Features  
 ✅ **Prompt Display** - A functional command-line prompt.  
+
 ✅ **Command Execution** - Runs commands based on the `$PATH` or an absolute/relative path.  
+
 ✅ **Command History** - Keeps track of previous commands.  
+
 ✅ **Redirections**  
    - `<` (Input redirection)  
    - `>` (Output redirection)  
    - `<<` (Heredoc)  
    - `>>` (Append mode)  
+   
 ✅ **Pipes (`|`)** - Allows command chaining.  
+
 ✅ **Environment Variables** - Expands variables like `$?`.  
+
 ✅ **Signal Handling**  
    - `Ctrl+C` starts a new prompt.  
    - `Ctrl+D` exits the shell.  
