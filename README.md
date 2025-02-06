@@ -1,7 +1,3 @@
-Here's a structured README for your **minishell** project:  
-
----
-
 # 🐚 Minishell - As Beautiful as a Shell  
 
 ## 📌 Overview  
