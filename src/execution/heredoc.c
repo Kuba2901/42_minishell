@@ -1,5 +1,15 @@
 #include <execution.h>
 
+static int	ft_strcmp(const char *s1, const char *s2)
+{
+	while (*s1 && (*s1 == *s2))
+	{
+		s1++;
+		s2++;
+	}
+	return (*(unsigned char *)s1 - *(unsigned char *)s2);
+}
+
 static void	_execute_pipe_read(t_heredoc_data *data)
 {
 	char	*line;
@@ -9,8 +19,8 @@ static void	_execute_pipe_read(t_heredoc_data *data)
 	{
 		line = readline("> ");
 		if (!line) break;
-		if (!strcmp(line, data->node->right->token_node->token->value)) // TODO: Change to ft_strncmp
-		{
+		if (!ft_strcmp(line, data->node->right->token_node->token->value))
+		{ 
 			free(line);
 			break;
 		}
