@@ -1,72 +1,60 @@
 #include <execution.h>
 
-void execute_redirect_heredoc(t_ast_node *node, t_mini *shell)
+static void	_execute_pipe_read(t_heredoc_data *data)
 {
-    int pipe_fd[2];
-    char *line;
-    char *delimiter;
-    int original_stdin;
-    pid_t pid;
+	char	*line;
 
-    if (!node || !node->right || !node->right->token_node) {
-        fprintf(stderr, "heredoc: invalid syntax\n");
-        return;
-    }
+	close(data->pipe_fd[0]);
+	while (1)
+	{
+		line = readline("> ");
+		if (!line) break;
+		if (!strcmp(line, data->node->right->token_node->token->value)) // TODO: Change to ft_strncmp
+		{
+			free(line);
+			break;
+		}
+		write(data->pipe_fd[1], line, strlen(line));
+		write(data->pipe_fd[1], "\n", 1);
+		free(line);
+	}
+	close(data->pipe_fd[1]);
+	exit(EXIT_SUCCESS);
+}
 
-    delimiter = node->right->token_node->token->value;
-    if (!delimiter) {
-        fprintf(stderr, "heredoc: missing delimiter\n");
-        return;
-    }
+static void	_execute_pipe_write(t_heredoc_data *data)
+{
+	int	status;
 
-    if (pipe(pipe_fd) == -1) {
-        perror("pipe");
-        return;
-    }
+	waitpid(data->pid, &status, 0);
+	close(data->pipe_fd[1]);
+	dup2(data->pipe_fd[0], STDIN_FILENO);
+	close(data->pipe_fd[0]);
+	execute_ast(data->node->left, data->shell);
+	dup2(data->original_stdin, STDIN_FILENO);
+	close(data->original_stdin);
+}
 
-    original_stdin = dup(STDIN_FILENO); // Save original stdin
+void	execute_redirect_heredoc(t_ast_node *node, t_mini *shell)
+{
+	t_heredoc_data	data;
+	char			*delimiter;
 
-    pid = fork();
-    if (pid == -1) {
-        perror("fork");
-        return;
-    }
-
-    if (pid == 0)  // Child process: Read input and write to pipe
-    {
-        close(pipe_fd[0]); // Close read-end, only writing
-
-        while (1) {
-            line = readline("> ");
-            if (!line) break;
-
-            // Stop reading if the delimiter is found
-            if (strcmp(line, delimiter) == 0) {
-                free(line);
-                break;
-            }
-
-            write(pipe_fd[1], line, strlen(line));
-            write(pipe_fd[1], "\n", 1);
-            free(line);
-        }
-        close(pipe_fd[1]); // Close write-end
-        exit(EXIT_SUCCESS); // Only child process exits
-    }
-    else  // Parent process: Redirect stdin and execute command
-    {
-        int status;
-        waitpid(pid, &status, 0); // Wait for heredoc input process
-
-        close(pipe_fd[1]); // Close write-end, only reading
-        dup2(pipe_fd[0], STDIN_FILENO); // Redirect stdin to pipe
-        close(pipe_fd[0]);
-
-        // Execute the next command
-        execute_ast(node->left, shell);
-
-        // Restore original stdin
-        dup2(original_stdin, STDIN_FILENO);
-        close(original_stdin);
-    }
+	if (!node || !node->right || !node->right->token_node)
+		return ;
+	delimiter = node->right->token_node->token->value;
+	if (!delimiter)
+		return ;
+	if (pipe(data.pipe_fd) == -1)
+		return ;
+	data.original_stdin = dup(STDIN_FILENO);
+	data.node = node;
+	data.shell = shell;
+	data.pid = fork();
+	if (data.pid == -1)
+		return ;
+	if (data.pid == 0)
+		_execute_pipe_read(&data);
+	else
+		_execute_pipe_write(&data);
 }
