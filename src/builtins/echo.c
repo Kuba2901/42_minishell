@@ -6,12 +6,15 @@
 /*   By: gromiti <gromiti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 19:04:34 by gromiti           #+#    #+#             */
-/*   Updated: 2025/01/26 19:52:34 by gromiti          ###   ########.fr       */
+/*   Updated: 2025/02/09 13:26:46 by gromiti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
+// when echo's called without arguments it should print two
+// newlines, but since we're returning a string, in the case
+// it is redirected to a file, it should print only one newline
 char	*echo(char **args)
 {
 	int		newline;

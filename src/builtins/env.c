@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pwd.c                                              :+:      :+:    :+:   */
+/*   env.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gromiti <gromiti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/07 19:57:34 by gromiti           #+#    #+#             */
-/*   Updated: 2025/02/09 13:37:33 by gromiti          ###   ########.fr       */
+/*   Created: 2025/02/09 12:48:57 by gromiti           #+#    #+#             */
+/*   Updated: 2025/02/09 12:50:56 by gromiti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-char	*pwd(char **args)
+void	env(t_env_list *env)
 {
-	char	*cwd;
+	t_env_node	*current;
 
-	cwd = getcwd(NULL, 0);
-	if (cwd == NULL)
-		return (NULL);
-	return (cwd);
+	current = env->head;
+	while (current != NULL)
+	{
+		printf("%s=%s\n", current->key, current->value);
+		current = current->next;
+	}
 }
