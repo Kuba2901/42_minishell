@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:25:16 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/12 17:25:39 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/13 23:20:08 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,42 @@ static char	*_trim_double_quotes(char *str)
 	ft_strlcpy(ret, str, ft_strlen(str));
 	return (ret);
 }
+
+/*
+static char	**_get_spacing(char *str)
+{
+	int		*ret;
+	int		i;
+	size_t	counter;
+	t_bool	is_whitespace;
+	
+	i = -1;
+	counter = 0;
+	is_whitespace = false;
+	while (str[++i])
+	{
+		if (str[i] == ' ')
+			is_whitespace = true;
+		if (str[i] != ' ' && is_whitespace)
+		{
+			is_whitespace = false;
+			counter++;
+		}
+	}
+	ret = malloc(sizeof(int) * (counter + 1));
+	i = -1;
+	while (str[++i])
+	{
+		if (str[i] == ' ')
+			is_whitespace = true;
+		if (str[i] != ' ' && is_whitespace)
+		{
+			is_whitespace = false;
+			ret[i] = 1;
+		}
+	}
+}
+*/
 
 static char	*_expand_multiple_variables(t_shell *shell, char *str)
 {
