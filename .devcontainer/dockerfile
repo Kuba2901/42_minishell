@@ -12,16 +12,19 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     make \
     gdb \
     git \
+	python3 \
+	python3-pip \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Upgrade pip and setuptools, and install norminette
+RUN python3 -m pip install --upgrade pip setuptools && \
+	python3 -m pip install norminette
 
 # Set the working directory in the container
 WORKDIR /app
 
 # Copy project files into the container
 COPY . .
-
-RUN echo 'alias mk="cd /workspace && make run" >> ~/.bashrc'
-RUN echo 'alias val="cd /workspace/output && valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./minishell" >> ~/.bashrc'
 
 # Specify the default command (can be overridden)
 CMD ["make"]

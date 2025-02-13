@@ -5,47 +5,49 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 17:56:48 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/11/14 18:09:44 by jnenczak         ###   ########.fr       */
+/*   Created: 2025/02/12 16:56:27 by jnenczak          #+#    #+#             */
+/*   Updated: 2025/02/12 16:56:59 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <utils.h>
+#include <mini_base.h>
 
-static void log_message(t_log_level level, const char *msg) {
-	const char	*color_code;
-	
-	if (level == LOG_DEBUG)
-		color_code = COLOR_DEBUG;
-	else if (level == LOG_WARNING)
-		color_code = COLOR_WARNING;
-	else if (level == LOG_ERROR)
-		color_code = COLOR_ERROR;
-	else if (level == LOG_SUCCESS)
-		color_code = COLOR_SUCCESS;
-	else
-		color_code = COLOR_RESET;
-	printf("%s", color_code);
-	printf("%s", msg);
-	printf("%s\n", COLOR_RESET);
+/**
+ * @brief Compares two null-terminated strings lexicographically.
+ *
+ * This function compares the two strings s1 and s2. It returns an integer
+ * less than, equal to, or greater than zero if s1 is found, respectively,
+ * to be less than, to match, or be greater than s2.
+ *
+ * @param s1 The first string to be compared.
+ * @param s2 The second string to be compared.
+ * @return An integer less than, equal to, or greater than zero if s1 is found,
+ *         respectively, to be less than, to match, or be greater than s2.
+ */
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	while (*s1 && (*s1 == *s2))
+	{
+		s1++;
+		s2++;
+	}
+	return (*(unsigned char *)s1 - *(unsigned char *)s2);
 }
 
-void	log_error(const char *msg)
+/**
+ * @brief Checks if a character is a whitespace character.
+ *
+ * This function checks if the given character c is a whitespace character.
+ * Whitespace characters include space (' '),
+ * horizontal tab ('\t'), newline ('\n'),
+ * and carriage return ('\r').
+ *
+ * @param c The character to be checked.
+ * @return A boolean value indicating whether
+ * the character is a whitespace character.
+ */
+t_bool	ft_is_whitespace(char c)
 {
-	log_message(LOG_ERROR, msg);
-}
-
-void	log_success(const char *msg)
-{
-	log_message(LOG_SUCCESS, msg);
-}
-
-void	log_warning(const char *msg)
-{
-	log_message(LOG_WARNING, msg);
-}
-
-void	log_debug(const char *msg)
-{
-	log_message(LOG_DEBUG, msg);
+	return (c == ' ' || c == '\t' || c == '\n' || c == '\r');
 }

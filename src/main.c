@@ -5,55 +5,84 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/02 19:35:32 by jnenczak          #+#    #+#             */
-/*   Updated: 2024/12/29 12:13:09 by jnenczak         ###   ########.fr       */
+/*   Created: 2025/02/12 16:51:10 by jnenczak          #+#    #+#             */
+/*   Updated: 2025/02/13 22:35:23 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-static void	ft_free_resources(t_mini *mini)
+static void	_clear_screen_ensure_cursor_visible(void)
 {
-	if (mini == NULL)
-		return ;
-	env_list_delete(mini->env_list);
+	printf("\033[2J\033[H");
+}
+
+static void	_free_resources(t_shell *shell)
+{
+	environment_list_clear(shell);
+	_clear_screen_ensure_cursor_visible();
+}
+
+void	_init_shell(t_shell *shell, const char **envp)
+{
+	shell->env = NULL;
+	shell->exit_code = 0;
+	shell->env = environment_list_initialize(envp);
+	shell->envp = envp;
+	shell->top_level_redir_out_enabled = false;
+	shell->top_level_redir_in_enabled = false;
+	if (!shell->env)
+	{
+		perror("Failed to initialize environment list\n");
+		exit(EXIT_FAILURE);
+	}
+}
+
+static void	_handle_input(t_shell *shell)
+{
+	char			*line;
+	t_token_node	**list;
+	t_ast_node		*ast;
+
+	(void)shell;
+	while (true)
+	{
+		line = readline(PROMPT);
+		if (!line)
+			break ;
+		list = tokenise(line);
+		// token_list_print(list);
+		ast = ast_create(list);
+		// ast_print(ast);
+		execute_preprocess_heredocs(ast);
+		if (!ast->left && !ast->right && !ft_strcmp(ast->token_node->args[0],
+				"exit"))
+		{
+			builtin_exit(shell, &ast, &line, &list);
+			break ;
+		}
+		execute_ast(shell, ast);
+		ast_delete(ast);
+		free(list);
+		add_history(line);
+		free(line);
+	}
 }
 
 int	main(int ac, const char **av, const char **envp)
 {
-	char			*line;
-	t_token_list	*tokens_list;
-	t_mini			mini;
+	t_shell	shell;
+	int		exit_code;
 
-	if (ac != 1)
-		return (-1);
+	(void)ac;
 	(void)av;
-	mini.env_list = env_list_init_populated(envp);
-	while (true)
-	{
-		line = readline(PROMPT);
-		if (line == NULL)
-		{
-			ft_putchar_fd('\n', 1);
-			break ;
-		}
-		if (!ft_is_whitespace(*line))
-		{
-			if (ft_strncmp(line, "exit", 4) == 0)
-				break ;
-			tokens_list = ft_tokenize(line);
-			mini.head = primary_parse(tokens_list);
-			if (mini.head)
-			{
-				execute_ast(mini.head, &mini);
-				free_ast(mini.head);
-			}
-			mini.head = NULL;
-			free_token_list(tokens_list);
-			tokens_list = NULL;
-		}
-		free(line);
-	}
-	ft_free_resources(&mini);
-	return (0);
+	exit_code = 0;
+	if (ac == 2 && !ft_strcmp(av[1], "--full"))
+		show_intro();
+	_init_shell(&shell, envp);
+	signals_setup();
+	_handle_input(&shell);
+	exit_code = shell.exit_code;
+	_free_resources(&shell);
+	return (exit_code);
 }

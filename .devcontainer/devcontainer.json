@@ -12,7 +12,8 @@
             "extensions": [
                 "ms-vscode.cpptools",
                 "ms-vscode.makefile-tools",
-                "ms-vscode.cpptools-extension-pack"
+                "ms-vscode.cpptools-extension-pack",
+				"kube.42header"
             ]
         }
     },
@@ -28,4 +29,4 @@
     "workspaceFolder": "/workspace",
     "remoteUser": "root"
   }
-  
+   

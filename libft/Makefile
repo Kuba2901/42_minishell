@@ -31,12 +31,16 @@ $(NAME): $(OBJ)
 
 all: $(NAME)
 
+bonus: $(OBJ) $(OBJBONUS)
+	ar rc $(NAME) $(OBJ) $(OBJBONUS)
+	ranlib $(NAME)
+
 clean:
-	$(RM) $(OBJ)
+	$(RM) $(OBJ) $(OBJBONUS)
 
 fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re .c.o
+.PHONY: all clean fclean re bonus .c.o

@@ -1,41 +1,45 @@
-#ifndef ENVIRONEMENT_H
-# define ENVIRONEMENT_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   environment.h                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/12 16:58:41 by jnenczak          #+#    #+#             */
+/*   Updated: 2025/02/13 20:59:03 by jnenczak         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <libft.h>
-#include <stdlib.h>
-#include <utils.h>
-# define ENV_INSERTED 1
-# define ENV_UPDATED 2
-# define ENV_NOT_FOUND 3
-# define ENV_ERROR -1
+#ifndef ENVIRONMENT_H
+# define ENVIRONMENT_H
 
-typedef struct  s_env_node
+# include <mini_base.h>
+
+typedef struct s_shell	t_shell;
+
+typedef struct s_environment_node
 {
-    char                *key;
-    char                *value;
-    struct s_env_node   *next;
-    struct s_env_node   *prev;
-}   t_env_node;
+	char						*key;
+	char						*value;
+	struct s_environment_node	*next;
+	t_bool						is_private;
+}	t_environment_node;
 
-typedef struct s_env_list
-{
-    t_env_node  *head;
-    t_env_node  *tail;
-}   t_env_list;
+void				environment_list_clear(t_shell *shell);
+char				*environment_list_read(const char *key, t_shell *shell);
+void				enviroment_node_delete(const char *key, t_shell *shell);
+t_environment_node	*environment_list_initialize(const char **envp);
+t_environment_node	*enviroment_node_create(const char *entry, t_shell *shell,
+						t_bool is_private);
+char				*env_value_expand(t_shell *shell, char *key);
+char				**environment_serialize(t_shell *shell);
+void				environment_serialized_list_clear(char **list);
+void				environment_list_print(t_shell *shell,
+						t_bool is_export);
+t_environment_node	*environment_node_from_entry(const char *entry,
+						t_bool is_private);
+void				environment_list_print_sorted(t_shell *shell);
+t_environment_node	*environment_list_get_sorted_copy(
+						t_environment_node *original);
 
-t_env_list	*env_list_initialize(void);
-void		env_list_insert_node(t_env_list *list, t_env_node *node);
-t_env_node	*env_list_read_node(t_env_list *list, char *key);
-void		env_list_delete_node(t_env_list *list, char *key);
-t_env_node	*env_node_initialize(const char *entry);
-char		*env_node_read(t_env_node *node);
-void		env_node_update(t_env_node *node, t_env_node *redundant);
-void		env_list_print(t_env_list *list);
-char		*env_node_trim_double_quotes(const char *str);
-t_env_list	*env_list_init_populated(const char **envp);
-void		env_list_delete(t_env_list *list);
-void		env_node_delete(t_env_node	*node);
-int			env_node_comp(t_env_node *n1, char *key);
-void		env_list_insert(t_env_list *list, const char *entry);
-char        *env_value_read(t_env_list *list, char *key);
 #endif
