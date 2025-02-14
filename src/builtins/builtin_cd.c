@@ -3,61 +3,83 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_cd.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: gromiti <gromiti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 08:58:30 by gromiti           #+#    #+#             */
-/*   Updated: 2025/02/14 20:11:13 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/14 23:26:58 by gromiti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-void	cd (t_shell *shell, char **args)
+void	_update_keys(t_shell *shell, char *curr_path)
 {
-	char	prev_path[1024];
-	char	cwd[1024];
-	char	*target;
-	char	*entry;
+	t_environment_node	*tmp;
+	t_environment_node	**env;
 
-	if (getcwd(prev_path, sizeof(prev_path)) == NULL)
+	env = &shell->env;
+	if (!env || !*env)
+		return ;
+	tmp = *env;
+	while (tmp)
 	{
-		perror("getcwd() error");
-		return;
+		if (!ft_strcmp(tmp->key, "OLDPWD"))
+		{
+			free(tmp->value);
+			tmp->value = ft_strdup(environment_list_read("PWD", shell));
+		}
+		else if (!ft_strcmp(tmp->key, "PWD"))
+		{
+			free(tmp->value);
+			tmp->value = ft_strdup(curr_path);
+		}
+		tmp = tmp->next;
 	}
+	return ;
+}
+
+char	*_handle_dash(t_shell *shell, char *target)
+{
+	target = environment_list_read(shell->env, "OLDPWD");
+	if (target == NULL)
+	{
+		printf("%s\n", "cd: OLDPWD not set");
+		return ;
+	}
+	return (target);
+}
+
+char	*_handle_home(t_shell *shell, char *target)
+{
+	target = environment_list_read(shell->env, "HOME");
+	if (target == NULL)
+	{
+		printf("cd: HOME not set\n");
+		return ;
+	}
+	return (target);
+}
+
+void	cd(t_shell *shell, char **args)
+{
+	char	*target;
+	char	cwd[1024];
+
 	if (args[1] == NULL || ft_strcmp(args[1], "~") == 0)
-	{
-		target = environment_list_read(shell->env, "HOME");
-		if (target == NULL)
-		{
-			printf("cd: HOME not set\n");
-			return;
-		}
-	}
+		target = _handle_home(shell, target);
 	else if (ft_strcmp(args[1], "-") == 0)
-	{
-		target = environment_list_read(shell->env, "OLDPWD");
-		if (target == NULL)
-		{
-			target = prev_path;
-			// entry =
-			// enviroment_node_create("OLDPWD", prev_path, );
-		}
-	}
+		target = _handle_dash(shell, target);
 	else
 		target = args[1];
 	if (chdir(target) != 0)
 	{
 		printf("cd: no such file or directory: %s\n", target);
-		return;
+		return ;
 	}
-	printf("%s\n", target);
 	if (getcwd(cwd, sizeof(cwd)) != NULL)
-	{
-		// both update OLDPWD and PWD
-	}
+		_update_keys(shell, cwd);
 	else
-	{
-		perror("getcwd(");
-		return;
-	}
+		return (perror("getcwd()"));
+	printf("%s\n", target);
+	return ;
 }
