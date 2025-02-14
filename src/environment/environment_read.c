@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:25:43 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/13 20:56:05 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/14 22:26:28 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,20 @@ char	*environment_list_read(const char *key, t_shell *shell)
 		tmp = tmp->next;
 	}
 	return ("");
+}
+
+t_environment_node	*environment_list_read_node(const char *key, t_shell *shell)
+{
+	t_environment_node	*tmp;
+
+	tmp = shell->env;
+	while (tmp)
+	{
+		if (!ft_strcmp(tmp->key, key))
+			return (tmp);
+		tmp = tmp->next;
+	}
+	return (NULL);
 }
 
 void	environment_list_print(t_shell *shell, t_bool is_export)

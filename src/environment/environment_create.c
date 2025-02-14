@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:20:21 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/13 22:26:29 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/14 22:17:57 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ static void	_environment_node_insert(t_environment_node **head,
 		{
 			free(tmp->value);
 			tmp->value = ft_strdup(node->value);
+			tmp->is_private = node->is_private;
 			_environment_node_simple_delete(node);
 			return ;
 		}

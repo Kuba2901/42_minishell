@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:50:10 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/13 21:06:41 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/14 22:37:07 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,19 @@ static void	cleanup_export_args(char **args, char *entry)
 
 static t_bool	process_single_arg(t_shell *shell, char *arg)
 {
+	t_environment_node	*node;
+
 	if (!_is_key_valid(arg))
 	{
 		fprintf(stderr, "minishell: export: `%s': not a valid identifier\n",
 			arg);
 		return (true);
 	}
-	enviroment_node_create(arg, shell, false);
+	node = environment_list_read_node(arg, shell);
+	if (node)
+		node->is_private = false;
+	else
+		enviroment_node_create(arg, shell, false);
 	return (false);
 }
 
