@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 22:54:32 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/14 09:10:30 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/14 09:21:05 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,13 @@ void	builtin_echo(t_shell *shell, t_ast_node *node)
 	while (args[first_arg])
 	{
 		arg = env_value_expand(shell, args[first_arg]);
-		ft_putstr_fd(arg, STDOUT_FILENO);
+		write(STDOUT_FILENO, arg, ft_strlen(arg));
 		if (args[first_arg + 1])
-			ft_putstr_fd(" ", STDOUT_FILENO);
+			write(STDOUT_FILENO, " ", 1);
 		free(arg);
 		first_arg++;
 	}
 	if (display_newline)
-		ft_putstr_fd("\n", STDOUT_FILENO);
+		write(STDOUT_FILENO, "\n", 1);
 	shell->exit_code = 0;
 }
