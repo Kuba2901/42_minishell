@@ -8,7 +8,7 @@ MINI_AST_SRC = $(AST_DIR)/ast_create.c $(AST_DIR)/ast_create_pipe.c $(AST_DIR)/a
 
 # Builtins
 BUILTINS_DIR = src/builtins
-MINI_BUILTINS_SRC = $(BUILTINS_DIR)/builtin_pwd.c $(BUILTINS_DIR)/builtin_env.c $(BUILTINS_DIR)/builtin_unset.c $(BUILTINS_DIR)/builtin_set_private.c $(BUILTINS_DIR)/builtin_export.c $(BUILTINS_DIR)/builtin_export_ext.c $(BUILTINS_DIR)/builtin_exit.c
+MINI_BUILTINS_SRC = $(BUILTINS_DIR)/builtin_pwd.c $(BUILTINS_DIR)/builtin_env.c $(BUILTINS_DIR)/builtin_unset.c $(BUILTINS_DIR)/builtin_set_private.c $(BUILTINS_DIR)/builtin_export.c $(BUILTINS_DIR)/builtin_export_ext.c $(BUILTINS_DIR)/builtin_exit.c $(BUILTINS_DIR)/builtin_echo.c
 
 # TOKENS
 TOKENS_DIR = src/parsing/tokens
