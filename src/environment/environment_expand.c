@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:25:16 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/14 21:29:29 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/14 21:48:32 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,6 @@ static char	*_expand_multiple_variables(t_shell *shell, char *str)
 
 	if (!str)
 		return (NULL);
-	if (!ft_strchr(str, '$'))
-		return (ft_strdup(str));
 	trimmed = _trim_double_quotes(str);
 	if (trimmed[0] == '$')
 		starts_with_dollar = true;
