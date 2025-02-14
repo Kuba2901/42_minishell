@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:25:16 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/14 20:00:55 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/14 21:29:29 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static char	*_expand_part(t_shell *shell, char *str)
 	char	*rest;
 	char	*key;
 
-	key_len = -1;
+	key_len = 0;
 	while (str[++key_len] && (ft_isalnum(str[key_len]) \
 			|| str[key_len] == '_'))
 		;
@@ -54,7 +54,11 @@ static char	*_put_together(t_shell *shell, char **split,
 	while (split[++i])
 	{
 		if (!starts_with_dollar && i == 0)
+		{
+			ret = ft_join_reassign(ret, split[i]);
 			continue ;
+		}
+		split[i] = ft_join_reassign(ft_strdup("$"), split[i]);
 		split[i] = _expand_part(shell, split[i]);
 		ret = ft_join_reassign(ret, split[i]);
 	}
@@ -86,13 +90,17 @@ char	*env_value_expand(t_shell *shell, char *key)
 {
 	char	*value;
 
+	if (!key)
+		return (NULL);
 	if (key[0] == '$')
 		key++;
 	else if (key[0] == '"')
 		return (_expand_multiple_variables(shell, key));
+	else
+		return (ft_strdup(key));
 	if (ft_strncmp(key, "?", 1) == 0)
 		return (ft_itoa(shell->exit_code));
-	value = environment_list_read(key, shell);
+	value = environment_list_read(key, shell);	
 	if (!value || !*value)
 		return (NULL);
 	return (ft_strdup(value));
