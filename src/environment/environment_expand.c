@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:25:16 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/14 19:49:50 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/14 20:00:55 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,14 @@ static char	*_trim_double_quotes(char *str)
 }
 
 static char	*_expand_part(t_shell *shell, char *str)
-{	int		key_len;
+{
+	int		key_len;
 	char	*rest;
 	char	*key;
 
 	key_len = -1;
-	while (str[++key_len] && (ft_isalnum(str[key_len]) || str[key_len] == '_')) // TOOD: Check these
+	while (str[++key_len] && (ft_isalnum(str[key_len]) \
+			|| str[key_len] == '_'))
 		;
 	rest = ft_strdup(str + key_len);
 	key = ft_substr(str, 0, key_len);
@@ -41,27 +43,14 @@ static char	*_expand_part(t_shell *shell, char *str)
 	return (str);
 }
 
-static char	*_expand_multiple_variables(t_shell *shell, char *str)
+static char	*_put_together(t_shell *shell, char **split,
+			t_bool starts_with_dollar)
 {
-	char	*trimmed;
-	char	**split;
-	t_bool	starts_with_dollar;
-	int		i;
 	char	*ret;
+	int		i;
 
-	if (!str)
-		return (NULL);
-	if (!ft_strchr(str, '$'))
-		return (ft_strdup(str));
-	ret = NULL;
-	trimmed = _trim_double_quotes(str);
-	if (trimmed[0] == '$')
-		starts_with_dollar = true;
-	else
-		starts_with_dollar = false;
-	split = ft_split(trimmed, '$');
-	free(trimmed);
 	i = -1;
+	ret = NULL;
 	while (split[++i])
 	{
 		if (!starts_with_dollar && i == 0)
@@ -71,6 +60,26 @@ static char	*_expand_multiple_variables(t_shell *shell, char *str)
 	}
 	free(split);
 	return (ret);
+}
+
+static char	*_expand_multiple_variables(t_shell *shell, char *str)
+{
+	char	*trimmed;
+	char	**split;
+	t_bool	starts_with_dollar;
+
+	if (!str)
+		return (NULL);
+	if (!ft_strchr(str, '$'))
+		return (ft_strdup(str));
+	trimmed = _trim_double_quotes(str);
+	if (trimmed[0] == '$')
+		starts_with_dollar = true;
+	else
+		starts_with_dollar = false;
+	split = ft_split(trimmed, '$');
+	free(trimmed);
+	return (_put_together(shell, split, starts_with_dollar));
 }
 
 char	*env_value_expand(t_shell *shell, char *key)
