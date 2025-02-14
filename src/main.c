@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 16:51:10 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/14 19:57:14 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/14 21:46:43 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,13 @@ static void	_handle_input(t_shell *shell)
 		line = readline(PROMPT);
 		if (!line)
 			break ;
+		if (!*line)
+		{
+			free(line);
+			continue ;
+		}
 		list = tokenise(line);
-		// token_list_print(list);
 		ast = ast_create(list);
-		// ast_print(ast);
 		execute_preprocess_heredocs(ast);
 		if (!ast->left && !ast->right && !ft_strcmp(ast->token_node->args[0],
 				"exit"))

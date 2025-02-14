@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_cd.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gromiti <gromiti@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 08:58:30 by gromiti           #+#    #+#             */
-/*   Updated: 2025/02/14 10:11:24 by gromiti          ###   ########.fr       */
+/*   Updated: 2025/02/14 20:11:13 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	cd (t_shell *shell, char **args)
 	char	prev_path[1024];
 	char	cwd[1024];
 	char	*target;
+	char	*entry;
 
 	if (getcwd(prev_path, sizeof(prev_path)) == NULL)
 	{
@@ -38,7 +39,8 @@ void	cd (t_shell *shell, char **args)
 		if (target == NULL)
 		{
 			target = prev_path;
-			// export OLDPWD?
+			// entry =
+			// enviroment_node_create("OLDPWD", prev_path, );
 		}
 	}
 	else
