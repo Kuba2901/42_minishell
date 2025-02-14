@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:25:16 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/14 21:48:32 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/14 22:36:42 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ char	*env_value_expand(t_shell *shell, char *key)
 		return (ft_strdup(key));
 	if (ft_strncmp(key, "?", 1) == 0)
 		return (ft_itoa(shell->exit_code));
-	value = environment_list_read(key, shell);	
+	value = environment_list_read(key, shell);
 	if (!value || !*value)
 		return (NULL);
 	return (ft_strdup(value));
