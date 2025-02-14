@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 22:54:32 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/14 22:38:48 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/14 22:50:11 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	builtin_echo(t_shell *shell, t_ast_node *node)
 	if (!args)
 		return ;
 	first_arg = _determine_first_arg(node) - 1;
-	if (first_arg == 1)
+	if (first_arg == 0)
 		display_newline = true;
 	else
 		display_newline = false;

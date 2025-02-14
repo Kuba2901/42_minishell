@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 16:59:32 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/13 23:08:22 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/14 22:43:50 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ t_bool	builtin_export_export_key_value(t_shell *shell, t_ast_node *node);
 void	builtin_exit(t_shell *shell, t_ast_node **node, char **line,
 	t_token_node ***list);
 void	builtin_echo(t_shell *shell, t_ast_node *node);
+void	builtin_cd(t_shell *shell, char **args);
 
 #endif

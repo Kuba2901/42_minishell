@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:35:53 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/13 23:08:12 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/14 22:44:28 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ static t_bool	_is_builtin(t_ast_node *node)
 		return (true);
 	if (!ft_strcmp(node->token_node->args[0], "echo"))
 		return (true);
+	if (!ft_strcmp(node->token_node->args[0], "cd"))
+		return (true);
 	if (_is_set_private(node))
 		return (true);
 	return (false);
@@ -89,6 +91,8 @@ static void	_execute_builtin(t_shell *shell, t_ast_node *node)
 		shell->exit_code = 0;
 	else if (!ft_strcmp(node->token_node->args[0], "echo"))
 		builtin_echo(shell, node);
+	else if (!ft_strcmp(node->token_node->args[0], "cd"))
+		builtin_cd(shell, node->token_node->args);
 	else if (_is_set_private(node))
 		builtin_set_private(shell, node);
 	return ;
