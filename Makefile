@@ -73,9 +73,6 @@ run: $(NAME)
 	@ ./display_intro.sh
 	@./$(OUT_DIR)/$(NAME)
 
-full: $(NAME)
-	@./$(OUT_DIR)/$(NAME) --full
-
 valgrind: $(NAME)
 	@ valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(OUT_DIR)/$(NAME)
 
