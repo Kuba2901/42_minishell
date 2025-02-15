@@ -6,14 +6,14 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:25:16 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/14 22:36:42 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/15 14:34:40 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <environment.h>
 #include <minishell.h>
 
-static char	*_trim_double_quotes(char *str)
+static char	*_trim_quotes(char *str)
 {
 	char	*ret;
 
@@ -74,7 +74,7 @@ static char	*_expand_multiple_variables(t_shell *shell, char *str)
 
 	if (!str)
 		return (NULL);
-	trimmed = _trim_double_quotes(str);
+	trimmed = _trim_quotes(str);
 	if (trimmed[0] == '$')
 		starts_with_dollar = true;
 	else
@@ -94,6 +94,8 @@ char	*env_value_expand(t_shell *shell, char *key)
 		key++;
 	else if (key[0] == '"')
 		return (_expand_multiple_variables(shell, key));
+	else if (key[0] == '\'')
+		return _trim_quotes(key);
 	else
 		return (ft_strdup(key));
 	if (ft_strncmp(key, "?", 1) == 0)
