@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 22:54:32 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/15 16:07:50 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/15 16:30:50 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ void	builtin_echo(t_shell *shell, t_ast_node *node)
 	t_bool	display_newline;
 
 	args = node->token_node->args;
-	if (!args)
-		return ;
 	first_arg = _determine_first_arg(node) - 1;
 	if (first_arg == 0)
 		display_newline = true;
@@ -54,6 +52,8 @@ void	builtin_echo(t_shell *shell, t_ast_node *node)
 	while (args[++first_arg])
 	{
 		arg = env_value_expand(shell, args[first_arg]);
+		if (!arg)
+			continue ;
 		printf("%s", arg);
 		if (args[first_arg + 1] && args[first_arg]
 			[ft_strlen(args[first_arg]) - 1] != '=')
