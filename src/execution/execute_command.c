@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:35:53 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/14 22:44:28 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/15 15:39:36 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ static void	_execute_complex_command(t_shell *shell, t_ast_node *node)
 	command_path = execute_find_executable(node->token_node->args[0], shell);
 	if (!command_path)
 	{
-		fprintf(stderr, "minishell: %s: command not found\n",
-			node->token_node->args[0]);
+		ft_puterror("minishell: `", node->token_node->args[0],
+			": command not found");
 		exit(127);
 	}
 	serialized_env = environment_serialize(shell);

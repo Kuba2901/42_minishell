@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 21:11:49 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/13 21:42:57 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/15 15:08:43 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int	_check_arg_num(t_ast_node *node)
 	return (BUILTIN_EXIT_OK);
 }
 
-void	builtin_exit(t_shell *shell, t_ast_node **node_ptr, char **line_ptr,
+t_bool	builtin_exit(t_shell *shell, t_ast_node **node_ptr, char **line_ptr,
 			t_token_node ***list_ptr)
 {
 	t_ast_node		*ast;
@@ -57,6 +57,9 @@ void	builtin_exit(t_shell *shell, t_ast_node **node_ptr, char **line_ptr,
 	ast = *node_ptr;
 	tokens = *list_ptr;
 	line = *line_ptr;
+	if (!(!ast->left && !ast->right \
+			&& !ft_strcmp(ast->token_node->args[0], "exit")))
+		return (false);
 	if (_check_arg_num(ast))
 		exit_code = ft_atoi(ast->token_node->args[1]) % 256;
 	else
@@ -65,4 +68,5 @@ void	builtin_exit(t_shell *shell, t_ast_node **node_ptr, char **line_ptr,
 	free(tokens);
 	free(line);
 	shell->exit_code = exit_code;
+	return (true);
 }

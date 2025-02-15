@@ -6,10 +6,11 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:10:22 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/12 17:42:12 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/15 15:08:15 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
 #include <ast.h>
 
 static void	print_ast_indent(t_ast_node *node, int indent)
@@ -81,18 +82,8 @@ static void	print_ast_indent(t_ast_node *node, int indent)
 		print_ast_indent(node->right, indent + 2);
 	}
 }
-
-/**
- * @brief Prints the abstract syntax tree (AST) starting
- * from the given node.
- *
- * This function prints the abstract syntax tree (AST)
- * starting from the given node.
- * It uses indentation to represent the hierarchical structure of the AST.
- *
- * @param node The root node of the AST to be printed.
- */
 void	ast_print(t_ast_node *node)
 {
 	print_ast_indent(node, 0);
 }
+*/

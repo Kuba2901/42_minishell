@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 16:56:27 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/12 16:56:59 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/15 15:38:43 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,15 @@ int	ft_strcmp(const char *s1, const char *s2)
 t_bool	ft_is_whitespace(char c)
 {
 	return (c == ' ' || c == '\t' || c == '\n' || c == '\r');
+}
+
+void	ft_puterror(const char *s, char *arg1, const char *arg2)
+{
+	if (!s || !arg1)
+		return ;
+	write(STDERR_FILENO, s, ft_strlen(s));
+	write(STDERR_FILENO, arg1, ft_strlen(arg1));
+	if (arg2)
+		write(STDERR_FILENO, arg2, ft_strlen(arg2));
+	write(STDERR_FILENO, "\n", 1);
 }
