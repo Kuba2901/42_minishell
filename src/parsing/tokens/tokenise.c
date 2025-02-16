@@ -6,12 +6,21 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:05:17 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/13 15:03:57 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/16 21:41:10 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <tokens.h>
 
+/**
+ * @brief Clears the current arguments of a token node.
+ *
+ * This function frees all the strings in the `args` array of the given
+ * token node and sets each pointer to NULL. It also frees the `args`
+ * array itself and sets the pointer to NULL.
+ *
+ * @param src Pointer to the token node whose arguments are to be cleared.
+ */
 static void	_tok_clear_current_args(t_token_node *src)
 {
 	int	i;
@@ -26,6 +35,24 @@ static void	_tok_clear_current_args(t_token_node *src)
 	src->args = NULL;
 }
 
+/**
+ * @brief Assigns arguments from source token node to a new arguments array.
+ *
+ * This function iterates through the linked list of token nodes starting from
+ * the node pointed to by `temp`. If the type of the current token node matches
+ * the type of the source token node (`src`) and the type is `TOKEN_STRING`,
+ * it duplicates the argument string from the current token node and assigns it
+ * to the new arguments array (`new_args`) at index `i`. The current token node
+ * is then deleted, and the function moves to the next token node in the list.
+ * The process continues until a token node with a different type is encountered
+ * or the end of the list is reached. The new arguments array is terminated with
+ * a NULL pointer.
+ *
+ * @param temp Pointer to the pointer of the current token node in the linked list.
+ * @param src Pointer to the source token node whose type is used for comparison.
+ * @param new_args Array of strings where the duplicated arguments will be stored.
+ * @param i Index in the new arguments array where the next duplicated argument will be stored.
+ */
 static void	_tok_assign_args_ext(t_token_node **temp, t_token_node *src,
 		char **new_args, size_t i)
 {
@@ -48,6 +75,17 @@ static void	_tok_assign_args_ext(t_token_node **temp, t_token_node *src,
 	new_args[i] = NULL;
 }
 
+/**
+ * @brief Assigns arguments to a token node.
+ *
+ * This function assigns arguments to a token node by first counting the number
+ * of arguments, allocating memory for the new arguments, and then copying the
+ * arguments from the source token node to the new arguments array. It also clears
+ * the current arguments of the source token node and updates the source token node
+ * with the new arguments and the next token node.
+ *
+ * @param src Pointer to the source token node.
+ */
 static void	_tok_assign_args(t_token_node *src)
 {
 	size_t			i;
@@ -70,6 +108,15 @@ static void	_tok_assign_args(t_token_node *src)
 	src->next = temp;
 }
 
+/**
+ * @brief Joins tokens in the provided token list.
+ *
+ * This function iterates through the given token list and assigns arguments
+ * to each token node using the _tok_assign_args function.
+ *
+ * @param list A double pointer to the head of the token list.
+ *             If the list is NULL or the head of the list is NULL, the function returns immediately.
+ */
 static void	_join_tokens(t_token_node	**list)
 {
 	t_token_node	*node1;
