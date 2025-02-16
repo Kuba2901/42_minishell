@@ -69,7 +69,7 @@ test: $(TEST_OBJ)
 all: $(NAME)
 
 # Direct run
-run: $(NAME)
+roni: $(NAME)
 	@ ./display_intro.sh
 	@./$(OUT_DIR)/$(NAME)
 
