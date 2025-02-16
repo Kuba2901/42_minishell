@@ -116,5 +116,3 @@ Temporary Items
 .venv
 output/
 
-.vscode/
-.devcontainer/
