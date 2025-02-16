@@ -1,0 +1,26 @@
+\hypertarget{ast__create__redirect__in_8c}{}\doxysection{src/parsing/ast/ast\+\_\+create\+\_\+redirect\+\_\+in.c File Reference}
+\label{ast__create__redirect__in_8c}\index{src/parsing/ast/ast\_create\_redirect\_in.c@{src/parsing/ast/ast\_create\_redirect\_in.c}}
+{\ttfamily \#include $<$ast.\+h$>$}\newline
+Include dependency graph for ast\+\_\+create\+\_\+redirect\+\_\+in.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$ \mbox{\hyperlink{ast__create__redirect__in_8c_a9821b43b0ae13f746b1e0950c51b5d38}{ast\+\_\+create\+\_\+redirect\+\_\+in\+\_\+heredoc}} (\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$list)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ast__create__redirect__in_8c_a9821b43b0ae13f746b1e0950c51b5d38}\label{ast__create__redirect__in_8c_a9821b43b0ae13f746b1e0950c51b5d38}} 
+\index{ast\_create\_redirect\_in.c@{ast\_create\_redirect\_in.c}!ast\_create\_redirect\_in\_heredoc@{ast\_create\_redirect\_in\_heredoc}}
+\index{ast\_create\_redirect\_in\_heredoc@{ast\_create\_redirect\_in\_heredoc}!ast\_create\_redirect\_in.c@{ast\_create\_redirect\_in.c}}
+\doxysubsubsection{\texorpdfstring{ast\_create\_redirect\_in\_heredoc()}{ast\_create\_redirect\_in\_heredoc()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}}$\ast$ ast\+\_\+create\+\_\+redirect\+\_\+in\+\_\+heredoc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$}]{list }\end{DoxyParamCaption})}
+
+ast\+\_\+create\+\_\+redirect\+\_\+in\+\_\+heredoc -\/ Parses a list of tokens to create an AST node for input redirection and heredoc.
+
+@list\+: Double pointer to the head of the token list.
+
+This function processes a list of tokens to create an abstract syntax tree (AST) node for input redirection and heredoc. It starts by creating a command node from the token list and then iterates through the list to handle heredoc and input redirection tokens. For each heredoc or input redirection token, it creates a new AST node, sets the left and right children, and updates the left node to the newly created node. The function returns the final left node, which represents the root of the constructed AST for input redirection and heredoc.
+
+Return\+: A pointer to the root of the constructed AST node. 

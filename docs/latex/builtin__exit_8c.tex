@@ -1,0 +1,46 @@
+\hypertarget{builtin__exit_8c}{}\doxysection{src/builtins/builtin\+\_\+exit.c File Reference}
+\label{builtin__exit_8c}\index{src/builtins/builtin\_exit.c@{src/builtins/builtin\_exit.c}}
+{\ttfamily \#include $<$builtins.\+h$>$}\newline
+{\ttfamily \#include $<$minishell.\+h$>$}\newline
+Include dependency graph for builtin\+\_\+exit.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{mini__base_8h_a2bf87f8c2c611ece6cf206621482a269}{t\+\_\+bool}} \mbox{\hyperlink{builtin__exit_8c_a4ece4450a4d931dd059944a7aca9d5f7}{builtin\+\_\+exit}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$$\ast$node\+\_\+ptr, char $\ast$$\ast$line\+\_\+ptr, \mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$$\ast$list\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Handles the execution of the {\ttfamily exit} built-\/in command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{builtin__exit_8c_a4ece4450a4d931dd059944a7aca9d5f7}\label{builtin__exit_8c_a4ece4450a4d931dd059944a7aca9d5f7}} 
+\index{builtin\_exit.c@{builtin\_exit.c}!builtin\_exit@{builtin\_exit}}
+\index{builtin\_exit@{builtin\_exit}!builtin\_exit.c@{builtin\_exit.c}}
+\doxysubsubsection{\texorpdfstring{builtin\_exit()}{builtin\_exit()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mini__base_8h_a2bf87f8c2c611ece6cf206621482a269}{t\+\_\+bool}} builtin\+\_\+exit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$$\ast$}]{node\+\_\+ptr,  }\item[{char $\ast$$\ast$}]{line\+\_\+ptr,  }\item[{\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$$\ast$}]{list\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Handles the execution of the {\ttfamily exit} built-\/in command. 
+
+This function checks if the {\ttfamily exit} command is properly formatted and executes it, freeing necessary resources before terminating the shell. The function ensures\+:
+\begin{DoxyItemize}
+\item The command is correctly formatted with a single {\ttfamily exit} keyword.
+\item Argument validity is checked, allowing a numeric exit code.
+\item The shell\textquotesingle{}s exit code is set appropriately.
+\item Memory cleanup is performed before exiting.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & A pointer to the shell structure. \\
+\hline
+{\em node\+\_\+ptr} & A double pointer to the AST node containing the command. \\
+\hline
+{\em line\+\_\+ptr} & A pointer to the command line input to be freed. \\
+\hline
+{\em list\+\_\+ptr} & A pointer to the token list to be freed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the {\ttfamily exit} command was executed, false otherwise. 
+\end{DoxyReturn}

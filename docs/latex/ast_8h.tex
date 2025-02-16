@@ -1,0 +1,170 @@
+\hypertarget{ast_8h}{}\doxysection{inc/ast.h File Reference}
+\label{ast_8h}\index{inc/ast.h@{inc/ast.h}}
+{\ttfamily \#include $<$mini\+\_\+base.\+h$>$}\newline
+{\ttfamily \#include $<$tokens.\+h$>$}\newline
+Include dependency graph for ast.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structs__ast__node}{s\+\_\+ast\+\_\+node}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structs__ast__node}{s\+\_\+ast\+\_\+node}} \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$ \mbox{\hyperlink{ast_8h_a7729393eddbf3cc99189f20ee2a8875f}{ast\+\_\+create\+\_\+command}} (\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$list)
+\item 
+\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$ \mbox{\hyperlink{ast_8h_a2ba12f80cc96195f3c07fbef882c41f8}{ast\+\_\+create\+\_\+node}} (\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$token\+\_\+node)
+\begin{DoxyCompactList}\small\item\em Creates a new AST node. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$ \mbox{\hyperlink{ast_8h_ad580b853b09af8c71108ad162c73b98b}{ast\+\_\+create\+\_\+pipe}} (\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$list)
+\item 
+\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$ \mbox{\hyperlink{ast_8h_a9821b43b0ae13f746b1e0950c51b5d38}{ast\+\_\+create\+\_\+redirect\+\_\+in\+\_\+heredoc}} (\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$list)
+\item 
+\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$ \mbox{\hyperlink{ast_8h_adf49ca3349e15c41345a81a0e1cd37e4}{ast\+\_\+create\+\_\+redirect\+\_\+out\+\_\+append}} (\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$list)
+\item 
+\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$ \mbox{\hyperlink{ast_8h_af3adbca4bd20ec24f5073a1ba9dfa81f}{ast\+\_\+create\+\_\+redirect}} (\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$list)
+\item 
+\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$ \mbox{\hyperlink{ast_8h_a7c7a48992c516a9765476b5d9bb01f99}{ast\+\_\+create}} (\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$list)
+\begin{DoxyCompactList}\small\item\em Creates an abstract syntax tree (AST) from a list of tokens. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ast_8h_a15b68b0db14296cb6280b97b6c203f65}{ast\+\_\+delete}} (\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Recursively deletes an Abstract Syntax Tree (AST) node and its children. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ast_8h_ab5857c068f33de676871c00d579098fe}{ast\+\_\+print}} (\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$node)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}\label{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}} 
+\index{ast.h@{ast.h}!t\_ast\_node@{t\_ast\_node}}
+\index{t\_ast\_node@{t\_ast\_node}!ast.h@{ast.h}}
+\doxysubsubsection{\texorpdfstring{t\_ast\_node}{t\_ast\_node}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structs__ast__node}{s\+\_\+ast\+\_\+node}} \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ast_8h_a7c7a48992c516a9765476b5d9bb01f99}\label{ast_8h_a7c7a48992c516a9765476b5d9bb01f99}} 
+\index{ast.h@{ast.h}!ast\_create@{ast\_create}}
+\index{ast\_create@{ast\_create}!ast.h@{ast.h}}
+\doxysubsubsection{\texorpdfstring{ast\_create()}{ast\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}}$\ast$ ast\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$}]{list }\end{DoxyParamCaption})}
+
+
+
+Creates an abstract syntax tree (AST) from a list of tokens. 
+
+This function takes a list of tokens and constructs an AST node from it. If the list is empty or NULL, the function returns NULL. Otherwise, it delegates the creation of the AST to the {\ttfamily ast\+\_\+create\+\_\+pipe} function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & A pointer to the list of tokens to be parsed into an AST. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the created AST node, or NULL if the list is empty or NULL. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ast_8h_a7729393eddbf3cc99189f20ee2a8875f}\label{ast_8h_a7729393eddbf3cc99189f20ee2a8875f}} 
+\index{ast.h@{ast.h}!ast\_create\_command@{ast\_create\_command}}
+\index{ast\_create\_command@{ast\_create\_command}!ast.h@{ast.h}}
+\doxysubsubsection{\texorpdfstring{ast\_create\_command()}{ast\_create\_command()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}}$\ast$ ast\+\_\+create\+\_\+command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$}]{list }\end{DoxyParamCaption})}
+
+ast\+\_\+parse\+\_\+command -\/ Parses a command from a token list and creates an AST node. @list\+: A double pointer to the head of the token list.
+
+This function checks if the provided token list is valid and if the head of the list is of type TOKEN\+\_\+\+STRING. If so, it creates an AST node from the head token, advances the list to the next token, and returns the created AST node. If the list is invalid or the head token is not of type TOKEN\+\_\+\+STRING, it returns NULL.
+
+Return\+: A pointer to the created AST node, or NULL if the list is invalid or the head token is not of type TOKEN\+\_\+\+STRING. \mbox{\Hypertarget{ast_8h_a2ba12f80cc96195f3c07fbef882c41f8}\label{ast_8h_a2ba12f80cc96195f3c07fbef882c41f8}} 
+\index{ast.h@{ast.h}!ast\_create\_node@{ast\_create\_node}}
+\index{ast\_create\_node@{ast\_create\_node}!ast.h@{ast.h}}
+\doxysubsubsection{\texorpdfstring{ast\_create\_node()}{ast\_create\_node()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}}$\ast$ ast\+\_\+create\+\_\+node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$}]{token\+\_\+node }\end{DoxyParamCaption})}
+
+
+
+Creates a new AST node. 
+
+This function allocates memory for a new {\ttfamily t\+\_\+ast\+\_\+node} structure and initializes its fields. The {\ttfamily type} parameter specifies the type of the node, while the {\ttfamily value} parameter specifies the value associated with the node. If {\ttfamily value} is {\ttfamily NULL}, the {\ttfamily value} field of the node will be set to {\ttfamily NULL}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of the AST node. \\
+\hline
+{\em value} & The value associated with the AST node. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the newly created {\ttfamily t\+\_\+ast\+\_\+node} structure, or {\ttfamily NULL} if memory allocation fails. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ast_8h_ad580b853b09af8c71108ad162c73b98b}\label{ast_8h_ad580b853b09af8c71108ad162c73b98b}} 
+\index{ast.h@{ast.h}!ast\_create\_pipe@{ast\_create\_pipe}}
+\index{ast\_create\_pipe@{ast\_create\_pipe}!ast.h@{ast.h}}
+\doxysubsubsection{\texorpdfstring{ast\_create\_pipe()}{ast\_create\_pipe()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}}$\ast$ ast\+\_\+create\+\_\+pipe (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$}]{list }\end{DoxyParamCaption})}
+
+ast\+\_\+create\+\_\+pipe -\/ Creates an AST node for a pipe operation. @list\+: A pointer to the list of token nodes.
+
+This function creates an abstract syntax tree (AST) node for a pipe operation by parsing the token list. It first creates the left node by calling ast\+\_\+create\+\_\+redirect. Then, it iterates through the token list to find pipe tokens (TOKEN\+\_\+\+PIPE). For each pipe token found, it creates a right node by calling ast\+\_\+create, and then creates a pipe node with the current token. The left and right nodes are assigned to the pipe node, and the left node is updated to the pipe node. The function returns the final left node, which represents the root of the pipe operation AST.
+
+Return\+: A pointer to the root AST node of the pipe operation. \mbox{\Hypertarget{ast_8h_af3adbca4bd20ec24f5073a1ba9dfa81f}\label{ast_8h_af3adbca4bd20ec24f5073a1ba9dfa81f}} 
+\index{ast.h@{ast.h}!ast\_create\_redirect@{ast\_create\_redirect}}
+\index{ast\_create\_redirect@{ast\_create\_redirect}!ast.h@{ast.h}}
+\doxysubsubsection{\texorpdfstring{ast\_create\_redirect()}{ast\_create\_redirect()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}}$\ast$ ast\+\_\+create\+\_\+redirect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$}]{list }\end{DoxyParamCaption})}
+
+ast\+\_\+create\+\_\+redirect -\/ Parses a list of tokens to create an abstract syntax tree (AST) node representing a redirection. @list\+: A pointer to the list of tokens to be parsed.
+
+This function parses a list of tokens to create an AST node that represents a redirection operation. It first parses the left-\/hand side command, then iterates through the list of tokens to check for redirection operators (heredoc, redirect in, append, redirect out). For each redirection operator found, it creates a new AST node, sets the left and right children, and updates the list pointer to the next token. The function returns the root of the created AST subtree.
+
+Return\+: A pointer to the root AST node representing the redirection. \mbox{\Hypertarget{ast_8h_a9821b43b0ae13f746b1e0950c51b5d38}\label{ast_8h_a9821b43b0ae13f746b1e0950c51b5d38}} 
+\index{ast.h@{ast.h}!ast\_create\_redirect\_in\_heredoc@{ast\_create\_redirect\_in\_heredoc}}
+\index{ast\_create\_redirect\_in\_heredoc@{ast\_create\_redirect\_in\_heredoc}!ast.h@{ast.h}}
+\doxysubsubsection{\texorpdfstring{ast\_create\_redirect\_in\_heredoc()}{ast\_create\_redirect\_in\_heredoc()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}}$\ast$ ast\+\_\+create\+\_\+redirect\+\_\+in\+\_\+heredoc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$}]{list }\end{DoxyParamCaption})}
+
+ast\+\_\+create\+\_\+redirect\+\_\+in\+\_\+heredoc -\/ Parses a list of tokens to create an AST node for input redirection and heredoc.
+
+@list\+: Double pointer to the head of the token list.
+
+This function processes a list of tokens to create an abstract syntax tree (AST) node for input redirection and heredoc. It starts by creating a command node from the token list and then iterates through the list to handle heredoc and input redirection tokens. For each heredoc or input redirection token, it creates a new AST node, sets the left and right children, and updates the left node to the newly created node. The function returns the final left node, which represents the root of the constructed AST for input redirection and heredoc.
+
+Return\+: A pointer to the root of the constructed AST node. \mbox{\Hypertarget{ast_8h_adf49ca3349e15c41345a81a0e1cd37e4}\label{ast_8h_adf49ca3349e15c41345a81a0e1cd37e4}} 
+\index{ast.h@{ast.h}!ast\_create\_redirect\_out\_append@{ast\_create\_redirect\_out\_append}}
+\index{ast\_create\_redirect\_out\_append@{ast\_create\_redirect\_out\_append}!ast.h@{ast.h}}
+\doxysubsubsection{\texorpdfstring{ast\_create\_redirect\_out\_append()}{ast\_create\_redirect\_out\_append()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}}$\ast$ ast\+\_\+create\+\_\+redirect\+\_\+out\+\_\+append (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$}]{list }\end{DoxyParamCaption})}
+
+ast\+\_\+create\+\_\+redirect\+\_\+out\+\_\+append -\/ Parses a list of tokens to create an AST node for redirect out or append operations.
+
+@list\+: A pointer to the head of the token list.
+
+This function processes a list of tokens to create an abstract syntax tree (AST) node representing redirect out ($>$) or append ($>$$>$) operations. It starts by creating a command node from the token list and then iterates through the list to handle consecutive redirect out or append tokens. For each such token, it creates a new AST node, sets the left and right children, and updates the left child to the newly created node. The function returns the final AST node representing the parsed redirect out or append operations.
+
+Return\+: A pointer to the root of the created AST node. \mbox{\Hypertarget{ast_8h_a15b68b0db14296cb6280b97b6c203f65}\label{ast_8h_a15b68b0db14296cb6280b97b6c203f65}} 
+\index{ast.h@{ast.h}!ast\_delete@{ast\_delete}}
+\index{ast\_delete@{ast\_delete}!ast.h@{ast.h}}
+\doxysubsubsection{\texorpdfstring{ast\_delete()}{ast\_delete()}}
+{\footnotesize\ttfamily void ast\+\_\+delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Recursively deletes an Abstract Syntax Tree (AST) node and its children. 
+
+This function takes a pointer to an AST node and recursively deletes its left and right children, as well as the token associated with the node. Finally, it frees the memory allocated for the node itself.
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & A pointer to the AST node to be deleted. If the node is NULL, the function returns immediately. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ast_8h_ab5857c068f33de676871c00d579098fe}\label{ast_8h_ab5857c068f33de676871c00d579098fe}} 
+\index{ast.h@{ast.h}!ast\_print@{ast\_print}}
+\index{ast\_print@{ast\_print}!ast.h@{ast.h}}
+\doxysubsubsection{\texorpdfstring{ast\_print()}{ast\_print()}}
+{\footnotesize\ttfamily void ast\+\_\+print (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})}
+

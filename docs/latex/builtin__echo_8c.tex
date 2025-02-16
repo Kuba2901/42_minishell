@@ -1,0 +1,33 @@
+\hypertarget{builtin__echo_8c}{}\doxysection{src/builtins/builtin\+\_\+echo.c File Reference}
+\label{builtin__echo_8c}\index{src/builtins/builtin\_echo.c@{src/builtins/builtin\_echo.c}}
+{\ttfamily \#include $<$builtins.\+h$>$}\newline
+{\ttfamily \#include $<$minishell.\+h$>$}\newline
+Include dependency graph for builtin\+\_\+echo.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{builtin__echo_8c_ad169e2a5a0ec78d1012a442ce0d6117f}{builtin\+\_\+echo}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Implements the {\ttfamily echo} built-\/in command for the minishell. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{builtin__echo_8c_ad169e2a5a0ec78d1012a442ce0d6117f}\label{builtin__echo_8c_ad169e2a5a0ec78d1012a442ce0d6117f}} 
+\index{builtin\_echo.c@{builtin\_echo.c}!builtin\_echo@{builtin\_echo}}
+\index{builtin\_echo@{builtin\_echo}!builtin\_echo.c@{builtin\_echo.c}}
+\doxysubsubsection{\texorpdfstring{builtin\_echo()}{builtin\_echo()}}
+{\footnotesize\ttfamily void builtin\+\_\+echo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Implements the {\ttfamily echo} built-\/in command for the minishell. 
+
+This function mimics the behavior of the UNIX {\ttfamily echo} command, supporting the {\ttfamily -\/n} option to suppress the trailing newline. It expands environment variables within arguments and prints the result to standard output.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & The shell structure containing environment variables and state. \\
+\hline
+{\em node} & The AST node representing the {\ttfamily echo} command and its arguments. \\
+\hline
+\end{DoxyParams}

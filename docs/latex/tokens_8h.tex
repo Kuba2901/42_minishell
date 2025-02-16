@@ -1,0 +1,333 @@
+\hypertarget{tokens_8h}{}\doxysection{inc/tokens.h File Reference}
+\label{tokens_8h}\index{inc/tokens.h@{inc/tokens.h}}
+{\ttfamily \#include $<$mini\+\_\+base.\+h$>$}\newline
+{\ttfamily \#include $<$utils.\+h$>$}\newline
+Include dependency graph for tokens.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structs__token__node}{s\+\_\+token\+\_\+node}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{tokens_8h_a6692e06a6c4fac3f107305df57911738}{s\+\_\+token\+\_\+type}} \mbox{\hyperlink{tokens_8h_a91fd0f8bd1f7ed6636bfd59d19809cc1}{t\+\_\+token\+\_\+type}}
+\item 
+typedef struct \mbox{\hyperlink{structs__token__node}{s\+\_\+token\+\_\+node}} \mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{tokens_8h_a6692e06a6c4fac3f107305df57911738}{s\+\_\+token\+\_\+type}} \{ \newline
+\mbox{\hyperlink{tokens_8h_a6692e06a6c4fac3f107305df57911738afcaa8f23ed1d21aa5779451ed3c243ef}{TOKEN\+\_\+\+STRING}}
+, \mbox{\hyperlink{tokens_8h_a6692e06a6c4fac3f107305df57911738a93000ce4e0f00f6f294a98192f705910}{TOKEN\+\_\+\+PIPE}}
+, \mbox{\hyperlink{tokens_8h_a6692e06a6c4fac3f107305df57911738a7026180dede56452f3423d56f32f2f7d}{TOKEN\+\_\+\+REDIRECT\+\_\+\+IN}}
+, \mbox{\hyperlink{tokens_8h_a6692e06a6c4fac3f107305df57911738a724db76dad795426e17d842801f9225c}{TOKEN\+\_\+\+REDIRECT\+\_\+\+OUT}}
+, \newline
+\mbox{\hyperlink{tokens_8h_a6692e06a6c4fac3f107305df57911738ad5b5b593817e624c7c7b997b844a203b}{TOKEN\+\_\+\+APPEND}}
+, \mbox{\hyperlink{tokens_8h_a6692e06a6c4fac3f107305df57911738a6b61b3b682d388b0bf6b0a09ee7429d4}{TOKEN\+\_\+\+HEREDOC}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{tokens_8h_a0d5146987a56f3d8d3abec776727a9d6}{token\+\_\+delete\+\_\+all}} (\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$list)
+\begin{DoxyCompactList}\small\item\em Frees the memory allocated for a list of tokens. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tokens_8h_a09ac0c422bd48b4b44d9c552897adcac}{token\+\_\+delete}} (\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$token)
+\begin{DoxyCompactList}\small\item\em Frees the memory allocated for a token and its arguments. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$ \mbox{\hyperlink{tokens_8h_ad9934fc55f0f2d3446166ab2fea4db9b}{token\+\_\+create}} (\mbox{\hyperlink{tokens_8h_a91fd0f8bd1f7ed6636bfd59d19809cc1}{t\+\_\+token\+\_\+type}} type, char $\ast$value)
+\begin{DoxyCompactList}\small\item\em Creates a new token node with the specified type and value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tokens_8h_a52689ed879208a78d3f6469f95c99518}{token\+\_\+print}} (\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$token)
+\begin{DoxyCompactList}\small\item\em Prints the details of a single token node and its arguments. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$ \mbox{\hyperlink{tokens_8h_a0cd7f312eb96538a7291e9c5137e7d67}{tokenise}} (char $\ast$input)
+\item 
+void \mbox{\hyperlink{tokens_8h_a3e99598307beae324369b66ec0794659}{handle\+\_\+simple\+\_\+tokens}} (char $\ast$$\ast$current, \mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$list)
+\begin{DoxyCompactList}\small\item\em Handles simple tokens in the input string. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tokens_8h_a33f8cc0bef2a29ba635644252bea6f04}{handle\+\_\+arrows}} (\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$list, char $\ast$$\ast$current)
+\begin{DoxyCompactList}\small\item\em Handles the arrows in the input string. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tokens_8h_a0a4cd44b57eb5b7ac08e82e2a43271c2}{handle\+\_\+quoted}} (char $\ast$$\ast$current, \mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$list, char type)
+\begin{DoxyCompactList}\small\item\em Handles quoted tokens. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tokens_8h_af7cf00954aab4c0c7cc1c6d51a1b11b7}{handle\+\_\+word}} (\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$list, char $\ast$$\ast$current)
+\begin{DoxyCompactList}\small\item\em Handles a word in the tokenization process. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tokens_8h_ac6205f59ae5f6727a093ccf4e82f19c6}{token\+\_\+list\+\_\+print}} (\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$head)
+\begin{DoxyCompactList}\small\item\em Prints the details of a list of token nodes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tokens_8h_ade808b2e1b7bb69df684f3f26ada0c93}{token\+\_\+append}} (\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$list, \mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$new\+\_\+node)
+\begin{DoxyCompactList}\small\item\em Appends a new token node to the end of the token list. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{tokens_8h_a3bb61fb8a4f8a9e3837c30fefdcc54e9}{token\+\_\+count\+\_\+args}} (\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$src)
+\begin{DoxyCompactList}\small\item\em Counts the number of consecutive tokens of the same type as the source token. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}\label{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}} 
+\index{tokens.h@{tokens.h}!t\_token\_node@{t\_token\_node}}
+\index{t\_token\_node@{t\_token\_node}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{t\_token\_node}{t\_token\_node}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structs__token__node}{s\+\_\+token\+\_\+node}} \mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}}}
+
+\mbox{\Hypertarget{tokens_8h_a91fd0f8bd1f7ed6636bfd59d19809cc1}\label{tokens_8h_a91fd0f8bd1f7ed6636bfd59d19809cc1}} 
+\index{tokens.h@{tokens.h}!t\_token\_type@{t\_token\_type}}
+\index{t\_token\_type@{t\_token\_type}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{t\_token\_type}{t\_token\_type}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{tokens_8h_a6692e06a6c4fac3f107305df57911738}{s\+\_\+token\+\_\+type}} \mbox{\hyperlink{tokens_8h_a91fd0f8bd1f7ed6636bfd59d19809cc1}{t\+\_\+token\+\_\+type}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{tokens_8h_a6692e06a6c4fac3f107305df57911738}\label{tokens_8h_a6692e06a6c4fac3f107305df57911738}} 
+\index{tokens.h@{tokens.h}!s\_token\_type@{s\_token\_type}}
+\index{s\_token\_type@{s\_token\_type}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{s\_token\_type}{s\_token\_type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{tokens_8h_a6692e06a6c4fac3f107305df57911738}{s\+\_\+token\+\_\+type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TOKEN\_STRING@{TOKEN\_STRING}!tokens.h@{tokens.h}}\index{tokens.h@{tokens.h}!TOKEN\_STRING@{TOKEN\_STRING}}}\mbox{\Hypertarget{tokens_8h_a6692e06a6c4fac3f107305df57911738afcaa8f23ed1d21aa5779451ed3c243ef}\label{tokens_8h_a6692e06a6c4fac3f107305df57911738afcaa8f23ed1d21aa5779451ed3c243ef}} 
+TOKEN\+\_\+\+STRING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TOKEN\_PIPE@{TOKEN\_PIPE}!tokens.h@{tokens.h}}\index{tokens.h@{tokens.h}!TOKEN\_PIPE@{TOKEN\_PIPE}}}\mbox{\Hypertarget{tokens_8h_a6692e06a6c4fac3f107305df57911738a93000ce4e0f00f6f294a98192f705910}\label{tokens_8h_a6692e06a6c4fac3f107305df57911738a93000ce4e0f00f6f294a98192f705910}} 
+TOKEN\+\_\+\+PIPE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TOKEN\_REDIRECT\_IN@{TOKEN\_REDIRECT\_IN}!tokens.h@{tokens.h}}\index{tokens.h@{tokens.h}!TOKEN\_REDIRECT\_IN@{TOKEN\_REDIRECT\_IN}}}\mbox{\Hypertarget{tokens_8h_a6692e06a6c4fac3f107305df57911738a7026180dede56452f3423d56f32f2f7d}\label{tokens_8h_a6692e06a6c4fac3f107305df57911738a7026180dede56452f3423d56f32f2f7d}} 
+TOKEN\+\_\+\+REDIRECT\+\_\+\+IN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TOKEN\_REDIRECT\_OUT@{TOKEN\_REDIRECT\_OUT}!tokens.h@{tokens.h}}\index{tokens.h@{tokens.h}!TOKEN\_REDIRECT\_OUT@{TOKEN\_REDIRECT\_OUT}}}\mbox{\Hypertarget{tokens_8h_a6692e06a6c4fac3f107305df57911738a724db76dad795426e17d842801f9225c}\label{tokens_8h_a6692e06a6c4fac3f107305df57911738a724db76dad795426e17d842801f9225c}} 
+TOKEN\+\_\+\+REDIRECT\+\_\+\+OUT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TOKEN\_APPEND@{TOKEN\_APPEND}!tokens.h@{tokens.h}}\index{tokens.h@{tokens.h}!TOKEN\_APPEND@{TOKEN\_APPEND}}}\mbox{\Hypertarget{tokens_8h_a6692e06a6c4fac3f107305df57911738ad5b5b593817e624c7c7b997b844a203b}\label{tokens_8h_a6692e06a6c4fac3f107305df57911738ad5b5b593817e624c7c7b997b844a203b}} 
+TOKEN\+\_\+\+APPEND&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TOKEN\_HEREDOC@{TOKEN\_HEREDOC}!tokens.h@{tokens.h}}\index{tokens.h@{tokens.h}!TOKEN\_HEREDOC@{TOKEN\_HEREDOC}}}\mbox{\Hypertarget{tokens_8h_a6692e06a6c4fac3f107305df57911738a6b61b3b682d388b0bf6b0a09ee7429d4}\label{tokens_8h_a6692e06a6c4fac3f107305df57911738a6b61b3b682d388b0bf6b0a09ee7429d4}} 
+TOKEN\+\_\+\+HEREDOC&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{tokens_8h_a33f8cc0bef2a29ba635644252bea6f04}\label{tokens_8h_a33f8cc0bef2a29ba635644252bea6f04}} 
+\index{tokens.h@{tokens.h}!handle\_arrows@{handle\_arrows}}
+\index{handle\_arrows@{handle\_arrows}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{handle\_arrows()}{handle\_arrows()}}
+{\footnotesize\ttfamily void handle\+\_\+arrows (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$}]{list,  }\item[{char $\ast$$\ast$}]{current }\end{DoxyParamCaption})}
+
+
+
+Handles the arrows in the input string. 
+
+This function determines whether the current character is \textquotesingle{}$<$\textquotesingle{} or \textquotesingle{}$>$\textquotesingle{}. If it is \textquotesingle{}$<$\textquotesingle{}, it calls the handle\+\_\+arrows\+\_\+left() function. If it is \textquotesingle{}$>$\textquotesingle{}, it calls the handle\+\_\+arrows\+\_\+right() function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em current} & The current character in the input string. \\
+\hline
+{\em list} & The token list to be updated. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tokens_8h_a0a4cd44b57eb5b7ac08e82e2a43271c2}\label{tokens_8h_a0a4cd44b57eb5b7ac08e82e2a43271c2}} 
+\index{tokens.h@{tokens.h}!handle\_quoted@{handle\_quoted}}
+\index{handle\_quoted@{handle\_quoted}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{handle\_quoted()}{handle\_quoted()}}
+{\footnotesize\ttfamily void handle\+\_\+quoted (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{current,  }\item[{\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$}]{list,  }\item[{char}]{type }\end{DoxyParamCaption})}
+
+
+
+Handles quoted tokens. 
+
+This function is responsible for handling quoted tokens in the tokenisation process. It takes a pointer to the current character, a token list, and the type of quote. It searches for the closing quote and creates a token with the quoted content. If the closing quote is missing, it prints an error message.
+
+
+\begin{DoxyParams}{Parameters}
+{\em current} & A pointer to the current character. \\
+\hline
+{\em list} & The token list to add the created token to. \\
+\hline
+{\em type} & The type of quote. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tokens_8h_a3e99598307beae324369b66ec0794659}\label{tokens_8h_a3e99598307beae324369b66ec0794659}} 
+\index{tokens.h@{tokens.h}!handle\_simple\_tokens@{handle\_simple\_tokens}}
+\index{handle\_simple\_tokens@{handle\_simple\_tokens}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{handle\_simple\_tokens()}{handle\_simple\_tokens()}}
+{\footnotesize\ttfamily void handle\+\_\+simple\+\_\+tokens (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{current,  }\item[{\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$}]{list }\end{DoxyParamCaption})}
+
+
+
+Handles simple tokens in the input string. 
+
+This function takes a pointer to the current character in the input string and a pointer to a token list. It checks the current character and adds the corresponding token to the token list. The current character pointer is updated accordingly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em current} & Pointer to the current character in the input string. \\
+\hline
+{\em list} & Pointer to the token list. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tokens_8h_af7cf00954aab4c0c7cc1c6d51a1b11b7}\label{tokens_8h_af7cf00954aab4c0c7cc1c6d51a1b11b7}} 
+\index{tokens.h@{tokens.h}!handle\_word@{handle\_word}}
+\index{handle\_word@{handle\_word}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{handle\_word()}{handle\_word()}}
+{\footnotesize\ttfamily void handle\+\_\+word (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$}]{list,  }\item[{char $\ast$$\ast$}]{current }\end{DoxyParamCaption})}
+
+
+
+Handles a word in the tokenization process. 
+
+This function takes a pointer to the current character and a token list. It iterates through the characters starting from the current position until it reaches the end of the string or encounters a whitespace character, a special character (\textquotesingle{}\&\textquotesingle{}, \textquotesingle{}$\vert$\textquotesingle{}, \textquotesingle{}(\textquotesingle{}, \textquotesingle{})\textquotesingle{}, \textquotesingle{}$<$\textquotesingle{}, \textquotesingle{}$>$\textquotesingle{}), or a null character (\textquotesingle{}\textbackslash{}0\textquotesingle{}). It then adds a token of type TOKEN\+\_\+\+WORD to the token list, containing the substring from the start position to the current position.
+
+
+\begin{DoxyParams}{Parameters}
+{\em current} & A pointer to the current character. \\
+\hline
+{\em list} & The token list to add the token to. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tokens_8h_ade808b2e1b7bb69df684f3f26ada0c93}\label{tokens_8h_ade808b2e1b7bb69df684f3f26ada0c93}} 
+\index{tokens.h@{tokens.h}!token\_append@{token\_append}}
+\index{token\_append@{token\_append}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{token\_append()}{token\_append()}}
+{\footnotesize\ttfamily void token\+\_\+append (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$}]{list,  }\item[{\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$}]{new\+\_\+node }\end{DoxyParamCaption})}
+
+
+
+Appends a new token node to the end of the token list. 
+
+This function takes a pointer to the head of a token list and a new token node, and appends the new node to the end of the list. If the new node is NULL, the function does nothing. If the list is empty, the new node becomes the head of the list.
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & A double pointer to the head of the token list. \\
+\hline
+{\em new\+\_\+node} & A pointer to the new token node to be appended. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tokens_8h_a3bb61fb8a4f8a9e3837c30fefdcc54e9}\label{tokens_8h_a3bb61fb8a4f8a9e3837c30fefdcc54e9}} 
+\index{tokens.h@{tokens.h}!token\_count\_args@{token\_count\_args}}
+\index{token\_count\_args@{token\_count\_args}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{token\_count\_args()}{token\_count\_args()}}
+{\footnotesize\ttfamily size\+\_\+t token\+\_\+count\+\_\+args (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$}]{src }\end{DoxyParamCaption})}
+
+
+
+Counts the number of consecutive tokens of the same type as the source token. 
+
+This function iterates through the linked list of tokens starting from the next token of the given source token ({\ttfamily src}). It counts how many consecutive tokens have the same type as the source token and are of type {\ttfamily TOKEN\+\_\+\+STRING}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & A pointer to the source token node from which to start counting. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of consecutive tokens of the same type as the source token. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tokens_8h_ad9934fc55f0f2d3446166ab2fea4db9b}\label{tokens_8h_ad9934fc55f0f2d3446166ab2fea4db9b}} 
+\index{tokens.h@{tokens.h}!token\_create@{token\_create}}
+\index{token\_create@{token\_create}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{token\_create()}{token\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}}$\ast$ token\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tokens_8h_a91fd0f8bd1f7ed6636bfd59d19809cc1}{t\+\_\+token\+\_\+type}}}]{type,  }\item[{char $\ast$}]{value }\end{DoxyParamCaption})}
+
+
+
+Creates a new token node with the specified type and value. 
+
+This function initializes a new token node using the provided type and value. If the initialization fails, it returns NULL.
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of the token. \\
+\hline
+{\em value} & The value of the token. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the newly created token node, or NULL if initialization fails. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tokens_8h_a09ac0c422bd48b4b44d9c552897adcac}\label{tokens_8h_a09ac0c422bd48b4b44d9c552897adcac}} 
+\index{tokens.h@{tokens.h}!token\_delete@{token\_delete}}
+\index{token\_delete@{token\_delete}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{token\_delete()}{token\_delete()}}
+{\footnotesize\ttfamily void token\+\_\+delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$}]{token }\end{DoxyParamCaption})}
+
+
+
+Frees the memory allocated for a token and its arguments. 
+
+This function releases the memory allocated for the arguments of a token and then frees the memory allocated for the token itself.
+
+
+\begin{DoxyParams}{Parameters}
+{\em token} & A pointer to the token to be deleted. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tokens_8h_a0d5146987a56f3d8d3abec776727a9d6}\label{tokens_8h_a0d5146987a56f3d8d3abec776727a9d6}} 
+\index{tokens.h@{tokens.h}!token\_delete\_all@{token\_delete\_all}}
+\index{token\_delete\_all@{token\_delete\_all}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{token\_delete\_all()}{token\_delete\_all()}}
+{\footnotesize\ttfamily void token\+\_\+delete\+\_\+all (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$}]{list }\end{DoxyParamCaption})}
+
+
+
+Frees the memory allocated for a list of tokens. 
+
+This function iterates through a linked list of tokens, freeing the memory allocated for each token and its arguments. It then frees the memory allocated for the list itself.
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & A double pointer to the head of the list of tokens to be deleted. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tokens_8h_ac6205f59ae5f6727a093ccf4e82f19c6}\label{tokens_8h_ac6205f59ae5f6727a093ccf4e82f19c6}} 
+\index{tokens.h@{tokens.h}!token\_list\_print@{token\_list\_print}}
+\index{token\_list\_print@{token\_list\_print}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{token\_list\_print()}{token\_list\_print()}}
+{\footnotesize\ttfamily void token\+\_\+list\+\_\+print (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$}]{head }\end{DoxyParamCaption})}
+
+
+
+Prints the details of a list of token nodes. 
+
+This function checks if the head of the token node list is valid and then calls {\ttfamily token\+\_\+print} to print the details of the token nodes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em head} & A double pointer to the head of the token node list. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tokens_8h_a52689ed879208a78d3f6469f95c99518}\label{tokens_8h_a52689ed879208a78d3f6469f95c99518}} 
+\index{tokens.h@{tokens.h}!token\_print@{token\_print}}
+\index{token\_print@{token\_print}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{token\_print()}{token\_print()}}
+{\footnotesize\ttfamily void token\+\_\+print (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$}]{token }\end{DoxyParamCaption})}
+
+
+
+Prints the details of a single token node and its arguments. 
+
+This function iterates through a linked list of token nodes and prints the type, command/file, and arguments of each token node. It uses the helper function {\ttfamily \+\_\+token\+\_\+type\+\_\+to\+\_\+string} to convert the token type to a string for printing.
+
+
+\begin{DoxyParams}{Parameters}
+{\em token} & A pointer to the first token node in the linked list. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tokens_8h_a0cd7f312eb96538a7291e9c5137e7d67}\label{tokens_8h_a0cd7f312eb96538a7291e9c5137e7d67}} 
+\index{tokens.h@{tokens.h}!tokenise@{tokenise}}
+\index{tokenise@{tokenise}!tokens.h@{tokens.h}}
+\doxysubsubsection{\texorpdfstring{tokenise()}{tokenise()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}}$\ast$$\ast$ tokenise (\begin{DoxyParamCaption}\item[{char $\ast$}]{input }\end{DoxyParamCaption})}
+
+tokenise -\/ Tokenizes the input string into a list of tokens. @input\+: The input string to be tokenized.
+
+This function takes an input string and tokenizes it into a list of tokens. It handles different types of tokens including simple tokens (like \textquotesingle{}(\textquotesingle{}, \textquotesingle{})\textquotesingle{}, \textquotesingle{}$\vert$\textquotesingle{}, \textquotesingle{}$<$\textquotesingle{}, \textquotesingle{}$>$\textquotesingle{}), quoted strings, and words. The function skips over whitespace and processes each token accordingly. The resulting list of tokens is returned.
+
+\begin{DoxyReturn}{Returns}
+\+: A pointer to the list of tokens, or NULL if memory allocation fails. 
+\end{DoxyReturn}

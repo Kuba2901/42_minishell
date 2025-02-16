@@ -1,0 +1,30 @@
+\hypertarget{ast__delete_8c}{}\doxysection{src/parsing/ast/ast\+\_\+delete.c File Reference}
+\label{ast__delete_8c}\index{src/parsing/ast/ast\_delete.c@{src/parsing/ast/ast\_delete.c}}
+{\ttfamily \#include $<$ast.\+h$>$}\newline
+Include dependency graph for ast\+\_\+delete.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ast__delete_8c_a15b68b0db14296cb6280b97b6c203f65}{ast\+\_\+delete}} (\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Recursively deletes an Abstract Syntax Tree (AST) node and its children. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ast__delete_8c_a15b68b0db14296cb6280b97b6c203f65}\label{ast__delete_8c_a15b68b0db14296cb6280b97b6c203f65}} 
+\index{ast\_delete.c@{ast\_delete.c}!ast\_delete@{ast\_delete}}
+\index{ast\_delete@{ast\_delete}!ast\_delete.c@{ast\_delete.c}}
+\doxysubsubsection{\texorpdfstring{ast\_delete()}{ast\_delete()}}
+{\footnotesize\ttfamily void ast\+\_\+delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Recursively deletes an Abstract Syntax Tree (AST) node and its children. 
+
+This function takes a pointer to an AST node and recursively deletes its left and right children, as well as the token associated with the node. Finally, it frees the memory allocated for the node itself.
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & A pointer to the AST node to be deleted. If the node is NULL, the function returns immediately. \\
+\hline
+\end{DoxyParams}

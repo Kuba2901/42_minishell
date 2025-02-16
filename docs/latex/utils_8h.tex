@@ -1,0 +1,173 @@
+\hypertarget{utils_8h}{}\doxysection{inc/utils.h File Reference}
+\label{utils_8h}\index{inc/utils.h@{inc/utils.h}}
+This graph shows which files directly or indirectly include this file\+:
+% FIG 0
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{mini__base_8h_a522358026f54703712a415a00d367507}{s\+\_\+bool}} \mbox{\hyperlink{utils_8h_a2bf87f8c2c611ece6cf206621482a269}{t\+\_\+bool}}
+\item 
+typedef struct \mbox{\hyperlink{structs__shell}{s\+\_\+shell}} \mbox{\hyperlink{utils_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{utils_8h_a1f2ff2312e5994560c9537cd9173be94}{ft\+\_\+strcmp}} (const char $\ast$s1, const char $\ast$s2)
+\begin{DoxyCompactList}\small\item\em Compares two null-\/terminated strings lexicographically. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{mini__base_8h_a2bf87f8c2c611ece6cf206621482a269}{t\+\_\+bool}} \mbox{\hyperlink{utils_8h_a71fd607967a09a5920d287948cf3c09c}{ft\+\_\+is\+\_\+whitespace}} (char c)
+\begin{DoxyCompactList}\small\item\em Checks if a character is a whitespace character. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_8h_a996dc7a5fcf46eadf1715ad1426c7094}{ft\+\_\+puterror}} (const char $\ast$s, char $\ast$arg1, const char $\ast$arg2)
+\begin{DoxyCompactList}\small\item\em Writes an error message to the standard error output. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_8h_a086b54c63c0a606eda1f5ab03f5dc613}{clear\+\_\+screen\+\_\+ensure\+\_\+cursor\+\_\+visible}} (void)
+\begin{DoxyCompactList}\small\item\em Clears the terminal screen and ensures the cursor is visible at the top-\/left corner. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_8h_a82e1a101ee1ac2cf215d1ae85a229b2a}{free\+\_\+resources}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell)
+\begin{DoxyCompactList}\small\item\em Frees resources associated with the shell. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_8h_a76a506928b6073a8fc13a07641e7fc40}{init\+\_\+shell}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, const char $\ast$$\ast$envp)
+\begin{DoxyCompactList}\small\item\em Initializes the shell structure with environment variables and default settings. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_8h_ad3c75f2a3269bddd35b1bf10b1dee31a}{handle\+\_\+input}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell)
+\begin{DoxyCompactList}\small\item\em Handles the input loop for the shell. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{utils_8h_a2bf87f8c2c611ece6cf206621482a269}\label{utils_8h_a2bf87f8c2c611ece6cf206621482a269}} 
+\index{utils.h@{utils.h}!t\_bool@{t\_bool}}
+\index{t\_bool@{t\_bool}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{t\_bool}{t\_bool}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{mini__base_8h_a522358026f54703712a415a00d367507}{s\+\_\+bool}} \mbox{\hyperlink{mini__base_8h_a2bf87f8c2c611ece6cf206621482a269}{t\+\_\+bool}}}
+
+\mbox{\Hypertarget{utils_8h_ae4cfb7c093350dca726786f683b6aca3}\label{utils_8h_ae4cfb7c093350dca726786f683b6aca3}} 
+\index{utils.h@{utils.h}!t\_shell@{t\_shell}}
+\index{t\_shell@{t\_shell}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{t\_shell}{t\_shell}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structs__shell}{s\+\_\+shell}} \mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{utils_8h_a086b54c63c0a606eda1f5ab03f5dc613}\label{utils_8h_a086b54c63c0a606eda1f5ab03f5dc613}} 
+\index{utils.h@{utils.h}!clear\_screen\_ensure\_cursor\_visible@{clear\_screen\_ensure\_cursor\_visible}}
+\index{clear\_screen\_ensure\_cursor\_visible@{clear\_screen\_ensure\_cursor\_visible}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{clear\_screen\_ensure\_cursor\_visible()}{clear\_screen\_ensure\_cursor\_visible()}}
+{\footnotesize\ttfamily void clear\+\_\+screen\+\_\+ensure\+\_\+cursor\+\_\+visible (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Clears the terminal screen and ensures the cursor is visible at the top-\/left corner. 
+
+This function sends ANSI escape codes to the terminal to clear the screen and move the cursor to the home position (top-\/left corner). It is useful for refreshing the terminal display. \mbox{\Hypertarget{utils_8h_a82e1a101ee1ac2cf215d1ae85a229b2a}\label{utils_8h_a82e1a101ee1ac2cf215d1ae85a229b2a}} 
+\index{utils.h@{utils.h}!free\_resources@{free\_resources}}
+\index{free\_resources@{free\_resources}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{free\_resources()}{free\_resources()}}
+{\footnotesize\ttfamily void free\+\_\+resources (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell }\end{DoxyParamCaption})}
+
+
+
+Frees resources associated with the shell. 
+
+This function clears the environment list and ensures the screen is cleared and the cursor is visible.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & A pointer to the shell structure containing resources to be freed. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{utils_8h_a71fd607967a09a5920d287948cf3c09c}\label{utils_8h_a71fd607967a09a5920d287948cf3c09c}} 
+\index{utils.h@{utils.h}!ft\_is\_whitespace@{ft\_is\_whitespace}}
+\index{ft\_is\_whitespace@{ft\_is\_whitespace}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{ft\_is\_whitespace()}{ft\_is\_whitespace()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mini__base_8h_a2bf87f8c2c611ece6cf206621482a269}{t\+\_\+bool}} ft\+\_\+is\+\_\+whitespace (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Checks if a character is a whitespace character. 
+
+This function checks if the given character c is a whitespace character. Whitespace characters include space (\textquotesingle{} \textquotesingle{}), horizontal tab (\textquotesingle{}\textbackslash{}t\textquotesingle{}), newline (\textquotesingle{}~\newline
+\textquotesingle{}), and carriage return (\textquotesingle{}\textbackslash{}r\textquotesingle{}).
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The character to be checked. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A boolean value indicating whether the character is a whitespace character. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utils_8h_a996dc7a5fcf46eadf1715ad1426c7094}\label{utils_8h_a996dc7a5fcf46eadf1715ad1426c7094}} 
+\index{utils.h@{utils.h}!ft\_puterror@{ft\_puterror}}
+\index{ft\_puterror@{ft\_puterror}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{ft\_puterror()}{ft\_puterror()}}
+{\footnotesize\ttfamily void ft\+\_\+puterror (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s,  }\item[{char $\ast$}]{arg1,  }\item[{const char $\ast$}]{arg2 }\end{DoxyParamCaption})}
+
+
+
+Writes an error message to the standard error output. 
+
+This function writes the provided error message and arguments to the standard error output (stderr). If the second argument is NULL, the function returns without writing anything. If the third argument is provided, it will also be written to stderr. A newline character is written at the end of the message.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The main error message to be written. Must not be NULL. \\
+\hline
+{\em arg1} & The first argument to be written. Must not be NULL. \\
+\hline
+{\em arg2} & The second argument to be written. Can be NULL. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{utils_8h_a1f2ff2312e5994560c9537cd9173be94}\label{utils_8h_a1f2ff2312e5994560c9537cd9173be94}} 
+\index{utils.h@{utils.h}!ft\_strcmp@{ft\_strcmp}}
+\index{ft\_strcmp@{ft\_strcmp}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{ft\_strcmp()}{ft\_strcmp()}}
+{\footnotesize\ttfamily int ft\+\_\+strcmp (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s1,  }\item[{const char $\ast$}]{s2 }\end{DoxyParamCaption})}
+
+
+
+Compares two null-\/terminated strings lexicographically. 
+
+This function compares the two strings s1 and s2. It returns an integer less than, equal to, or greater than zero if s1 is found, respectively, to be less than, to match, or be greater than s2.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s1} & The first string to be compared. \\
+\hline
+{\em s2} & The second string to be compared. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An integer less than, equal to, or greater than zero if s1 is found, respectively, to be less than, to match, or be greater than s2. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utils_8h_ad3c75f2a3269bddd35b1bf10b1dee31a}\label{utils_8h_ad3c75f2a3269bddd35b1bf10b1dee31a}} 
+\index{utils.h@{utils.h}!handle\_input@{handle\_input}}
+\index{handle\_input@{handle\_input}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{handle\_input()}{handle\_input()}}
+{\footnotesize\ttfamily void handle\+\_\+input (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell }\end{DoxyParamCaption})}
+
+
+
+Handles the input loop for the shell. 
+
+This function continuously prompts the user for input, tokenizes the input, creates an abstract syntax tree (AST) from the tokens, preprocesses any heredocs, checks for the exit builtin command, executes the AST, and then cleans up the resources.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & A pointer to the shell structure. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{utils_8h_a76a506928b6073a8fc13a07641e7fc40}\label{utils_8h_a76a506928b6073a8fc13a07641e7fc40}} 
+\index{utils.h@{utils.h}!init\_shell@{init\_shell}}
+\index{init\_shell@{init\_shell}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{init\_shell()}{init\_shell()}}
+{\footnotesize\ttfamily void init\+\_\+shell (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{const char $\ast$$\ast$}]{envp }\end{DoxyParamCaption})}
+
+
+
+Initializes the shell structure with environment variables and default settings. 
+
+This function sets up the initial state of the shell by initializing the environment list, setting the exit code to 0, and disabling top-\/level redirections. If the environment list initialization fails, the function prints an error message and exits the program.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & Pointer to the shell structure to be initialized. \\
+\hline
+{\em envp} & Array of environment variables. \\
+\hline
+\end{DoxyParams}

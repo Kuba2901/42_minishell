@@ -1,0 +1,625 @@
+\begin{theindex}
+
+  \item {\_execute\_redirect}
+    \subitem {execute.c}, \hyperpage{61}
+  \item {\_handle\_dash}
+    \subitem {builtin\_cd.c}, \hyperpage{45}
+  \item {\_handle\_home}
+    \subitem {builtin\_cd.c}, \hyperpage{46}
+  \item {\_update\_keys}
+    \subitem {builtin\_cd.c}, \hyperpage{46}
+
+  \indexspace
+
+  \item {args}
+    \subitem {s\_token\_node}, \hyperpage{10}
+  \item {ast.h}
+    \subitem {ast\_create}, \hyperpage{12}
+    \subitem {ast\_create\_command}, \hyperpage{12}
+    \subitem {ast\_create\_node}, \hyperpage{12}
+    \subitem {ast\_create\_pipe}, \hyperpage{13}
+    \subitem {ast\_create\_redirect}, \hyperpage{13}
+    \subitem {ast\_create\_redirect\_in\_heredoc}, \hyperpage{13}
+    \subitem {ast\_create\_redirect\_out\_append}, \hyperpage{14}
+    \subitem {ast\_delete}, \hyperpage{14}
+    \subitem {ast\_print}, \hyperpage{14}
+    \subitem {t\_ast\_node}, \hyperpage{12}
+  \item {ast\_create}
+    \subitem {ast.h}, \hyperpage{12}
+    \subitem {ast\_create.c}, \hyperpage{69}
+  \item {ast\_create.c}
+    \subitem {ast\_create}, \hyperpage{69}
+    \subitem {ast\_create\_node}, \hyperpage{70}
+  \item {ast\_create\_command}
+    \subitem {ast.h}, \hyperpage{12}
+    \subitem {ast\_create\_command.c}, \hyperpage{70}
+  \item {ast\_create\_command.c}
+    \subitem {ast\_create\_command}, \hyperpage{70}
+  \item {ast\_create\_node}
+    \subitem {ast.h}, \hyperpage{12}
+    \subitem {ast\_create.c}, \hyperpage{70}
+  \item {ast\_create\_pipe}
+    \subitem {ast.h}, \hyperpage{13}
+    \subitem {ast\_create\_pipe.c}, \hyperpage{71}
+  \item {ast\_create\_pipe.c}
+    \subitem {ast\_create\_pipe}, \hyperpage{71}
+  \item {ast\_create\_redirect}
+    \subitem {ast.h}, \hyperpage{13}
+    \subitem {ast\_create\_redirect.c}, \hyperpage{72}
+  \item {ast\_create\_redirect.c}
+    \subitem {ast\_create\_redirect}, \hyperpage{72}
+  \item {ast\_create\_redirect\_in.c}
+    \subitem {ast\_create\_redirect\_in\_heredoc}, \hyperpage{72}
+  \item {ast\_create\_redirect\_in\_heredoc}
+    \subitem {ast.h}, \hyperpage{13}
+    \subitem {ast\_create\_redirect\_in.c}, \hyperpage{72}
+  \item {ast\_create\_redirect\_out.c}
+    \subitem {ast\_create\_redirect\_out\_append}, \hyperpage{73}
+  \item {ast\_create\_redirect\_out\_append}
+    \subitem {ast.h}, \hyperpage{14}
+    \subitem {ast\_create\_redirect\_out.c}, \hyperpage{73}
+  \item {ast\_delete}
+    \subitem {ast.h}, \hyperpage{14}
+    \subitem {ast\_delete.c}, \hyperpage{73}
+  \item {ast\_delete.c}
+    \subitem {ast\_delete}, \hyperpage{73}
+  \item {ast\_print}
+    \subitem {ast.h}, \hyperpage{14}
+
+  \indexspace
+
+  \item {builtin\_cd}
+    \subitem {builtin\_cd.c}, \hyperpage{47}
+    \subitem {builtins.h}, \hyperpage{16}
+  \item {builtin\_cd.c}
+    \subitem {\_handle\_dash}, \hyperpage{45}
+    \subitem {\_handle\_home}, \hyperpage{46}
+    \subitem {\_update\_keys}, \hyperpage{46}
+    \subitem {builtin\_cd}, \hyperpage{47}
+  \item {builtin\_echo}
+    \subitem {builtin\_echo.c}, \hyperpage{47}
+    \subitem {builtins.h}, \hyperpage{17}
+  \item {builtin\_echo.c}
+    \subitem {builtin\_echo}, \hyperpage{47}
+  \item {builtin\_env}
+    \subitem {builtin\_env.c}, \hyperpage{48}
+    \subitem {builtins.h}, \hyperpage{17}
+  \item {builtin\_env.c}
+    \subitem {builtin\_env}, \hyperpage{48}
+  \item {builtin\_exit}
+    \subitem {builtin\_exit.c}, \hyperpage{49}
+    \subitem {builtins.h}, \hyperpage{17}
+  \item {builtin\_exit.c}
+    \subitem {builtin\_exit}, \hyperpage{49}
+  \item {BUILTIN\_EXIT\_NON\_NUMERIC\_ARG}
+    \subitem {builtins.h}, \hyperpage{16}
+  \item {BUILTIN\_EXIT\_OK}
+    \subitem {builtins.h}, \hyperpage{16}
+  \item {BUILTIN\_EXIT\_TOO\_MANY\_ARGS}
+    \subitem {builtins.h}, \hyperpage{16}
+  \item {builtin\_export}
+    \subitem {builtin\_export.c}, \hyperpage{50}
+    \subitem {builtins.h}, \hyperpage{18}
+  \item {builtin\_export.c}
+    \subitem {builtin\_export}, \hyperpage{50}
+  \item {builtin\_export\_export\_key\_value}
+    \subitem {builtin\_export\_ext.c}, \hyperpage{50}
+    \subitem {builtins.h}, \hyperpage{18}
+  \item {builtin\_export\_ext.c}
+    \subitem {builtin\_export\_export\_key\_value}, \hyperpage{50}
+  \item {builtin\_pwd}
+    \subitem {builtin\_pwd.c}, \hyperpage{51}
+    \subitem {builtins.h}, \hyperpage{19}
+  \item {builtin\_pwd.c}
+    \subitem {builtin\_pwd}, \hyperpage{51}
+    \subitem {execute\_builtin\_pwd}, \hyperpage{51}
+  \item {builtin\_set\_private}
+    \subitem {builtin\_set\_private.c}, \hyperpage{52}
+    \subitem {builtins.h}, \hyperpage{19}
+  \item {builtin\_set\_private.c}
+    \subitem {builtin\_set\_private}, \hyperpage{52}
+  \item {builtin\_unset}
+    \subitem {builtin\_unset.c}, \hyperpage{53}
+    \subitem {builtins.h}, \hyperpage{19}
+  \item {builtin\_unset.c}
+    \subitem {builtin\_unset}, \hyperpage{53}
+  \item {builtins.h}
+    \subitem {builtin\_cd}, \hyperpage{16}
+    \subitem {builtin\_echo}, \hyperpage{17}
+    \subitem {builtin\_env}, \hyperpage{17}
+    \subitem {builtin\_exit}, \hyperpage{17}
+    \subitem {BUILTIN\_EXIT\_NON\_NUMERIC\_ARG}, \hyperpage{16}
+    \subitem {BUILTIN\_EXIT\_OK}, \hyperpage{16}
+    \subitem {BUILTIN\_EXIT\_TOO\_MANY\_ARGS}, \hyperpage{16}
+    \subitem {builtin\_export}, \hyperpage{18}
+    \subitem {builtin\_export\_export\_key\_value}, \hyperpage{18}
+    \subitem {builtin\_pwd}, \hyperpage{19}
+    \subitem {builtin\_set\_private}, \hyperpage{19}
+    \subitem {builtin\_unset}, \hyperpage{19}
+    \subitem {execute\_builtin\_pwd}, \hyperpage{20}
+    \subitem {t\_ast\_node}, \hyperpage{16}
+    \subitem {t\_shell}, \hyperpage{16}
+
+  \indexspace
+
+  \item {clear\_screen\_ensure\_cursor\_visible}
+    \subitem {utils.c}, \hyperpage{81}
+    \subitem {utils.h}, \hyperpage{42}
+
+  \indexspace
+
+  \item {env}
+    \subitem {s\_shell}, \hyperpage{8}
+  \item {env\_value\_expand}
+    \subitem {environment.h}, \hyperpage{21}
+    \subitem {environment\_expand.c}, \hyperpage{56}
+  \item {enviroment\_node\_create}
+    \subitem {environment.h}, \hyperpage{22}
+    \subitem {environment\_create.c}, \hyperpage{53}
+  \item {enviroment\_node\_delete}
+    \subitem {environment.h}, \hyperpage{23}
+    \subitem {environment\_delete.c}, \hyperpage{55}
+  \item {environment.h}
+    \subitem {env\_value\_expand}, \hyperpage{21}
+    \subitem {enviroment\_node\_create}, \hyperpage{22}
+    \subitem {enviroment\_node\_delete}, \hyperpage{23}
+    \subitem {environment\_list\_clear}, \hyperpage{23}
+    \subitem {environment\_list\_get\_sorted\_copy}, \hyperpage{23}
+    \subitem {environment\_list\_initialize}, \hyperpage{24}
+    \subitem {environment\_list\_print}, \hyperpage{24}
+    \subitem {environment\_list\_print\_sorted}, \hyperpage{25}
+    \subitem {environment\_list\_read}, \hyperpage{25}
+    \subitem {environment\_list\_read\_node}, \hyperpage{25}
+    \subitem {environment\_node\_from\_entry}, \hyperpage{26}
+    \subitem {environment\_serialize}, \hyperpage{26}
+    \subitem {environment\_serialized\_list\_clear}, \hyperpage{27}
+    \subitem {t\_environment\_node}, \hyperpage{21}
+    \subitem {t\_shell}, \hyperpage{21}
+  \item {environment\_create.c}
+    \subitem {enviroment\_node\_create}, \hyperpage{53}
+    \subitem {environment\_list\_initialize}, \hyperpage{54}
+  \item {environment\_create\_ext.c}
+    \subitem {environment\_node\_from\_entry}, \hyperpage{55}
+  \item {environment\_delete.c}
+    \subitem {enviroment\_node\_delete}, \hyperpage{55}
+    \subitem {environment\_list\_clear}, \hyperpage{56}
+  \item {environment\_expand.c}
+    \subitem {env\_value\_expand}, \hyperpage{56}
+  \item {environment\_list\_clear}
+    \subitem {environment.h}, \hyperpage{23}
+    \subitem {environment\_delete.c}, \hyperpage{56}
+  \item {environment\_list\_get\_sorted\_copy}
+    \subitem {environment.h}, \hyperpage{23}
+    \subitem {environment\_sorted.c}, \hyperpage{61}
+  \item {environment\_list\_initialize}
+    \subitem {environment.h}, \hyperpage{24}
+    \subitem {environment\_create.c}, \hyperpage{54}
+  \item {environment\_list\_print}
+    \subitem {environment.h}, \hyperpage{24}
+    \subitem {environment\_read.c}, \hyperpage{57}
+  \item {environment\_list\_print\_sorted}
+    \subitem {environment.h}, \hyperpage{25}
+    \subitem {environment\_read.c}, \hyperpage{58}
+  \item {environment\_list\_read}
+    \subitem {environment.h}, \hyperpage{25}
+    \subitem {environment\_read.c}, \hyperpage{58}
+  \item {environment\_list\_read\_node}
+    \subitem {environment.h}, \hyperpage{25}
+    \subitem {environment\_read.c}, \hyperpage{59}
+  \item {environment\_node\_from\_entry}
+    \subitem {environment.h}, \hyperpage{26}
+    \subitem {environment\_create\_ext.c}, \hyperpage{55}
+  \item {environment\_read.c}
+    \subitem {environment\_list\_print}, \hyperpage{57}
+    \subitem {environment\_list\_print\_sorted}, \hyperpage{58}
+    \subitem {environment\_list\_read}, \hyperpage{58}
+    \subitem {environment\_list\_read\_node}, \hyperpage{59}
+  \item {environment\_serialize}
+    \subitem {environment.h}, \hyperpage{26}
+    \subitem {environment\_serialize.c}, \hyperpage{59}
+  \item {environment\_serialize.c}
+    \subitem {environment\_serialize}, \hyperpage{59}
+    \subitem {environment\_serialized\_list\_clear}, \hyperpage{60}
+  \item {environment\_serialized\_list\_clear}
+    \subitem {environment.h}, \hyperpage{27}
+    \subitem {environment\_serialize.c}, \hyperpage{60}
+  \item {environment\_sorted.c}
+    \subitem {environment\_list\_get\_sorted\_copy}, \hyperpage{61}
+  \item {envp}
+    \subitem {s\_shell}, \hyperpage{8}
+  \item {execute.c}
+    \subitem {\_execute\_redirect}, \hyperpage{61}
+    \subitem {execute\_ast}, \hyperpage{62}
+  \item {execute.h}
+    \subitem {execute\_ast}, \hyperpage{28}
+    \subitem {execute\_command\_node}, \hyperpage{29}
+    \subitem {execute\_find\_executable}, \hyperpage{29}
+    \subitem {execute\_pipe}, \hyperpage{30}
+    \subitem {execute\_preprocess\_heredocs}, \hyperpage{30}
+    \subitem {execute\_redirect\_append}, \hyperpage{31}
+    \subitem {execute\_redirect\_in}, \hyperpage{31}
+    \subitem {execute\_redirect\_out}, \hyperpage{32}
+    \subitem {execution\_redirect\_open\_file}, \hyperpage{32}
+    \subitem {HEREDOC\_FILE\_TEMPLATE}, \hyperpage{28}
+    \subitem {t\_heredoc\_data}, \hyperpage{28}
+    \subitem {t\_shell}, \hyperpage{28}
+  \item {execute\_append.c}
+    \subitem {execute\_redirect\_append}, \hyperpage{63}
+  \item {execute\_ast}
+    \subitem {execute.c}, \hyperpage{62}
+    \subitem {execute.h}, \hyperpage{28}
+  \item {execute\_builtin\_pwd}
+    \subitem {builtin\_pwd.c}, \hyperpage{51}
+    \subitem {builtins.h}, \hyperpage{20}
+  \item {execute\_command.c}
+    \subitem {execute\_command\_node}, \hyperpage{63}
+  \item {execute\_command\_node}
+    \subitem {execute.h}, \hyperpage{29}
+    \subitem {execute\_command.c}, \hyperpage{63}
+  \item {execute\_find\_executable}
+    \subitem {execute.h}, \hyperpage{29}
+    \subitem {execute\_utils.c}, \hyperpage{68}
+  \item {execute\_heredoc.c}
+    \subitem {execute\_preprocess\_heredocs}, \hyperpage{64}
+    \subitem {process\_heredoc\_input}, \hyperpage{64}
+  \item {execute\_pipe}
+    \subitem {execute.h}, \hyperpage{30}
+    \subitem {execute\_pipe.c}, \hyperpage{65}
+  \item {execute\_pipe.c}
+    \subitem {execute\_pipe}, \hyperpage{65}
+  \item {execute\_preprocess\_heredocs}
+    \subitem {execute.h}, \hyperpage{30}
+    \subitem {execute\_heredoc.c}, \hyperpage{64}
+  \item {execute\_redirect\_append}
+    \subitem {execute.h}, \hyperpage{31}
+    \subitem {execute\_append.c}, \hyperpage{63}
+  \item {execute\_redirect\_in}
+    \subitem {execute.h}, \hyperpage{31}
+    \subitem {execute\_redirect\_in.c}, \hyperpage{66}
+  \item {execute\_redirect\_in.c}
+    \subitem {execute\_redirect\_in}, \hyperpage{66}
+  \item {execute\_redirect\_out}
+    \subitem {execute.h}, \hyperpage{32}
+    \subitem {execute\_redirect\_out.c}, \hyperpage{67}
+  \item {execute\_redirect\_out.c}
+    \subitem {execute\_redirect\_out}, \hyperpage{67}
+  \item {execute\_utils.c}
+    \subitem {execute\_find\_executable}, \hyperpage{68}
+    \subitem {execution\_redirect\_open\_file}, \hyperpage{68}
+  \item {execution\_redirect\_open\_file}
+    \subitem {execute.h}, \hyperpage{32}
+    \subitem {execute\_utils.c}, \hyperpage{68}
+  \item {exit\_code}
+    \subitem {s\_shell}, \hyperpage{9}
+
+  \indexspace
+
+  \item {false}
+    \subitem {mini\_base.h}, \hyperpage{33}
+  \item {free\_resources}
+    \subitem {utils.c}, \hyperpage{81}
+    \subitem {utils.h}, \hyperpage{42}
+  \item {ft\_is\_whitespace}
+    \subitem {utils.c}, \hyperpage{81}
+    \subitem {utils.h}, \hyperpage{42}
+  \item {ft\_puterror}
+    \subitem {utils.c}, \hyperpage{82}
+    \subitem {utils.h}, \hyperpage{43}
+  \item {ft\_strcmp}
+    \subitem {utils.c}, \hyperpage{82}
+    \subitem {utils.h}, \hyperpage{43}
+
+  \indexspace
+
+  \item {handle\_arrows}
+    \subitem {token\_create\_arrow\_handlers.c}, \hyperpage{75}
+    \subitem {tokens.h}, \hyperpage{36}
+  \item {handle\_input}
+    \subitem {utils.c}, \hyperpage{83}
+    \subitem {utils.h}, \hyperpage{44}
+  \item {handle\_quoted}
+    \subitem {token\_create\_handlers.c}, \hyperpage{75}
+    \subitem {tokens.h}, \hyperpage{37}
+  \item {handle\_simple\_tokens}
+    \subitem {token\_create\_handlers.c}, \hyperpage{76}
+    \subitem {tokens.h}, \hyperpage{37}
+  \item {handle\_word}
+    \subitem {token\_create\_handlers.c}, \hyperpage{76}
+    \subitem {tokens.h}, \hyperpage{37}
+  \item {HEREDOC\_FILE\_TEMPLATE}
+    \subitem {execute.h}, \hyperpage{28}
+
+  \indexspace
+
+  \item {inc/aesthetics.h}, \hyperpage{11}
+  \item {inc/ast.h}, \hyperpage{11}
+  \item {inc/builtins.h}, \hyperpage{15}
+  \item {inc/environment.h}, \hyperpage{20}
+  \item {inc/execute.h}, \hyperpage{27}
+  \item {inc/mini\_base.h}, \hyperpage{33}
+  \item {inc/minishell.h}, \hyperpage{34}
+  \item {inc/tokens.h}, \hyperpage{35}
+  \item {inc/utils.h}, \hyperpage{41}
+  \item {init\_shell}
+    \subitem {utils.c}, \hyperpage{83}
+    \subitem {utils.h}, \hyperpage{44}
+  \item {is\_private}
+    \subitem {s\_environment\_node}, \hyperpage{6}
+
+  \indexspace
+
+  \item {key}
+    \subitem {s\_environment\_node}, \hyperpage{6}
+
+  \indexspace
+
+  \item {left}
+    \subitem {s\_ast\_node}, \hyperpage{5}
+
+  \indexspace
+
+  \item {main}
+    \subitem {main.c}, \hyperpage{69}
+  \item {main.c}
+    \subitem {main}, \hyperpage{69}
+  \item {mini\_base.h}
+    \subitem {false}, \hyperpage{33}
+    \subitem {s\_bool}, \hyperpage{33}
+    \subitem {signals\_setup}, \hyperpage{34}
+    \subitem {t\_bool}, \hyperpage{33}
+    \subitem {true}, \hyperpage{33}
+  \item {mini\_signals.c}
+    \subitem {signals\_setup}, \hyperpage{45}
+  \item {minishell.h}
+    \subitem {PROMPT}, \hyperpage{34}
+    \subitem {t\_shell}, \hyperpage{35}
+
+  \indexspace
+
+  \item {next}
+    \subitem {s\_environment\_node}, \hyperpage{6}
+    \subitem {s\_token\_node}, \hyperpage{10}
+  \item {node}
+    \subitem {s\_heredoc\_data}, \hyperpage{7}
+
+  \indexspace
+
+  \item {original\_stdin}
+    \subitem {s\_heredoc\_data}, \hyperpage{7}
+
+  \indexspace
+
+  \item {pid}
+    \subitem {s\_heredoc\_data}, \hyperpage{7}
+  \item {pipe\_fd}
+    \subitem {s\_heredoc\_data}, \hyperpage{8}
+  \item {process\_heredoc\_input}
+    \subitem {execute\_heredoc.c}, \hyperpage{64}
+  \item {PROMPT}
+    \subitem {minishell.h}, \hyperpage{34}
+
+  \indexspace
+
+  \item {right}
+    \subitem {s\_ast\_node}, \hyperpage{5}
+
+  \indexspace
+
+  \item {s\_ast\_node}, \hyperpage{5}
+    \subitem {left}, \hyperpage{5}
+    \subitem {right}, \hyperpage{5}
+    \subitem {token\_node}, \hyperpage{5}
+    \subitem {type}, \hyperpage{6}
+  \item {s\_bool}
+    \subitem {mini\_base.h}, \hyperpage{33}
+  \item {s\_environment\_node}, \hyperpage{6}
+    \subitem {is\_private}, \hyperpage{6}
+    \subitem {key}, \hyperpage{6}
+    \subitem {next}, \hyperpage{6}
+    \subitem {value}, \hyperpage{7}
+  \item {s\_heredoc\_data}, \hyperpage{7}
+    \subitem {node}, \hyperpage{7}
+    \subitem {original\_stdin}, \hyperpage{7}
+    \subitem {pid}, \hyperpage{7}
+    \subitem {pipe\_fd}, \hyperpage{8}
+    \subitem {shell}, \hyperpage{8}
+  \item {s\_shell}, \hyperpage{8}
+    \subitem {env}, \hyperpage{8}
+    \subitem {envp}, \hyperpage{8}
+    \subitem {exit\_code}, \hyperpage{9}
+    \subitem {top\_level\_redir\_in\_enabled}, \hyperpage{9}
+    \subitem {top\_level\_redir\_out\_enabled}, \hyperpage{9}
+  \item {s\_token}, \hyperpage{9}
+  \item {s\_token\_node}, \hyperpage{10}
+    \subitem {args}, \hyperpage{10}
+    \subitem {next}, \hyperpage{10}
+    \subitem {type}, \hyperpage{10}
+  \item {s\_token\_type}
+    \subitem {tokens.h}, \hyperpage{36}
+  \item {shell}
+    \subitem {s\_heredoc\_data}, \hyperpage{8}
+  \item {signals\_setup}
+    \subitem {mini\_base.h}, \hyperpage{34}
+    \subitem {mini\_signals.c}, \hyperpage{45}
+  \item {src/base/mini\_signals.c}, \hyperpage{44}
+  \item {src/builtins/builtin\_cd.c}, \hyperpage{45}
+  \item {src/builtins/builtin\_echo.c}, \hyperpage{47}
+  \item {src/builtins/builtin\_env.c}, \hyperpage{48}
+  \item {src/builtins/builtin\_exit.c}, \hyperpage{48}
+  \item {src/builtins/builtin\_export.c}, \hyperpage{49}
+  \item {src/builtins/builtin\_export\_ext.c}, \hyperpage{50}
+  \item {src/builtins/builtin\_pwd.c}, \hyperpage{51}
+  \item {src/builtins/builtin\_set\_private.c}, \hyperpage{52}
+  \item {src/builtins/builtin\_unset.c}, \hyperpage{52}
+  \item {src/environment/environment\_create.c}, \hyperpage{53}
+  \item {src/environment/environment\_create\_ext.c}, \hyperpage{54}
+  \item {src/environment/environment\_delete.c}, \hyperpage{55}
+  \item {src/environment/environment\_expand.c}, \hyperpage{56}
+  \item {src/environment/environment\_read.c}, \hyperpage{57}
+  \item {src/environment/environment\_serialize.c}, \hyperpage{59}
+  \item {src/environment/environment\_sorted.c}, \hyperpage{60}
+  \item {src/execution/execute.c}, \hyperpage{61}
+  \item {src/execution/execute\_append.c}, \hyperpage{62}
+  \item {src/execution/execute\_command.c}, \hyperpage{63}
+  \item {src/execution/execute\_heredoc.c}, \hyperpage{64}
+  \item {src/execution/execute\_pipe.c}, \hyperpage{65}
+  \item {src/execution/execute\_redirect\_in.c}, \hyperpage{66}
+  \item {src/execution/execute\_redirect\_out.c}, \hyperpage{67}
+  \item {src/execution/execute\_utils.c}, \hyperpage{67}
+  \item {src/main.c}, \hyperpage{69}
+  \item {src/parsing/ast/ast\_create.c}, \hyperpage{69}
+  \item {src/parsing/ast/ast\_create\_command.c}, \hyperpage{70}
+  \item {src/parsing/ast/ast\_create\_pipe.c}, \hyperpage{71}
+  \item {src/parsing/ast/ast\_create\_redirect.c}, \hyperpage{71}
+  \item {src/parsing/ast/ast\_create\_redirect\_in.c}, \hyperpage{72}
+  \item {src/parsing/ast/ast\_create\_redirect\_out.c}, \hyperpage{73}
+  \item {src/parsing/ast/ast\_delete.c}, \hyperpage{73}
+  \item {src/parsing/ast/ast\_utils.c}, \hyperpage{74}
+  \item {src/parsing/tokens/token\_create.c}, \hyperpage{74}
+  \item {src/parsing/tokens/token\_create\_arrow\_handlers.c}, 
+		\hyperpage{74}
+  \item {src/parsing/tokens/token\_create\_handlers.c}, \hyperpage{75}
+  \item {src/parsing/tokens/token\_delete.c}, \hyperpage{77}
+  \item {src/parsing/tokens/token\_utils.c}, \hyperpage{78}
+  \item {src/parsing/tokens/tokenise.c}, \hyperpage{79}
+  \item {src/parsing/tokens/tokenise\_ext.c}, \hyperpage{80}
+  \item {src/utils/utils.c}, \hyperpage{80}
+
+  \indexspace
+
+  \item {t\_ast\_node}
+    \subitem {ast.h}, \hyperpage{12}
+    \subitem {builtins.h}, \hyperpage{16}
+  \item {t\_bool}
+    \subitem {mini\_base.h}, \hyperpage{33}
+    \subitem {utils.h}, \hyperpage{41}
+  \item {t\_environment\_node}
+    \subitem {environment.h}, \hyperpage{21}
+  \item {t\_heredoc\_data}
+    \subitem {execute.h}, \hyperpage{28}
+  \item {t\_shell}
+    \subitem {builtins.h}, \hyperpage{16}
+    \subitem {environment.h}, \hyperpage{21}
+    \subitem {execute.h}, \hyperpage{28}
+    \subitem {minishell.h}, \hyperpage{35}
+    \subitem {utils.h}, \hyperpage{42}
+  \item {t\_token\_node}
+    \subitem {tokens.h}, \hyperpage{36}
+  \item {t\_token\_type}
+    \subitem {tokens.h}, \hyperpage{36}
+  \item {TOKEN\_APPEND}
+    \subitem {tokens.h}, \hyperpage{36}
+  \item {token\_append}
+    \subitem {token\_create\_handlers.c}, \hyperpage{77}
+    \subitem {tokens.h}, \hyperpage{38}
+  \item {token\_count\_args}
+    \subitem {tokenise\_ext.c}, \hyperpage{80}
+    \subitem {tokens.h}, \hyperpage{38}
+  \item {token\_create}
+    \subitem {token\_create.c}, \hyperpage{74}
+    \subitem {tokens.h}, \hyperpage{39}
+  \item {token\_create.c}
+    \subitem {token\_create}, \hyperpage{74}
+  \item {token\_create\_arrow\_handlers.c}
+    \subitem {handle\_arrows}, \hyperpage{75}
+  \item {token\_create\_handlers.c}
+    \subitem {handle\_quoted}, \hyperpage{75}
+    \subitem {handle\_simple\_tokens}, \hyperpage{76}
+    \subitem {handle\_word}, \hyperpage{76}
+    \subitem {token\_append}, \hyperpage{77}
+  \item {token\_delete}
+    \subitem {token\_delete.c}, \hyperpage{77}
+    \subitem {tokens.h}, \hyperpage{39}
+  \item {token\_delete.c}
+    \subitem {token\_delete}, \hyperpage{77}
+    \subitem {token\_delete\_all}, \hyperpage{78}
+  \item {token\_delete\_all}
+    \subitem {token\_delete.c}, \hyperpage{78}
+    \subitem {tokens.h}, \hyperpage{39}
+  \item {TOKEN\_HEREDOC}
+    \subitem {tokens.h}, \hyperpage{36}
+  \item {token\_list\_print}
+    \subitem {token\_utils.c}, \hyperpage{78}
+    \subitem {tokens.h}, \hyperpage{40}
+  \item {token\_node}
+    \subitem {s\_ast\_node}, \hyperpage{5}
+  \item {TOKEN\_PIPE}
+    \subitem {tokens.h}, \hyperpage{36}
+  \item {token\_print}
+    \subitem {token\_utils.c}, \hyperpage{79}
+    \subitem {tokens.h}, \hyperpage{40}
+  \item {TOKEN\_REDIRECT\_IN}
+    \subitem {tokens.h}, \hyperpage{36}
+  \item {TOKEN\_REDIRECT\_OUT}
+    \subitem {tokens.h}, \hyperpage{36}
+  \item {TOKEN\_STRING}
+    \subitem {tokens.h}, \hyperpage{36}
+  \item {token\_utils.c}
+    \subitem {token\_list\_print}, \hyperpage{78}
+    \subitem {token\_print}, \hyperpage{79}
+  \item {tokenise}
+    \subitem {tokenise.c}, \hyperpage{79}
+    \subitem {tokens.h}, \hyperpage{40}
+  \item {tokenise.c}
+    \subitem {tokenise}, \hyperpage{79}
+  \item {tokenise\_ext.c}
+    \subitem {token\_count\_args}, \hyperpage{80}
+  \item {tokens.h}
+    \subitem {handle\_arrows}, \hyperpage{36}
+    \subitem {handle\_quoted}, \hyperpage{37}
+    \subitem {handle\_simple\_tokens}, \hyperpage{37}
+    \subitem {handle\_word}, \hyperpage{37}
+    \subitem {s\_token\_type}, \hyperpage{36}
+    \subitem {t\_token\_node}, \hyperpage{36}
+    \subitem {t\_token\_type}, \hyperpage{36}
+    \subitem {TOKEN\_APPEND}, \hyperpage{36}
+    \subitem {token\_append}, \hyperpage{38}
+    \subitem {token\_count\_args}, \hyperpage{38}
+    \subitem {token\_create}, \hyperpage{39}
+    \subitem {token\_delete}, \hyperpage{39}
+    \subitem {token\_delete\_all}, \hyperpage{39}
+    \subitem {TOKEN\_HEREDOC}, \hyperpage{36}
+    \subitem {token\_list\_print}, \hyperpage{40}
+    \subitem {TOKEN\_PIPE}, \hyperpage{36}
+    \subitem {token\_print}, \hyperpage{40}
+    \subitem {TOKEN\_REDIRECT\_IN}, \hyperpage{36}
+    \subitem {TOKEN\_REDIRECT\_OUT}, \hyperpage{36}
+    \subitem {TOKEN\_STRING}, \hyperpage{36}
+    \subitem {tokenise}, \hyperpage{40}
+  \item {top\_level\_redir\_in\_enabled}
+    \subitem {s\_shell}, \hyperpage{9}
+  \item {top\_level\_redir\_out\_enabled}
+    \subitem {s\_shell}, \hyperpage{9}
+  \item {true}
+    \subitem {mini\_base.h}, \hyperpage{33}
+  \item {type}
+    \subitem {s\_ast\_node}, \hyperpage{6}
+    \subitem {s\_token\_node}, \hyperpage{10}
+
+  \indexspace
+
+  \item {utils.c}
+    \subitem {clear\_screen\_ensure\_cursor\_visible}, \hyperpage{81}
+    \subitem {free\_resources}, \hyperpage{81}
+    \subitem {ft\_is\_whitespace}, \hyperpage{81}
+    \subitem {ft\_puterror}, \hyperpage{82}
+    \subitem {ft\_strcmp}, \hyperpage{82}
+    \subitem {handle\_input}, \hyperpage{83}
+    \subitem {init\_shell}, \hyperpage{83}
+  \item {utils.h}
+    \subitem {clear\_screen\_ensure\_cursor\_visible}, \hyperpage{42}
+    \subitem {free\_resources}, \hyperpage{42}
+    \subitem {ft\_is\_whitespace}, \hyperpage{42}
+    \subitem {ft\_puterror}, \hyperpage{43}
+    \subitem {ft\_strcmp}, \hyperpage{43}
+    \subitem {handle\_input}, \hyperpage{44}
+    \subitem {init\_shell}, \hyperpage{44}
+    \subitem {t\_bool}, \hyperpage{41}
+    \subitem {t\_shell}, \hyperpage{42}
+
+  \indexspace
+
+  \item {value}
+    \subitem {s\_environment\_node}, \hyperpage{7}
+
+\end{theindex}

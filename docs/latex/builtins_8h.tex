@@ -1,0 +1,292 @@
+\hypertarget{builtins_8h}{}\doxysection{inc/builtins.h File Reference}
+\label{builtins_8h}\index{inc/builtins.h@{inc/builtins.h}}
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$mini\+\_\+base.\+h$>$}\newline
+{\ttfamily \#include $<$tokens.\+h$>$}\newline
+Include dependency graph for builtins.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{builtins_8h_aa0356c68e27b71fae9e329303992b346}{BUILTIN\+\_\+\+EXIT\+\_\+\+TOO\+\_\+\+MANY\+\_\+\+ARGS}}~-\/1
+\item 
+\#define \mbox{\hyperlink{builtins_8h_aab0751c0c15f26e3501b59feeaa2295e}{BUILTIN\+\_\+\+EXIT\+\_\+\+NON\+\_\+\+NUMERIC\+\_\+\+ARG}}~2
+\item 
+\#define \mbox{\hyperlink{builtins_8h_a03c5e2a3e72dd4f21255866f006446e9}{BUILTIN\+\_\+\+EXIT\+\_\+\+OK}}~0
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structs__shell}{s\+\_\+shell}} \mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}}
+\item 
+typedef struct \mbox{\hyperlink{structs__ast__node}{s\+\_\+ast\+\_\+node}} \mbox{\hyperlink{builtins_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{builtins_8h_a956d2ecae20f0df8dbefeff18d156913}{builtin\+\_\+pwd}} (void)
+\begin{DoxyCompactList}\small\item\em Retrieves the current working directory. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{builtins_8h_a934935ab5a95976fad4ae748c608c26c}{execute\+\_\+builtin\+\_\+pwd}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell)
+\begin{DoxyCompactList}\small\item\em Executes the built-\/in pwd command. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{builtins_8h_a5cf7109c52809d01dd2115412373bf91}{builtin\+\_\+env}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell)
+\begin{DoxyCompactList}\small\item\em Prints the current environment variables. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{builtins_8h_a3e03b837d14a21ec30c78edfb289982e}{builtin\+\_\+unset}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Unsets environment variables in the shell. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{builtins_8h_af64f6341c2139cafd98499d593d25c8b}{builtin\+\_\+set\+\_\+private}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Sets a private environment variable in the shell. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{builtins_8h_ab2c5f1eb393436a98c3b3e5c78d6ac10}{builtin\+\_\+export}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Handles the export builtin command in the shell. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{mini__base_8h_a2bf87f8c2c611ece6cf206621482a269}{t\+\_\+bool}} \mbox{\hyperlink{builtins_8h_af8f1581b0ca6e447d45c1bc969067615}{builtin\+\_\+export\+\_\+export\+\_\+key\+\_\+value}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Processes the export command by handling multiple key-\/value pairs. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{mini__base_8h_a2bf87f8c2c611ece6cf206621482a269}{t\+\_\+bool}} \mbox{\hyperlink{builtins_8h_a4ece4450a4d931dd059944a7aca9d5f7}{builtin\+\_\+exit}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$$\ast$node\+\_\+ptr, char $\ast$$\ast$line\+\_\+ptr, \mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$$\ast$list\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Handles the execution of the {\ttfamily exit} built-\/in command. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{builtins_8h_ad169e2a5a0ec78d1012a442ce0d6117f}{builtin\+\_\+echo}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Implements the {\ttfamily echo} built-\/in command for the minishell. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{builtins_8h_a7fb6cac5d2bc96d289257b496b3a1c2a}{builtin\+\_\+cd}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, char $\ast$$\ast$args)
+\begin{DoxyCompactList}\small\item\em Changes the current working directory of the shell. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{builtins_8h_aab0751c0c15f26e3501b59feeaa2295e}\label{builtins_8h_aab0751c0c15f26e3501b59feeaa2295e}} 
+\index{builtins.h@{builtins.h}!BUILTIN\_EXIT\_NON\_NUMERIC\_ARG@{BUILTIN\_EXIT\_NON\_NUMERIC\_ARG}}
+\index{BUILTIN\_EXIT\_NON\_NUMERIC\_ARG@{BUILTIN\_EXIT\_NON\_NUMERIC\_ARG}!builtins.h@{builtins.h}}
+\doxysubsubsection{\texorpdfstring{BUILTIN\_EXIT\_NON\_NUMERIC\_ARG}{BUILTIN\_EXIT\_NON\_NUMERIC\_ARG}}
+{\footnotesize\ttfamily \#define BUILTIN\+\_\+\+EXIT\+\_\+\+NON\+\_\+\+NUMERIC\+\_\+\+ARG~2}
+
+\mbox{\Hypertarget{builtins_8h_a03c5e2a3e72dd4f21255866f006446e9}\label{builtins_8h_a03c5e2a3e72dd4f21255866f006446e9}} 
+\index{builtins.h@{builtins.h}!BUILTIN\_EXIT\_OK@{BUILTIN\_EXIT\_OK}}
+\index{BUILTIN\_EXIT\_OK@{BUILTIN\_EXIT\_OK}!builtins.h@{builtins.h}}
+\doxysubsubsection{\texorpdfstring{BUILTIN\_EXIT\_OK}{BUILTIN\_EXIT\_OK}}
+{\footnotesize\ttfamily \#define BUILTIN\+\_\+\+EXIT\+\_\+\+OK~0}
+
+\mbox{\Hypertarget{builtins_8h_aa0356c68e27b71fae9e329303992b346}\label{builtins_8h_aa0356c68e27b71fae9e329303992b346}} 
+\index{builtins.h@{builtins.h}!BUILTIN\_EXIT\_TOO\_MANY\_ARGS@{BUILTIN\_EXIT\_TOO\_MANY\_ARGS}}
+\index{BUILTIN\_EXIT\_TOO\_MANY\_ARGS@{BUILTIN\_EXIT\_TOO\_MANY\_ARGS}!builtins.h@{builtins.h}}
+\doxysubsubsection{\texorpdfstring{BUILTIN\_EXIT\_TOO\_MANY\_ARGS}{BUILTIN\_EXIT\_TOO\_MANY\_ARGS}}
+{\footnotesize\ttfamily \#define BUILTIN\+\_\+\+EXIT\+\_\+\+TOO\+\_\+\+MANY\+\_\+\+ARGS~-\/1}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{builtins_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}\label{builtins_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}} 
+\index{builtins.h@{builtins.h}!t\_ast\_node@{t\_ast\_node}}
+\index{t\_ast\_node@{t\_ast\_node}!builtins.h@{builtins.h}}
+\doxysubsubsection{\texorpdfstring{t\_ast\_node}{t\_ast\_node}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structs__ast__node}{s\+\_\+ast\+\_\+node}} \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}}}
+
+\mbox{\Hypertarget{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}\label{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}} 
+\index{builtins.h@{builtins.h}!t\_shell@{t\_shell}}
+\index{t\_shell@{t\_shell}!builtins.h@{builtins.h}}
+\doxysubsubsection{\texorpdfstring{t\_shell}{t\_shell}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structs__shell}{s\+\_\+shell}} \mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{builtins_8h_a7fb6cac5d2bc96d289257b496b3a1c2a}\label{builtins_8h_a7fb6cac5d2bc96d289257b496b3a1c2a}} 
+\index{builtins.h@{builtins.h}!builtin\_cd@{builtin\_cd}}
+\index{builtin\_cd@{builtin\_cd}!builtins.h@{builtins.h}}
+\doxysubsubsection{\texorpdfstring{builtin\_cd()}{builtin\_cd()}}
+{\footnotesize\ttfamily void builtin\+\_\+cd (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{char $\ast$$\ast$}]{args }\end{DoxyParamCaption})}
+
+
+
+Changes the current working directory of the shell. 
+
+This function implements the {\ttfamily cd} built-\/in command, allowing users to navigate the filesystem. It supports\+:
+\begin{DoxyItemize}
+\item {\ttfamily cd} or {\ttfamily cd $\sim$} to move to the home directory.
+\item {\ttfamily cd -\/} to move to the previous working directory.
+\item {\ttfamily cd $<$directory$>$} to move to the specified directory.
+\end{DoxyItemize}
+
+If the directory change is successful, it updates the {\ttfamily PWD} and {\ttfamily OLDPWD} environment variables. If it fails, an error message is printed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & A pointer to the shell structure. \\
+\hline
+{\em args} & An array of arguments passed to the {\ttfamily cd} command. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{builtins_8h_ad169e2a5a0ec78d1012a442ce0d6117f}\label{builtins_8h_ad169e2a5a0ec78d1012a442ce0d6117f}} 
+\index{builtins.h@{builtins.h}!builtin\_echo@{builtin\_echo}}
+\index{builtin\_echo@{builtin\_echo}!builtins.h@{builtins.h}}
+\doxysubsubsection{\texorpdfstring{builtin\_echo()}{builtin\_echo()}}
+{\footnotesize\ttfamily void builtin\+\_\+echo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Implements the {\ttfamily echo} built-\/in command for the minishell. 
+
+This function mimics the behavior of the UNIX {\ttfamily echo} command, supporting the {\ttfamily -\/n} option to suppress the trailing newline. It expands environment variables within arguments and prints the result to standard output.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & The shell structure containing environment variables and state. \\
+\hline
+{\em node} & The AST node representing the {\ttfamily echo} command and its arguments. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{builtins_8h_a5cf7109c52809d01dd2115412373bf91}\label{builtins_8h_a5cf7109c52809d01dd2115412373bf91}} 
+\index{builtins.h@{builtins.h}!builtin\_env@{builtin\_env}}
+\index{builtin\_env@{builtin\_env}!builtins.h@{builtins.h}}
+\doxysubsubsection{\texorpdfstring{builtin\_env()}{builtin\_env()}}
+{\footnotesize\ttfamily void builtin\+\_\+env (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell }\end{DoxyParamCaption})}
+
+
+
+Prints the current environment variables. 
+
+This function prints all the environment variables stored in the shell\textquotesingle{}s environment list. It also sets the shell\textquotesingle{}s exit code to 0 upon completion.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & A pointer to the shell structure containing the environment list. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{builtins_8h_a4ece4450a4d931dd059944a7aca9d5f7}\label{builtins_8h_a4ece4450a4d931dd059944a7aca9d5f7}} 
+\index{builtins.h@{builtins.h}!builtin\_exit@{builtin\_exit}}
+\index{builtin\_exit@{builtin\_exit}!builtins.h@{builtins.h}}
+\doxysubsubsection{\texorpdfstring{builtin\_exit()}{builtin\_exit()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mini__base_8h_a2bf87f8c2c611ece6cf206621482a269}{t\+\_\+bool}} builtin\+\_\+exit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$$\ast$}]{node\+\_\+ptr,  }\item[{char $\ast$$\ast$}]{line\+\_\+ptr,  }\item[{\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$$\ast$}]{list\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Handles the execution of the {\ttfamily exit} built-\/in command. 
+
+This function checks if the {\ttfamily exit} command is properly formatted and executes it, freeing necessary resources before terminating the shell. The function ensures\+:
+\begin{DoxyItemize}
+\item The command is correctly formatted with a single {\ttfamily exit} keyword.
+\item Argument validity is checked, allowing a numeric exit code.
+\item The shell\textquotesingle{}s exit code is set appropriately.
+\item Memory cleanup is performed before exiting.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & A pointer to the shell structure. \\
+\hline
+{\em node\+\_\+ptr} & A double pointer to the AST node containing the command. \\
+\hline
+{\em line\+\_\+ptr} & A pointer to the command line input to be freed. \\
+\hline
+{\em list\+\_\+ptr} & A pointer to the token list to be freed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the {\ttfamily exit} command was executed, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{builtins_8h_ab2c5f1eb393436a98c3b3e5c78d6ac10}\label{builtins_8h_ab2c5f1eb393436a98c3b3e5c78d6ac10}} 
+\index{builtins.h@{builtins.h}!builtin\_export@{builtin\_export}}
+\index{builtin\_export@{builtin\_export}!builtins.h@{builtins.h}}
+\doxysubsubsection{\texorpdfstring{builtin\_export()}{builtin\_export()}}
+{\footnotesize\ttfamily void builtin\+\_\+export (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Handles the export builtin command in the shell. 
+
+This function processes the export command, which is used to set environment variables. If no arguments are provided, it prints the environment variables in sorted order. If arguments are provided, it attempts to set the specified environment variables.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & A pointer to the shell structure containing the environment. \\
+\hline
+{\em node} & A pointer to the AST node representing the export command and its arguments. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{builtins_8h_af8f1581b0ca6e447d45c1bc969067615}\label{builtins_8h_af8f1581b0ca6e447d45c1bc969067615}} 
+\index{builtins.h@{builtins.h}!builtin\_export\_export\_key\_value@{builtin\_export\_export\_key\_value}}
+\index{builtin\_export\_export\_key\_value@{builtin\_export\_export\_key\_value}!builtins.h@{builtins.h}}
+\doxysubsubsection{\texorpdfstring{builtin\_export\_export\_key\_value()}{builtin\_export\_export\_key\_value()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mini__base_8h_a2bf87f8c2c611ece6cf206621482a269}{t\+\_\+bool}} builtin\+\_\+export\+\_\+export\+\_\+key\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Processes the export command by handling multiple key-\/value pairs. 
+
+This function iterates through the provided arguments, processing each as either a single key or a key-\/value pair. It updates the environment variables accordingly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & A pointer to the shell structure. \\
+\hline
+{\em node} & The AST node containing the command and its arguments. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if an error occurs during processing, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{builtins_8h_a956d2ecae20f0df8dbefeff18d156913}\label{builtins_8h_a956d2ecae20f0df8dbefeff18d156913}} 
+\index{builtins.h@{builtins.h}!builtin\_pwd@{builtin\_pwd}}
+\index{builtin\_pwd@{builtin\_pwd}!builtins.h@{builtins.h}}
+\doxysubsubsection{\texorpdfstring{builtin\_pwd()}{builtin\_pwd()}}
+{\footnotesize\ttfamily char$\ast$ builtin\+\_\+pwd (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the current working directory. 
+
+This function uses the getcwd() function to obtain the current working directory and returns it as a dynamically allocated string. The caller is responsible for freeing the allocated memory.
+
+\begin{DoxyReturn}{Returns}
+A pointer to the current working directory string, or NULL if an error occurs. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{builtins_8h_af64f6341c2139cafd98499d593d25c8b}\label{builtins_8h_af64f6341c2139cafd98499d593d25c8b}} 
+\index{builtins.h@{builtins.h}!builtin\_set\_private@{builtin\_set\_private}}
+\index{builtin\_set\_private@{builtin\_set\_private}!builtins.h@{builtins.h}}
+\doxysubsubsection{\texorpdfstring{builtin\_set\_private()}{builtin\_set\_private()}}
+{\footnotesize\ttfamily void builtin\+\_\+set\+\_\+private (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Sets a private environment variable in the shell. 
+
+This function takes a shell structure and an AST node, and sets a private environment variable based on the arguments provided in the AST node. If the required arguments are not present, it sets the shell\textquotesingle{}s exit code to 1 and returns. Otherwise, it creates a new environment entry and updates the shell\textquotesingle{}s environment.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & A pointer to the shell structure. \\
+\hline
+{\em node} & A pointer to the AST node containing the arguments. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{builtins_8h_a3e03b837d14a21ec30c78edfb289982e}\label{builtins_8h_a3e03b837d14a21ec30c78edfb289982e}} 
+\index{builtins.h@{builtins.h}!builtin\_unset@{builtin\_unset}}
+\index{builtin\_unset@{builtin\_unset}!builtins.h@{builtins.h}}
+\doxysubsubsection{\texorpdfstring{builtin\_unset()}{builtin\_unset()}}
+{\footnotesize\ttfamily void builtin\+\_\+unset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Unsets environment variables in the shell. 
+
+This function removes environment variables specified in the arguments from the shell\textquotesingle{}s environment. If no arguments are provided, it prints an error message indicating that not enough arguments were given.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & A pointer to the shell structure. \\
+\hline
+{\em node} & A pointer to the AST node containing the command and its arguments. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{builtins_8h_a934935ab5a95976fad4ae748c608c26c}\label{builtins_8h_a934935ab5a95976fad4ae748c608c26c}} 
+\index{builtins.h@{builtins.h}!execute\_builtin\_pwd@{execute\_builtin\_pwd}}
+\index{execute\_builtin\_pwd@{execute\_builtin\_pwd}!builtins.h@{builtins.h}}
+\doxysubsubsection{\texorpdfstring{execute\_builtin\_pwd()}{execute\_builtin\_pwd()}}
+{\footnotesize\ttfamily void execute\+\_\+builtin\+\_\+pwd (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell }\end{DoxyParamCaption})}
+
+
+
+Executes the built-\/in pwd command. 
+
+This function retrieves the current working directory using the \mbox{\hyperlink{builtin__pwd_8c_a956d2ecae20f0df8dbefeff18d156913}{builtin\+\_\+pwd()}} function. If the directory is successfully retrieved, it prints the directory path to the standard output and sets the shell\textquotesingle{}s exit code to 0. If the directory retrieval fails, it prints an error message using perror and sets the shell\textquotesingle{}s exit code to 1.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & A pointer to the shell structure containing the exit code. \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,58 @@
+\hypertarget{environment__create_8c}{}\doxysection{src/environment/environment\+\_\+create.c File Reference}
+\label{environment__create_8c}\index{src/environment/environment\_create.c@{src/environment/environment\_create.c}}
+{\ttfamily \#include $<$environment.\+h$>$}\newline
+{\ttfamily \#include $<$minishell.\+h$>$}\newline
+Include dependency graph for environment\+\_\+create.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{environment_8h_a27ae7c4f109de04c5eff0bf308108a92}{t\+\_\+environment\+\_\+node}} $\ast$ \mbox{\hyperlink{environment__create_8c_aa43e73f885f69e85d92b709f5d5877cf}{enviroment\+\_\+node\+\_\+create}} (const char $\ast$entry, \mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, \mbox{\hyperlink{mini__base_8h_a2bf87f8c2c611ece6cf206621482a269}{t\+\_\+bool}} is\+\_\+private)
+\begin{DoxyCompactList}\small\item\em Creates an environment node from an entry string and adds it to the shell\textquotesingle{}s environment list. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{environment_8h_a27ae7c4f109de04c5eff0bf308108a92}{t\+\_\+environment\+\_\+node}} $\ast$ \mbox{\hyperlink{environment__create_8c_abdbcf7a0de2e20d935f1ea841edd111c}{environment\+\_\+list\+\_\+initialize}} (const char $\ast$$\ast$envp)
+\begin{DoxyCompactList}\small\item\em Initializes an environment list from an array of environment variable strings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{environment__create_8c_aa43e73f885f69e85d92b709f5d5877cf}\label{environment__create_8c_aa43e73f885f69e85d92b709f5d5877cf}} 
+\index{environment\_create.c@{environment\_create.c}!enviroment\_node\_create@{enviroment\_node\_create}}
+\index{enviroment\_node\_create@{enviroment\_node\_create}!environment\_create.c@{environment\_create.c}}
+\doxysubsubsection{\texorpdfstring{enviroment\_node\_create()}{enviroment\_node\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{environment_8h_a27ae7c4f109de04c5eff0bf308108a92}{t\+\_\+environment\+\_\+node}}$\ast$ enviroment\+\_\+node\+\_\+create (\begin{DoxyParamCaption}\item[{const char $\ast$}]{entry,  }\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{\mbox{\hyperlink{mini__base_8h_a2bf87f8c2c611ece6cf206621482a269}{t\+\_\+bool}}}]{is\+\_\+private }\end{DoxyParamCaption})}
+
+
+
+Creates an environment node from an entry string and adds it to the shell\textquotesingle{}s environment list. 
+
+This function uses environment\+\_\+node\+\_\+from\+\_\+entry to parse the entry string into a node. If successful, it inserts this node into the shell\textquotesingle{}s environment list using \+\_\+environment\+\_\+node\+\_\+insert. It returns the created node, or NULL if parsing fails.
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & The entry string to process. \\
+\hline
+{\em shell} & A pointer to the shell context containing the environment list. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+t\+\_\+environment\+\_\+node$\ast$ A pointer to the newly created and inserted node, or NULL. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{environment__create_8c_abdbcf7a0de2e20d935f1ea841edd111c}\label{environment__create_8c_abdbcf7a0de2e20d935f1ea841edd111c}} 
+\index{environment\_create.c@{environment\_create.c}!environment\_list\_initialize@{environment\_list\_initialize}}
+\index{environment\_list\_initialize@{environment\_list\_initialize}!environment\_create.c@{environment\_create.c}}
+\doxysubsubsection{\texorpdfstring{environment\_list\_initialize()}{environment\_list\_initialize()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{environment_8h_a27ae7c4f109de04c5eff0bf308108a92}{t\+\_\+environment\+\_\+node}}$\ast$ environment\+\_\+list\+\_\+initialize (\begin{DoxyParamCaption}\item[{const char $\ast$$\ast$}]{envp }\end{DoxyParamCaption})}
+
+
+
+Initializes an environment list from an array of environment variable strings. 
+
+This function processes each string in the provided array using environment\+\_\+node\+\_\+from\+\_\+entry to create nodes. Each valid node is inserted into the environment list. It returns the head of the newly created list, which may be empty if all entries are invalid.
+
+
+\begin{DoxyParams}{Parameters}
+{\em envp} & An array of strings representing environment variables. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+t\+\_\+environment\+\_\+node$\ast$ The head of the environment list, or NULL if no nodes were created. 
+\end{DoxyReturn}

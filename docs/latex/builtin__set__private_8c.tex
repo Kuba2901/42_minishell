@@ -1,0 +1,33 @@
+\hypertarget{builtin__set__private_8c}{}\doxysection{src/builtins/builtin\+\_\+set\+\_\+private.c File Reference}
+\label{builtin__set__private_8c}\index{src/builtins/builtin\_set\_private.c@{src/builtins/builtin\_set\_private.c}}
+{\ttfamily \#include $<$builtins.\+h$>$}\newline
+{\ttfamily \#include $<$minishell.\+h$>$}\newline
+Include dependency graph for builtin\+\_\+set\+\_\+private.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{builtin__set__private_8c_af64f6341c2139cafd98499d593d25c8b}{builtin\+\_\+set\+\_\+private}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Sets a private environment variable in the shell. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{builtin__set__private_8c_af64f6341c2139cafd98499d593d25c8b}\label{builtin__set__private_8c_af64f6341c2139cafd98499d593d25c8b}} 
+\index{builtin\_set\_private.c@{builtin\_set\_private.c}!builtin\_set\_private@{builtin\_set\_private}}
+\index{builtin\_set\_private@{builtin\_set\_private}!builtin\_set\_private.c@{builtin\_set\_private.c}}
+\doxysubsubsection{\texorpdfstring{builtin\_set\_private()}{builtin\_set\_private()}}
+{\footnotesize\ttfamily void builtin\+\_\+set\+\_\+private (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Sets a private environment variable in the shell. 
+
+This function takes a shell structure and an AST node, and sets a private environment variable based on the arguments provided in the AST node. If the required arguments are not present, it sets the shell\textquotesingle{}s exit code to 1 and returns. Otherwise, it creates a new environment entry and updates the shell\textquotesingle{}s environment.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & A pointer to the shell structure. \\
+\hline
+{\em node} & A pointer to the AST node containing the arguments. \\
+\hline
+\end{DoxyParams}

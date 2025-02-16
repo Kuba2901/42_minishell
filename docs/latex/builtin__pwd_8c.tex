@@ -1,0 +1,48 @@
+\hypertarget{builtin__pwd_8c}{}\doxysection{src/builtins/builtin\+\_\+pwd.c File Reference}
+\label{builtin__pwd_8c}\index{src/builtins/builtin\_pwd.c@{src/builtins/builtin\_pwd.c}}
+{\ttfamily \#include $<$builtins.\+h$>$}\newline
+{\ttfamily \#include $<$minishell.\+h$>$}\newline
+Include dependency graph for builtin\+\_\+pwd.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{builtin__pwd_8c_a956d2ecae20f0df8dbefeff18d156913}{builtin\+\_\+pwd}} (void)
+\begin{DoxyCompactList}\small\item\em Retrieves the current working directory. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{builtin__pwd_8c_a934935ab5a95976fad4ae748c608c26c}{execute\+\_\+builtin\+\_\+pwd}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell)
+\begin{DoxyCompactList}\small\item\em Executes the built-\/in pwd command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{builtin__pwd_8c_a956d2ecae20f0df8dbefeff18d156913}\label{builtin__pwd_8c_a956d2ecae20f0df8dbefeff18d156913}} 
+\index{builtin\_pwd.c@{builtin\_pwd.c}!builtin\_pwd@{builtin\_pwd}}
+\index{builtin\_pwd@{builtin\_pwd}!builtin\_pwd.c@{builtin\_pwd.c}}
+\doxysubsubsection{\texorpdfstring{builtin\_pwd()}{builtin\_pwd()}}
+{\footnotesize\ttfamily char$\ast$ builtin\+\_\+pwd (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the current working directory. 
+
+This function uses the getcwd() function to obtain the current working directory and returns it as a dynamically allocated string. The caller is responsible for freeing the allocated memory.
+
+\begin{DoxyReturn}{Returns}
+A pointer to the current working directory string, or NULL if an error occurs. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{builtin__pwd_8c_a934935ab5a95976fad4ae748c608c26c}\label{builtin__pwd_8c_a934935ab5a95976fad4ae748c608c26c}} 
+\index{builtin\_pwd.c@{builtin\_pwd.c}!execute\_builtin\_pwd@{execute\_builtin\_pwd}}
+\index{execute\_builtin\_pwd@{execute\_builtin\_pwd}!builtin\_pwd.c@{builtin\_pwd.c}}
+\doxysubsubsection{\texorpdfstring{execute\_builtin\_pwd()}{execute\_builtin\_pwd()}}
+{\footnotesize\ttfamily void execute\+\_\+builtin\+\_\+pwd (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell }\end{DoxyParamCaption})}
+
+
+
+Executes the built-\/in pwd command. 
+
+This function retrieves the current working directory using the \mbox{\hyperlink{builtin__pwd_8c_a956d2ecae20f0df8dbefeff18d156913}{builtin\+\_\+pwd()}} function. If the directory is successfully retrieved, it prints the directory path to the standard output and sets the shell\textquotesingle{}s exit code to 0. If the directory retrieval fails, it prints an error message using perror and sets the shell\textquotesingle{}s exit code to 1.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & A pointer to the shell structure containing the exit code. \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,60 @@
+\hypertarget{execute__utils_8c}{}\doxysection{src/execution/execute\+\_\+utils.c File Reference}
+\label{execute__utils_8c}\index{src/execution/execute\_utils.c@{src/execution/execute\_utils.c}}
+{\ttfamily \#include $<$execute.\+h$>$}\newline
+{\ttfamily \#include $<$minishell.\+h$>$}\newline
+Include dependency graph for execute\+\_\+utils.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{execute__utils_8c_a86765b7fa5c9fc51a9c3dbf93bdb77be}{execute\+\_\+find\+\_\+executable}} (char $\ast$command, \mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell)
+\begin{DoxyCompactList}\small\item\em Finds the full path of an executable command. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{execute__utils_8c_a57e123669114e52b0f82b62e8729a0cd}{execution\+\_\+redirect\+\_\+open\+\_\+file}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Opens a file for redirection during command execution. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{execute__utils_8c_a86765b7fa5c9fc51a9c3dbf93bdb77be}\label{execute__utils_8c_a86765b7fa5c9fc51a9c3dbf93bdb77be}} 
+\index{execute\_utils.c@{execute\_utils.c}!execute\_find\_executable@{execute\_find\_executable}}
+\index{execute\_find\_executable@{execute\_find\_executable}!execute\_utils.c@{execute\_utils.c}}
+\doxysubsubsection{\texorpdfstring{execute\_find\_executable()}{execute\_find\_executable()}}
+{\footnotesize\ttfamily char$\ast$ execute\+\_\+find\+\_\+executable (\begin{DoxyParamCaption}\item[{char $\ast$}]{command,  }\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell }\end{DoxyParamCaption})}
+
+
+
+Finds the full path of an executable command. 
+
+This function searches for the given command in the directories specified by the PATH environment variable. If the command is an absolute path or a relative path starting with \char`\"{}./\char`\"{}, it checks if the command is executable.
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The command to find the executable path for. \\
+\hline
+{\em shell} & The shell structure containing environment variables. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A dynamically allocated string containing the full path of the executable if found, or NULL if the command is not found or not executable. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{execute__utils_8c_a57e123669114e52b0f82b62e8729a0cd}\label{execute__utils_8c_a57e123669114e52b0f82b62e8729a0cd}} 
+\index{execute\_utils.c@{execute\_utils.c}!execution\_redirect\_open\_file@{execution\_redirect\_open\_file}}
+\index{execution\_redirect\_open\_file@{execution\_redirect\_open\_file}!execute\_utils.c@{execute\_utils.c}}
+\doxysubsubsection{\texorpdfstring{execution\_redirect\_open\_file()}{execution\_redirect\_open\_file()}}
+{\footnotesize\ttfamily int execution\+\_\+redirect\+\_\+open\+\_\+file (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Opens a file for redirection during command execution. 
+
+This function expands the file name using environment variables, opens the file with the appropriate mode, and returns the file descriptor. If the file cannot be opened, the function will terminate the program with an exit status of failure.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & A pointer to the shell structure containing environment variables. \\
+\hline
+{\em node} & A pointer to the AST node containing the file redirection information. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The file descriptor of the opened file. 
+\end{DoxyReturn}

@@ -1,0 +1,44 @@
+\hypertarget{execute__redirect__in_8c}{}\doxysection{src/execution/execute\+\_\+redirect\+\_\+in.c File Reference}
+\label{execute__redirect__in_8c}\index{src/execution/execute\_redirect\_in.c@{src/execution/execute\_redirect\_in.c}}
+{\ttfamily \#include $<$execute.\+h$>$}\newline
+{\ttfamily \#include $<$minishell.\+h$>$}\newline
+Include dependency graph for execute\+\_\+redirect\+\_\+in.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{execute__redirect__in_8c_a5b178a509aa9bb551adc2ebd9d26e8da}{execute\+\_\+redirect\+\_\+in}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Executes a command with input redirection. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{execute__redirect__in_8c_a5b178a509aa9bb551adc2ebd9d26e8da}\label{execute__redirect__in_8c_a5b178a509aa9bb551adc2ebd9d26e8da}} 
+\index{execute\_redirect\_in.c@{execute\_redirect\_in.c}!execute\_redirect\_in@{execute\_redirect\_in}}
+\index{execute\_redirect\_in@{execute\_redirect\_in}!execute\_redirect\_in.c@{execute\_redirect\_in.c}}
+\doxysubsubsection{\texorpdfstring{execute\_redirect\_in()}{execute\_redirect\_in()}}
+{\footnotesize\ttfamily void execute\+\_\+redirect\+\_\+in (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Executes a command with input redirection. 
+
+This function handles the execution of a command where the input is redirected from a file. It temporarily replaces the standard input (stdin) with the contents of the specified file, executes the command, and then restores the original stdin.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & Pointer to the shell structure containing environment and state information. \\
+\hline
+{\em node} & Pointer to the AST node representing the command and its redirection.\\
+\hline
+\end{DoxyParams}
+The function performs the following steps\+:
+\begin{DoxyEnumerate}
+\item Duplicates the current stdin file descriptor to save it.
+\item Expands the file name using environment variable expansion.
+\item Opens the file for reading.
+\item If the file cannot be opened, prints an error message and exits.
+\item Redirects stdin to the opened file.
+\item Executes the command represented by the left child of the AST node.
+\item Restores the original stdin.
+\item Closes the duplicated stdin file descriptor. 
+\end{DoxyEnumerate}

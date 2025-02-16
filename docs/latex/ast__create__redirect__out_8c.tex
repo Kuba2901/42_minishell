@@ -1,0 +1,26 @@
+\hypertarget{ast__create__redirect__out_8c}{}\doxysection{src/parsing/ast/ast\+\_\+create\+\_\+redirect\+\_\+out.c File Reference}
+\label{ast__create__redirect__out_8c}\index{src/parsing/ast/ast\_create\_redirect\_out.c@{src/parsing/ast/ast\_create\_redirect\_out.c}}
+{\ttfamily \#include $<$ast.\+h$>$}\newline
+Include dependency graph for ast\+\_\+create\+\_\+redirect\+\_\+out.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$ \mbox{\hyperlink{ast__create__redirect__out_8c_adf49ca3349e15c41345a81a0e1cd37e4}{ast\+\_\+create\+\_\+redirect\+\_\+out\+\_\+append}} (\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$list)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ast__create__redirect__out_8c_adf49ca3349e15c41345a81a0e1cd37e4}\label{ast__create__redirect__out_8c_adf49ca3349e15c41345a81a0e1cd37e4}} 
+\index{ast\_create\_redirect\_out.c@{ast\_create\_redirect\_out.c}!ast\_create\_redirect\_out\_append@{ast\_create\_redirect\_out\_append}}
+\index{ast\_create\_redirect\_out\_append@{ast\_create\_redirect\_out\_append}!ast\_create\_redirect\_out.c@{ast\_create\_redirect\_out.c}}
+\doxysubsubsection{\texorpdfstring{ast\_create\_redirect\_out\_append()}{ast\_create\_redirect\_out\_append()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}}$\ast$ ast\+\_\+create\+\_\+redirect\+\_\+out\+\_\+append (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$}]{list }\end{DoxyParamCaption})}
+
+ast\+\_\+create\+\_\+redirect\+\_\+out\+\_\+append -\/ Parses a list of tokens to create an AST node for redirect out or append operations.
+
+@list\+: A pointer to the head of the token list.
+
+This function processes a list of tokens to create an abstract syntax tree (AST) node representing redirect out ($>$) or append ($>$$>$) operations. It starts by creating a command node from the token list and then iterates through the list to handle consecutive redirect out or append tokens. For each such token, it creates a new AST node, sets the left and right children, and updates the left child to the newly created node. The function returns the final AST node representing the parsed redirect out or append operations.
+
+Return\+: A pointer to the root of the created AST node. 

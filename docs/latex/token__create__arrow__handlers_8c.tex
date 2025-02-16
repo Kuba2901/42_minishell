@@ -1,0 +1,32 @@
+\hypertarget{token__create__arrow__handlers_8c}{}\doxysection{src/parsing/tokens/token\+\_\+create\+\_\+arrow\+\_\+handlers.c File Reference}
+\label{token__create__arrow__handlers_8c}\index{src/parsing/tokens/token\_create\_arrow\_handlers.c@{src/parsing/tokens/token\_create\_arrow\_handlers.c}}
+{\ttfamily \#include $<$tokens.\+h$>$}\newline
+Include dependency graph for token\+\_\+create\+\_\+arrow\+\_\+handlers.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{token__create__arrow__handlers_8c_a33f8cc0bef2a29ba635644252bea6f04}{handle\+\_\+arrows}} (\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$list, char $\ast$$\ast$current)
+\begin{DoxyCompactList}\small\item\em Handles the arrows in the input string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{token__create__arrow__handlers_8c_a33f8cc0bef2a29ba635644252bea6f04}\label{token__create__arrow__handlers_8c_a33f8cc0bef2a29ba635644252bea6f04}} 
+\index{token\_create\_arrow\_handlers.c@{token\_create\_arrow\_handlers.c}!handle\_arrows@{handle\_arrows}}
+\index{handle\_arrows@{handle\_arrows}!token\_create\_arrow\_handlers.c@{token\_create\_arrow\_handlers.c}}
+\doxysubsubsection{\texorpdfstring{handle\_arrows()}{handle\_arrows()}}
+{\footnotesize\ttfamily void handle\+\_\+arrows (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$}]{list,  }\item[{char $\ast$$\ast$}]{current }\end{DoxyParamCaption})}
+
+
+
+Handles the arrows in the input string. 
+
+This function determines whether the current character is \textquotesingle{}$<$\textquotesingle{} or \textquotesingle{}$>$\textquotesingle{}. If it is \textquotesingle{}$<$\textquotesingle{}, it calls the handle\+\_\+arrows\+\_\+left() function. If it is \textquotesingle{}$>$\textquotesingle{}, it calls the handle\+\_\+arrows\+\_\+right() function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em current} & The current character in the input string. \\
+\hline
+{\em list} & The token list to be updated. \\
+\hline
+\end{DoxyParams}
