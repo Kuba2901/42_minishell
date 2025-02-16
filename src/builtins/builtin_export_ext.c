@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:50:10 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/14 22:37:07 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/15 15:39:29 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,7 @@ static t_bool	process_single_arg(t_shell *shell, char *arg)
 
 	if (!_is_key_valid(arg))
 	{
-		fprintf(stderr, "minishell: export: `%s': not a valid identifier\n",
-			arg);
+		ft_puterror("minishell: export: `", arg, "': not a valid identifier");
 		return (true);
 	}
 	node = environment_list_read_node(arg, shell);
@@ -78,8 +77,8 @@ static t_bool	process_key_value_pair(t_shell *shell, char *arg1, char *arg2)
 		enviroment_node_create(entry, shell, false);
 	else
 	{
-		fprintf(stderr, "minishell: export: `%s': not a valid identifier\n",
-			args[0]);
+		ft_puterror("minishell: export: `", args[0],
+			"': not a valid identifier");
 		has_error = true;
 	}
 	cleanup_export_args(args, entry);

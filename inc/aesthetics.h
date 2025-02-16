@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:00:05 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/12 17:00:06 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/15 15:42:12 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@
 # define SECOND_FROM_MICRO 1000000
 # define SPINNER "-\\|/"
 
-void	show_intro(void);
+// void	show_intro(void);
 
 #endif

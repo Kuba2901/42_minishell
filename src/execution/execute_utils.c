@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:27:34 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/13 14:50:54 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/16 21:02:11 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ static int	execution_open_file_type(t_ast_node *node)
 	else if (node->type == TOKEN_REDIRECT_OUT)
 		return (O_WRONLY | O_CREAT | O_TRUNC);
 	else if (node->type == TOKEN_APPEND)
-		return (O_WRONLY | O_CREAT | O_APPEND | 0644);
+		return (O_WRONLY | O_CREAT | O_APPEND);
 	return (0);
 }
 
@@ -89,7 +89,7 @@ int	execution_redirect_open_file(t_shell *shell, t_ast_node *node)
 
 	expanded_file_name = env_value_expand(shell,
 			node->right->token_node->args[0]);
-	fd = open(expanded_file_name, (execution_open_file_type(node)));
+	fd = open(expanded_file_name, execution_open_file_type(node), 0644);
 	free(expanded_file_name);
 	if (fd == -1)
 		exit(EXIT_FAILURE);

@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 16:51:10 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/14 22:54:26 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/15 15:26:40 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ static void	_handle_input(t_shell *shell)
 	t_token_node	**list;
 	t_ast_node		*ast;
 
-	(void)shell;
 	while (true)
 	{
 		line = readline(PROMPT);
@@ -58,12 +57,8 @@ static void	_handle_input(t_shell *shell)
 		list = tokenise(line);
 		ast = ast_create(list);
 		execute_preprocess_heredocs(ast);
-		if (!ast->left && !ast->right && !ft_strcmp(ast->token_node->args[0],
-				"exit"))
-		{
-			builtin_exit(shell, &ast, &line, &list);
+		if (builtin_exit(shell, &ast, &line, &list))
 			break ;
-		}
 		execute_ast(shell, ast);
 		ast_delete(ast);
 		free(list);
@@ -80,8 +75,6 @@ int	main(int ac, const char **av, const char **envp)
 	(void)ac;
 	(void)av;
 	exit_code = 0;
-	if (ac == 2 && !ft_strcmp(av[1], "--full"))
-		show_intro();
 	_init_shell(&shell, envp);
 	signals_setup();
 	_handle_input(&shell);

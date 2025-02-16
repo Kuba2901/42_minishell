@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:08:19 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/13 15:14:41 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/15 15:38:49 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	handle_quoted(char **current, t_token_node **list, char type)
 		(*current)++;
 	if (**current == '\0')
 	{
-		fprintf(stderr, "Error: missing closing quote\n");
+		ft_puterror("minishell: syntax error: missing closing quote", "", NULL);
 		return ;
 	}
 	(*current)++;

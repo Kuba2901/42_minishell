@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 16:58:41 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/14 22:26:37 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/15 15:10:50 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ t_environment_node	*environment_node_from_entry(const char *entry,
 void				environment_list_print_sorted(t_shell *shell);
 t_environment_node	*environment_list_get_sorted_copy(
 						t_environment_node *original);
-t_environment_node	*environment_list_read_node(const char *key, t_shell *shell);
+t_environment_node	*environment_list_read_node(const char *key,
+						t_shell *shell);
 
 #endif

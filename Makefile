@@ -24,7 +24,7 @@ MINI_ENV_SRC = $(ENV_DIR)/environment_create.c $(ENV_DIR)/environment_delete.c $
 
 # Utils
 UTILS_DIR = src/utils
-MINI_UTILS_SRC = $(UTILS_DIR)/utils.c $(UTILS_DIR)/aesthetics.c
+MINI_UTILS_SRC = $(UTILS_DIR)/utils.c
 
 # Execution
 EXEC_DIR = src/execution
@@ -49,13 +49,13 @@ LIBS = $(LIBFT_INCLUDE) -lreadline -lncurses
 
 # Compilation rule for object files
 %.o: %.c
-	$(CC) $(CFLAGS) $(INC) -c $< -o $@
+	@ $(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 # Main Application
 $(NAME): $(MAIN_OBJ)
-	@cd libft && make bonus
-	mkdir -p $(OUT_DIR)
-	$(CC) $(MAIN_OBJ) $(LIBS) -o $(OUT_DIR)/$(NAME)
+	@cd libft && make -s bonus 
+	@ mkdir -p $(OUT_DIR)
+	@ $(CC) $(MAIN_OBJ) $(LIBS) -o $(OUT_DIR)/$(NAME)
 
 # Testing Application
 test: $(TEST_OBJ)
@@ -69,23 +69,21 @@ test: $(TEST_OBJ)
 all: $(NAME)
 
 # Direct run
-run: $(NAME)
+roni: $(NAME)
+	@ ./display_intro.sh
 	@./$(OUT_DIR)/$(NAME)
 
-full: $(NAME)
-	@./$(OUT_DIR)/$(NAME) --full
-
 valgrind: $(NAME)
-	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(OUT_DIR)/$(NAME) --full
+	@ valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(OUT_DIR)/$(NAME)
 
 clean:
-	$(RM) $(MAIN_OBJ) $(TEST_OBJ)
-	@cd libft && make clean
-	rm -rf $(OUT_DIR)
+	@ $(RM) $(MAIN_OBJ) $(TEST_OBJ)
+	@ cd libft && make -s clean
 
 fclean: clean
-	$(RM) $(NAME) test/test_minishell
-	@cd libft && make fclean
+	@ $(RM) $(NAME) test/test_minishell
+	@ cd libft && make -s fclean
+	@ rm -rf $(OUT_DIR)
 
 re: fclean all
 

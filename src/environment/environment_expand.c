@@ -6,7 +6,7 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:25:16 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/15 14:34:40 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/15 15:08:33 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ char	*env_value_expand(t_shell *shell, char *key)
 	else if (key[0] == '"')
 		return (_expand_multiple_variables(shell, key));
 	else if (key[0] == '\'')
-		return _trim_quotes(key);
+		return (_trim_quotes(key));
 	else
 		return (ft_strdup(key));
 	if (ft_strncmp(key, "?", 1) == 0)
