@@ -3,7 +3,13 @@
 {\ttfamily \#include $<$execute.\+h$>$}\newline
 {\ttfamily \#include $<$minishell.\+h$>$}\newline
 Include dependency graph for execute\+\_\+heredoc.\+c\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute__heredoc_8c__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -31,6 +37,14 @@ This function recursively traverses the AST and processes nodes of type TOKEN\+\
 {\em node} & A pointer to the current AST node being processed. \\
 \hline
 \end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute__heredoc_8c_af2d532ac8d7ed9514eb8782ae7882d53_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{execute__heredoc_8c_a61734da272c6333a0a363d43fa45a247}\label{execute__heredoc_8c_a61734da272c6333a0a363d43fa45a247}} 
 \index{execute\_heredoc.c@{execute\_heredoc.c}!process\_heredoc\_input@{process\_heredoc\_input}}
 \index{process\_heredoc\_input@{process\_heredoc\_input}!execute\_heredoc.c@{execute\_heredoc.c}}
@@ -53,3 +67,11 @@ This function reads lines from the standard input until a line matching the spec
 \begin{DoxyNote}{Note}
 If temp\+\_\+filename is NULL or if the file cannot be opened, the function will exit with EXIT\+\_\+\+FAILURE. 
 \end{DoxyNote}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{execute__heredoc_8c_a61734da272c6333a0a363d43fa45a247_cgraph}
+\end{center}
+\end{figure}

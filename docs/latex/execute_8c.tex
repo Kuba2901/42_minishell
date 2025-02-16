@@ -3,7 +3,13 @@
 {\ttfamily \#include $<$execute.\+h$>$}\newline
 {\ttfamily \#include $<$minishell.\+h$>$}\newline
 Include dependency graph for execute.\+c\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8c__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -38,7 +44,23 @@ The function supports the following redirection types\+:
 \item TOKEN\+\_\+\+REDIRECT\+\_\+\+IN\+: Calls execute\+\_\+redirect\+\_\+in to handle input redirection.
 \item TOKEN\+\_\+\+REDIRECT\+\_\+\+OUT\+: Calls execute\+\_\+redirect\+\_\+out to handle output redirection.
 \item TOKEN\+\_\+\+APPEND\+: Calls execute\+\_\+redirect\+\_\+append to handle output redirection in append mode. 
-\end{DoxyItemize}\mbox{\Hypertarget{execute_8c_a7ae0b2ef56640c6936ffe657e13fa9f4}\label{execute_8c_a7ae0b2ef56640c6936ffe657e13fa9f4}} 
+\end{DoxyItemize}Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8c_a2478eeeb74eb074a546235289d2c20bd_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8c_a2478eeeb74eb074a546235289d2c20bd_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{execute_8c_a7ae0b2ef56640c6936ffe657e13fa9f4}\label{execute_8c_a7ae0b2ef56640c6936ffe657e13fa9f4}} 
 \index{execute.c@{execute.c}!execute\_ast@{execute\_ast}}
 \index{execute\_ast@{execute\_ast}!execute.c@{execute.c}}
 \doxysubsubsection{\texorpdfstring{execute\_ast()}{execute\_ast()}}
@@ -62,3 +84,19 @@ If the node is NULL, the function returns immediately.
 
 The function delegates the execution to specific functions based on the type of the node. 
 \end{DoxyNote}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8c_a7ae0b2ef56640c6936ffe657e13fa9f4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8c_a7ae0b2ef56640c6936ffe657e13fa9f4_icgraph}
+\end{center}
+\end{figure}

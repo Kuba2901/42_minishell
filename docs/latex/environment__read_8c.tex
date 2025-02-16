@@ -3,7 +3,13 @@
 {\ttfamily \#include $<$environment.\+h$>$}\newline
 {\ttfamily \#include $<$minishell.\+h$>$}\newline
 Include dependency graph for environment\+\_\+read.\+c\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{environment__read_8c__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -44,6 +50,14 @@ This function iterates through the linked list of environment variables and prin
 \begin{DoxyReturn}{Returns}
 void 
 \end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{environment__read_8c_ac7c5460c1a96f16344370cbc8cafb875_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{environment__read_8c_a5bf51f4346f39138091b60abd05d5fab}\label{environment__read_8c_a5bf51f4346f39138091b60abd05d5fab}} 
 \index{environment\_read.c@{environment\_read.c}!environment\_list\_print\_sorted@{environment\_list\_print\_sorted}}
 \index{environment\_list\_print\_sorted@{environment\_list\_print\_sorted}!environment\_read.c@{environment\_read.c}}
@@ -61,6 +75,22 @@ This function creates a temporary copy of the environment variables, sorts them,
 {\em shell} & A pointer to the shell structure containing the environment list. \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{environment__read_8c_a5bf51f4346f39138091b60abd05d5fab_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=327pt]{environment__read_8c_a5bf51f4346f39138091b60abd05d5fab_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{environment__read_8c_a91813a28808629570986d5e88b912d5b}\label{environment__read_8c_a91813a28808629570986d5e88b912d5b}} 
 \index{environment\_read.c@{environment\_read.c}!environment\_list\_read@{environment\_list\_read}}
 \index{environment\_list\_read@{environment\_list\_read}!environment\_read.c@{environment\_read.c}}
@@ -83,6 +113,22 @@ This function traverses the linked list of environment variables stored in the s
 \begin{DoxyReturn}{Returns}
 The value associated with the specified key, or an empty string if the key is not found. 
 \end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{environment__read_8c_a91813a28808629570986d5e88b912d5b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{environment__read_8c_a91813a28808629570986d5e88b912d5b_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{environment__read_8c_af82670ad46acaaebb1e7dc2aac869ca9}\label{environment__read_8c_af82670ad46acaaebb1e7dc2aac869ca9}} 
 \index{environment\_read.c@{environment\_read.c}!environment\_list\_read\_node@{environment\_list\_read\_node}}
 \index{environment\_list\_read\_node@{environment\_list\_read\_node}!environment\_read.c@{environment\_read.c}}
@@ -105,3 +151,19 @@ This function searches through the environment list in the shell structure to fi
 \begin{DoxyReturn}{Returns}
 t\+\_\+environment\+\_\+node$\ast$ A pointer to the matching environment node, or NULL if not found. 
 \end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{environment__read_8c_af82670ad46acaaebb1e7dc2aac869ca9_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{environment__read_8c_af82670ad46acaaebb1e7dc2aac869ca9_icgraph}
+\end{center}
+\end{figure}

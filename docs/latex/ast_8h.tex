@@ -3,9 +3,21 @@
 {\ttfamily \#include $<$mini\+\_\+base.\+h$>$}\newline
 {\ttfamily \#include $<$tokens.\+h$>$}\newline
 Include dependency graph for ast.\+h\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ast_8h__incl}
+\end{center}
+\end{figure}
 This graph shows which files directly or indirectly include this file\+:
-% FIG 1
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ast_8h__dep__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -69,6 +81,22 @@ This function takes a list of tokens and constructs an AST node from it. If the 
 \begin{DoxyReturn}{Returns}
 A pointer to the created AST node, or NULL if the list is empty or NULL. 
 \end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ast_8h_a7c7a48992c516a9765476b5d9bb01f99_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ast_8h_a7c7a48992c516a9765476b5d9bb01f99_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{ast_8h_a7729393eddbf3cc99189f20ee2a8875f}\label{ast_8h_a7729393eddbf3cc99189f20ee2a8875f}} 
 \index{ast.h@{ast.h}!ast\_create\_command@{ast\_create\_command}}
 \index{ast\_create\_command@{ast\_create\_command}!ast.h@{ast.h}}
@@ -79,7 +107,23 @@ ast\+\_\+parse\+\_\+command -\/ Parses a command from a token list and creates a
 
 This function checks if the provided token list is valid and if the head of the list is of type TOKEN\+\_\+\+STRING. If so, it creates an AST node from the head token, advances the list to the next token, and returns the created AST node. If the list is invalid or the head token is not of type TOKEN\+\_\+\+STRING, it returns NULL.
 
-Return\+: A pointer to the created AST node, or NULL if the list is invalid or the head token is not of type TOKEN\+\_\+\+STRING. \mbox{\Hypertarget{ast_8h_a2ba12f80cc96195f3c07fbef882c41f8}\label{ast_8h_a2ba12f80cc96195f3c07fbef882c41f8}} 
+Return\+: A pointer to the created AST node, or NULL if the list is invalid or the head token is not of type TOKEN\+\_\+\+STRING. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=335pt]{ast_8h_a7729393eddbf3cc99189f20ee2a8875f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ast_8h_a7729393eddbf3cc99189f20ee2a8875f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ast_8h_a2ba12f80cc96195f3c07fbef882c41f8}\label{ast_8h_a2ba12f80cc96195f3c07fbef882c41f8}} 
 \index{ast.h@{ast.h}!ast\_create\_node@{ast\_create\_node}}
 \index{ast\_create\_node@{ast\_create\_node}!ast.h@{ast.h}}
 \doxysubsubsection{\texorpdfstring{ast\_create\_node()}{ast\_create\_node()}}
@@ -101,6 +145,14 @@ This function allocates memory for a new {\ttfamily t\+\_\+ast\+\_\+node} struct
 \begin{DoxyReturn}{Returns}
 A pointer to the newly created {\ttfamily t\+\_\+ast\+\_\+node} structure, or {\ttfamily NULL} if memory allocation fails. 
 \end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ast_8h_a2ba12f80cc96195f3c07fbef882c41f8_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{ast_8h_ad580b853b09af8c71108ad162c73b98b}\label{ast_8h_ad580b853b09af8c71108ad162c73b98b}} 
 \index{ast.h@{ast.h}!ast\_create\_pipe@{ast\_create\_pipe}}
 \index{ast\_create\_pipe@{ast\_create\_pipe}!ast.h@{ast.h}}
@@ -111,7 +163,23 @@ ast\+\_\+create\+\_\+pipe -\/ Creates an AST node for a pipe operation. @list\+:
 
 This function creates an abstract syntax tree (AST) node for a pipe operation by parsing the token list. It first creates the left node by calling ast\+\_\+create\+\_\+redirect. Then, it iterates through the token list to find pipe tokens (TOKEN\+\_\+\+PIPE). For each pipe token found, it creates a right node by calling ast\+\_\+create, and then creates a pipe node with the current token. The left and right nodes are assigned to the pipe node, and the left node is updated to the pipe node. The function returns the final left node, which represents the root of the pipe operation AST.
 
-Return\+: A pointer to the root AST node of the pipe operation. \mbox{\Hypertarget{ast_8h_af3adbca4bd20ec24f5073a1ba9dfa81f}\label{ast_8h_af3adbca4bd20ec24f5073a1ba9dfa81f}} 
+Return\+: A pointer to the root AST node of the pipe operation. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ast_8h_ad580b853b09af8c71108ad162c73b98b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ast_8h_ad580b853b09af8c71108ad162c73b98b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ast_8h_af3adbca4bd20ec24f5073a1ba9dfa81f}\label{ast_8h_af3adbca4bd20ec24f5073a1ba9dfa81f}} 
 \index{ast.h@{ast.h}!ast\_create\_redirect@{ast\_create\_redirect}}
 \index{ast\_create\_redirect@{ast\_create\_redirect}!ast.h@{ast.h}}
 \doxysubsubsection{\texorpdfstring{ast\_create\_redirect()}{ast\_create\_redirect()}}
@@ -121,7 +189,23 @@ ast\+\_\+create\+\_\+redirect -\/ Parses a list of tokens to create an abstract 
 
 This function parses a list of tokens to create an AST node that represents a redirection operation. It first parses the left-\/hand side command, then iterates through the list of tokens to check for redirection operators (heredoc, redirect in, append, redirect out). For each redirection operator found, it creates a new AST node, sets the left and right children, and updates the list pointer to the next token. The function returns the root of the created AST subtree.
 
-Return\+: A pointer to the root AST node representing the redirection. \mbox{\Hypertarget{ast_8h_a9821b43b0ae13f746b1e0950c51b5d38}\label{ast_8h_a9821b43b0ae13f746b1e0950c51b5d38}} 
+Return\+: A pointer to the root AST node representing the redirection. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ast_8h_af3adbca4bd20ec24f5073a1ba9dfa81f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ast_8h_af3adbca4bd20ec24f5073a1ba9dfa81f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ast_8h_a9821b43b0ae13f746b1e0950c51b5d38}\label{ast_8h_a9821b43b0ae13f746b1e0950c51b5d38}} 
 \index{ast.h@{ast.h}!ast\_create\_redirect\_in\_heredoc@{ast\_create\_redirect\_in\_heredoc}}
 \index{ast\_create\_redirect\_in\_heredoc@{ast\_create\_redirect\_in\_heredoc}!ast.h@{ast.h}}
 \doxysubsubsection{\texorpdfstring{ast\_create\_redirect\_in\_heredoc()}{ast\_create\_redirect\_in\_heredoc()}}
@@ -133,7 +217,15 @@ ast\+\_\+create\+\_\+redirect\+\_\+in\+\_\+heredoc -\/ Parses a list of tokens t
 
 This function processes a list of tokens to create an abstract syntax tree (AST) node for input redirection and heredoc. It starts by creating a command node from the token list and then iterates through the list to handle heredoc and input redirection tokens. For each heredoc or input redirection token, it creates a new AST node, sets the left and right children, and updates the left node to the newly created node. The function returns the final left node, which represents the root of the constructed AST for input redirection and heredoc.
 
-Return\+: A pointer to the root of the constructed AST node. \mbox{\Hypertarget{ast_8h_adf49ca3349e15c41345a81a0e1cd37e4}\label{ast_8h_adf49ca3349e15c41345a81a0e1cd37e4}} 
+Return\+: A pointer to the root of the constructed AST node. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ast_8h_a9821b43b0ae13f746b1e0950c51b5d38_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ast_8h_adf49ca3349e15c41345a81a0e1cd37e4}\label{ast_8h_adf49ca3349e15c41345a81a0e1cd37e4}} 
 \index{ast.h@{ast.h}!ast\_create\_redirect\_out\_append@{ast\_create\_redirect\_out\_append}}
 \index{ast\_create\_redirect\_out\_append@{ast\_create\_redirect\_out\_append}!ast.h@{ast.h}}
 \doxysubsubsection{\texorpdfstring{ast\_create\_redirect\_out\_append()}{ast\_create\_redirect\_out\_append()}}
@@ -145,7 +237,15 @@ ast\+\_\+create\+\_\+redirect\+\_\+out\+\_\+append -\/ Parses a list of tokens t
 
 This function processes a list of tokens to create an abstract syntax tree (AST) node representing redirect out ($>$) or append ($>$$>$) operations. It starts by creating a command node from the token list and then iterates through the list to handle consecutive redirect out or append tokens. For each such token, it creates a new AST node, sets the left and right children, and updates the left child to the newly created node. The function returns the final AST node representing the parsed redirect out or append operations.
 
-Return\+: A pointer to the root of the created AST node. \mbox{\Hypertarget{ast_8h_a15b68b0db14296cb6280b97b6c203f65}\label{ast_8h_a15b68b0db14296cb6280b97b6c203f65}} 
+Return\+: A pointer to the root of the created AST node. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ast_8h_adf49ca3349e15c41345a81a0e1cd37e4_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ast_8h_a15b68b0db14296cb6280b97b6c203f65}\label{ast_8h_a15b68b0db14296cb6280b97b6c203f65}} 
 \index{ast.h@{ast.h}!ast\_delete@{ast\_delete}}
 \index{ast\_delete@{ast\_delete}!ast.h@{ast.h}}
 \doxysubsubsection{\texorpdfstring{ast\_delete()}{ast\_delete()}}
@@ -162,6 +262,22 @@ This function takes a pointer to an AST node and recursively deletes its left an
 {\em node} & A pointer to the AST node to be deleted. If the node is NULL, the function returns immediately. \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{ast_8h_a15b68b0db14296cb6280b97b6c203f65_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=341pt]{ast_8h_a15b68b0db14296cb6280b97b6c203f65_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{ast_8h_ab5857c068f33de676871c00d579098fe}\label{ast_8h_ab5857c068f33de676871c00d579098fe}} 
 \index{ast.h@{ast.h}!ast\_print@{ast\_print}}
 \index{ast\_print@{ast\_print}!ast.h@{ast.h}}

@@ -3,7 +3,13 @@
 {\ttfamily \#include $<$environment.\+h$>$}\newline
 {\ttfamily \#include $<$minishell.\+h$>$}\newline
 Include dependency graph for environment\+\_\+create.\+c\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{environment__create_8c__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -36,6 +42,22 @@ This function uses environment\+\_\+node\+\_\+from\+\_\+entry to parse the entry
 \begin{DoxyReturn}{Returns}
 t\+\_\+environment\+\_\+node$\ast$ A pointer to the newly created and inserted node, or NULL. 
 \end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{environment__create_8c_aa43e73f885f69e85d92b709f5d5877cf_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{environment__create_8c_aa43e73f885f69e85d92b709f5d5877cf_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{environment__create_8c_abdbcf7a0de2e20d935f1ea841edd111c}\label{environment__create_8c_abdbcf7a0de2e20d935f1ea841edd111c}} 
 \index{environment\_create.c@{environment\_create.c}!environment\_list\_initialize@{environment\_list\_initialize}}
 \index{environment\_list\_initialize@{environment\_list\_initialize}!environment\_create.c@{environment\_create.c}}
@@ -56,3 +78,19 @@ This function processes each string in the provided array using environment\+\_\
 \begin{DoxyReturn}{Returns}
 t\+\_\+environment\+\_\+node$\ast$ The head of the environment list, or NULL if no nodes were created. 
 \end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{environment__create_8c_abdbcf7a0de2e20d935f1ea841edd111c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{environment__create_8c_abdbcf7a0de2e20d935f1ea841edd111c_icgraph}
+\end{center}
+\end{figure}

@@ -3,7 +3,13 @@
 {\ttfamily \#include $<$ast.\+h$>$}\newline
 {\ttfamily \#include $<$libft.\+h$>$}\newline
 Include dependency graph for ast\+\_\+create\+\_\+redirect.\+c\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ast__create__redirect_8c__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -22,4 +28,19 @@ ast\+\_\+create\+\_\+redirect -\/ Parses a list of tokens to create an abstract 
 
 This function parses a list of tokens to create an AST node that represents a redirection operation. It first parses the left-\/hand side command, then iterates through the list of tokens to check for redirection operators (heredoc, redirect in, append, redirect out). For each redirection operator found, it creates a new AST node, sets the left and right children, and updates the list pointer to the next token. The function returns the root of the created AST subtree.
 
-Return\+: A pointer to the root AST node representing the redirection. 
+Return\+: A pointer to the root AST node representing the redirection. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ast__create__redirect_8c_af3adbca4bd20ec24f5073a1ba9dfa81f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ast__create__redirect_8c_af3adbca4bd20ec24f5073a1ba9dfa81f_icgraph}
+\end{center}
+\end{figure}

@@ -2,7 +2,13 @@
 \label{ast__create__pipe_8c}\index{src/parsing/ast/ast\_create\_pipe.c@{src/parsing/ast/ast\_create\_pipe.c}}
 {\ttfamily \#include $<$ast.\+h$>$}\newline
 Include dependency graph for ast\+\_\+create\+\_\+pipe.\+c\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ast__create__pipe_8c__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -21,4 +27,19 @@ ast\+\_\+create\+\_\+pipe -\/ Creates an AST node for a pipe operation. @list\+:
 
 This function creates an abstract syntax tree (AST) node for a pipe operation by parsing the token list. It first creates the left node by calling ast\+\_\+create\+\_\+redirect. Then, it iterates through the token list to find pipe tokens (TOKEN\+\_\+\+PIPE). For each pipe token found, it creates a right node by calling ast\+\_\+create, and then creates a pipe node with the current token. The left and right nodes are assigned to the pipe node, and the left node is updated to the pipe node. The function returns the final left node, which represents the root of the pipe operation AST.
 
-Return\+: A pointer to the root AST node of the pipe operation. 
+Return\+: A pointer to the root AST node of the pipe operation. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ast__create__pipe_8c_ad580b853b09af8c71108ad162c73b98b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ast__create__pipe_8c_ad580b853b09af8c71108ad162c73b98b_icgraph}
+\end{center}
+\end{figure}

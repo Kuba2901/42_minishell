@@ -76,6 +76,19 @@ $(function() {
 Include dependency graph for tokenise.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="tokenise_8c__incl.png" border="0" usemap="#asrc_2parsing_2tokens_2tokenise_8c" alt=""/></div>
+<map name="asrc_2parsing_2tokens_2tokenise_8c" id="asrc_2parsing_2tokens_2tokenise_8c">
+<area shape="rect" title=" " alt="" coords="453,5,593,47"/>
+<area shape="rect" href="tokens_8h.html" title=" " alt="" coords="485,95,562,121"/>
+<area shape="rect" href="mini__base_8h.html" title=" " alt="" coords="429,169,530,196"/>
+<area shape="rect" href="utils_8h.html" title=" " alt="" coords="799,244,861,271"/>
+<area shape="rect" title=" " alt="" coords="5,244,76,271"/>
+<area shape="rect" title=" " alt="" coords="101,244,167,271"/>
+<area shape="rect" title=" " alt="" coords="191,244,250,271"/>
+<area shape="rect" title=" " alt="" coords="274,244,418,271"/>
+<area shape="rect" title=" " alt="" coords="443,244,516,271"/>
+<area shape="rect" title=" " alt="" coords="540,244,675,271"/>
+<area shape="rect" title=" " alt="" coords="699,244,774,271"/>
+</map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -102,6 +115,32 @@ Functions</h2></td></tr>
 <p>tokenise - Tokenizes the input string into a list of tokens. @input: The input string to be tokenized.</p>
 <p>This function takes an input string and tokenizes it into a list of tokens. It handles different types of tokens including simple tokens (like '(', ')', '|', '&lt;', '&gt;'), quoted strings, and words. The function skips over whitespace and processes each token accordingly. The resulting list of tokens is returned.</p>
 <dl class="section return"><dt>Returns</dt><dd>: A pointer to the list of tokens, or NULL if memory allocation fails. </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="tokenise_8c_a0cd7f312eb96538a7291e9c5137e7d67_cgraph.png" border="0" usemap="#atokenise_8c_a0cd7f312eb96538a7291e9c5137e7d67_cgraph" alt=""/></div>
+<map name="atokenise_8c_a0cd7f312eb96538a7291e9c5137e7d67_cgraph" id="atokenise_8c_a0cd7f312eb96538a7291e9c5137e7d67_cgraph">
+<area shape="rect" title=" " alt="" coords="5,81,83,108"/>
+<area shape="rect" href="utils_8c.html#a71fd607967a09a5920d287948cf3c09c" title="Checks if a character is a whitespace character." alt="" coords="345,5,476,32"/>
+<area shape="rect" href="token__create__handlers_8c.html#a0a4cd44b57eb5b7ac08e82e2a43271c2" title="Handles quoted tokens." alt="" coords="155,107,273,133"/>
+<area shape="rect" href="token__create__handlers_8c.html#a3e99598307beae324369b66ec0794659" title="Handles simple tokens in the input string." alt="" coords="131,157,297,184"/>
+<area shape="rect" href="token__create__handlers_8c.html#af7cf00954aab4c0c7cc1c6d51a1b11b7" title="Handles a word in the tokenization process." alt="" coords="161,56,267,83"/>
+<area shape="rect" href="utils_8c.html#a996dc7a5fcf46eadf1715ad1426c7094" title="Writes an error message to the standard error output." alt="" coords="365,107,456,133"/>
+<area shape="rect" href="token__create__handlers_8c.html#ade808b2e1b7bb69df684f3f26ada0c93" title="Appends a new token node to the end of the token list." alt="" coords="354,56,467,83"/>
+<area shape="rect" href="token__create_8c.html#ad9934fc55f0f2d3446166ab2fea4db9b" title="Creates a new token node with the specified type and value." alt="" coords="357,157,464,184"/>
+<area shape="rect" href="token__create__arrow__handlers_8c.html#a33f8cc0bef2a29ba635644252bea6f04" title="Handles the arrows in the input string." alt="" coords="352,208,469,235"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="tokenise_8c_a0cd7f312eb96538a7291e9c5137e7d67_icgraph.png" border="0" usemap="#atokenise_8c_a0cd7f312eb96538a7291e9c5137e7d67_icgraph" alt=""/></div>
+<map name="atokenise_8c_a0cd7f312eb96538a7291e9c5137e7d67_icgraph" id="atokenise_8c_a0cd7f312eb96538a7291e9c5137e7d67_icgraph">
+<area shape="rect" title=" " alt="" coords="263,5,340,32"/>
+<area shape="rect" href="utils_8c.html#ad3c75f2a3269bddd35b1bf10b1dee31a" title="Handles the input loop for the shell." alt="" coords="108,5,215,32"/>
+<area shape="rect" href="main_8c.html#a7114ce0219e562acea157d47b543a1da" title=" " alt="" coords="5,5,60,32"/>
+</map>
+</div>
 
 </div>
 </div>

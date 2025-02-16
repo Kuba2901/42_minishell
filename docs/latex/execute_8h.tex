@@ -8,9 +8,21 @@
 {\ttfamily \#include $<$sys/wait.\+h$>$}\newline
 {\ttfamily \#include $<$ast.\+h$>$}\newline
 Include dependency graph for execute.\+h\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8h__incl}
+\end{center}
+\end{figure}
 This graph shows which files directly or indirectly include this file\+:
-% FIG 1
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8h__dep__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -100,6 +112,22 @@ If the node is NULL, the function returns immediately.
 
 The function delegates the execution to specific functions based on the type of the node. 
 \end{DoxyNote}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8h_a7ae0b2ef56640c6936ffe657e13fa9f4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8h_a7ae0b2ef56640c6936ffe657e13fa9f4_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{execute_8h_a69654480f610064884dce4cc5aa2defd}\label{execute_8h_a69654480f610064884dce4cc5aa2defd}} 
 \index{execute.h@{execute.h}!execute\_command\_node@{execute\_command\_node}}
 \index{execute\_command\_node@{execute\_command\_node}!execute.h@{execute.h}}
@@ -122,6 +150,14 @@ This function determines if the command node represents a built-\/in command or 
 \begin{DoxyNote}{Note}
 If the command is not a built-\/in, the function forks a new process. The parent process waits for the child process to complete and updates the shell\textquotesingle{}s exit code based on the child\textquotesingle{}s exit status. 
 \end{DoxyNote}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8h_a69654480f610064884dce4cc5aa2defd_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{execute_8h_a86765b7fa5c9fc51a9c3dbf93bdb77be}\label{execute_8h_a86765b7fa5c9fc51a9c3dbf93bdb77be}} 
 \index{execute.h@{execute.h}!execute\_find\_executable@{execute\_find\_executable}}
 \index{execute\_find\_executable@{execute\_find\_executable}!execute.h@{execute.h}}
@@ -144,6 +180,14 @@ This function searches for the given command in the directories specified by the
 \begin{DoxyReturn}{Returns}
 A dynamically allocated string containing the full path of the executable if found, or NULL if the command is not found or not executable. 
 \end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8h_a86765b7fa5c9fc51a9c3dbf93bdb77be_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{execute_8h_a53a9f7fef2d5e37c1786689f9b45aec7}\label{execute_8h_a53a9f7fef2d5e37c1786689f9b45aec7}} 
 \index{execute.h@{execute.h}!execute\_pipe@{execute\_pipe}}
 \index{execute\_pipe@{execute\_pipe}!execute.h@{execute.h}}
@@ -163,6 +207,14 @@ This function creates a pipe and forks two child processes to execute the left a
 {\em node} & A pointer to the abstract syntax tree node representing the pipeline. \\
 \hline
 \end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8h_a53a9f7fef2d5e37c1786689f9b45aec7_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{execute_8h_af2d532ac8d7ed9514eb8782ae7882d53}\label{execute_8h_af2d532ac8d7ed9514eb8782ae7882d53}} 
 \index{execute.h@{execute.h}!execute\_preprocess\_heredocs@{execute\_preprocess\_heredocs}}
 \index{execute\_preprocess\_heredocs@{execute\_preprocess\_heredocs}!execute.h@{execute.h}}
@@ -180,6 +232,14 @@ This function recursively traverses the AST and processes nodes of type TOKEN\+\
 {\em node} & A pointer to the current AST node being processed. \\
 \hline
 \end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8h_af2d532ac8d7ed9514eb8782ae7882d53_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{execute_8h_adba32900f19147f166f15e24a1253c23}\label{execute_8h_adba32900f19147f166f15e24a1253c23}} 
 \index{execute.h@{execute.h}!execute\_redirect\_append@{execute\_redirect\_append}}
 \index{execute\_redirect\_append@{execute\_redirect\_append}!execute.h@{execute.h}}
@@ -199,7 +259,23 @@ This function performs the following steps\+:
 \item Closes the file descriptors.
 \end{DoxyEnumerate}
 
-If the file cannot be opened, the function prints an error message and exits. \mbox{\Hypertarget{execute_8h_a5b178a509aa9bb551adc2ebd9d26e8da}\label{execute_8h_a5b178a509aa9bb551adc2ebd9d26e8da}} 
+If the file cannot be opened, the function prints an error message and exits. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8h_adba32900f19147f166f15e24a1253c23_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8h_adba32900f19147f166f15e24a1253c23_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{execute_8h_a5b178a509aa9bb551adc2ebd9d26e8da}\label{execute_8h_a5b178a509aa9bb551adc2ebd9d26e8da}} 
 \index{execute.h@{execute.h}!execute\_redirect\_in@{execute\_redirect\_in}}
 \index{execute\_redirect\_in@{execute\_redirect\_in}!execute.h@{execute.h}}
 \doxysubsubsection{\texorpdfstring{execute\_redirect\_in()}{execute\_redirect\_in()}}
@@ -228,7 +304,23 @@ The function performs the following steps\+:
 \item Executes the command represented by the left child of the AST node.
 \item Restores the original stdin.
 \item Closes the duplicated stdin file descriptor. 
-\end{DoxyEnumerate}\mbox{\Hypertarget{execute_8h_a60b0ab10f687f85ac704dec45968f944}\label{execute_8h_a60b0ab10f687f85ac704dec45968f944}} 
+\end{DoxyEnumerate}Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8h_a5b178a509aa9bb551adc2ebd9d26e8da_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8h_a5b178a509aa9bb551adc2ebd9d26e8da_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{execute_8h_a60b0ab10f687f85ac704dec45968f944}\label{execute_8h_a60b0ab10f687f85ac704dec45968f944}} 
 \index{execute.h@{execute.h}!execute\_redirect\_out@{execute\_redirect\_out}}
 \index{execute\_redirect\_out@{execute\_redirect\_out}!execute.h@{execute.h}}
 \doxysubsubsection{\texorpdfstring{execute\_redirect\_out()}{execute\_redirect\_out()}}
@@ -247,6 +339,22 @@ This function handles the redirection of the standard output (stdout) to a file 
 {\em node} & Pointer to the AST node representing the redirection operation. \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8h_a60b0ab10f687f85ac704dec45968f944_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8h_a60b0ab10f687f85ac704dec45968f944_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{execute_8h_a57e123669114e52b0f82b62e8729a0cd}\label{execute_8h_a57e123669114e52b0f82b62e8729a0cd}} 
 \index{execute.h@{execute.h}!execution\_redirect\_open\_file@{execution\_redirect\_open\_file}}
 \index{execution\_redirect\_open\_file@{execution\_redirect\_open\_file}!execute.h@{execute.h}}
@@ -269,3 +377,19 @@ This function expands the file name using environment variables, opens the file 
 \begin{DoxyReturn}{Returns}
 The file descriptor of the opened file. 
 \end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=331pt]{execute_8h_a57e123669114e52b0f82b62e8729a0cd_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8h_a57e123669114e52b0f82b62e8729a0cd_icgraph}
+\end{center}
+\end{figure}

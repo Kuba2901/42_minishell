@@ -77,6 +77,29 @@ $(function() {
 Include dependency graph for execute_append.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="execute__append_8c__incl.png" border="0" usemap="#asrc_2execution_2execute__append_8c" alt=""/></div>
+<map name="asrc_2execution_2execute__append_8c" id="asrc_2execution_2execute__append_8c">
+<area shape="rect" title=" " alt="" coords="406,5,569,47"/>
+<area shape="rect" href="execute_8h.html" title=" " alt="" coords="402,169,487,196"/>
+<area shape="rect" href="minishell_8h.html" title=" " alt="" coords="483,95,577,121"/>
+<area shape="rect" href="mini__base_8h.html" title=" " alt="" coords="333,393,434,420"/>
+<area shape="rect" title=" " alt="" coords="272,244,340,271"/>
+<area shape="rect" href="environment_8h.html" title=" " alt="" coords="522,244,639,271"/>
+<area shape="rect" href="builtins_8h.html" title=" " alt="" coords="365,244,447,271"/>
+<area shape="rect" title=" " alt="" coords="664,244,727,271"/>
+<area shape="rect" title=" " alt="" coords="159,244,247,271"/>
+<area shape="rect" href="ast_8h.html" title=" " alt="" coords="80,244,135,271"/>
+<area shape="rect" title=" " alt="" coords="348,468,419,495"/>
+<area shape="rect" title=" " alt="" coords="443,468,510,495"/>
+<area shape="rect" title=" " alt="" coords="534,468,593,495"/>
+<area shape="rect" title=" " alt="" coords="617,468,761,495"/>
+<area shape="rect" title=" " alt="" coords="92,468,165,495"/>
+<area shape="rect" title=" " alt="" coords="189,468,324,495"/>
+<area shape="rect" title=" " alt="" coords="785,468,859,495"/>
+<area shape="rect" href="utils_8h.html" title=" " alt="" coords="5,468,68,495"/>
+<area shape="rect" href="tokens_8h.html" title=" " alt="" coords="69,319,146,345"/>
+<area shape="rect" href="aesthetics_8h.html" title=" " alt="" coords="802,169,903,196"/>
+<area shape="rect" title=" " alt="" coords="853,244,937,271"/>
+</map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -121,6 +144,36 @@ Functions</h2></td></tr>
 <li>Closes the file descriptors.</li>
 </ol>
 <p>If the file cannot be opened, the function prints an error message and exits. </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="execute__append_8c_adba32900f19147f166f15e24a1253c23_cgraph.png" border="0" usemap="#aexecute__append_8c_adba32900f19147f166f15e24a1253c23_cgraph" alt=""/></div>
+<map name="aexecute__append_8c_adba32900f19147f166f15e24a1253c23_cgraph" id="aexecute__append_8c_adba32900f19147f166f15e24a1253c23_cgraph">
+<area shape="rect" title=" " alt="" coords="5,103,191,130"/>
+<area shape="rect" href="execute_8c.html#a7ae0b2ef56640c6936ffe657e13fa9f4" title="Executes the abstract syntax tree (AST) node." alt="" coords="239,103,339,130"/>
+<area shape="rect" href="execute__utils_8c.html#a57e123669114e52b0f82b62e8729a0cd" title="Opens a file for redirection during command execution." alt="" coords="825,45,968,87"/>
+<area shape="rect" href="execute_8c.html#a2478eeeb74eb074a546235289d2c20bd" title="Executes the appropriate redirection based on the type of the AST node." alt="" coords="410,205,547,231"/>
+<area shape="rect" href="execute__command_8c.html#a69654480f610064884dce4cc5aa2defd" title="Executes a command node in the shell&#39;s abstract syntax tree (AST)." alt="" coords="387,53,571,79"/>
+<area shape="rect" href="execute__pipe_8c.html#a53a9f7fef2d5e37c1786689f9b45aec7" title="Executes a command pipeline by forking two child processes." alt="" coords="425,103,533,130"/>
+<area shape="rect" href="execute__redirect__in_8c.html#a5b178a509aa9bb551adc2ebd9d26e8da" title="Executes a command with input redirection." alt="" coords="623,53,773,79"/>
+<area shape="rect" href="execute__redirect__out_8c.html#a60b0ab10f687f85ac704dec45968f944" title="Executes a command with output redirected to a file." alt="" coords="619,154,777,181"/>
+<area shape="rect" href="environment__expand_8c.html#ad93e330995179cc3e902d34d845fd38f" title="Expands the value of an environment variable based on the given key." alt="" coords="1016,53,1160,79"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="execute__append_8c_adba32900f19147f166f15e24a1253c23_icgraph.png" border="0" usemap="#aexecute__append_8c_adba32900f19147f166f15e24a1253c23_icgraph" alt=""/></div>
+<map name="aexecute__append_8c_adba32900f19147f166f15e24a1253c23_icgraph" id="aexecute__append_8c_adba32900f19147f166f15e24a1253c23_icgraph">
+<area shape="rect" title=" " alt="" coords="648,31,833,57"/>
+<area shape="rect" href="execute_8c.html#a2478eeeb74eb074a546235289d2c20bd" title="Executes the appropriate redirection based on the type of the AST node." alt="" coords="463,56,600,83"/>
+<area shape="rect" href="execute_8c.html#a7ae0b2ef56640c6936ffe657e13fa9f4" title="Executes the abstract syntax tree (AST) node." alt="" coords="315,5,415,32"/>
+<area shape="rect" href="execute__redirect__in_8c.html#a5b178a509aa9bb551adc2ebd9d26e8da" title="Executes a command with input redirection." alt="" coords="113,56,262,83"/>
+<area shape="rect" href="execute__redirect__out_8c.html#a60b0ab10f687f85ac704dec45968f944" title="Executes a command with output redirected to a file." alt="" coords="108,107,267,133"/>
+<area shape="rect" href="utils_8c.html#ad3c75f2a3269bddd35b1bf10b1dee31a" title="Handles the input loop for the shell." alt="" coords="134,5,241,32"/>
+<area shape="rect" href="main_8c.html#a7114ce0219e562acea157d47b543a1da" title=" " alt="" coords="5,5,60,32"/>
+</map>
+</div>
 
 </div>
 </div>

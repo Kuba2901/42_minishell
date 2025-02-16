@@ -3,7 +3,13 @@
 {\ttfamily \#include $<$execute.\+h$>$}\newline
 {\ttfamily \#include $<$minishell.\+h$>$}\newline
 Include dependency graph for execute\+\_\+utils.\+c\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute__utils_8c__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -36,6 +42,14 @@ This function searches for the given command in the directories specified by the
 \begin{DoxyReturn}{Returns}
 A dynamically allocated string containing the full path of the executable if found, or NULL if the command is not found or not executable. 
 \end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute__utils_8c_a86765b7fa5c9fc51a9c3dbf93bdb77be_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{execute__utils_8c_a57e123669114e52b0f82b62e8729a0cd}\label{execute__utils_8c_a57e123669114e52b0f82b62e8729a0cd}} 
 \index{execute\_utils.c@{execute\_utils.c}!execution\_redirect\_open\_file@{execution\_redirect\_open\_file}}
 \index{execution\_redirect\_open\_file@{execution\_redirect\_open\_file}!execute\_utils.c@{execute\_utils.c}}
@@ -58,3 +72,19 @@ This function expands the file name using environment variables, opens the file 
 \begin{DoxyReturn}{Returns}
 The file descriptor of the opened file. 
 \end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=331pt]{execute__utils_8c_a57e123669114e52b0f82b62e8729a0cd_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute__utils_8c_a57e123669114e52b0f82b62e8729a0cd_icgraph}
+\end{center}
+\end{figure}

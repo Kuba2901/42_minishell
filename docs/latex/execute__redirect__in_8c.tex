@@ -3,7 +3,13 @@
 {\ttfamily \#include $<$execute.\+h$>$}\newline
 {\ttfamily \#include $<$minishell.\+h$>$}\newline
 Include dependency graph for execute\+\_\+redirect\+\_\+in.\+c\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute__redirect__in_8c__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -41,4 +47,19 @@ The function performs the following steps\+:
 \item Executes the command represented by the left child of the AST node.
 \item Restores the original stdin.
 \item Closes the duplicated stdin file descriptor. 
-\end{DoxyEnumerate}
+\end{DoxyEnumerate}Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute__redirect__in_8c_a5b178a509aa9bb551adc2ebd9d26e8da_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute__redirect__in_8c_a5b178a509aa9bb551adc2ebd9d26e8da_icgraph}
+\end{center}
+\end{figure}

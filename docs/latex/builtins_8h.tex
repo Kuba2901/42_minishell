@@ -4,9 +4,21 @@
 {\ttfamily \#include $<$mini\+\_\+base.\+h$>$}\newline
 {\ttfamily \#include $<$tokens.\+h$>$}\newline
 Include dependency graph for builtins.\+h\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{builtins_8h__incl}
+\end{center}
+\end{figure}
 This graph shows which files directly or indirectly include this file\+:
-% FIG 1
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{builtins_8h__dep__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -111,6 +123,14 @@ If the directory change is successful, it updates the {\ttfamily PWD} and {\ttfa
 {\em args} & An array of arguments passed to the {\ttfamily cd} command. \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{builtins_8h_a7fb6cac5d2bc96d289257b496b3a1c2a_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{builtins_8h_ad169e2a5a0ec78d1012a442ce0d6117f}\label{builtins_8h_ad169e2a5a0ec78d1012a442ce0d6117f}} 
 \index{builtins.h@{builtins.h}!builtin\_echo@{builtin\_echo}}
 \index{builtin\_echo@{builtin\_echo}!builtins.h@{builtins.h}}
@@ -147,6 +167,14 @@ This function prints all the environment variables stored in the shell\textquote
 {\em shell} & A pointer to the shell structure containing the environment list. \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{builtins_8h_a5cf7109c52809d01dd2115412373bf91_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{builtins_8h_a4ece4450a4d931dd059944a7aca9d5f7}\label{builtins_8h_a4ece4450a4d931dd059944a7aca9d5f7}} 
 \index{builtins.h@{builtins.h}!builtin\_exit@{builtin\_exit}}
 \index{builtin\_exit@{builtin\_exit}!builtins.h@{builtins.h}}
@@ -179,6 +207,22 @@ This function checks if the {\ttfamily exit} command is properly formatted and e
 \begin{DoxyReturn}{Returns}
 true if the {\ttfamily exit} command was executed, false otherwise. 
 \end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{builtins_8h_a4ece4450a4d931dd059944a7aca9d5f7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{builtins_8h_a4ece4450a4d931dd059944a7aca9d5f7_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{builtins_8h_ab2c5f1eb393436a98c3b3e5c78d6ac10}\label{builtins_8h_ab2c5f1eb393436a98c3b3e5c78d6ac10}} 
 \index{builtins.h@{builtins.h}!builtin\_export@{builtin\_export}}
 \index{builtin\_export@{builtin\_export}!builtins.h@{builtins.h}}
@@ -198,6 +242,14 @@ This function processes the export command, which is used to set environment var
 {\em node} & A pointer to the AST node representing the export command and its arguments. \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{builtins_8h_ab2c5f1eb393436a98c3b3e5c78d6ac10_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{builtins_8h_af8f1581b0ca6e447d45c1bc969067615}\label{builtins_8h_af8f1581b0ca6e447d45c1bc969067615}} 
 \index{builtins.h@{builtins.h}!builtin\_export\_export\_key\_value@{builtin\_export\_export\_key\_value}}
 \index{builtin\_export\_export\_key\_value@{builtin\_export\_export\_key\_value}!builtins.h@{builtins.h}}
@@ -220,6 +272,14 @@ This function iterates through the provided arguments, processing each as either
 \begin{DoxyReturn}{Returns}
 true if an error occurs during processing, false otherwise. 
 \end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{builtins_8h_af8f1581b0ca6e447d45c1bc969067615_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{builtins_8h_a956d2ecae20f0df8dbefeff18d156913}\label{builtins_8h_a956d2ecae20f0df8dbefeff18d156913}} 
 \index{builtins.h@{builtins.h}!builtin\_pwd@{builtin\_pwd}}
 \index{builtin\_pwd@{builtin\_pwd}!builtins.h@{builtins.h}}
@@ -235,6 +295,14 @@ This function uses the getcwd() function to obtain the current working directory
 \begin{DoxyReturn}{Returns}
 A pointer to the current working directory string, or NULL if an error occurs. 
 \end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=305pt]{builtins_8h_a956d2ecae20f0df8dbefeff18d156913_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{builtins_8h_af64f6341c2139cafd98499d593d25c8b}\label{builtins_8h_af64f6341c2139cafd98499d593d25c8b}} 
 \index{builtins.h@{builtins.h}!builtin\_set\_private@{builtin\_set\_private}}
 \index{builtin\_set\_private@{builtin\_set\_private}!builtins.h@{builtins.h}}
@@ -254,6 +322,14 @@ This function takes a shell structure and an AST node, and sets a private enviro
 {\em node} & A pointer to the AST node containing the arguments. \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{builtins_8h_af64f6341c2139cafd98499d593d25c8b_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{builtins_8h_a3e03b837d14a21ec30c78edfb289982e}\label{builtins_8h_a3e03b837d14a21ec30c78edfb289982e}} 
 \index{builtins.h@{builtins.h}!builtin\_unset@{builtin\_unset}}
 \index{builtin\_unset@{builtin\_unset}!builtins.h@{builtins.h}}
@@ -273,6 +349,14 @@ This function removes environment variables specified in the arguments from the 
 {\em node} & A pointer to the AST node containing the command and its arguments. \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{builtins_8h_a3e03b837d14a21ec30c78edfb289982e_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{builtins_8h_a934935ab5a95976fad4ae748c608c26c}\label{builtins_8h_a934935ab5a95976fad4ae748c608c26c}} 
 \index{builtins.h@{builtins.h}!execute\_builtin\_pwd@{execute\_builtin\_pwd}}
 \index{execute\_builtin\_pwd@{execute\_builtin\_pwd}!builtins.h@{builtins.h}}
@@ -290,3 +374,11 @@ This function retrieves the current working directory using the \mbox{\hyperlink
 {\em shell} & A pointer to the shell structure containing the exit code. \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=305pt]{builtins_8h_a934935ab5a95976fad4ae748c608c26c_cgraph}
+\end{center}
+\end{figure}

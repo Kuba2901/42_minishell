@@ -2,7 +2,13 @@
 \label{ast__create__redirect__in_8c}\index{src/parsing/ast/ast\_create\_redirect\_in.c@{src/parsing/ast/ast\_create\_redirect\_in.c}}
 {\ttfamily \#include $<$ast.\+h$>$}\newline
 Include dependency graph for ast\+\_\+create\+\_\+redirect\+\_\+in.\+c\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ast__create__redirect__in_8c__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -23,4 +29,11 @@ ast\+\_\+create\+\_\+redirect\+\_\+in\+\_\+heredoc -\/ Parses a list of tokens t
 
 This function processes a list of tokens to create an abstract syntax tree (AST) node for input redirection and heredoc. It starts by creating a command node from the token list and then iterates through the list to handle heredoc and input redirection tokens. For each heredoc or input redirection token, it creates a new AST node, sets the left and right children, and updates the left node to the newly created node. The function returns the final left node, which represents the root of the constructed AST for input redirection and heredoc.
 
-Return\+: A pointer to the root of the constructed AST node. 
+Return\+: A pointer to the root of the constructed AST node. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ast__create__redirect__in_8c_a9821b43b0ae13f746b1e0950c51b5d38_cgraph}
+\end{center}
+\end{figure}

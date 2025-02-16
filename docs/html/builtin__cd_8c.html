@@ -76,6 +76,29 @@ $(function() {
 Include dependency graph for builtin_cd.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="builtin__cd_8c__incl.png" border="0" usemap="#asrc_2builtins_2builtin__cd_8c" alt=""/></div>
+<map name="asrc_2builtins_2builtin__cd_8c" id="asrc_2builtins_2builtin__cd_8c">
+<area shape="rect" title=" " alt="" coords="190,5,361,32"/>
+<area shape="rect" href="minishell_8h.html" title=" " alt="" coords="228,80,323,107"/>
+<area shape="rect" href="mini__base_8h.html" title=" " alt="" coords="329,379,430,405"/>
+<area shape="rect" href="environment_8h.html" title=" " alt="" coords="614,229,731,256"/>
+<area shape="rect" href="tokens_8h.html" title=" " alt="" coords="49,304,126,331"/>
+<area shape="rect" href="ast_8h.html" title=" " alt="" coords="121,229,176,256"/>
+<area shape="rect" href="execute_8h.html" title=" " alt="" coords="345,155,430,181"/>
+<area shape="rect" href="aesthetics_8h.html" title=" " alt="" coords="806,155,907,181"/>
+<area shape="rect" title=" " alt="" coords="251,453,321,480"/>
+<area shape="rect" title=" " alt="" coords="346,453,413,480"/>
+<area shape="rect" title=" " alt="" coords="437,453,495,480"/>
+<area shape="rect" title=" " alt="" coords="519,453,663,480"/>
+<area shape="rect" title=" " alt="" coords="688,453,761,480"/>
+<area shape="rect" title=" " alt="" coords="92,453,227,480"/>
+<area shape="rect" title=" " alt="" coords="786,453,861,480"/>
+<area shape="rect" href="utils_8h.html" title=" " alt="" coords="5,453,68,480"/>
+<area shape="rect" title=" " alt="" coords="303,229,371,256"/>
+<area shape="rect" href="builtins_8h.html" title=" " alt="" coords="507,229,590,256"/>
+<area shape="rect" title=" " alt="" coords="756,229,819,256"/>
+<area shape="rect" title=" " alt="" coords="395,229,483,256"/>
+<area shape="rect" title=" " alt="" coords="945,229,1029,256"/>
+</map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -130,6 +153,25 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The path stored in <code>OLDPWD</code>, or NULL if not set. </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="builtin__cd_8c_a395b29beb295ad6e29c9dc6889451ae8_cgraph.png" border="0" usemap="#abuiltin__cd_8c_a395b29beb295ad6e29c9dc6889451ae8_cgraph" alt=""/></div>
+<map name="abuiltin__cd_8c_a395b29beb295ad6e29c9dc6889451ae8_cgraph" id="abuiltin__cd_8c_a395b29beb295ad6e29c9dc6889451ae8_cgraph">
+<area shape="rect" title="Handles the cd &#45; case, switching to the previous directory." alt="" coords="5,5,116,32"/>
+<area shape="rect" href="environment__read_8c.html#a91813a28808629570986d5e88b912d5b" title="Reads the value associated with a given key from the environment list." alt="" coords="164,5,332,32"/>
+<area shape="rect" href="utils_8c.html#a1f2ff2312e5994560c9537cd9173be94" title="Compares two null&#45;terminated strings lexicographically." alt="" coords="380,5,463,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="builtin__cd_8c_a395b29beb295ad6e29c9dc6889451ae8_icgraph.png" border="0" usemap="#abuiltin__cd_8c_a395b29beb295ad6e29c9dc6889451ae8_icgraph" alt=""/></div>
+<map name="abuiltin__cd_8c_a395b29beb295ad6e29c9dc6889451ae8_icgraph" id="abuiltin__cd_8c_a395b29beb295ad6e29c9dc6889451ae8_icgraph">
+<area shape="rect" title="Handles the cd &#45; case, switching to the previous directory." alt="" coords="139,5,249,32"/>
+<area shape="rect" href="builtin__cd_8c.html#a7fb6cac5d2bc96d289257b496b3a1c2a" title="Changes the current working directory of the shell." alt="" coords="5,5,91,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -169,6 +211,25 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The path stored in <code>HOME</code>, or NULL if not set. </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="builtin__cd_8c_ae06c6c0697a13ceee88c6dc69b1d5a16_cgraph.png" border="0" usemap="#abuiltin__cd_8c_ae06c6c0697a13ceee88c6dc69b1d5a16_cgraph" alt=""/></div>
+<map name="abuiltin__cd_8c_ae06c6c0697a13ceee88c6dc69b1d5a16_cgraph" id="abuiltin__cd_8c_ae06c6c0697a13ceee88c6dc69b1d5a16_cgraph">
+<area shape="rect" title="Handles the cd command without arguments or with ~, switching to the home directory." alt="" coords="5,5,123,32"/>
+<area shape="rect" href="environment__read_8c.html#a91813a28808629570986d5e88b912d5b" title="Reads the value associated with a given key from the environment list." alt="" coords="171,5,339,32"/>
+<area shape="rect" href="utils_8c.html#a1f2ff2312e5994560c9537cd9173be94" title="Compares two null&#45;terminated strings lexicographically." alt="" coords="387,5,469,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="builtin__cd_8c_ae06c6c0697a13ceee88c6dc69b1d5a16_icgraph.png" border="0" usemap="#abuiltin__cd_8c_ae06c6c0697a13ceee88c6dc69b1d5a16_icgraph" alt=""/></div>
+<map name="abuiltin__cd_8c_ae06c6c0697a13ceee88c6dc69b1d5a16_icgraph" id="abuiltin__cd_8c_ae06c6c0697a13ceee88c6dc69b1d5a16_icgraph">
+<area shape="rect" title="Handles the cd command without arguments or with ~, switching to the home directory." alt="" coords="139,5,256,32"/>
+<area shape="rect" href="builtin__cd_8c.html#a7fb6cac5d2bc96d289257b496b3a1c2a" title="Changes the current working directory of the shell." alt="" coords="5,5,91,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -207,6 +268,28 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="builtin__cd_8c_a55d9390ca06bb118bc1459d4d4885b43_cgraph.png" border="0" usemap="#abuiltin__cd_8c_a55d9390ca06bb118bc1459d4d4885b43_cgraph" alt=""/></div>
+<map name="abuiltin__cd_8c_a55d9390ca06bb118bc1459d4d4885b43_cgraph" id="abuiltin__cd_8c_a55d9390ca06bb118bc1459d4d4885b43_cgraph">
+<area shape="rect" title="Updates the PWD and OLDPWD environment variables after a directory change." alt="" coords="5,63,116,90"/>
+<area shape="rect" href="environment__create_8c.html#aa43e73f885f69e85d92b709f5d5877cf" title="Creates an environment node from an entry string and adds it to the shell&#39;s environment list." alt="" coords="175,13,359,39"/>
+<area shape="rect" href="environment__read_8c.html#a91813a28808629570986d5e88b912d5b" title="Reads the value associated with a given key from the environment list." alt="" coords="183,63,351,90"/>
+<area shape="rect" href="environment__read_8c.html#af82670ad46acaaebb1e7dc2aac869ca9" title="Reads a node from the environment list based on the given key." alt="" coords="164,114,371,141"/>
+<area shape="rect" href="environment__create__ext_8c.html#acbde6845a327536b8af768878d83c4c7" title="Creates a new environment node from an entry string." alt="" coords="419,5,601,47"/>
+<area shape="rect" href="utils_8c.html#a1f2ff2312e5994560c9537cd9173be94" title="Compares two null&#45;terminated strings lexicographically." alt="" coords="469,93,551,119"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="builtin__cd_8c_a55d9390ca06bb118bc1459d4d4885b43_icgraph.png" border="0" usemap="#abuiltin__cd_8c_a55d9390ca06bb118bc1459d4d4885b43_icgraph" alt=""/></div>
+<map name="abuiltin__cd_8c_a55d9390ca06bb118bc1459d4d4885b43_icgraph" id="abuiltin__cd_8c_a55d9390ca06bb118bc1459d4d4885b43_icgraph">
+<area shape="rect" title="Updates the PWD and OLDPWD environment variables after a directory change." alt="" coords="139,5,249,32"/>
+<area shape="rect" href="builtin__cd_8c.html#a7fb6cac5d2bc96d289257b496b3a1c2a" title="Changes the current working directory of the shell." alt="" coords="5,5,91,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -250,6 +333,22 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="builtin__cd_8c_a7fb6cac5d2bc96d289257b496b3a1c2a_cgraph.png" border="0" usemap="#abuiltin__cd_8c_a7fb6cac5d2bc96d289257b496b3a1c2a_cgraph" alt=""/></div>
+<map name="abuiltin__cd_8c_a7fb6cac5d2bc96d289257b496b3a1c2a_cgraph" id="abuiltin__cd_8c_a7fb6cac5d2bc96d289257b496b3a1c2a_cgraph">
+<area shape="rect" title="Changes the current working directory of the shell." alt="" coords="5,114,91,141"/>
+<area shape="rect" href="builtin__cd_8c.html#a395b29beb295ad6e29c9dc6889451ae8" title="Handles the cd &#45; case, switching to the previous directory." alt="" coords="142,89,253,115"/>
+<area shape="rect" href="utils_8c.html#a1f2ff2312e5994560c9537cd9173be94" title="Compares two null&#45;terminated strings lexicographically." alt="" coords="609,114,691,141"/>
+<area shape="rect" href="builtin__cd_8c.html#ae06c6c0697a13ceee88c6dc69b1d5a16" title="Handles the cd command without arguments or with ~, switching to the home directory." alt="" coords="139,139,256,166"/>
+<area shape="rect" href="builtin__cd_8c.html#a55d9390ca06bb118bc1459d4d4885b43" title="Updates the PWD and OLDPWD environment variables after a directory change." alt="" coords="142,38,253,65"/>
+<area shape="rect" href="environment__read_8c.html#a91813a28808629570986d5e88b912d5b" title="Reads the value associated with a given key from the environment list." alt="" coords="323,114,491,141"/>
+<area shape="rect" href="environment__create_8c.html#aa43e73f885f69e85d92b709f5d5877cf" title="Creates an environment node from an entry string and adds it to the shell&#39;s environment list." alt="" coords="315,13,499,39"/>
+<area shape="rect" href="environment__read_8c.html#af82670ad46acaaebb1e7dc2aac869ca9" title="Reads a node from the environment list based on the given key." alt="" coords="304,63,511,90"/>
+<area shape="rect" href="environment__create__ext_8c.html#acbde6845a327536b8af768878d83c4c7" title="Creates a new environment node from an entry string." alt="" coords="559,5,741,47"/>
+</map>
+</div>
 
 </div>
 </div>

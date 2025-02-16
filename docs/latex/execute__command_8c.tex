@@ -3,7 +3,13 @@
 {\ttfamily \#include $<$execute.\+h$>$}\newline
 {\ttfamily \#include $<$minishell.\+h$>$}\newline
 Include dependency graph for execute\+\_\+command.\+c\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute__command_8c__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -34,3 +40,11 @@ This function determines if the command node represents a built-\/in command or 
 \begin{DoxyNote}{Note}
 If the command is not a built-\/in, the function forks a new process. The parent process waits for the child process to complete and updates the shell\textquotesingle{}s exit code based on the child\textquotesingle{}s exit status. 
 \end{DoxyNote}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute__command_8c_a69654480f610064884dce4cc5aa2defd_icgraph}
+\end{center}
+\end{figure}

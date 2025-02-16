@@ -76,6 +76,20 @@ $(function() {
 Include dependency graph for ast_create_redirect_out.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="ast__create__redirect__out_8c__incl.png" border="0" usemap="#asrc_2parsing_2ast_2ast__create__redirect__out_8c" alt=""/></div>
+<map name="asrc_2parsing_2ast_2ast__create__redirect__out_8c" id="asrc_2parsing_2ast_2ast__create__redirect__out_8c">
+<area shape="rect" title=" " alt="" coords="433,5,600,47"/>
+<area shape="rect" href="ast_8h.html" title=" " alt="" coords="489,95,544,121"/>
+<area shape="rect" href="mini__base_8h.html" title=" " alt="" coords="429,244,530,271"/>
+<area shape="rect" href="tokens_8h.html" title=" " alt="" coords="517,169,594,196"/>
+<area shape="rect" title=" " alt="" coords="5,319,76,345"/>
+<area shape="rect" title=" " alt="" coords="101,319,167,345"/>
+<area shape="rect" title=" " alt="" coords="191,319,250,345"/>
+<area shape="rect" title=" " alt="" coords="274,319,418,345"/>
+<area shape="rect" title=" " alt="" coords="443,319,516,345"/>
+<area shape="rect" title=" " alt="" coords="540,319,675,345"/>
+<area shape="rect" title=" " alt="" coords="699,319,774,345"/>
+<area shape="rect" href="utils_8h.html" title=" " alt="" coords="799,319,861,345"/>
+</map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -103,6 +117,16 @@ Functions</h2></td></tr>
 <p>@list: A pointer to the head of the token list.</p>
 <p>This function processes a list of tokens to create an abstract syntax tree (AST) node representing redirect out (&gt;) or append (&gt;&gt;) operations. It starts by creating a command node from the token list and then iterates through the list to handle consecutive redirect out or append tokens. For each such token, it creates a new AST node, sets the left and right children, and updates the left child to the newly created node. The function returns the final AST node representing the parsed redirect out or append operations.</p>
 <p>Return: A pointer to the root of the created AST node. </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="ast__create__redirect__out_8c_adf49ca3349e15c41345a81a0e1cd37e4_cgraph.png" border="0" usemap="#aast__create__redirect__out_8c_adf49ca3349e15c41345a81a0e1cd37e4_cgraph" alt=""/></div>
+<map name="aast__create__redirect__out_8c_adf49ca3349e15c41345a81a0e1cd37e4_cgraph" id="aast__create__redirect__out_8c_adf49ca3349e15c41345a81a0e1cd37e4_cgraph">
+<area shape="rect" title=" " alt="" coords="5,23,152,65"/>
+<area shape="rect" href="ast__create__command_8c.html#a7729393eddbf3cc99189f20ee2a8875f" title=" " alt="" coords="200,5,363,32"/>
+<area shape="rect" href="ast__create_8c.html#a2ba12f80cc96195f3c07fbef882c41f8" title="Creates a new AST node." alt="" coords="411,31,540,57"/>
+</map>
+</div>
 
 </div>
 </div>

@@ -2,7 +2,13 @@
 \label{ast__create_8c}\index{src/parsing/ast/ast\_create.c@{src/parsing/ast/ast\_create.c}}
 {\ttfamily \#include $<$ast.\+h$>$}\newline
 Include dependency graph for ast\+\_\+create.\+c\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ast__create_8c__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -33,6 +39,22 @@ This function takes a list of tokens and constructs an AST node from it. If the 
 \begin{DoxyReturn}{Returns}
 A pointer to the created AST node, or NULL if the list is empty or NULL. 
 \end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ast__create_8c_a7c7a48992c516a9765476b5d9bb01f99_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ast__create_8c_a7c7a48992c516a9765476b5d9bb01f99_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{ast__create_8c_a2ba12f80cc96195f3c07fbef882c41f8}\label{ast__create_8c_a2ba12f80cc96195f3c07fbef882c41f8}} 
 \index{ast\_create.c@{ast\_create.c}!ast\_create\_node@{ast\_create\_node}}
 \index{ast\_create\_node@{ast\_create\_node}!ast\_create.c@{ast\_create.c}}
@@ -55,3 +77,11 @@ This function allocates memory for a new {\ttfamily t\+\_\+ast\+\_\+node} struct
 \begin{DoxyReturn}{Returns}
 A pointer to the newly created {\ttfamily t\+\_\+ast\+\_\+node} structure, or {\ttfamily NULL} if memory allocation fails. 
 \end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ast__create_8c_a2ba12f80cc96195f3c07fbef882c41f8_icgraph}
+\end{center}
+\end{figure}

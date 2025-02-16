@@ -76,6 +76,20 @@ $(function() {
 Include dependency graph for ast_create_pipe.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="ast__create__pipe_8c__incl.png" border="0" usemap="#asrc_2parsing_2ast_2ast__create__pipe_8c" alt=""/></div>
+<map name="asrc_2parsing_2ast_2ast__create__pipe_8c" id="asrc_2parsing_2ast_2ast__create__pipe_8c">
+<area shape="rect" title=" " alt="" coords="446,5,587,47"/>
+<area shape="rect" href="ast_8h.html" title=" " alt="" coords="489,95,544,121"/>
+<area shape="rect" href="mini__base_8h.html" title=" " alt="" coords="429,244,530,271"/>
+<area shape="rect" href="tokens_8h.html" title=" " alt="" coords="517,169,594,196"/>
+<area shape="rect" title=" " alt="" coords="5,319,76,345"/>
+<area shape="rect" title=" " alt="" coords="101,319,167,345"/>
+<area shape="rect" title=" " alt="" coords="191,319,250,345"/>
+<area shape="rect" title=" " alt="" coords="274,319,418,345"/>
+<area shape="rect" title=" " alt="" coords="443,319,516,345"/>
+<area shape="rect" title=" " alt="" coords="540,319,675,345"/>
+<area shape="rect" title=" " alt="" coords="699,319,774,345"/>
+<area shape="rect" href="utils_8h.html" title=" " alt="" coords="799,319,861,345"/>
+</map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -102,6 +116,29 @@ Functions</h2></td></tr>
 <p>ast_create_pipe - Creates an AST node for a pipe operation. @list: A pointer to the list of token nodes.</p>
 <p>This function creates an abstract syntax tree (AST) node for a pipe operation by parsing the token list. It first creates the left node by calling ast_create_redirect. Then, it iterates through the token list to find pipe tokens (TOKEN_PIPE). For each pipe token found, it creates a right node by calling ast_create, and then creates a pipe node with the current token. The left and right nodes are assigned to the pipe node, and the left node is updated to the pipe node. The function returns the final left node, which represents the root of the pipe operation AST.</p>
 <p>Return: A pointer to the root AST node of the pipe operation. </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="ast__create__pipe_8c_ad580b853b09af8c71108ad162c73b98b_cgraph.png" border="0" usemap="#aast__create__pipe_8c_ad580b853b09af8c71108ad162c73b98b_cgraph" alt=""/></div>
+<map name="aast__create__pipe_8c_ad580b853b09af8c71108ad162c73b98b_cgraph" id="aast__create__pipe_8c_ad580b853b09af8c71108ad162c73b98b_cgraph">
+<area shape="rect" title=" " alt="" coords="5,31,131,57"/>
+<area shape="rect" href="ast__create_8c.html#a7c7a48992c516a9765476b5d9bb01f99" title="Creates an abstract syntax tree (AST) from a list of tokens." alt="" coords="207,5,297,32"/>
+<area shape="rect" href="ast__create_8c.html#a2ba12f80cc96195f3c07fbef882c41f8" title="Creates a new AST node." alt="" coords="584,107,713,133"/>
+<area shape="rect" href="ast__create__redirect_8c.html#af3adbca4bd20ec24f5073a1ba9dfa81f" title=" " alt="" coords="179,107,325,133"/>
+<area shape="rect" href="ast__create__command_8c.html#a7729393eddbf3cc99189f20ee2a8875f" title=" " alt="" coords="373,157,536,184"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="ast__create__pipe_8c_ad580b853b09af8c71108ad162c73b98b_icgraph.png" border="0" usemap="#aast__create__pipe_8c_ad580b853b09af8c71108ad162c73b98b_icgraph" alt=""/></div>
+<map name="aast__create__pipe_8c_ad580b853b09af8c71108ad162c73b98b_icgraph" id="aast__create__pipe_8c_ad580b853b09af8c71108ad162c73b98b_icgraph">
+<area shape="rect" title=" " alt="" coords="401,5,527,32"/>
+<area shape="rect" href="ast__create_8c.html#a7c7a48992c516a9765476b5d9bb01f99" title="Creates an abstract syntax tree (AST) from a list of tokens." alt="" coords="263,5,353,32"/>
+<area shape="rect" href="utils_8c.html#ad3c75f2a3269bddd35b1bf10b1dee31a" title="Handles the input loop for the shell." alt="" coords="108,5,215,32"/>
+<area shape="rect" href="main_8c.html#a7114ce0219e562acea157d47b543a1da" title=" " alt="" coords="5,5,60,32"/>
+</map>
+</div>
 
 </div>
 </div>

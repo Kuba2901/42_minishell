@@ -3,7 +3,13 @@
 {\ttfamily \#include $<$builtins.\+h$>$}\newline
 {\ttfamily \#include $<$minishell.\+h$>$}\newline
 Include dependency graph for builtin\+\_\+pwd.\+c\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{builtin__pwd_8c__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -29,6 +35,14 @@ This function uses the getcwd() function to obtain the current working directory
 \begin{DoxyReturn}{Returns}
 A pointer to the current working directory string, or NULL if an error occurs. 
 \end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=305pt]{builtin__pwd_8c_a956d2ecae20f0df8dbefeff18d156913_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{builtin__pwd_8c_a934935ab5a95976fad4ae748c608c26c}\label{builtin__pwd_8c_a934935ab5a95976fad4ae748c608c26c}} 
 \index{builtin\_pwd.c@{builtin\_pwd.c}!execute\_builtin\_pwd@{execute\_builtin\_pwd}}
 \index{execute\_builtin\_pwd@{execute\_builtin\_pwd}!builtin\_pwd.c@{builtin\_pwd.c}}
@@ -46,3 +60,11 @@ This function retrieves the current working directory using the \mbox{\hyperlink
 {\em shell} & A pointer to the shell structure containing the exit code. \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=305pt]{builtin__pwd_8c_a934935ab5a95976fad4ae748c608c26c_cgraph}
+\end{center}
+\end{figure}

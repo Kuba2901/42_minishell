@@ -3,7 +3,13 @@
 {\ttfamily \#include $<$environment.\+h$>$}\newline
 {\ttfamily \#include $<$minishell.\+h$>$}\newline
 Include dependency graph for environment\+\_\+delete.\+c\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{environment__delete_8c__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -33,6 +39,22 @@ This function searches for a node with the given key in the shell\textquotesingl
 {\em shell} & A pointer to the shell context containing the environment list. \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{environment__delete_8c_a09ee8956599f70273d6a9f91d3dac2e1_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{environment__delete_8c_a09ee8956599f70273d6a9f91d3dac2e1_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{environment__delete_8c_a1e020807d76e090dd0b63c91c71743be}\label{environment__delete_8c_a1e020807d76e090dd0b63c91c71743be}} 
 \index{environment\_delete.c@{environment\_delete.c}!environment\_list\_clear@{environment\_list\_clear}}
 \index{environment\_list\_clear@{environment\_list\_clear}!environment\_delete.c@{environment\_delete.c}}
@@ -50,3 +72,11 @@ This function iterates through each node in the environment list, deletes them o
 {\em shell} & A pointer to the shell context containing the environment list. \\
 \hline
 \end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{environment__delete_8c_a1e020807d76e090dd0b63c91c71743be_icgraph}
+\end{center}
+\end{figure}

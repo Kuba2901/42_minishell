@@ -2,7 +2,13 @@
 \label{builtin__cd_8c}\index{src/builtins/builtin\_cd.c@{src/builtins/builtin\_cd.c}}
 {\ttfamily \#include $<$minishell.\+h$>$}\newline
 Include dependency graph for builtin\+\_\+cd.\+c\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{builtin__cd_8c__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -39,6 +45,22 @@ This function retrieves the value of {\ttfamily OLDPWD} and returns it. If {\ttf
 \begin{DoxyReturn}{Returns}
 The path stored in {\ttfamily OLDPWD}, or NULL if not set. 
 \end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{builtin__cd_8c_a395b29beb295ad6e29c9dc6889451ae8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=263pt]{builtin__cd_8c_a395b29beb295ad6e29c9dc6889451ae8_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{builtin__cd_8c_ae06c6c0697a13ceee88c6dc69b1d5a16}\label{builtin__cd_8c_ae06c6c0697a13ceee88c6dc69b1d5a16}} 
 \index{builtin\_cd.c@{builtin\_cd.c}!\_handle\_home@{\_handle\_home}}
 \index{\_handle\_home@{\_handle\_home}!builtin\_cd.c@{builtin\_cd.c}}
@@ -61,6 +83,22 @@ This function retrieves the value of {\ttfamily HOME} and returns it. If {\ttfam
 \begin{DoxyReturn}{Returns}
 The path stored in {\ttfamily HOME}, or NULL if not set. 
 \end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{builtin__cd_8c_ae06c6c0697a13ceee88c6dc69b1d5a16_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{builtin__cd_8c_ae06c6c0697a13ceee88c6dc69b1d5a16_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{builtin__cd_8c_a55d9390ca06bb118bc1459d4d4885b43}\label{builtin__cd_8c_a55d9390ca06bb118bc1459d4d4885b43}} 
 \index{builtin\_cd.c@{builtin\_cd.c}!\_update\_keys@{\_update\_keys}}
 \index{\_update\_keys@{\_update\_keys}!builtin\_cd.c@{builtin\_cd.c}}
@@ -80,6 +118,22 @@ This function modifies the shell\textquotesingle{}s environment list to reflect 
 {\em curr\+\_\+path} & The new current working directory path. \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{builtin__cd_8c_a55d9390ca06bb118bc1459d4d4885b43_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=263pt]{builtin__cd_8c_a55d9390ca06bb118bc1459d4d4885b43_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{builtin__cd_8c_a7fb6cac5d2bc96d289257b496b3a1c2a}\label{builtin__cd_8c_a7fb6cac5d2bc96d289257b496b3a1c2a}} 
 \index{builtin\_cd.c@{builtin\_cd.c}!builtin\_cd@{builtin\_cd}}
 \index{builtin\_cd@{builtin\_cd}!builtin\_cd.c@{builtin\_cd.c}}
@@ -106,3 +160,11 @@ If the directory change is successful, it updates the {\ttfamily PWD} and {\ttfa
 {\em args} & An array of arguments passed to the {\ttfamily cd} command. \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{builtin__cd_8c_a7fb6cac5d2bc96d289257b496b3a1c2a_cgraph}
+\end{center}
+\end{figure}
