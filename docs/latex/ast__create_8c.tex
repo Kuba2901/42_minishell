@@ -1,0 +1,57 @@
+\hypertarget{ast__create_8c}{}\doxysection{src/parsing/ast/ast\+\_\+create.c File Reference}
+\label{ast__create_8c}\index{src/parsing/ast/ast\_create.c@{src/parsing/ast/ast\_create.c}}
+{\ttfamily \#include $<$ast.\+h$>$}\newline
+Include dependency graph for ast\+\_\+create.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$ \mbox{\hyperlink{ast__create_8c_a2ba12f80cc96195f3c07fbef882c41f8}{ast\+\_\+create\+\_\+node}} (\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$token\+\_\+node)
+\begin{DoxyCompactList}\small\item\em Creates a new AST node. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$ \mbox{\hyperlink{ast__create_8c_a7c7a48992c516a9765476b5d9bb01f99}{ast\+\_\+create}} (\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$list)
+\begin{DoxyCompactList}\small\item\em Creates an abstract syntax tree (AST) from a list of tokens. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ast__create_8c_a7c7a48992c516a9765476b5d9bb01f99}\label{ast__create_8c_a7c7a48992c516a9765476b5d9bb01f99}} 
+\index{ast\_create.c@{ast\_create.c}!ast\_create@{ast\_create}}
+\index{ast\_create@{ast\_create}!ast\_create.c@{ast\_create.c}}
+\doxysubsubsection{\texorpdfstring{ast\_create()}{ast\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}}$\ast$ ast\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$}]{list }\end{DoxyParamCaption})}
+
+
+
+Creates an abstract syntax tree (AST) from a list of tokens. 
+
+This function takes a list of tokens and constructs an AST node from it. If the list is empty or NULL, the function returns NULL. Otherwise, it delegates the creation of the AST to the {\ttfamily ast\+\_\+create\+\_\+pipe} function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & A pointer to the list of tokens to be parsed into an AST. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the created AST node, or NULL if the list is empty or NULL. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ast__create_8c_a2ba12f80cc96195f3c07fbef882c41f8}\label{ast__create_8c_a2ba12f80cc96195f3c07fbef882c41f8}} 
+\index{ast\_create.c@{ast\_create.c}!ast\_create\_node@{ast\_create\_node}}
+\index{ast\_create\_node@{ast\_create\_node}!ast\_create.c@{ast\_create.c}}
+\doxysubsubsection{\texorpdfstring{ast\_create\_node()}{ast\_create\_node()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}}$\ast$ ast\+\_\+create\+\_\+node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$}]{token\+\_\+node }\end{DoxyParamCaption})}
+
+
+
+Creates a new AST node. 
+
+This function allocates memory for a new {\ttfamily t\+\_\+ast\+\_\+node} structure and initializes its fields. The {\ttfamily type} parameter specifies the type of the node, while the {\ttfamily value} parameter specifies the value associated with the node. If {\ttfamily value} is {\ttfamily NULL}, the {\ttfamily value} field of the node will be set to {\ttfamily NULL}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of the AST node. \\
+\hline
+{\em value} & The value associated with the AST node. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the newly created {\ttfamily t\+\_\+ast\+\_\+node} structure, or {\ttfamily NULL} if memory allocation fails. 
+\end{DoxyReturn}

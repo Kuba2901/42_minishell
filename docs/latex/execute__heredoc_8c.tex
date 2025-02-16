@@ -1,0 +1,55 @@
+\hypertarget{execute__heredoc_8c}{}\doxysection{src/execution/execute\+\_\+heredoc.c File Reference}
+\label{execute__heredoc_8c}\index{src/execution/execute\_heredoc.c@{src/execution/execute\_heredoc.c}}
+{\ttfamily \#include $<$execute.\+h$>$}\newline
+{\ttfamily \#include $<$minishell.\+h$>$}\newline
+Include dependency graph for execute\+\_\+heredoc.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{execute__heredoc_8c_a61734da272c6333a0a363d43fa45a247}{process\+\_\+heredoc\+\_\+input}} (char $\ast$temp\+\_\+filename, const char $\ast$delimiter)
+\begin{DoxyCompactList}\small\item\em Processes input for a heredoc and writes it to a temporary file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{execute__heredoc_8c_af2d532ac8d7ed9514eb8782ae7882d53}{execute\+\_\+preprocess\+\_\+heredocs}} (\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Preprocesses heredoc nodes in the abstract syntax tree (AST). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{execute__heredoc_8c_af2d532ac8d7ed9514eb8782ae7882d53}\label{execute__heredoc_8c_af2d532ac8d7ed9514eb8782ae7882d53}} 
+\index{execute\_heredoc.c@{execute\_heredoc.c}!execute\_preprocess\_heredocs@{execute\_preprocess\_heredocs}}
+\index{execute\_preprocess\_heredocs@{execute\_preprocess\_heredocs}!execute\_heredoc.c@{execute\_heredoc.c}}
+\doxysubsubsection{\texorpdfstring{execute\_preprocess\_heredocs()}{execute\_preprocess\_heredocs()}}
+{\footnotesize\ttfamily void execute\+\_\+preprocess\+\_\+heredocs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Preprocesses heredoc nodes in the abstract syntax tree (AST). 
+
+This function recursively traverses the AST and processes nodes of type TOKEN\+\_\+\+HEREDOC. For each such node, it trims the quotes from the delimiter, creates a temporary file name, processes the heredoc input, and updates the node type to TOKEN\+\_\+\+REDIRECT\+\_\+\+IN. It also updates the node\textquotesingle{}s arguments to point to the temporary file name.
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & A pointer to the current AST node being processed. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{execute__heredoc_8c_a61734da272c6333a0a363d43fa45a247}\label{execute__heredoc_8c_a61734da272c6333a0a363d43fa45a247}} 
+\index{execute\_heredoc.c@{execute\_heredoc.c}!process\_heredoc\_input@{process\_heredoc\_input}}
+\index{process\_heredoc\_input@{process\_heredoc\_input}!execute\_heredoc.c@{execute\_heredoc.c}}
+\doxysubsubsection{\texorpdfstring{process\_heredoc\_input()}{process\_heredoc\_input()}}
+{\footnotesize\ttfamily void process\+\_\+heredoc\+\_\+input (\begin{DoxyParamCaption}\item[{char $\ast$}]{temp\+\_\+filename,  }\item[{const char $\ast$}]{delimiter }\end{DoxyParamCaption})}
+
+
+
+Processes input for a heredoc and writes it to a temporary file. 
+
+This function reads lines from the standard input until a line matching the specified delimiter is encountered. Each line is written to the specified temporary file. The temporary file is created if it does not exist, and truncated if it does.
+
+
+\begin{DoxyParams}{Parameters}
+{\em temp\+\_\+filename} & The name of the temporary file to write the heredoc input to. \\
+\hline
+{\em delimiter} & The delimiter string that indicates the end of the heredoc input.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+If temp\+\_\+filename is NULL or if the file cannot be opened, the function will exit with EXIT\+\_\+\+FAILURE. 
+\end{DoxyNote}

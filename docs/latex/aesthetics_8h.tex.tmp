@@ -1,0 +1,112 @@
+\hypertarget{aesthetics_8h}{}\doxysection{inc/aesthetics.h File Reference}
+\label{aesthetics_8h}\index{inc/aesthetics.h@{inc/aesthetics.h}}
+{\ttfamily \#include $<$mini\+\_\+base.\+h$>$}\newline
+{\ttfamily \#include $<$termios.\+h$>$}\newline
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+Include dependency graph for aesthetics.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{aesthetics_8h_ad40305115a1eba76faa49995740aec80}{HIDE\+\_\+\+CURSOR}}~\char`\"{}\textbackslash{}033\mbox{[}?25l\char`\"{}
+\item 
+\#define \mbox{\hyperlink{aesthetics_8h_a09ec0b302bee7262f9959add53ccd0c4}{SHOW\+\_\+\+CURSOR}}~\char`\"{}\textbackslash{}033\mbox{[}?25h\char`\"{}
+\item 
+\#define \mbox{\hyperlink{aesthetics_8h_a8d23feea868a983c8c2b661e1e16972f}{RED}}~\char`\"{}\textbackslash{}033\mbox{[}31m\char`\"{}
+\item 
+\#define \mbox{\hyperlink{aesthetics_8h_acfbc006ea433ad708fdee3e82996e721}{GREEN}}~\char`\"{}\textbackslash{}033\mbox{[}32m\char`\"{}
+\item 
+\#define \mbox{\hyperlink{aesthetics_8h_abf681265909adf3d3e8116c93c0ba179}{YELLOW}}~\char`\"{}\textbackslash{}033\mbox{[}33m\char`\"{}
+\item 
+\#define \mbox{\hyperlink{aesthetics_8h_a79d10e672abb49ad63eeaa8aaef57c38}{BLUE}}~\char`\"{}\textbackslash{}033\mbox{[}34m\char`\"{}
+\item 
+\#define \mbox{\hyperlink{aesthetics_8h_a6f699060902f800f12aaae150f3a708e}{MAGENTA}}~\char`\"{}\textbackslash{}033\mbox{[}35m\char`\"{}
+\item 
+\#define \mbox{\hyperlink{aesthetics_8h_ad243f93c16bc4c1d3e0a13b84421d760}{CYAN}}~\char`\"{}\textbackslash{}033\mbox{[}36m\char`\"{}
+\item 
+\#define \mbox{\hyperlink{aesthetics_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}}~\char`\"{}\textbackslash{}033\mbox{[}0m\char`\"{}
+\item 
+\#define \mbox{\hyperlink{aesthetics_8h_a7bf6c528e44946f7a3e137afedd2f614}{INTRO\+\_\+\+SECONDS}}~10
+\item 
+\#define \mbox{\hyperlink{aesthetics_8h_a7483d4a60c4395d5be684ee0e7541b08}{SECOND\+\_\+\+FROM\+\_\+\+MICRO}}~1000000
+\item 
+\#define \mbox{\hyperlink{aesthetics_8h_a3a836f2654e3ff0447759357e5d714d4}{SPINNER}}~\char`\"{}-\/\textbackslash{}\textbackslash{}$\vert$/\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{aesthetics_8h_a79d10e672abb49ad63eeaa8aaef57c38}\label{aesthetics_8h_a79d10e672abb49ad63eeaa8aaef57c38}} 
+\index{aesthetics.h@{aesthetics.h}!BLUE@{BLUE}}
+\index{BLUE@{BLUE}!aesthetics.h@{aesthetics.h}}
+\doxysubsubsection{\texorpdfstring{BLUE}{BLUE}}
+{\footnotesize\ttfamily \#define BLUE~\char`\"{}\textbackslash{}033\mbox{[}34m\char`\"{}}
+
+\mbox{\Hypertarget{aesthetics_8h_ad243f93c16bc4c1d3e0a13b84421d760}\label{aesthetics_8h_ad243f93c16bc4c1d3e0a13b84421d760}} 
+\index{aesthetics.h@{aesthetics.h}!CYAN@{CYAN}}
+\index{CYAN@{CYAN}!aesthetics.h@{aesthetics.h}}
+\doxysubsubsection{\texorpdfstring{CYAN}{CYAN}}
+{\footnotesize\ttfamily \#define CYAN~\char`\"{}\textbackslash{}033\mbox{[}36m\char`\"{}}
+
+\mbox{\Hypertarget{aesthetics_8h_acfbc006ea433ad708fdee3e82996e721}\label{aesthetics_8h_acfbc006ea433ad708fdee3e82996e721}} 
+\index{aesthetics.h@{aesthetics.h}!GREEN@{GREEN}}
+\index{GREEN@{GREEN}!aesthetics.h@{aesthetics.h}}
+\doxysubsubsection{\texorpdfstring{GREEN}{GREEN}}
+{\footnotesize\ttfamily \#define GREEN~\char`\"{}\textbackslash{}033\mbox{[}32m\char`\"{}}
+
+\mbox{\Hypertarget{aesthetics_8h_ad40305115a1eba76faa49995740aec80}\label{aesthetics_8h_ad40305115a1eba76faa49995740aec80}} 
+\index{aesthetics.h@{aesthetics.h}!HIDE\_CURSOR@{HIDE\_CURSOR}}
+\index{HIDE\_CURSOR@{HIDE\_CURSOR}!aesthetics.h@{aesthetics.h}}
+\doxysubsubsection{\texorpdfstring{HIDE\_CURSOR}{HIDE\_CURSOR}}
+{\footnotesize\ttfamily \#define HIDE\+\_\+\+CURSOR~\char`\"{}\textbackslash{}033\mbox{[}?25l\char`\"{}}
+
+\mbox{\Hypertarget{aesthetics_8h_a7bf6c528e44946f7a3e137afedd2f614}\label{aesthetics_8h_a7bf6c528e44946f7a3e137afedd2f614}} 
+\index{aesthetics.h@{aesthetics.h}!INTRO\_SECONDS@{INTRO\_SECONDS}}
+\index{INTRO\_SECONDS@{INTRO\_SECONDS}!aesthetics.h@{aesthetics.h}}
+\doxysubsubsection{\texorpdfstring{INTRO\_SECONDS}{INTRO\_SECONDS}}
+{\footnotesize\ttfamily \#define INTRO\+\_\+\+SECONDS~10}
+
+\mbox{\Hypertarget{aesthetics_8h_a6f699060902f800f12aaae150f3a708e}\label{aesthetics_8h_a6f699060902f800f12aaae150f3a708e}} 
+\index{aesthetics.h@{aesthetics.h}!MAGENTA@{MAGENTA}}
+\index{MAGENTA@{MAGENTA}!aesthetics.h@{aesthetics.h}}
+\doxysubsubsection{\texorpdfstring{MAGENTA}{MAGENTA}}
+{\footnotesize\ttfamily \#define MAGENTA~\char`\"{}\textbackslash{}033\mbox{[}35m\char`\"{}}
+
+\mbox{\Hypertarget{aesthetics_8h_a8d23feea868a983c8c2b661e1e16972f}\label{aesthetics_8h_a8d23feea868a983c8c2b661e1e16972f}} 
+\index{aesthetics.h@{aesthetics.h}!RED@{RED}}
+\index{RED@{RED}!aesthetics.h@{aesthetics.h}}
+\doxysubsubsection{\texorpdfstring{RED}{RED}}
+{\footnotesize\ttfamily \#define RED~\char`\"{}\textbackslash{}033\mbox{[}31m\char`\"{}}
+
+\mbox{\Hypertarget{aesthetics_8h_ab702106cf3b3e96750b6845ded4e0299}\label{aesthetics_8h_ab702106cf3b3e96750b6845ded4e0299}} 
+\index{aesthetics.h@{aesthetics.h}!RESET@{RESET}}
+\index{RESET@{RESET}!aesthetics.h@{aesthetics.h}}
+\doxysubsubsection{\texorpdfstring{RESET}{RESET}}
+{\footnotesize\ttfamily \#define RESET~\char`\"{}\textbackslash{}033\mbox{[}0m\char`\"{}}
+
+\mbox{\Hypertarget{aesthetics_8h_a7483d4a60c4395d5be684ee0e7541b08}\label{aesthetics_8h_a7483d4a60c4395d5be684ee0e7541b08}} 
+\index{aesthetics.h@{aesthetics.h}!SECOND\_FROM\_MICRO@{SECOND\_FROM\_MICRO}}
+\index{SECOND\_FROM\_MICRO@{SECOND\_FROM\_MICRO}!aesthetics.h@{aesthetics.h}}
+\doxysubsubsection{\texorpdfstring{SECOND\_FROM\_MICRO}{SECOND\_FROM\_MICRO}}
+{\footnotesize\ttfamily \#define SECOND\+\_\+\+FROM\+\_\+\+MICRO~1000000}
+
+\mbox{\Hypertarget{aesthetics_8h_a09ec0b302bee7262f9959add53ccd0c4}\label{aesthetics_8h_a09ec0b302bee7262f9959add53ccd0c4}} 
+\index{aesthetics.h@{aesthetics.h}!SHOW\_CURSOR@{SHOW\_CURSOR}}
+\index{SHOW\_CURSOR@{SHOW\_CURSOR}!aesthetics.h@{aesthetics.h}}
+\doxysubsubsection{\texorpdfstring{SHOW\_CURSOR}{SHOW\_CURSOR}}
+{\footnotesize\ttfamily \#define SHOW\+\_\+\+CURSOR~\char`\"{}\textbackslash{}033\mbox{[}?25h\char`\"{}}
+
+\mbox{\Hypertarget{aesthetics_8h_a3a836f2654e3ff0447759357e5d714d4}\label{aesthetics_8h_a3a836f2654e3ff0447759357e5d714d4}} 
+\index{aesthetics.h@{aesthetics.h}!SPINNER@{SPINNER}}
+\index{SPINNER@{SPINNER}!aesthetics.h@{aesthetics.h}}
+\doxysubsubsection{\texorpdfstring{SPINNER}{SPINNER}}
+{\footnotesize\ttfamily \#define SPINNER~\char`\"{}-\/\textbackslash{}\textbackslash{}$\vert$/\char`\"{}}
+
+\mbox{\Hypertarget{aesthetics_8h_abf681265909adf3d3e8116c93c0ba179}\label{aesthetics_8h_abf681265909adf3d3e8116c93c0ba179}} 
+\index{aesthetics.h@{aesthetics.h}!YELLOW@{YELLOW}}
+\index{YELLOW@{YELLOW}!aesthetics.h@{aesthetics.h}}
+\doxysubsubsection{\texorpdfstring{YELLOW}{YELLOW}}
+{\footnotesize\ttfamily \#define YELLOW~\char`\"{}\textbackslash{}033\mbox{[}33m\char`\"{}}
+

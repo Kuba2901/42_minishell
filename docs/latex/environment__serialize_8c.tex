@@ -1,0 +1,53 @@
+\hypertarget{environment__serialize_8c}{}\doxysection{src/environment/environment\+\_\+serialize.c File Reference}
+\label{environment__serialize_8c}\index{src/environment/environment\_serialize.c@{src/environment/environment\_serialize.c}}
+{\ttfamily \#include $<$environment.\+h$>$}\newline
+{\ttfamily \#include $<$minishell.\+h$>$}\newline
+Include dependency graph for environment\+\_\+serialize.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$$\ast$ \mbox{\hyperlink{environment__serialize_8c_ab65cf7accc34ecfb94fd55ea5882ee61}{environment\+\_\+serialize}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell)
+\begin{DoxyCompactList}\small\item\em Serializes the environment variables from the shell into an array of strings. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{environment__serialize_8c_aaa61a48fe69658a6c0233c02fdd241c7}{environment\+\_\+serialized\+\_\+list\+\_\+clear}} (char $\ast$$\ast$list)
+\begin{DoxyCompactList}\small\item\em Frees a list of strings and the list itself. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{environment__serialize_8c_ab65cf7accc34ecfb94fd55ea5882ee61}\label{environment__serialize_8c_ab65cf7accc34ecfb94fd55ea5882ee61}} 
+\index{environment\_serialize.c@{environment\_serialize.c}!environment\_serialize@{environment\_serialize}}
+\index{environment\_serialize@{environment\_serialize}!environment\_serialize.c@{environment\_serialize.c}}
+\doxysubsubsection{\texorpdfstring{environment\_serialize()}{environment\_serialize()}}
+{\footnotesize\ttfamily char$\ast$$\ast$ environment\+\_\+serialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell }\end{DoxyParamCaption})}
+
+
+
+Serializes the environment variables from the shell into an array of strings. 
+
+This function takes the environment variables stored in the shell\textquotesingle{}s environment list and serializes them into an array of strings, where each string is in the format \char`\"{}key=value\char`\"{}. Private environment variables (marked by {\ttfamily is\+\_\+private}) are excluded from the serialization.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & A pointer to the shell structure containing the environment list. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A NULL-\/terminated array of strings representing the serialized environment variables. Returns NULL if there are no environment variables or if memory allocation fails. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{environment__serialize_8c_aaa61a48fe69658a6c0233c02fdd241c7}\label{environment__serialize_8c_aaa61a48fe69658a6c0233c02fdd241c7}} 
+\index{environment\_serialize.c@{environment\_serialize.c}!environment\_serialized\_list\_clear@{environment\_serialized\_list\_clear}}
+\index{environment\_serialized\_list\_clear@{environment\_serialized\_list\_clear}!environment\_serialize.c@{environment\_serialize.c}}
+\doxysubsubsection{\texorpdfstring{environment\_serialized\_list\_clear()}{environment\_serialized\_list\_clear()}}
+{\footnotesize\ttfamily void environment\+\_\+serialized\+\_\+list\+\_\+clear (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{list }\end{DoxyParamCaption})}
+
+
+
+Frees a list of strings and the list itself. 
+
+This function iterates through a list of strings, freeing each string, and then frees the list itself.
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & A null-\/terminated array of strings to be freed. \\
+\hline
+\end{DoxyParams}

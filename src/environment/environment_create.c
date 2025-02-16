@@ -6,13 +6,20 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:20:21 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/14 22:17:57 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/16 21:26:40 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <environment.h>
 #include <minishell.h>
 
+/**
+ * @brief Deletes a simple environment node.
+ *
+ * This function frees the memory allocated for the key, value, and the node itself.
+ *
+ * @param node A pointer to the environment node to be deleted. If the node is NULL, the function does nothing.
+ */
 static void	_environment_node_simple_delete(t_environment_node *node)
 {
 	if (!node)

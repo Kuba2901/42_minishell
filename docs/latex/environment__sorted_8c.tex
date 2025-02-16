@@ -1,0 +1,34 @@
+\hypertarget{environment__sorted_8c}{}\doxysection{src/environment/environment\+\_\+sorted.c File Reference}
+\label{environment__sorted_8c}\index{src/environment/environment\_sorted.c@{src/environment/environment\_sorted.c}}
+{\ttfamily \#include $<$environment.\+h$>$}\newline
+{\ttfamily \#include $<$minishell.\+h$>$}\newline
+Include dependency graph for environment\+\_\+sorted.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{environment_8h_a27ae7c4f109de04c5eff0bf308108a92}{t\+\_\+environment\+\_\+node}} $\ast$ \mbox{\hyperlink{environment__sorted_8c_a6a55fbf0bf9eb4c3426f38bbd6aa25af}{environment\+\_\+list\+\_\+get\+\_\+sorted\+\_\+copy}} (\mbox{\hyperlink{environment_8h_a27ae7c4f109de04c5eff0bf308108a92}{t\+\_\+environment\+\_\+node}} $\ast$original)
+\begin{DoxyCompactList}\small\item\em Creates a sorted copy of the environment list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{environment__sorted_8c_a6a55fbf0bf9eb4c3426f38bbd6aa25af}\label{environment__sorted_8c_a6a55fbf0bf9eb4c3426f38bbd6aa25af}} 
+\index{environment\_sorted.c@{environment\_sorted.c}!environment\_list\_get\_sorted\_copy@{environment\_list\_get\_sorted\_copy}}
+\index{environment\_list\_get\_sorted\_copy@{environment\_list\_get\_sorted\_copy}!environment\_sorted.c@{environment\_sorted.c}}
+\doxysubsubsection{\texorpdfstring{environment\_list\_get\_sorted\_copy()}{environment\_list\_get\_sorted\_copy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{environment_8h_a27ae7c4f109de04c5eff0bf308108a92}{t\+\_\+environment\+\_\+node}}$\ast$ environment\+\_\+list\+\_\+get\+\_\+sorted\+\_\+copy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{environment_8h_a27ae7c4f109de04c5eff0bf308108a92}{t\+\_\+environment\+\_\+node}} $\ast$}]{original }\end{DoxyParamCaption})}
+
+
+
+Creates a sorted copy of the environment list. 
+
+This function takes an unsorted linked list of environment variables and returns a new linked list that is sorted by the keys of the environment variables. The original list remains unchanged.
+
+
+\begin{DoxyParams}{Parameters}
+{\em original} & A pointer to the head of the original unsorted environment list. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the head of the new sorted environment list. 
+\end{DoxyReturn}

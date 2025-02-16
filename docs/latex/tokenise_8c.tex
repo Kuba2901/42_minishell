@@ -1,0 +1,26 @@
+\hypertarget{tokenise_8c}{}\doxysection{src/parsing/tokens/tokenise.c File Reference}
+\label{tokenise_8c}\index{src/parsing/tokens/tokenise.c@{src/parsing/tokens/tokenise.c}}
+{\ttfamily \#include $<$tokens.\+h$>$}\newline
+Include dependency graph for tokenise.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$ \mbox{\hyperlink{tokenise_8c_a0cd7f312eb96538a7291e9c5137e7d67}{tokenise}} (char $\ast$input)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{tokenise_8c_a0cd7f312eb96538a7291e9c5137e7d67}\label{tokenise_8c_a0cd7f312eb96538a7291e9c5137e7d67}} 
+\index{tokenise.c@{tokenise.c}!tokenise@{tokenise}}
+\index{tokenise@{tokenise}!tokenise.c@{tokenise.c}}
+\doxysubsubsection{\texorpdfstring{tokenise()}{tokenise()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}}$\ast$$\ast$ tokenise (\begin{DoxyParamCaption}\item[{char $\ast$}]{input }\end{DoxyParamCaption})}
+
+tokenise -\/ Tokenizes the input string into a list of tokens. @input\+: The input string to be tokenized.
+
+This function takes an input string and tokenizes it into a list of tokens. It handles different types of tokens including simple tokens (like \textquotesingle{}(\textquotesingle{}, \textquotesingle{})\textquotesingle{}, \textquotesingle{}$\vert$\textquotesingle{}, \textquotesingle{}$<$\textquotesingle{}, \textquotesingle{}$>$\textquotesingle{}), quoted strings, and words. The function skips over whitespace and processes each token accordingly. The resulting list of tokens is returned.
+
+\begin{DoxyReturn}{Returns}
+\+: A pointer to the list of tokens, or NULL if memory allocation fails. 
+\end{DoxyReturn}

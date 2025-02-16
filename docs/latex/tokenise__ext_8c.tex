@@ -1,0 +1,33 @@
+\hypertarget{tokenise__ext_8c}{}\doxysection{src/parsing/tokens/tokenise\+\_\+ext.c File Reference}
+\label{tokenise__ext_8c}\index{src/parsing/tokens/tokenise\_ext.c@{src/parsing/tokens/tokenise\_ext.c}}
+{\ttfamily \#include $<$tokens.\+h$>$}\newline
+Include dependency graph for tokenise\+\_\+ext.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{tokenise__ext_8c_a3bb61fb8a4f8a9e3837c30fefdcc54e9}{token\+\_\+count\+\_\+args}} (\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$src)
+\begin{DoxyCompactList}\small\item\em Counts the number of consecutive tokens of the same type as the source token. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{tokenise__ext_8c_a3bb61fb8a4f8a9e3837c30fefdcc54e9}\label{tokenise__ext_8c_a3bb61fb8a4f8a9e3837c30fefdcc54e9}} 
+\index{tokenise\_ext.c@{tokenise\_ext.c}!token\_count\_args@{token\_count\_args}}
+\index{token\_count\_args@{token\_count\_args}!tokenise\_ext.c@{tokenise\_ext.c}}
+\doxysubsubsection{\texorpdfstring{token\_count\_args()}{token\_count\_args()}}
+{\footnotesize\ttfamily size\+\_\+t token\+\_\+count\+\_\+args (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$}]{src }\end{DoxyParamCaption})}
+
+
+
+Counts the number of consecutive tokens of the same type as the source token. 
+
+This function iterates through the linked list of tokens starting from the next token of the given source token ({\ttfamily src}). It counts how many consecutive tokens have the same type as the source token and are of type {\ttfamily TOKEN\+\_\+\+STRING}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & A pointer to the source token node from which to start counting. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of consecutive tokens of the same type as the source token. 
+\end{DoxyReturn}

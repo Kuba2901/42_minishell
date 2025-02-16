@@ -1,0 +1,64 @@
+\hypertarget{execute_8c}{}\doxysection{src/execution/execute.c File Reference}
+\label{execute_8c}\index{src/execution/execute.c@{src/execution/execute.c}}
+{\ttfamily \#include $<$execute.\+h$>$}\newline
+{\ttfamily \#include $<$minishell.\+h$>$}\newline
+Include dependency graph for execute.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{execute_8c_a2478eeeb74eb074a546235289d2c20bd}{\+\_\+execute\+\_\+redirect}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Executes the appropriate redirection based on the type of the AST node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{execute_8c_a7ae0b2ef56640c6936ffe657e13fa9f4}{execute\+\_\+ast}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Executes the abstract syntax tree (AST) node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{execute_8c_a2478eeeb74eb074a546235289d2c20bd}\label{execute_8c_a2478eeeb74eb074a546235289d2c20bd}} 
+\index{execute.c@{execute.c}!\_execute\_redirect@{\_execute\_redirect}}
+\index{\_execute\_redirect@{\_execute\_redirect}!execute.c@{execute.c}}
+\doxysubsubsection{\texorpdfstring{\_execute\_redirect()}{\_execute\_redirect()}}
+{\footnotesize\ttfamily void \+\_\+execute\+\_\+redirect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Executes the appropriate redirection based on the type of the AST node. 
+
+This function handles different types of redirections by calling the corresponding redirection function based on the type of the AST node provided.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & A pointer to the shell structure containing the shell\textquotesingle{}s state. \\
+\hline
+{\em node} & A pointer to the AST node representing the redirection operation.\\
+\hline
+\end{DoxyParams}
+The function supports the following redirection types\+:
+\begin{DoxyItemize}
+\item TOKEN\+\_\+\+REDIRECT\+\_\+\+IN\+: Calls execute\+\_\+redirect\+\_\+in to handle input redirection.
+\item TOKEN\+\_\+\+REDIRECT\+\_\+\+OUT\+: Calls execute\+\_\+redirect\+\_\+out to handle output redirection.
+\item TOKEN\+\_\+\+APPEND\+: Calls execute\+\_\+redirect\+\_\+append to handle output redirection in append mode. 
+\end{DoxyItemize}\mbox{\Hypertarget{execute_8c_a7ae0b2ef56640c6936ffe657e13fa9f4}\label{execute_8c_a7ae0b2ef56640c6936ffe657e13fa9f4}} 
+\index{execute.c@{execute.c}!execute\_ast@{execute\_ast}}
+\index{execute\_ast@{execute\_ast}!execute.c@{execute.c}}
+\doxysubsubsection{\texorpdfstring{execute\_ast()}{execute\_ast()}}
+{\footnotesize\ttfamily void execute\+\_\+ast (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Executes the abstract syntax tree (AST) node. 
+
+This function takes a shell context and an AST node, and executes the node based on its type. The function handles different types of nodes such as command nodes, pipe nodes, and various types of redirection nodes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & A pointer to the shell context. \\
+\hline
+{\em node} & A pointer to the AST node to be executed.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+If the node is NULL, the function returns immediately. 
+
+The function delegates the execution to specific functions based on the type of the node. 
+\end{DoxyNote}

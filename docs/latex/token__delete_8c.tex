@@ -1,0 +1,49 @@
+\hypertarget{token__delete_8c}{}\doxysection{src/parsing/tokens/token\+\_\+delete.c File Reference}
+\label{token__delete_8c}\index{src/parsing/tokens/token\_delete.c@{src/parsing/tokens/token\_delete.c}}
+{\ttfamily \#include $<$tokens.\+h$>$}\newline
+Include dependency graph for token\+\_\+delete.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{token__delete_8c_a09ac0c422bd48b4b44d9c552897adcac}{token\+\_\+delete}} (\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$token)
+\begin{DoxyCompactList}\small\item\em Frees the memory allocated for a token and its arguments. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{token__delete_8c_a0d5146987a56f3d8d3abec776727a9d6}{token\+\_\+delete\+\_\+all}} (\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$list)
+\begin{DoxyCompactList}\small\item\em Frees the memory allocated for a list of tokens. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{token__delete_8c_a09ac0c422bd48b4b44d9c552897adcac}\label{token__delete_8c_a09ac0c422bd48b4b44d9c552897adcac}} 
+\index{token\_delete.c@{token\_delete.c}!token\_delete@{token\_delete}}
+\index{token\_delete@{token\_delete}!token\_delete.c@{token\_delete.c}}
+\doxysubsubsection{\texorpdfstring{token\_delete()}{token\_delete()}}
+{\footnotesize\ttfamily void token\+\_\+delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$}]{token }\end{DoxyParamCaption})}
+
+
+
+Frees the memory allocated for a token and its arguments. 
+
+This function releases the memory allocated for the arguments of a token and then frees the memory allocated for the token itself.
+
+
+\begin{DoxyParams}{Parameters}
+{\em token} & A pointer to the token to be deleted. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{token__delete_8c_a0d5146987a56f3d8d3abec776727a9d6}\label{token__delete_8c_a0d5146987a56f3d8d3abec776727a9d6}} 
+\index{token\_delete.c@{token\_delete.c}!token\_delete\_all@{token\_delete\_all}}
+\index{token\_delete\_all@{token\_delete\_all}!token\_delete.c@{token\_delete.c}}
+\doxysubsubsection{\texorpdfstring{token\_delete\_all()}{token\_delete\_all()}}
+{\footnotesize\ttfamily void token\+\_\+delete\+\_\+all (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$}]{list }\end{DoxyParamCaption})}
+
+
+
+Frees the memory allocated for a list of tokens. 
+
+This function iterates through a linked list of tokens, freeing the memory allocated for each token and its arguments. It then frees the memory allocated for the list itself.
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & A double pointer to the head of the list of tokens to be deleted. \\
+\hline
+\end{DoxyParams}

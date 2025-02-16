@@ -1,0 +1,338 @@
+\hypertarget{environment_8h}{}\doxysection{inc/environment.h File Reference}
+\label{environment_8h}\index{inc/environment.h@{inc/environment.h}}
+{\ttfamily \#include $<$mini\+\_\+base.\+h$>$}\newline
+Include dependency graph for environment.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structs__environment__node}{s\+\_\+environment\+\_\+node}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structs__shell}{s\+\_\+shell}} \mbox{\hyperlink{environment_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}}
+\item 
+typedef struct \mbox{\hyperlink{structs__environment__node}{s\+\_\+environment\+\_\+node}} \mbox{\hyperlink{environment_8h_a27ae7c4f109de04c5eff0bf308108a92}{t\+\_\+environment\+\_\+node}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{environment_8h_a1e020807d76e090dd0b63c91c71743be}{environment\+\_\+list\+\_\+clear}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell)
+\begin{DoxyCompactList}\small\item\em Clears all nodes in the shell\textquotesingle{}s environment list. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{environment_8h_a91813a28808629570986d5e88b912d5b}{environment\+\_\+list\+\_\+read}} (const char $\ast$key, \mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell)
+\begin{DoxyCompactList}\small\item\em Reads the value associated with a given key from the environment list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{environment_8h_a09ee8956599f70273d6a9f91d3dac2e1}{enviroment\+\_\+node\+\_\+delete}} (const char $\ast$key, \mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell)
+\begin{DoxyCompactList}\small\item\em Deletes an environment node with a specified key from the shell\textquotesingle{}s environment list. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{environment_8h_a27ae7c4f109de04c5eff0bf308108a92}{t\+\_\+environment\+\_\+node}} $\ast$ \mbox{\hyperlink{environment_8h_abdbcf7a0de2e20d935f1ea841edd111c}{environment\+\_\+list\+\_\+initialize}} (const char $\ast$$\ast$envp)
+\begin{DoxyCompactList}\small\item\em Initializes an environment list from an array of environment variable strings. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{environment_8h_a27ae7c4f109de04c5eff0bf308108a92}{t\+\_\+environment\+\_\+node}} $\ast$ \mbox{\hyperlink{environment_8h_aa43e73f885f69e85d92b709f5d5877cf}{enviroment\+\_\+node\+\_\+create}} (const char $\ast$entry, \mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, \mbox{\hyperlink{mini__base_8h_a2bf87f8c2c611ece6cf206621482a269}{t\+\_\+bool}} is\+\_\+private)
+\begin{DoxyCompactList}\small\item\em Creates an environment node from an entry string and adds it to the shell\textquotesingle{}s environment list. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{environment_8h_ad93e330995179cc3e902d34d845fd38f}{env\+\_\+value\+\_\+expand}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, char $\ast$key)
+\begin{DoxyCompactList}\small\item\em Expands the value of an environment variable based on the given key. \end{DoxyCompactList}\item 
+char $\ast$$\ast$ \mbox{\hyperlink{environment_8h_ab65cf7accc34ecfb94fd55ea5882ee61}{environment\+\_\+serialize}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell)
+\begin{DoxyCompactList}\small\item\em Serializes the environment variables from the shell into an array of strings. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{environment_8h_aaa61a48fe69658a6c0233c02fdd241c7}{environment\+\_\+serialized\+\_\+list\+\_\+clear}} (char $\ast$$\ast$list)
+\begin{DoxyCompactList}\small\item\em Frees a list of strings and the list itself. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{environment_8h_ac7c5460c1a96f16344370cbc8cafb875}{environment\+\_\+list\+\_\+print}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, \mbox{\hyperlink{mini__base_8h_a2bf87f8c2c611ece6cf206621482a269}{t\+\_\+bool}} is\+\_\+export)
+\begin{DoxyCompactList}\small\item\em Prints the environment variables in the shell. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{environment_8h_a27ae7c4f109de04c5eff0bf308108a92}{t\+\_\+environment\+\_\+node}} $\ast$ \mbox{\hyperlink{environment_8h_acbde6845a327536b8af768878d83c4c7}{environment\+\_\+node\+\_\+from\+\_\+entry}} (const char $\ast$entry, \mbox{\hyperlink{mini__base_8h_a2bf87f8c2c611ece6cf206621482a269}{t\+\_\+bool}} is\+\_\+private)
+\begin{DoxyCompactList}\small\item\em Creates a new environment node from an entry string. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{environment_8h_a5bf51f4346f39138091b60abd05d5fab}{environment\+\_\+list\+\_\+print\+\_\+sorted}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell)
+\begin{DoxyCompactList}\small\item\em Prints the environment variables in sorted order. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{environment_8h_a27ae7c4f109de04c5eff0bf308108a92}{t\+\_\+environment\+\_\+node}} $\ast$ \mbox{\hyperlink{environment_8h_a6a55fbf0bf9eb4c3426f38bbd6aa25af}{environment\+\_\+list\+\_\+get\+\_\+sorted\+\_\+copy}} (\mbox{\hyperlink{environment_8h_a27ae7c4f109de04c5eff0bf308108a92}{t\+\_\+environment\+\_\+node}} $\ast$original)
+\begin{DoxyCompactList}\small\item\em Creates a sorted copy of the environment list. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{environment_8h_a27ae7c4f109de04c5eff0bf308108a92}{t\+\_\+environment\+\_\+node}} $\ast$ \mbox{\hyperlink{environment_8h_af82670ad46acaaebb1e7dc2aac869ca9}{environment\+\_\+list\+\_\+read\+\_\+node}} (const char $\ast$key, \mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell)
+\begin{DoxyCompactList}\small\item\em Reads a node from the environment list based on the given key. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{environment_8h_a27ae7c4f109de04c5eff0bf308108a92}\label{environment_8h_a27ae7c4f109de04c5eff0bf308108a92}} 
+\index{environment.h@{environment.h}!t\_environment\_node@{t\_environment\_node}}
+\index{t\_environment\_node@{t\_environment\_node}!environment.h@{environment.h}}
+\doxysubsubsection{\texorpdfstring{t\_environment\_node}{t\_environment\_node}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structs__environment__node}{s\+\_\+environment\+\_\+node}} \mbox{\hyperlink{environment_8h_a27ae7c4f109de04c5eff0bf308108a92}{t\+\_\+environment\+\_\+node}}}
+
+\mbox{\Hypertarget{environment_8h_ae4cfb7c093350dca726786f683b6aca3}\label{environment_8h_ae4cfb7c093350dca726786f683b6aca3}} 
+\index{environment.h@{environment.h}!t\_shell@{t\_shell}}
+\index{t\_shell@{t\_shell}!environment.h@{environment.h}}
+\doxysubsubsection{\texorpdfstring{t\_shell}{t\_shell}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structs__shell}{s\+\_\+shell}} \mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{environment_8h_ad93e330995179cc3e902d34d845fd38f}\label{environment_8h_ad93e330995179cc3e902d34d845fd38f}} 
+\index{environment.h@{environment.h}!env\_value\_expand@{env\_value\_expand}}
+\index{env\_value\_expand@{env\_value\_expand}!environment.h@{environment.h}}
+\doxysubsubsection{\texorpdfstring{env\_value\_expand()}{env\_value\_expand()}}
+{\footnotesize\ttfamily char$\ast$ env\+\_\+value\+\_\+expand (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{char $\ast$}]{key }\end{DoxyParamCaption})}
+
+
+
+Expands the value of an environment variable based on the given key. 
+
+This function takes a key and returns the corresponding environment variable\textquotesingle{}s value. It handles different cases based on the first character of the key\+:
+\begin{DoxyItemize}
+\item If the key starts with \textquotesingle{}\$\textquotesingle{}, it skips the \textquotesingle{}\$\textquotesingle{} and looks up the environment variable.
+\item If the key starts with \textquotesingle{}\char`\"{}\textquotesingle{}, it expands multiple variables within the key.
+\item If the key starts with \textquotesingle{}\textbackslash{}\textquotesingle{}\textquotesingle{}, it trims the quotes from the key.
+\item Otherwise, it returns a duplicate of the key.
+\end{DoxyItemize}
+
+Additionally, if the key is \char`\"{}?\char`\"{}, it returns the shell\textquotesingle{}s exit code as a string.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & A pointer to the shell structure containing environment variables and exit code. \\
+\hline
+{\em key} & The key of the environment variable to expand. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A dynamically allocated string containing the expanded value, or NULL if the key is invalid or the value is not found. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{environment_8h_aa43e73f885f69e85d92b709f5d5877cf}\label{environment_8h_aa43e73f885f69e85d92b709f5d5877cf}} 
+\index{environment.h@{environment.h}!enviroment\_node\_create@{enviroment\_node\_create}}
+\index{enviroment\_node\_create@{enviroment\_node\_create}!environment.h@{environment.h}}
+\doxysubsubsection{\texorpdfstring{enviroment\_node\_create()}{enviroment\_node\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{environment_8h_a27ae7c4f109de04c5eff0bf308108a92}{t\+\_\+environment\+\_\+node}}$\ast$ enviroment\+\_\+node\+\_\+create (\begin{DoxyParamCaption}\item[{const char $\ast$}]{entry,  }\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{\mbox{\hyperlink{mini__base_8h_a2bf87f8c2c611ece6cf206621482a269}{t\+\_\+bool}}}]{is\+\_\+private }\end{DoxyParamCaption})}
+
+
+
+Creates an environment node from an entry string and adds it to the shell\textquotesingle{}s environment list. 
+
+This function uses environment\+\_\+node\+\_\+from\+\_\+entry to parse the entry string into a node. If successful, it inserts this node into the shell\textquotesingle{}s environment list using \+\_\+environment\+\_\+node\+\_\+insert. It returns the created node, or NULL if parsing fails.
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & The entry string to process. \\
+\hline
+{\em shell} & A pointer to the shell context containing the environment list. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+t\+\_\+environment\+\_\+node$\ast$ A pointer to the newly created and inserted node, or NULL. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{environment_8h_a09ee8956599f70273d6a9f91d3dac2e1}\label{environment_8h_a09ee8956599f70273d6a9f91d3dac2e1}} 
+\index{environment.h@{environment.h}!enviroment\_node\_delete@{enviroment\_node\_delete}}
+\index{enviroment\_node\_delete@{enviroment\_node\_delete}!environment.h@{environment.h}}
+\doxysubsubsection{\texorpdfstring{enviroment\_node\_delete()}{enviroment\_node\_delete()}}
+{\footnotesize\ttfamily void enviroment\+\_\+node\+\_\+delete (\begin{DoxyParamCaption}\item[{const char $\ast$}]{key,  }\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell }\end{DoxyParamCaption})}
+
+
+
+Deletes an environment node with a specified key from the shell\textquotesingle{}s environment list. 
+
+This function searches for a node with the given key in the shell\textquotesingle{}s environment list. If found, it removes the node from the list and frees its resources. If not found, or if inputs are invalid, it does nothing.
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key of the node to delete. \\
+\hline
+{\em shell} & A pointer to the shell context containing the environment list. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{environment_8h_a1e020807d76e090dd0b63c91c71743be}\label{environment_8h_a1e020807d76e090dd0b63c91c71743be}} 
+\index{environment.h@{environment.h}!environment\_list\_clear@{environment\_list\_clear}}
+\index{environment\_list\_clear@{environment\_list\_clear}!environment.h@{environment.h}}
+\doxysubsubsection{\texorpdfstring{environment\_list\_clear()}{environment\_list\_clear()}}
+{\footnotesize\ttfamily void environment\+\_\+list\+\_\+clear (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell }\end{DoxyParamCaption})}
+
+
+
+Clears all nodes in the shell\textquotesingle{}s environment list. 
+
+This function iterates through each node in the environment list, deletes them one by one using \+\_\+environment\+\_\+node\+\_\+delete, and updates the head pointer to NULL. It ensures that all resources are properly freed and the list is completely cleared.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & A pointer to the shell context containing the environment list. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{environment_8h_a6a55fbf0bf9eb4c3426f38bbd6aa25af}\label{environment_8h_a6a55fbf0bf9eb4c3426f38bbd6aa25af}} 
+\index{environment.h@{environment.h}!environment\_list\_get\_sorted\_copy@{environment\_list\_get\_sorted\_copy}}
+\index{environment\_list\_get\_sorted\_copy@{environment\_list\_get\_sorted\_copy}!environment.h@{environment.h}}
+\doxysubsubsection{\texorpdfstring{environment\_list\_get\_sorted\_copy()}{environment\_list\_get\_sorted\_copy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{environment_8h_a27ae7c4f109de04c5eff0bf308108a92}{t\+\_\+environment\+\_\+node}}$\ast$ environment\+\_\+list\+\_\+get\+\_\+sorted\+\_\+copy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{environment_8h_a27ae7c4f109de04c5eff0bf308108a92}{t\+\_\+environment\+\_\+node}} $\ast$}]{original }\end{DoxyParamCaption})}
+
+
+
+Creates a sorted copy of the environment list. 
+
+This function takes an unsorted linked list of environment variables and returns a new linked list that is sorted by the keys of the environment variables. The original list remains unchanged.
+
+
+\begin{DoxyParams}{Parameters}
+{\em original} & A pointer to the head of the original unsorted environment list. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the head of the new sorted environment list. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{environment_8h_abdbcf7a0de2e20d935f1ea841edd111c}\label{environment_8h_abdbcf7a0de2e20d935f1ea841edd111c}} 
+\index{environment.h@{environment.h}!environment\_list\_initialize@{environment\_list\_initialize}}
+\index{environment\_list\_initialize@{environment\_list\_initialize}!environment.h@{environment.h}}
+\doxysubsubsection{\texorpdfstring{environment\_list\_initialize()}{environment\_list\_initialize()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{environment_8h_a27ae7c4f109de04c5eff0bf308108a92}{t\+\_\+environment\+\_\+node}}$\ast$ environment\+\_\+list\+\_\+initialize (\begin{DoxyParamCaption}\item[{const char $\ast$$\ast$}]{envp }\end{DoxyParamCaption})}
+
+
+
+Initializes an environment list from an array of environment variable strings. 
+
+This function processes each string in the provided array using environment\+\_\+node\+\_\+from\+\_\+entry to create nodes. Each valid node is inserted into the environment list. It returns the head of the newly created list, which may be empty if all entries are invalid.
+
+
+\begin{DoxyParams}{Parameters}
+{\em envp} & An array of strings representing environment variables. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+t\+\_\+environment\+\_\+node$\ast$ The head of the environment list, or NULL if no nodes were created. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{environment_8h_ac7c5460c1a96f16344370cbc8cafb875}\label{environment_8h_ac7c5460c1a96f16344370cbc8cafb875}} 
+\index{environment.h@{environment.h}!environment\_list\_print@{environment\_list\_print}}
+\index{environment\_list\_print@{environment\_list\_print}!environment.h@{environment.h}}
+\doxysubsubsection{\texorpdfstring{environment\_list\_print()}{environment\_list\_print()}}
+{\footnotesize\ttfamily void environment\+\_\+list\+\_\+print (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{\mbox{\hyperlink{mini__base_8h_a2bf87f8c2c611ece6cf206621482a269}{t\+\_\+bool}}}]{is\+\_\+export }\end{DoxyParamCaption})}
+
+
+
+Prints the environment variables in the shell. 
+
+This function iterates through the linked list of environment variables and prints each variable in the format specified by the {\ttfamily is\+\_\+export} flag.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & Pointer to the shell structure containing the environment list. \\
+\hline
+{\em is\+\_\+export} & Boolean flag indicating the format of the output\+:
+\begin{DoxyItemize}
+\item If true, prints variables in the format used by the {\ttfamily export} command.
+\item If false, prints variables in the standard key=value format.
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{environment_8h_a5bf51f4346f39138091b60abd05d5fab}\label{environment_8h_a5bf51f4346f39138091b60abd05d5fab}} 
+\index{environment.h@{environment.h}!environment\_list\_print\_sorted@{environment\_list\_print\_sorted}}
+\index{environment\_list\_print\_sorted@{environment\_list\_print\_sorted}!environment.h@{environment.h}}
+\doxysubsubsection{\texorpdfstring{environment\_list\_print\_sorted()}{environment\_list\_print\_sorted()}}
+{\footnotesize\ttfamily void environment\+\_\+list\+\_\+print\+\_\+sorted (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell }\end{DoxyParamCaption})}
+
+
+
+Prints the environment variables in sorted order. 
+
+This function creates a temporary copy of the environment variables, sorts them, and then prints them. After printing, it clears the temporary environment list to free up memory.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & A pointer to the shell structure containing the environment list. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{environment_8h_a91813a28808629570986d5e88b912d5b}\label{environment_8h_a91813a28808629570986d5e88b912d5b}} 
+\index{environment.h@{environment.h}!environment\_list\_read@{environment\_list\_read}}
+\index{environment\_list\_read@{environment\_list\_read}!environment.h@{environment.h}}
+\doxysubsubsection{\texorpdfstring{environment\_list\_read()}{environment\_list\_read()}}
+{\footnotesize\ttfamily char$\ast$ environment\+\_\+list\+\_\+read (\begin{DoxyParamCaption}\item[{const char $\ast$}]{key,  }\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell }\end{DoxyParamCaption})}
+
+
+
+Reads the value associated with a given key from the environment list. 
+
+This function traverses the linked list of environment variables stored in the shell structure and returns the value associated with the specified key.
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key to search for in the environment list. \\
+\hline
+{\em shell} & A pointer to the shell structure containing the environment list. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value associated with the specified key, or an empty string if the key is not found. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{environment_8h_af82670ad46acaaebb1e7dc2aac869ca9}\label{environment_8h_af82670ad46acaaebb1e7dc2aac869ca9}} 
+\index{environment.h@{environment.h}!environment\_list\_read\_node@{environment\_list\_read\_node}}
+\index{environment\_list\_read\_node@{environment\_list\_read\_node}!environment.h@{environment.h}}
+\doxysubsubsection{\texorpdfstring{environment\_list\_read\_node()}{environment\_list\_read\_node()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{environment_8h_a27ae7c4f109de04c5eff0bf308108a92}{t\+\_\+environment\+\_\+node}}$\ast$ environment\+\_\+list\+\_\+read\+\_\+node (\begin{DoxyParamCaption}\item[{const char $\ast$}]{key,  }\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell }\end{DoxyParamCaption})}
+
+
+
+Reads a node from the environment list based on the given key. 
+
+This function searches through the environment list in the shell structure to find a node that matches the provided key. If a matching node is found, it is returned. Otherwise, the function returns NULL.
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key to search for in the environment list. \\
+\hline
+{\em shell} & A pointer to the shell structure containing the environment list. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+t\+\_\+environment\+\_\+node$\ast$ A pointer to the matching environment node, or NULL if not found. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{environment_8h_acbde6845a327536b8af768878d83c4c7}\label{environment_8h_acbde6845a327536b8af768878d83c4c7}} 
+\index{environment.h@{environment.h}!environment\_node\_from\_entry@{environment\_node\_from\_entry}}
+\index{environment\_node\_from\_entry@{environment\_node\_from\_entry}!environment.h@{environment.h}}
+\doxysubsubsection{\texorpdfstring{environment\_node\_from\_entry()}{environment\_node\_from\_entry()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{environment_8h_a27ae7c4f109de04c5eff0bf308108a92}{t\+\_\+environment\+\_\+node}}$\ast$ environment\+\_\+node\+\_\+from\+\_\+entry (\begin{DoxyParamCaption}\item[{const char $\ast$}]{entry,  }\item[{\mbox{\hyperlink{mini__base_8h_a2bf87f8c2c611ece6cf206621482a269}{t\+\_\+bool}}}]{is\+\_\+private }\end{DoxyParamCaption})}
+
+
+
+Creates a new environment node from an entry string. 
+
+This function takes an entry string, trims any surrounding double quotes, and splits it into key-\/value pairs using the \textquotesingle{}=\textquotesingle{} delimiter. It validates that exactly two parts exist after splitting. If invalid, it cleans up resources and returns NULL. Otherwise, it initializes a new node with the parsed values.
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & The entry string to parse. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+t\+\_\+environment\+\_\+node$\ast$ A pointer to the newly created node, or NULL if parsing failed. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{environment_8h_ab65cf7accc34ecfb94fd55ea5882ee61}\label{environment_8h_ab65cf7accc34ecfb94fd55ea5882ee61}} 
+\index{environment.h@{environment.h}!environment\_serialize@{environment\_serialize}}
+\index{environment\_serialize@{environment\_serialize}!environment.h@{environment.h}}
+\doxysubsubsection{\texorpdfstring{environment\_serialize()}{environment\_serialize()}}
+{\footnotesize\ttfamily char$\ast$$\ast$ environment\+\_\+serialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell }\end{DoxyParamCaption})}
+
+
+
+Serializes the environment variables from the shell into an array of strings. 
+
+This function takes the environment variables stored in the shell\textquotesingle{}s environment list and serializes them into an array of strings, where each string is in the format \char`\"{}key=value\char`\"{}. Private environment variables (marked by {\ttfamily is\+\_\+private}) are excluded from the serialization.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & A pointer to the shell structure containing the environment list. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A NULL-\/terminated array of strings representing the serialized environment variables. Returns NULL if there are no environment variables or if memory allocation fails. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{environment_8h_aaa61a48fe69658a6c0233c02fdd241c7}\label{environment_8h_aaa61a48fe69658a6c0233c02fdd241c7}} 
+\index{environment.h@{environment.h}!environment\_serialized\_list\_clear@{environment\_serialized\_list\_clear}}
+\index{environment\_serialized\_list\_clear@{environment\_serialized\_list\_clear}!environment.h@{environment.h}}
+\doxysubsubsection{\texorpdfstring{environment\_serialized\_list\_clear()}{environment\_serialized\_list\_clear()}}
+{\footnotesize\ttfamily void environment\+\_\+serialized\+\_\+list\+\_\+clear (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{list }\end{DoxyParamCaption})}
+
+
+
+Frees a list of strings and the list itself. 
+
+This function iterates through a list of strings, freeing each string, and then frees the list itself.
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & A null-\/terminated array of strings to be freed. \\
+\hline
+\end{DoxyParams}

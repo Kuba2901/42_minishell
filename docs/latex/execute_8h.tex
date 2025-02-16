@@ -1,0 +1,271 @@
+\hypertarget{execute_8h}{}\doxysection{inc/execute.h File Reference}
+\label{execute_8h}\index{inc/execute.h@{inc/execute.h}}
+{\ttfamily \#include $<$mini\+\_\+base.\+h$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$environment.\+h$>$}\newline
+{\ttfamily \#include $<$builtins.\+h$>$}\newline
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+{\ttfamily \#include $<$sys/wait.\+h$>$}\newline
+{\ttfamily \#include $<$ast.\+h$>$}\newline
+Include dependency graph for execute.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structs__heredoc__data}{s\+\_\+heredoc\+\_\+data}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{execute_8h_ac90a9361861e1a0dfeea83704655beb4}{HEREDOC\+\_\+\+FILE\+\_\+\+TEMPLATE}}~\char`\"{}/tmp/minishell\+\_\+heredoc\+\_\+\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structs__shell}{s\+\_\+shell}} \mbox{\hyperlink{execute_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}}
+\item 
+typedef struct \mbox{\hyperlink{structs__heredoc__data}{s\+\_\+heredoc\+\_\+data}} \mbox{\hyperlink{execute_8h_a7c59ed3b8b20e2add1886f011d405c74}{t\+\_\+heredoc\+\_\+data}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{execute_8h_a86765b7fa5c9fc51a9c3dbf93bdb77be}{execute\+\_\+find\+\_\+executable}} (char $\ast$command, \mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell)
+\begin{DoxyCompactList}\small\item\em Finds the full path of an executable command. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{execute_8h_a69654480f610064884dce4cc5aa2defd}{execute\+\_\+command\+\_\+node}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Executes a command node in the shell\textquotesingle{}s abstract syntax tree (AST). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{execute_8h_a7ae0b2ef56640c6936ffe657e13fa9f4}{execute\+\_\+ast}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Executes the abstract syntax tree (AST) node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{execute_8h_a5b178a509aa9bb551adc2ebd9d26e8da}{execute\+\_\+redirect\+\_\+in}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Executes a command with input redirection. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{execute_8h_a53a9f7fef2d5e37c1786689f9b45aec7}{execute\+\_\+pipe}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Executes a command pipeline by forking two child processes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{execute_8h_adba32900f19147f166f15e24a1253c23}{execute\+\_\+redirect\+\_\+append}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$node)
+\item 
+void \mbox{\hyperlink{execute_8h_a60b0ab10f687f85ac704dec45968f944}{execute\+\_\+redirect\+\_\+out}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Executes a command with output redirected to a file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{execute_8h_af2d532ac8d7ed9514eb8782ae7882d53}{execute\+\_\+preprocess\+\_\+heredocs}} (\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Preprocesses heredoc nodes in the abstract syntax tree (AST). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{execute_8h_a57e123669114e52b0f82b62e8729a0cd}{execution\+\_\+redirect\+\_\+open\+\_\+file}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Opens a file for redirection during command execution. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{execute_8h_ac90a9361861e1a0dfeea83704655beb4}\label{execute_8h_ac90a9361861e1a0dfeea83704655beb4}} 
+\index{execute.h@{execute.h}!HEREDOC\_FILE\_TEMPLATE@{HEREDOC\_FILE\_TEMPLATE}}
+\index{HEREDOC\_FILE\_TEMPLATE@{HEREDOC\_FILE\_TEMPLATE}!execute.h@{execute.h}}
+\doxysubsubsection{\texorpdfstring{HEREDOC\_FILE\_TEMPLATE}{HEREDOC\_FILE\_TEMPLATE}}
+{\footnotesize\ttfamily \#define HEREDOC\+\_\+\+FILE\+\_\+\+TEMPLATE~\char`\"{}/tmp/minishell\+\_\+heredoc\+\_\+\char`\"{}}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{execute_8h_a7c59ed3b8b20e2add1886f011d405c74}\label{execute_8h_a7c59ed3b8b20e2add1886f011d405c74}} 
+\index{execute.h@{execute.h}!t\_heredoc\_data@{t\_heredoc\_data}}
+\index{t\_heredoc\_data@{t\_heredoc\_data}!execute.h@{execute.h}}
+\doxysubsubsection{\texorpdfstring{t\_heredoc\_data}{t\_heredoc\_data}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structs__heredoc__data}{s\+\_\+heredoc\+\_\+data}} \mbox{\hyperlink{execute_8h_a7c59ed3b8b20e2add1886f011d405c74}{t\+\_\+heredoc\+\_\+data}}}
+
+\mbox{\Hypertarget{execute_8h_ae4cfb7c093350dca726786f683b6aca3}\label{execute_8h_ae4cfb7c093350dca726786f683b6aca3}} 
+\index{execute.h@{execute.h}!t\_shell@{t\_shell}}
+\index{t\_shell@{t\_shell}!execute.h@{execute.h}}
+\doxysubsubsection{\texorpdfstring{t\_shell}{t\_shell}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structs__shell}{s\+\_\+shell}} \mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{execute_8h_a7ae0b2ef56640c6936ffe657e13fa9f4}\label{execute_8h_a7ae0b2ef56640c6936ffe657e13fa9f4}} 
+\index{execute.h@{execute.h}!execute\_ast@{execute\_ast}}
+\index{execute\_ast@{execute\_ast}!execute.h@{execute.h}}
+\doxysubsubsection{\texorpdfstring{execute\_ast()}{execute\_ast()}}
+{\footnotesize\ttfamily void execute\+\_\+ast (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Executes the abstract syntax tree (AST) node. 
+
+This function takes a shell context and an AST node, and executes the node based on its type. The function handles different types of nodes such as command nodes, pipe nodes, and various types of redirection nodes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & A pointer to the shell context. \\
+\hline
+{\em node} & A pointer to the AST node to be executed.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+If the node is NULL, the function returns immediately. 
+
+The function delegates the execution to specific functions based on the type of the node. 
+\end{DoxyNote}
+\mbox{\Hypertarget{execute_8h_a69654480f610064884dce4cc5aa2defd}\label{execute_8h_a69654480f610064884dce4cc5aa2defd}} 
+\index{execute.h@{execute.h}!execute\_command\_node@{execute\_command\_node}}
+\index{execute\_command\_node@{execute\_command\_node}!execute.h@{execute.h}}
+\doxysubsubsection{\texorpdfstring{execute\_command\_node()}{execute\_command\_node()}}
+{\footnotesize\ttfamily void execute\+\_\+command\+\_\+node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Executes a command node in the shell\textquotesingle{}s abstract syntax tree (AST). 
+
+This function determines if the command node represents a built-\/in command or a more complex command. If it is a built-\/in command, it executes it directly. Otherwise, it forks a new process to execute the complex command.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & A pointer to the shell structure containing the shell\textquotesingle{}s state. \\
+\hline
+{\em node} & A pointer to the AST node representing the command to be executed.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+If the command is not a built-\/in, the function forks a new process. The parent process waits for the child process to complete and updates the shell\textquotesingle{}s exit code based on the child\textquotesingle{}s exit status. 
+\end{DoxyNote}
+\mbox{\Hypertarget{execute_8h_a86765b7fa5c9fc51a9c3dbf93bdb77be}\label{execute_8h_a86765b7fa5c9fc51a9c3dbf93bdb77be}} 
+\index{execute.h@{execute.h}!execute\_find\_executable@{execute\_find\_executable}}
+\index{execute\_find\_executable@{execute\_find\_executable}!execute.h@{execute.h}}
+\doxysubsubsection{\texorpdfstring{execute\_find\_executable()}{execute\_find\_executable()}}
+{\footnotesize\ttfamily char$\ast$ execute\+\_\+find\+\_\+executable (\begin{DoxyParamCaption}\item[{char $\ast$}]{command,  }\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell }\end{DoxyParamCaption})}
+
+
+
+Finds the full path of an executable command. 
+
+This function searches for the given command in the directories specified by the PATH environment variable. If the command is an absolute path or a relative path starting with \char`\"{}./\char`\"{}, it checks if the command is executable.
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The command to find the executable path for. \\
+\hline
+{\em shell} & The shell structure containing environment variables. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A dynamically allocated string containing the full path of the executable if found, or NULL if the command is not found or not executable. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{execute_8h_a53a9f7fef2d5e37c1786689f9b45aec7}\label{execute_8h_a53a9f7fef2d5e37c1786689f9b45aec7}} 
+\index{execute.h@{execute.h}!execute\_pipe@{execute\_pipe}}
+\index{execute\_pipe@{execute\_pipe}!execute.h@{execute.h}}
+\doxysubsubsection{\texorpdfstring{execute\_pipe()}{execute\_pipe()}}
+{\footnotesize\ttfamily void execute\+\_\+pipe (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Executes a command pipeline by forking two child processes. 
+
+This function creates a pipe and forks two child processes to execute the left and right sides of a pipeline. The left child process writes to the pipe, and the right child process reads from the pipe. The parent process waits for both child processes to complete and sets the shell\textquotesingle{}s exit code based on the status of the right child process.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & A pointer to the shell structure. \\
+\hline
+{\em node} & A pointer to the abstract syntax tree node representing the pipeline. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{execute_8h_af2d532ac8d7ed9514eb8782ae7882d53}\label{execute_8h_af2d532ac8d7ed9514eb8782ae7882d53}} 
+\index{execute.h@{execute.h}!execute\_preprocess\_heredocs@{execute\_preprocess\_heredocs}}
+\index{execute\_preprocess\_heredocs@{execute\_preprocess\_heredocs}!execute.h@{execute.h}}
+\doxysubsubsection{\texorpdfstring{execute\_preprocess\_heredocs()}{execute\_preprocess\_heredocs()}}
+{\footnotesize\ttfamily void execute\+\_\+preprocess\+\_\+heredocs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Preprocesses heredoc nodes in the abstract syntax tree (AST). 
+
+This function recursively traverses the AST and processes nodes of type TOKEN\+\_\+\+HEREDOC. For each such node, it trims the quotes from the delimiter, creates a temporary file name, processes the heredoc input, and updates the node type to TOKEN\+\_\+\+REDIRECT\+\_\+\+IN. It also updates the node\textquotesingle{}s arguments to point to the temporary file name.
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & A pointer to the current AST node being processed. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{execute_8h_adba32900f19147f166f15e24a1253c23}\label{execute_8h_adba32900f19147f166f15e24a1253c23}} 
+\index{execute.h@{execute.h}!execute\_redirect\_append@{execute\_redirect\_append}}
+\index{execute\_redirect\_append@{execute\_redirect\_append}!execute.h@{execute.h}}
+\doxysubsubsection{\texorpdfstring{execute\_redirect\_append()}{execute\_redirect\_append()}}
+{\footnotesize\ttfamily void execute\+\_\+redirect\+\_\+append (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+execute\+\_\+redirect\+\_\+append -\/ Executes a command with output redirected to a file in append mode. @shell\+: Pointer to the shell structure containing environment variables and state. @node\+: Pointer to the AST node representing the command and redirection.
+
+This function performs the following steps\+:
+\begin{DoxyEnumerate}
+\item Duplicates the current STDOUT file descriptor to save the original STDOUT.
+\item Expands the file name using environment variable expansion.
+\item Opens the file in append mode, creating it if it does not exist.
+\item Redirects STDOUT to the opened file.
+\item Executes the command represented by the left child of the AST node.
+\item Restores the original STDOUT.
+\item Closes the file descriptors.
+\end{DoxyEnumerate}
+
+If the file cannot be opened, the function prints an error message and exits. \mbox{\Hypertarget{execute_8h_a5b178a509aa9bb551adc2ebd9d26e8da}\label{execute_8h_a5b178a509aa9bb551adc2ebd9d26e8da}} 
+\index{execute.h@{execute.h}!execute\_redirect\_in@{execute\_redirect\_in}}
+\index{execute\_redirect\_in@{execute\_redirect\_in}!execute.h@{execute.h}}
+\doxysubsubsection{\texorpdfstring{execute\_redirect\_in()}{execute\_redirect\_in()}}
+{\footnotesize\ttfamily void execute\+\_\+redirect\+\_\+in (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Executes a command with input redirection. 
+
+This function handles the execution of a command where the input is redirected from a file. It temporarily replaces the standard input (stdin) with the contents of the specified file, executes the command, and then restores the original stdin.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & Pointer to the shell structure containing environment and state information. \\
+\hline
+{\em node} & Pointer to the AST node representing the command and its redirection.\\
+\hline
+\end{DoxyParams}
+The function performs the following steps\+:
+\begin{DoxyEnumerate}
+\item Duplicates the current stdin file descriptor to save it.
+\item Expands the file name using environment variable expansion.
+\item Opens the file for reading.
+\item If the file cannot be opened, prints an error message and exits.
+\item Redirects stdin to the opened file.
+\item Executes the command represented by the left child of the AST node.
+\item Restores the original stdin.
+\item Closes the duplicated stdin file descriptor. 
+\end{DoxyEnumerate}\mbox{\Hypertarget{execute_8h_a60b0ab10f687f85ac704dec45968f944}\label{execute_8h_a60b0ab10f687f85ac704dec45968f944}} 
+\index{execute.h@{execute.h}!execute\_redirect\_out@{execute\_redirect\_out}}
+\index{execute\_redirect\_out@{execute\_redirect\_out}!execute.h@{execute.h}}
+\doxysubsubsection{\texorpdfstring{execute\_redirect\_out()}{execute\_redirect\_out()}}
+{\footnotesize\ttfamily void execute\+\_\+redirect\+\_\+out (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Executes a command with output redirected to a file. 
+
+This function handles the redirection of the standard output (stdout) to a file specified in the abstract syntax tree (AST) node. It first duplicates the current stdout file descriptor to restore it later. Then, it expands the file name using environment variable expansion, opens the file with write permissions, and redirects stdout to this file. After executing the command represented by the left child of the AST node, it restores the original stdout file descriptor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & Pointer to the shell structure containing the environment and state. \\
+\hline
+{\em node} & Pointer to the AST node representing the redirection operation. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{execute_8h_a57e123669114e52b0f82b62e8729a0cd}\label{execute_8h_a57e123669114e52b0f82b62e8729a0cd}} 
+\index{execute.h@{execute.h}!execution\_redirect\_open\_file@{execution\_redirect\_open\_file}}
+\index{execution\_redirect\_open\_file@{execution\_redirect\_open\_file}!execute.h@{execute.h}}
+\doxysubsubsection{\texorpdfstring{execution\_redirect\_open\_file()}{execution\_redirect\_open\_file()}}
+{\footnotesize\ttfamily int execution\+\_\+redirect\+\_\+open\+\_\+file (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Opens a file for redirection during command execution. 
+
+This function expands the file name using environment variables, opens the file with the appropriate mode, and returns the file descriptor. If the file cannot be opened, the function will terminate the program with an exit status of failure.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & A pointer to the shell structure containing environment variables. \\
+\hline
+{\em node} & A pointer to the AST node containing the file redirection information. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The file descriptor of the opened file. 
+\end{DoxyReturn}

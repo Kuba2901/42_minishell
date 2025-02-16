@@ -6,17 +6,27 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:50:10 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/15 15:39:29 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/16 21:24:06 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <environment.h>
 #include <minishell.h>
 
-static t_bool	_is_key_valid(char *key)
+/**
+ * @brief Checks if a given environment variable key is valid.
+ *
+ * A valid key must:
+ * - Start with an alphabetical character.
+ * - Contain only alphanumeric characters or underscores.
+ * - Not contain an '=' character.
+ *
+ * @param key The key to be validated.
+ * @return true if the key is valid, false otherwise.
+ */
+static t_bool _is_key_valid(char *key)
 {
-	size_t	i;
-
+	size_t i;
 	i = 0;
 	if (!key || !ft_isalpha(key[0]) || ft_strchr(key, '='))
 		return (false);
@@ -29,9 +39,18 @@ static t_bool	_is_key_valid(char *key)
 	return (true);
 }
 
-static void	cleanup_export_args(char **args, char *entry)
+/**
+ * @brief Frees memory allocated for export arguments.
+ *
+ * This function is used to free memory allocated for argument arrays
+ * and dynamically created entry strings used in the export process.
+ *
+ * @param args The array of argument strings to be freed.
+ * @param entry The dynamically allocated entry string.
+ */
+static void cleanup_export_args(char **args, char *entry)
 {
-	int	j;
+	int j;
 
 	j = -1;
 	while (args[++j])
@@ -40,9 +59,20 @@ static void	cleanup_export_args(char **args, char *entry)
 	free(entry);
 }
 
-static t_bool	process_single_arg(t_shell *shell, char *arg)
+/**
+ * @brief Processes a single argument for the export command.
+ *
+ * If the argument is a valid environment variable key, it ensures
+ * the variable is set as non-private. If the key does not exist,
+ * it creates a new environment variable node.
+ *
+ * @param shell A pointer to the shell structure.
+ * @param arg The environment variable key to process.
+ * @return true if an error occurs, false otherwise.
+ */
+static t_bool process_single_arg(t_shell *shell, char *arg)
 {
-	t_environment_node	*node;
+	t_environment_node *node;
 
 	if (!_is_key_valid(arg))
 	{
@@ -57,11 +87,23 @@ static t_bool	process_single_arg(t_shell *shell, char *arg)
 	return (false);
 }
 
-static t_bool	process_key_value_pair(t_shell *shell, char *arg1, char *arg2)
+/**
+ * @brief Processes an export command with a key-value pair.
+ *
+ * This function checks if the key is valid and then creates an
+ * environment variable entry. If the key is invalid, an error
+ * message is printed.
+ *
+ * @param shell A pointer to the shell structure.
+ * @param arg1 The key of the environment variable.
+ * @param arg2 The value of the environment variable.
+ * @return true if an error occurs, false otherwise.
+ */
+static t_bool process_key_value_pair(t_shell *shell, char *arg1, char *arg2)
 {
-	char	*entry;
-	char	**args;
-	t_bool	has_error;
+	char *entry;
+	char **args;
+	t_bool has_error;
 
 	has_error = false;
 	entry = ft_strjoin(arg1, arg2);
@@ -77,18 +119,28 @@ static t_bool	process_key_value_pair(t_shell *shell, char *arg1, char *arg2)
 		enviroment_node_create(entry, shell, false);
 	else
 	{
-		ft_puterror("minishell: export: `", args[0],
-			"': not a valid identifier");
+		ft_puterror("minishell: export: `", args[0], "': not a valid identifier");
 		has_error = true;
 	}
 	cleanup_export_args(args, entry);
 	return (has_error);
 }
 
-t_bool	builtin_export_export_key_value(t_shell *shell, t_ast_node *node)
+/**
+ * @brief Processes the export command by handling multiple key-value pairs.
+ *
+ * This function iterates through the provided arguments, processing each
+ * as either a single key or a key-value pair. It updates the environment
+ * variables accordingly.
+ *
+ * @param shell A pointer to the shell structure.
+ * @param node The AST node containing the command and its arguments.
+ * @return true if an error occurs during processing, false otherwise.
+ */
+t_bool builtin_export_export_key_value(t_shell *shell, t_ast_node *node)
 {
-	size_t	i;
-	t_bool	has_error;
+	size_t i;
+	t_bool has_error;
 
 	i = 1;
 	has_error = false;
@@ -97,10 +149,10 @@ t_bool	builtin_export_export_key_value(t_shell *shell, t_ast_node *node)
 		if (!node->token_node->args[i + 1])
 		{
 			has_error = process_single_arg(shell, node->token_node->args[i]);
-			break ;
+			break;
 		}
 		has_error = process_key_value_pair(shell, node->token_node->args[i],
-				node->token_node->args[i + 1]);
+			node->token_node->args[i + 1]);
 		i += 2;
 	}
 	return (has_error);

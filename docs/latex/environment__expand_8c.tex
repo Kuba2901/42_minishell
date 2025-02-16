@@ -1,0 +1,44 @@
+\hypertarget{environment__expand_8c}{}\doxysection{src/environment/environment\+\_\+expand.c File Reference}
+\label{environment__expand_8c}\index{src/environment/environment\_expand.c@{src/environment/environment\_expand.c}}
+{\ttfamily \#include $<$environment.\+h$>$}\newline
+{\ttfamily \#include $<$minishell.\+h$>$}\newline
+Include dependency graph for environment\+\_\+expand.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{environment__expand_8c_ad93e330995179cc3e902d34d845fd38f}{env\+\_\+value\+\_\+expand}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, char $\ast$key)
+\begin{DoxyCompactList}\small\item\em Expands the value of an environment variable based on the given key. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{environment__expand_8c_ad93e330995179cc3e902d34d845fd38f}\label{environment__expand_8c_ad93e330995179cc3e902d34d845fd38f}} 
+\index{environment\_expand.c@{environment\_expand.c}!env\_value\_expand@{env\_value\_expand}}
+\index{env\_value\_expand@{env\_value\_expand}!environment\_expand.c@{environment\_expand.c}}
+\doxysubsubsection{\texorpdfstring{env\_value\_expand()}{env\_value\_expand()}}
+{\footnotesize\ttfamily char$\ast$ env\+\_\+value\+\_\+expand (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{char $\ast$}]{key }\end{DoxyParamCaption})}
+
+
+
+Expands the value of an environment variable based on the given key. 
+
+This function takes a key and returns the corresponding environment variable\textquotesingle{}s value. It handles different cases based on the first character of the key\+:
+\begin{DoxyItemize}
+\item If the key starts with \textquotesingle{}\$\textquotesingle{}, it skips the \textquotesingle{}\$\textquotesingle{} and looks up the environment variable.
+\item If the key starts with \textquotesingle{}\char`\"{}\textquotesingle{}, it expands multiple variables within the key.
+\item If the key starts with \textquotesingle{}\textbackslash{}\textquotesingle{}\textquotesingle{}, it trims the quotes from the key.
+\item Otherwise, it returns a duplicate of the key.
+\end{DoxyItemize}
+
+Additionally, if the key is \char`\"{}?\char`\"{}, it returns the shell\textquotesingle{}s exit code as a string.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & A pointer to the shell structure containing environment variables and exit code. \\
+\hline
+{\em key} & The key of the environment variable to expand. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A dynamically allocated string containing the expanded value, or NULL if the key is invalid or the value is not found. 
+\end{DoxyReturn}

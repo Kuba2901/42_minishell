@@ -1,0 +1,31 @@
+\hypertarget{builtin__env_8c}{}\doxysection{src/builtins/builtin\+\_\+env.c File Reference}
+\label{builtin__env_8c}\index{src/builtins/builtin\_env.c@{src/builtins/builtin\_env.c}}
+{\ttfamily \#include $<$builtins.\+h$>$}\newline
+{\ttfamily \#include $<$minishell.\+h$>$}\newline
+Include dependency graph for builtin\+\_\+env.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{builtin__env_8c_a5cf7109c52809d01dd2115412373bf91}{builtin\+\_\+env}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell)
+\begin{DoxyCompactList}\small\item\em Prints the current environment variables. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{builtin__env_8c_a5cf7109c52809d01dd2115412373bf91}\label{builtin__env_8c_a5cf7109c52809d01dd2115412373bf91}} 
+\index{builtin\_env.c@{builtin\_env.c}!builtin\_env@{builtin\_env}}
+\index{builtin\_env@{builtin\_env}!builtin\_env.c@{builtin\_env.c}}
+\doxysubsubsection{\texorpdfstring{builtin\_env()}{builtin\_env()}}
+{\footnotesize\ttfamily void builtin\+\_\+env (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell }\end{DoxyParamCaption})}
+
+
+
+Prints the current environment variables. 
+
+This function prints all the environment variables stored in the shell\textquotesingle{}s environment list. It also sets the shell\textquotesingle{}s exit code to 0 upon completion.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & A pointer to the shell structure containing the environment list. \\
+\hline
+\end{DoxyParams}
