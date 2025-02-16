@@ -1,0 +1,24 @@
+\hypertarget{ast__create__command_8c}{}\doxysection{src/parsing/ast/ast\+\_\+create\+\_\+command.c File Reference}
+\label{ast__create__command_8c}\index{src/parsing/ast/ast\_create\_command.c@{src/parsing/ast/ast\_create\_command.c}}
+{\ttfamily \#include $<$ast.\+h$>$}\newline
+Include dependency graph for ast\+\_\+create\+\_\+command.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$ \mbox{\hyperlink{ast__create__command_8c_a7729393eddbf3cc99189f20ee2a8875f}{ast\+\_\+create\+\_\+command}} (\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$list)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ast__create__command_8c_a7729393eddbf3cc99189f20ee2a8875f}\label{ast__create__command_8c_a7729393eddbf3cc99189f20ee2a8875f}} 
+\index{ast\_create\_command.c@{ast\_create\_command.c}!ast\_create\_command@{ast\_create\_command}}
+\index{ast\_create\_command@{ast\_create\_command}!ast\_create\_command.c@{ast\_create\_command.c}}
+\doxysubsubsection{\texorpdfstring{ast\_create\_command()}{ast\_create\_command()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}}$\ast$ ast\+\_\+create\+\_\+command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$}]{list }\end{DoxyParamCaption})}
+
+ast\+\_\+parse\+\_\+command -\/ Parses a command from a token list and creates an AST node. @list\+: A double pointer to the head of the token list.
+
+This function checks if the provided token list is valid and if the head of the list is of type TOKEN\+\_\+\+STRING. If so, it creates an AST node from the head token, advances the list to the next token, and returns the created AST node. If the list is invalid or the head token is not of type TOKEN\+\_\+\+STRING, it returns NULL.
+
+Return\+: A pointer to the created AST node, or NULL if the list is invalid or the head token is not of type TOKEN\+\_\+\+STRING. 

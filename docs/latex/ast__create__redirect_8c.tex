@@ -1,0 +1,25 @@
+\hypertarget{ast__create__redirect_8c}{}\doxysection{src/parsing/ast/ast\+\_\+create\+\_\+redirect.c File Reference}
+\label{ast__create__redirect_8c}\index{src/parsing/ast/ast\_create\_redirect.c@{src/parsing/ast/ast\_create\_redirect.c}}
+{\ttfamily \#include $<$ast.\+h$>$}\newline
+{\ttfamily \#include $<$libft.\+h$>$}\newline
+Include dependency graph for ast\+\_\+create\+\_\+redirect.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$ \mbox{\hyperlink{ast__create__redirect_8c_af3adbca4bd20ec24f5073a1ba9dfa81f}{ast\+\_\+create\+\_\+redirect}} (\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$list)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ast__create__redirect_8c_af3adbca4bd20ec24f5073a1ba9dfa81f}\label{ast__create__redirect_8c_af3adbca4bd20ec24f5073a1ba9dfa81f}} 
+\index{ast\_create\_redirect.c@{ast\_create\_redirect.c}!ast\_create\_redirect@{ast\_create\_redirect}}
+\index{ast\_create\_redirect@{ast\_create\_redirect}!ast\_create\_redirect.c@{ast\_create\_redirect.c}}
+\doxysubsubsection{\texorpdfstring{ast\_create\_redirect()}{ast\_create\_redirect()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}}$\ast$ ast\+\_\+create\+\_\+redirect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$}]{list }\end{DoxyParamCaption})}
+
+ast\+\_\+create\+\_\+redirect -\/ Parses a list of tokens to create an abstract syntax tree (AST) node representing a redirection. @list\+: A pointer to the list of tokens to be parsed.
+
+This function parses a list of tokens to create an AST node that represents a redirection operation. It first parses the left-\/hand side command, then iterates through the list of tokens to check for redirection operators (heredoc, redirect in, append, redirect out). For each redirection operator found, it creates a new AST node, sets the left and right children, and updates the list pointer to the next token. The function returns the root of the created AST subtree.
+
+Return\+: A pointer to the root AST node representing the redirection. 

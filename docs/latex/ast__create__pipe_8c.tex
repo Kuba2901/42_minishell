@@ -1,0 +1,24 @@
+\hypertarget{ast__create__pipe_8c}{}\doxysection{src/parsing/ast/ast\+\_\+create\+\_\+pipe.c File Reference}
+\label{ast__create__pipe_8c}\index{src/parsing/ast/ast\_create\_pipe.c@{src/parsing/ast/ast\_create\_pipe.c}}
+{\ttfamily \#include $<$ast.\+h$>$}\newline
+Include dependency graph for ast\+\_\+create\+\_\+pipe.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$ \mbox{\hyperlink{ast__create__pipe_8c_ad580b853b09af8c71108ad162c73b98b}{ast\+\_\+create\+\_\+pipe}} (\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$list)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ast__create__pipe_8c_ad580b853b09af8c71108ad162c73b98b}\label{ast__create__pipe_8c_ad580b853b09af8c71108ad162c73b98b}} 
+\index{ast\_create\_pipe.c@{ast\_create\_pipe.c}!ast\_create\_pipe@{ast\_create\_pipe}}
+\index{ast\_create\_pipe@{ast\_create\_pipe}!ast\_create\_pipe.c@{ast\_create\_pipe.c}}
+\doxysubsubsection{\texorpdfstring{ast\_create\_pipe()}{ast\_create\_pipe()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}}$\ast$ ast\+\_\+create\+\_\+pipe (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$}]{list }\end{DoxyParamCaption})}
+
+ast\+\_\+create\+\_\+pipe -\/ Creates an AST node for a pipe operation. @list\+: A pointer to the list of token nodes.
+
+This function creates an abstract syntax tree (AST) node for a pipe operation by parsing the token list. It first creates the left node by calling ast\+\_\+create\+\_\+redirect. Then, it iterates through the token list to find pipe tokens (TOKEN\+\_\+\+PIPE). For each pipe token found, it creates a right node by calling ast\+\_\+create, and then creates a pipe node with the current token. The left and right nodes are assigned to the pipe node, and the left node is updated to the pipe node. The function returns the final left node, which represents the root of the pipe operation AST.
+
+Return\+: A pointer to the root AST node of the pipe operation. 

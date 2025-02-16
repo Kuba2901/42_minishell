@@ -1,0 +1,34 @@
+\hypertarget{execute__append_8c}{}\doxysection{src/execution/execute\+\_\+append.c File Reference}
+\label{execute__append_8c}\index{src/execution/execute\_append.c@{src/execution/execute\_append.c}}
+{\ttfamily \#include $<$execute.\+h$>$}\newline
+{\ttfamily \#include $<$minishell.\+h$>$}\newline
+Include dependency graph for execute\+\_\+append.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{execute__append_8c_adba32900f19147f166f15e24a1253c23}{execute\+\_\+redirect\+\_\+append}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$node)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{execute__append_8c_adba32900f19147f166f15e24a1253c23}\label{execute__append_8c_adba32900f19147f166f15e24a1253c23}} 
+\index{execute\_append.c@{execute\_append.c}!execute\_redirect\_append@{execute\_redirect\_append}}
+\index{execute\_redirect\_append@{execute\_redirect\_append}!execute\_append.c@{execute\_append.c}}
+\doxysubsubsection{\texorpdfstring{execute\_redirect\_append()}{execute\_redirect\_append()}}
+{\footnotesize\ttfamily void execute\+\_\+redirect\+\_\+append (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+execute\+\_\+redirect\+\_\+append -\/ Executes a command with output redirected to a file in append mode. @shell\+: Pointer to the shell structure containing environment variables and state. @node\+: Pointer to the AST node representing the command and redirection.
+
+This function performs the following steps\+:
+\begin{DoxyEnumerate}
+\item Duplicates the current STDOUT file descriptor to save the original STDOUT.
+\item Expands the file name using environment variable expansion.
+\item Opens the file in append mode, creating it if it does not exist.
+\item Redirects STDOUT to the opened file.
+\item Executes the command represented by the left child of the AST node.
+\item Restores the original STDOUT.
+\item Closes the file descriptors.
+\end{DoxyEnumerate}
+
+If the file cannot be opened, the function prints an error message and exits. 

@@ -6,13 +6,27 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:27:34 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/16 21:02:11 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/16 21:34:16 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <execute.h>
 #include <minishell.h>
 
+/**
+ * @brief Searches for the given command in the specified directories.
+ *
+ * This function iterates through the provided directories to find the full path
+ * of the given command. It constructs the full path by concatenating the directory
+ * path with the command name and checks if the constructed path is executable.
+ * If an executable path is found, it frees the remaining directories and returns
+ * the full path. If no executable path is found, it returns NULL.
+ *
+ * @param command The name of the command to search for.
+ * @param directories An array of directory paths to search in. The array must be
+ *                    NULL-terminated.
+ * @return The full path of the executable command if found, otherwise NULL.
+ */
 static char	*_search_in_path(char *command, char **directories)
 {
 	int		i;
@@ -69,6 +83,22 @@ char	*execute_find_executable(char *command, t_shell *shell)
 	return (_search_in_path(command, dir));
 }
 
+/**
+ * @brief Opens a file based on the type of redirection specified in the AST node.
+ *
+ * This function determines the appropriate file opening flags based on the type
+ * of redirection token present in the given AST node. It supports the following
+ * types of redirection:
+ * - TOKEN_REDIRECT_IN: Opens the file in read-only mode.
+ * - TOKEN_REDIRECT_OUT: Opens the file in write-only mode, creates the file if it
+ *   does not exist, and truncates the file if it does exist.
+ * - TOKEN_APPEND: Opens the file in write-only mode, creates the file if it does
+ *   not exist, and appends to the file if it does exist.
+ *
+ * @param node A pointer to the AST node containing the redirection token.
+ * @return The appropriate file opening flags for the specified redirection type,
+ *         or 0 if the node is NULL or the redirection type is not recognized.
+ */
 static int	execution_open_file_type(t_ast_node *node)
 {
 	if (!node)
@@ -82,6 +112,17 @@ static int	execution_open_file_type(t_ast_node *node)
 	return (0);
 }
 
+/**
+ * @brief Opens a file for redirection during command execution.
+ *
+ * This function expands the file name using environment variables, opens the file
+ * with the appropriate mode, and returns the file descriptor. If the file cannot
+ * be opened, the function will terminate the program with an exit status of failure.
+ *
+ * @param shell A pointer to the shell structure containing environment variables.
+ * @param node A pointer to the AST node containing the file redirection information.
+ * @return The file descriptor of the opened file.
+ */
 int	execution_redirect_open_file(t_shell *shell, t_ast_node *node)
 {
 	int		fd;

@@ -6,12 +6,22 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:08:19 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/15 15:38:49 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/16 21:36:10 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <tokens.h>
 
+/**
+ * @brief Appends a new token node to the end of the token list.
+ *
+ * This function takes a pointer to the head of a token list and a new token node,
+ * and appends the new node to the end of the list. If the new node is NULL, the
+ * function does nothing. If the list is empty, the new node becomes the head of the list.
+ *
+ * @param list A double pointer to the head of the token list.
+ * @param new_node A pointer to the new token node to be appended.
+ */
 void	token_append(t_token_node **list, t_token_node *new_node)
 {
 	t_token_node	*last_node;

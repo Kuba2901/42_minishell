@@ -6,12 +6,25 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:07:33 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/12 17:07:57 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/16 21:39:28 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <tokens.h>
 
+/**
+ * @brief Initializes a new token node with the given type and value.
+ *
+ * This function allocates memory for a new token node and initializes its
+ * fields based on the provided type and value. If the type is TOKEN_STRING
+ * and a non-NULL value is provided, it also allocates memory for the args
+ * field and duplicates the value into the first element of the args array.
+ *
+ * @param type The type of the token.
+ * @param value The value of the token, used if the type is TOKEN_STRING.
+ * @return A pointer to the newly created token node, or NULL if memory
+ *         allocation fails.
+ */
 static t_token_node	*_token_initialize(t_token_type type, char *value)
 {
 	t_token_node	*token;

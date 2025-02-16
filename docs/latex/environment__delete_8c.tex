@@ -1,0 +1,52 @@
+\hypertarget{environment__delete_8c}{}\doxysection{src/environment/environment\+\_\+delete.c File Reference}
+\label{environment__delete_8c}\index{src/environment/environment\_delete.c@{src/environment/environment\_delete.c}}
+{\ttfamily \#include $<$environment.\+h$>$}\newline
+{\ttfamily \#include $<$minishell.\+h$>$}\newline
+Include dependency graph for environment\+\_\+delete.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{environment__delete_8c_a09ee8956599f70273d6a9f91d3dac2e1}{enviroment\+\_\+node\+\_\+delete}} (const char $\ast$key, \mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell)
+\begin{DoxyCompactList}\small\item\em Deletes an environment node with a specified key from the shell\textquotesingle{}s environment list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{environment__delete_8c_a1e020807d76e090dd0b63c91c71743be}{environment\+\_\+list\+\_\+clear}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell)
+\begin{DoxyCompactList}\small\item\em Clears all nodes in the shell\textquotesingle{}s environment list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{environment__delete_8c_a09ee8956599f70273d6a9f91d3dac2e1}\label{environment__delete_8c_a09ee8956599f70273d6a9f91d3dac2e1}} 
+\index{environment\_delete.c@{environment\_delete.c}!enviroment\_node\_delete@{enviroment\_node\_delete}}
+\index{enviroment\_node\_delete@{enviroment\_node\_delete}!environment\_delete.c@{environment\_delete.c}}
+\doxysubsubsection{\texorpdfstring{enviroment\_node\_delete()}{enviroment\_node\_delete()}}
+{\footnotesize\ttfamily void enviroment\+\_\+node\+\_\+delete (\begin{DoxyParamCaption}\item[{const char $\ast$}]{key,  }\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell }\end{DoxyParamCaption})}
+
+
+
+Deletes an environment node with a specified key from the shell\textquotesingle{}s environment list. 
+
+This function searches for a node with the given key in the shell\textquotesingle{}s environment list. If found, it removes the node from the list and frees its resources. If not found, or if inputs are invalid, it does nothing.
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key of the node to delete. \\
+\hline
+{\em shell} & A pointer to the shell context containing the environment list. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{environment__delete_8c_a1e020807d76e090dd0b63c91c71743be}\label{environment__delete_8c_a1e020807d76e090dd0b63c91c71743be}} 
+\index{environment\_delete.c@{environment\_delete.c}!environment\_list\_clear@{environment\_list\_clear}}
+\index{environment\_list\_clear@{environment\_list\_clear}!environment\_delete.c@{environment\_delete.c}}
+\doxysubsubsection{\texorpdfstring{environment\_list\_clear()}{environment\_list\_clear()}}
+{\footnotesize\ttfamily void environment\+\_\+list\+\_\+clear (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell }\end{DoxyParamCaption})}
+
+
+
+Clears all nodes in the shell\textquotesingle{}s environment list. 
+
+This function iterates through each node in the environment list, deletes them one by one using \+\_\+environment\+\_\+node\+\_\+delete, and updates the head pointer to NULL. It ensures that all resources are properly freed and the list is completely cleared.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & A pointer to the shell context containing the environment list. \\
+\hline
+\end{DoxyParams}

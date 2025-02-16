@@ -6,13 +6,28 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:28:07 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/13 14:58:41 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/16 21:32:45 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <execute.h>
 #include <minishell.h>
 
+/**
+ * @brief Creates a temporary file name using a template and the process ID.
+ *
+ * This function generates a unique temporary file name by appending the
+ * current process ID to a predefined template string. The resulting file
+ * name is dynamically allocated and should be freed by the caller when no
+ * longer needed.
+ *
+ * @return A pointer to the dynamically allocated string containing the
+ *         temporary file name. The caller is responsible for freeing this
+ *         memory.
+ *
+ * @note If memory allocation fails, the function prints an error message
+ *       and terminates the program.
+ */
 static char	*_create_temp_file_name(void)
 {
 	char	*temp_filename;
@@ -40,6 +55,17 @@ static char	*_create_temp_file_name(void)
 	return (temp_filename);
 }
 
+/**
+ * @brief Trims the leading and trailing quotes from a given string.
+ *
+ * This function checks if the input string starts and ends with the same type of quote
+ * (either single quote ' or double quote "). If so, it allocates memory for a new string
+ * that excludes these quotes and returns it. If the input string does not start and end
+ * with the same type of quote, it returns a duplicate of the original string.
+ *
+ * @param str The input string to be trimmed.
+ * @return A new string with the leading and trailing quotes removed, or a duplicate of the original string if no quotes are found.
+ */
 static char	*trim_quotes(char *str)
 {
 	size_t	len;
@@ -62,6 +88,20 @@ static char	*trim_quotes(char *str)
 	return (ft_strdup(str));
 }
 
+/**
+ * @brief Processes input for a heredoc and writes it to a temporary file.
+ *
+ * This function reads lines from the standard input until a line matching the
+ * specified delimiter is encountered. Each line is written to the specified
+ * temporary file. The temporary file is created if it does not exist, and
+ * truncated if it does.
+ *
+ * @param temp_filename The name of the temporary file to write the heredoc input to.
+ * @param delimiter The delimiter string that indicates the end of the heredoc input.
+ *
+ * @note If temp_filename is NULL or if the file cannot be opened, the function
+ *       will exit with EXIT_FAILURE.
+ */
 void	process_heredoc_input(char *temp_filename, const char *delimiter)
 {
 	int		fd;
@@ -89,6 +129,17 @@ void	process_heredoc_input(char *temp_filename, const char *delimiter)
 	close(fd);
 }
 
+/**
+ * @brief Preprocesses heredoc nodes in the abstract syntax tree (AST).
+ *
+ * This function recursively traverses the AST and processes nodes of type
+ * TOKEN_HEREDOC. For each such node, it trims the quotes from the delimiter,
+ * creates a temporary file name, processes the heredoc input, and updates the
+ * node type to TOKEN_REDIRECT_IN. It also updates the node's arguments to
+ * point to the temporary file name.
+ *
+ * @param node A pointer to the current AST node being processed.
+ */
 void	execute_preprocess_heredocs(t_ast_node *node)
 {
 	char	*delimiter;

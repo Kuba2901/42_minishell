@@ -1,0 +1,36 @@
+\hypertarget{builtin__export__ext_8c}{}\doxysection{src/builtins/builtin\+\_\+export\+\_\+ext.c File Reference}
+\label{builtin__export__ext_8c}\index{src/builtins/builtin\_export\_ext.c@{src/builtins/builtin\_export\_ext.c}}
+{\ttfamily \#include $<$environment.\+h$>$}\newline
+{\ttfamily \#include $<$minishell.\+h$>$}\newline
+Include dependency graph for builtin\+\_\+export\+\_\+ext.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{mini__base_8h_a2bf87f8c2c611ece6cf206621482a269}{t\+\_\+bool}} \mbox{\hyperlink{builtin__export__ext_8c_af8f1581b0ca6e447d45c1bc969067615}{builtin\+\_\+export\+\_\+export\+\_\+key\+\_\+value}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Processes the export command by handling multiple key-\/value pairs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{builtin__export__ext_8c_af8f1581b0ca6e447d45c1bc969067615}\label{builtin__export__ext_8c_af8f1581b0ca6e447d45c1bc969067615}} 
+\index{builtin\_export\_ext.c@{builtin\_export\_ext.c}!builtin\_export\_export\_key\_value@{builtin\_export\_export\_key\_value}}
+\index{builtin\_export\_export\_key\_value@{builtin\_export\_export\_key\_value}!builtin\_export\_ext.c@{builtin\_export\_ext.c}}
+\doxysubsubsection{\texorpdfstring{builtin\_export\_export\_key\_value()}{builtin\_export\_export\_key\_value()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mini__base_8h_a2bf87f8c2c611ece6cf206621482a269}{t\+\_\+bool}} builtin\+\_\+export\+\_\+export\+\_\+key\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Processes the export command by handling multiple key-\/value pairs. 
+
+This function iterates through the provided arguments, processing each as either a single key or a key-\/value pair. It updates the environment variables accordingly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & A pointer to the shell structure. \\
+\hline
+{\em node} & The AST node containing the command and its arguments. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if an error occurs during processing, false otherwise. 
+\end{DoxyReturn}

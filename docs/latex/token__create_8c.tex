@@ -1,0 +1,35 @@
+\hypertarget{token__create_8c}{}\doxysection{src/parsing/tokens/token\+\_\+create.c File Reference}
+\label{token__create_8c}\index{src/parsing/tokens/token\_create.c@{src/parsing/tokens/token\_create.c}}
+{\ttfamily \#include $<$tokens.\+h$>$}\newline
+Include dependency graph for token\+\_\+create.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$ \mbox{\hyperlink{token__create_8c_ad9934fc55f0f2d3446166ab2fea4db9b}{token\+\_\+create}} (\mbox{\hyperlink{tokens_8h_a91fd0f8bd1f7ed6636bfd59d19809cc1}{t\+\_\+token\+\_\+type}} type, char $\ast$value)
+\begin{DoxyCompactList}\small\item\em Creates a new token node with the specified type and value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{token__create_8c_ad9934fc55f0f2d3446166ab2fea4db9b}\label{token__create_8c_ad9934fc55f0f2d3446166ab2fea4db9b}} 
+\index{token\_create.c@{token\_create.c}!token\_create@{token\_create}}
+\index{token\_create@{token\_create}!token\_create.c@{token\_create.c}}
+\doxysubsubsection{\texorpdfstring{token\_create()}{token\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}}$\ast$ token\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tokens_8h_a91fd0f8bd1f7ed6636bfd59d19809cc1}{t\+\_\+token\+\_\+type}}}]{type,  }\item[{char $\ast$}]{value }\end{DoxyParamCaption})}
+
+
+
+Creates a new token node with the specified type and value. 
+
+This function initializes a new token node using the provided type and value. If the initialization fails, it returns NULL.
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of the token. \\
+\hline
+{\em value} & The value of the token. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the newly created token node, or NULL if initialization fails. 
+\end{DoxyReturn}

@@ -1,0 +1,108 @@
+\hypertarget{builtin__cd_8c}{}\doxysection{src/builtins/builtin\+\_\+cd.c File Reference}
+\label{builtin__cd_8c}\index{src/builtins/builtin\_cd.c@{src/builtins/builtin\_cd.c}}
+{\ttfamily \#include $<$minishell.\+h$>$}\newline
+Include dependency graph for builtin\+\_\+cd.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{builtin__cd_8c_a55d9390ca06bb118bc1459d4d4885b43}{\+\_\+update\+\_\+keys}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, char $\ast$curr\+\_\+path)
+\begin{DoxyCompactList}\small\item\em Updates the PWD and OLDPWD environment variables after a directory change. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{builtin__cd_8c_a395b29beb295ad6e29c9dc6889451ae8}{\+\_\+handle\+\_\+dash}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, char $\ast$target)
+\begin{DoxyCompactList}\small\item\em Handles the {\ttfamily cd -\/} case, switching to the previous directory. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{builtin__cd_8c_ae06c6c0697a13ceee88c6dc69b1d5a16}{\+\_\+handle\+\_\+home}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, char $\ast$target)
+\begin{DoxyCompactList}\small\item\em Handles the {\ttfamily cd} command without arguments or with {\ttfamily $\sim$}, switching to the home directory. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{builtin__cd_8c_a7fb6cac5d2bc96d289257b496b3a1c2a}{builtin\+\_\+cd}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, char $\ast$$\ast$args)
+\begin{DoxyCompactList}\small\item\em Changes the current working directory of the shell. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{builtin__cd_8c_a395b29beb295ad6e29c9dc6889451ae8}\label{builtin__cd_8c_a395b29beb295ad6e29c9dc6889451ae8}} 
+\index{builtin\_cd.c@{builtin\_cd.c}!\_handle\_dash@{\_handle\_dash}}
+\index{\_handle\_dash@{\_handle\_dash}!builtin\_cd.c@{builtin\_cd.c}}
+\doxysubsubsection{\texorpdfstring{\_handle\_dash()}{\_handle\_dash()}}
+{\footnotesize\ttfamily char$\ast$ \+\_\+handle\+\_\+dash (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{char $\ast$}]{target }\end{DoxyParamCaption})}
+
+
+
+Handles the {\ttfamily cd -\/} case, switching to the previous directory. 
+
+This function retrieves the value of {\ttfamily OLDPWD} and returns it. If {\ttfamily OLDPWD} is not set, an error message is printed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & The shell structure containing environment variables. \\
+\hline
+{\em target} & Unused in this function, only for consistency. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The path stored in {\ttfamily OLDPWD}, or NULL if not set. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{builtin__cd_8c_ae06c6c0697a13ceee88c6dc69b1d5a16}\label{builtin__cd_8c_ae06c6c0697a13ceee88c6dc69b1d5a16}} 
+\index{builtin\_cd.c@{builtin\_cd.c}!\_handle\_home@{\_handle\_home}}
+\index{\_handle\_home@{\_handle\_home}!builtin\_cd.c@{builtin\_cd.c}}
+\doxysubsubsection{\texorpdfstring{\_handle\_home()}{\_handle\_home()}}
+{\footnotesize\ttfamily char$\ast$ \+\_\+handle\+\_\+home (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{char $\ast$}]{target }\end{DoxyParamCaption})}
+
+
+
+Handles the {\ttfamily cd} command without arguments or with {\ttfamily $\sim$}, switching to the home directory. 
+
+This function retrieves the value of {\ttfamily HOME} and returns it. If {\ttfamily HOME} is not set, an error message is printed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & The shell structure containing environment variables. \\
+\hline
+{\em target} & Unused in this function, only for consistency. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The path stored in {\ttfamily HOME}, or NULL if not set. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{builtin__cd_8c_a55d9390ca06bb118bc1459d4d4885b43}\label{builtin__cd_8c_a55d9390ca06bb118bc1459d4d4885b43}} 
+\index{builtin\_cd.c@{builtin\_cd.c}!\_update\_keys@{\_update\_keys}}
+\index{\_update\_keys@{\_update\_keys}!builtin\_cd.c@{builtin\_cd.c}}
+\doxysubsubsection{\texorpdfstring{\_update\_keys()}{\_update\_keys()}}
+{\footnotesize\ttfamily void \+\_\+update\+\_\+keys (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{char $\ast$}]{curr\+\_\+path }\end{DoxyParamCaption})}
+
+
+
+Updates the PWD and OLDPWD environment variables after a directory change. 
+
+This function modifies the shell\textquotesingle{}s environment list to reflect the change in the working directory. It updates {\ttfamily OLDPWD} with the previous {\ttfamily PWD} value and sets {\ttfamily PWD} to the new current working directory.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & The shell structure containing environment variables. \\
+\hline
+{\em curr\+\_\+path} & The new current working directory path. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{builtin__cd_8c_a7fb6cac5d2bc96d289257b496b3a1c2a}\label{builtin__cd_8c_a7fb6cac5d2bc96d289257b496b3a1c2a}} 
+\index{builtin\_cd.c@{builtin\_cd.c}!builtin\_cd@{builtin\_cd}}
+\index{builtin\_cd@{builtin\_cd}!builtin\_cd.c@{builtin\_cd.c}}
+\doxysubsubsection{\texorpdfstring{builtin\_cd()}{builtin\_cd()}}
+{\footnotesize\ttfamily void builtin\+\_\+cd (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{char $\ast$$\ast$}]{args }\end{DoxyParamCaption})}
+
+
+
+Changes the current working directory of the shell. 
+
+This function implements the {\ttfamily cd} built-\/in command, allowing users to navigate the filesystem. It supports\+:
+\begin{DoxyItemize}
+\item {\ttfamily cd} or {\ttfamily cd $\sim$} to move to the home directory.
+\item {\ttfamily cd -\/} to move to the previous working directory.
+\item {\ttfamily cd $<$directory$>$} to move to the specified directory.
+\end{DoxyItemize}
+
+If the directory change is successful, it updates the {\ttfamily PWD} and {\ttfamily OLDPWD} environment variables. If it fails, an error message is printed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & A pointer to the shell structure. \\
+\hline
+{\em args} & An array of arguments passed to the {\ttfamily cd} command. \\
+\hline
+\end{DoxyParams}

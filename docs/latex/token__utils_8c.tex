@@ -1,0 +1,49 @@
+\hypertarget{token__utils_8c}{}\doxysection{src/parsing/tokens/token\+\_\+utils.c File Reference}
+\label{token__utils_8c}\index{src/parsing/tokens/token\_utils.c@{src/parsing/tokens/token\_utils.c}}
+{\ttfamily \#include $<$tokens.\+h$>$}\newline
+Include dependency graph for token\+\_\+utils.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{token__utils_8c_a52689ed879208a78d3f6469f95c99518}{token\+\_\+print}} (\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$token)
+\begin{DoxyCompactList}\small\item\em Prints the details of a single token node and its arguments. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{token__utils_8c_ac6205f59ae5f6727a093ccf4e82f19c6}{token\+\_\+list\+\_\+print}} (\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$head)
+\begin{DoxyCompactList}\small\item\em Prints the details of a list of token nodes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{token__utils_8c_ac6205f59ae5f6727a093ccf4e82f19c6}\label{token__utils_8c_ac6205f59ae5f6727a093ccf4e82f19c6}} 
+\index{token\_utils.c@{token\_utils.c}!token\_list\_print@{token\_list\_print}}
+\index{token\_list\_print@{token\_list\_print}!token\_utils.c@{token\_utils.c}}
+\doxysubsubsection{\texorpdfstring{token\_list\_print()}{token\_list\_print()}}
+{\footnotesize\ttfamily void token\+\_\+list\+\_\+print (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$$\ast$}]{head }\end{DoxyParamCaption})}
+
+
+
+Prints the details of a list of token nodes. 
+
+This function checks if the head of the token node list is valid and then calls {\ttfamily token\+\_\+print} to print the details of the token nodes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em head} & A double pointer to the head of the token node list. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{token__utils_8c_a52689ed879208a78d3f6469f95c99518}\label{token__utils_8c_a52689ed879208a78d3f6469f95c99518}} 
+\index{token\_utils.c@{token\_utils.c}!token\_print@{token\_print}}
+\index{token\_print@{token\_print}!token\_utils.c@{token\_utils.c}}
+\doxysubsubsection{\texorpdfstring{token\_print()}{token\_print()}}
+{\footnotesize\ttfamily void token\+\_\+print (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tokens_8h_a9818be6aa7264cd1d79edf2bc5f5c89b}{t\+\_\+token\+\_\+node}} $\ast$}]{token }\end{DoxyParamCaption})}
+
+
+
+Prints the details of a single token node and its arguments. 
+
+This function iterates through a linked list of token nodes and prints the type, command/file, and arguments of each token node. It uses the helper function {\ttfamily \+\_\+token\+\_\+type\+\_\+to\+\_\+string} to convert the token type to a string for printing.
+
+
+\begin{DoxyParams}{Parameters}
+{\em token} & A pointer to the first token node in the linked list. \\
+\hline
+\end{DoxyParams}

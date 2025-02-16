@@ -1,0 +1,36 @@
+\hypertarget{execute__command_8c}{}\doxysection{src/execution/execute\+\_\+command.c File Reference}
+\label{execute__command_8c}\index{src/execution/execute\_command.c@{src/execution/execute\_command.c}}
+{\ttfamily \#include $<$execute.\+h$>$}\newline
+{\ttfamily \#include $<$minishell.\+h$>$}\newline
+Include dependency graph for execute\+\_\+command.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{execute__command_8c_a69654480f610064884dce4cc5aa2defd}{execute\+\_\+command\+\_\+node}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Executes a command node in the shell\textquotesingle{}s abstract syntax tree (AST). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{execute__command_8c_a69654480f610064884dce4cc5aa2defd}\label{execute__command_8c_a69654480f610064884dce4cc5aa2defd}} 
+\index{execute\_command.c@{execute\_command.c}!execute\_command\_node@{execute\_command\_node}}
+\index{execute\_command\_node@{execute\_command\_node}!execute\_command.c@{execute\_command.c}}
+\doxysubsubsection{\texorpdfstring{execute\_command\_node()}{execute\_command\_node()}}
+{\footnotesize\ttfamily void execute\+\_\+command\+\_\+node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Executes a command node in the shell\textquotesingle{}s abstract syntax tree (AST). 
+
+This function determines if the command node represents a built-\/in command or a more complex command. If it is a built-\/in command, it executes it directly. Otherwise, it forks a new process to execute the complex command.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & A pointer to the shell structure containing the shell\textquotesingle{}s state. \\
+\hline
+{\em node} & A pointer to the AST node representing the command to be executed.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+If the command is not a built-\/in, the function forks a new process. The parent process waits for the child process to complete and updates the shell\textquotesingle{}s exit code based on the child\textquotesingle{}s exit status. 
+\end{DoxyNote}

@@ -6,13 +6,22 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:25:09 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/13 20:54:43 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/16 21:29:08 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <environment.h>
 #include <minishell.h>
 
+/**
+ * @brief Counts the number of non-private environment variables in the shell.
+ *
+ * This function iterates through the linked list of environment variables
+ * in the shell and counts the number of variables that are not marked as private.
+ *
+ * @param shell A pointer to the shell structure containing the environment list.
+ * @return The number of non-private environment variables. Returns 0 if the environment list is NULL.
+ */
 static int	environment_list_count(t_shell *shell)
 {
 	t_environment_node	*env;
@@ -31,6 +40,17 @@ static int	environment_list_count(t_shell *shell)
 	return (count);
 }
 
+/**
+ * @brief Serializes the environment variables from the shell into an array of strings.
+ *
+ * This function takes the environment variables stored in the shell's environment list
+ * and serializes them into an array of strings, where each string is in the format "key=value".
+ * Private environment variables (marked by `is_private`) are excluded from the serialization.
+ *
+ * @param shell A pointer to the shell structure containing the environment list.
+ * @return A NULL-terminated array of strings representing the serialized environment variables.
+ *         Returns NULL if there are no environment variables or if memory allocation fails.
+ */
 char	**environment_serialize(t_shell *shell)
 {
 	char				**ret;
@@ -58,6 +78,14 @@ char	**environment_serialize(t_shell *shell)
 	return (ret);
 }
 
+/**
+ * @brief Frees a list of strings and the list itself.
+ *
+ * This function iterates through a list of strings, freeing each string,
+ * and then frees the list itself.
+ *
+ * @param list A null-terminated array of strings to be freed.
+ */
 void	environment_serialized_list_clear(char **list)
 {
 	int	i;

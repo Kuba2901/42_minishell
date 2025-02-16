@@ -1,0 +1,33 @@
+\hypertarget{builtin__unset_8c}{}\doxysection{src/builtins/builtin\+\_\+unset.c File Reference}
+\label{builtin__unset_8c}\index{src/builtins/builtin\_unset.c@{src/builtins/builtin\_unset.c}}
+{\ttfamily \#include $<$builtins.\+h$>$}\newline
+{\ttfamily \#include $<$minishell.\+h$>$}\newline
+Include dependency graph for builtin\+\_\+unset.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{builtin__unset_8c_a3e03b837d14a21ec30c78edfb289982e}{builtin\+\_\+unset}} (\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$shell, \mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Unsets environment variables in the shell. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{builtin__unset_8c_a3e03b837d14a21ec30c78edfb289982e}\label{builtin__unset_8c_a3e03b837d14a21ec30c78edfb289982e}} 
+\index{builtin\_unset.c@{builtin\_unset.c}!builtin\_unset@{builtin\_unset}}
+\index{builtin\_unset@{builtin\_unset}!builtin\_unset.c@{builtin\_unset.c}}
+\doxysubsubsection{\texorpdfstring{builtin\_unset()}{builtin\_unset()}}
+{\footnotesize\ttfamily void builtin\+\_\+unset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{builtins_8h_ae4cfb7c093350dca726786f683b6aca3}{t\+\_\+shell}} $\ast$}]{shell,  }\item[{\mbox{\hyperlink{ast_8h_a5d630cf1e98a41cbe7a2b6ec52ccd1e6}{t\+\_\+ast\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Unsets environment variables in the shell. 
+
+This function removes environment variables specified in the arguments from the shell\textquotesingle{}s environment. If no arguments are provided, it prints an error message indicating that not enough arguments were given.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shell} & A pointer to the shell structure. \\
+\hline
+{\em node} & A pointer to the AST node containing the command and its arguments. \\
+\hline
+\end{DoxyParams}

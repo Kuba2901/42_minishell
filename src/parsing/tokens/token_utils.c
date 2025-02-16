@@ -6,12 +6,22 @@
 /*   By: jnenczak <jnenczak@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:06:32 by jnenczak          #+#    #+#             */
-/*   Updated: 2025/02/12 17:07:27 by jnenczak         ###   ########.fr       */
+/*   Updated: 2025/02/16 21:39:51 by jnenczak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <tokens.h>
 
+/**
+ * @brief Converts a token type to its corresponding string representation.
+ *
+ * This function takes a token type and returns a string that represents
+ * the token type. It is useful for debugging and logging purposes.
+ *
+ * @param type The token type to be converted to a string.
+ * @return A string representing the token type. If the token type is not
+ * recognized, "UNKNOWN_TOKEN" is returned.
+ */
 static const char	*_token_type_to_string(t_token_type type)
 {
 	if (type == TOKEN_STRING)
